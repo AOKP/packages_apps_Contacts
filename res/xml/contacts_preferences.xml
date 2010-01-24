@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- This is a primitive example showing the different types of preferences available. -->
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/dialerIconLabel">
+        <ListPreference
+            android:key="vm_button"
+            android:title="@string/title_vm_button"
+            android:dialogTitle="@string/title_vm_button"
+            android:entries="@array/entries_vm_button"
+            android:entryValues="@array/entryvalues_numbers"
+            android:defaultValue="0" />
+        <ListPreference
+            android:key="vm_handler"
+            android:title="@string/title_vm_handler"
+            android:dialogTitle="@string/title_vm_handler"
+            android:entryValues="@array/entryvalues_numbers"
+            android:defaultValue="0" />
+        <CheckBoxPreference
+            android:key="vm_use_1_for_regular_vm"
+            android:title="@string/title_use_1_for_reg_vm"
+            android:summaryOn="@string/summaryon_use_1_for_reg_vm"
+            android:summaryOff="@string/summaryoff_use_1_for_reg_vm"
+            android:defaultValue="false" />
+        <CheckBoxPreference
+            android:key="dial_disable_num_check"
+            android:title="@string/title_disable_num_check"
+            android:summaryOn="@string/summaryon_disable_num_check"
+            android:summaryOff="@string/summaryoff_disable_num_check"
+            android:defaultValue="false" />
+        <CheckBoxPreference
+            android:key="dial_enable_haptic"
+            android:title="@string/title_enable_haptic_feedback"
+            android:defaultValue="false" />
+        <PreferenceScreen
+            android:key="dial_digits_color"
+            android:title="@string/title_change_digits_color">  
+                <ListPreference
+                    android:key="pressed_digit_color"
+                    android:title="@string/title_digits_color_pressed"
+                    android:dialogTitle="@string/title_choose_color"
+                    android:entries="@array/digits_colors"
+                    android:entryValues="@array/digits_colors_values"
+                    android:defaultValue="-16777216" />
+                <ListPreference
+                    android:key="focused_digit_color"
+                    android:title="@string/title_digits_color_focused"
+                    android:dialogTitle="@string/title_choose_color"
+                    android:entries="@array/digits_colors"
+                    android:entryValues="@array/digits_colors_values"
+                    android:defaultValue="-16777216" />
+                <ListPreference
+                    android:key="unselected_digit_color"
+                    android:title="@string/title_digits_color_unselected"
+                    android:dialogTitle="@string/title_choose_color"
+                    android:entries="@array/digits_colors"
+                    android:entryValues="@array/digits_colors_values"
+                    android:defaultValue="-1" />
+                <CheckBoxPreference
+                    android:key="dial_digit_use_custom_color"
+                    android:title="@string/title_use_custom_color"
+                    android:defaultValue="false"
+                    android:summary="@string/summaryon_custom_color"
+                    android:disableDependentsState="false" />
+                <EditTextPreference
+                    android:key="pressed_digit_color_custom"
+                    android:title="@string/title_digits_color_pressed"
+                    android:dependency="dial_digit_use_custom_color" />
+                <EditTextPreference
+                    android:key="focused_digit_color_custom"
+                    android:title="@string/title_digits_color_focused"
+                    android:dependency="dial_digit_use_custom_color" />
+                <EditTextPreference
+                    android:key="unselected_digit_color_custom"
+                    android:title="@string/title_digits_color_unselected"
+                    android:dependency="dial_digit_use_custom_color" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/recentCallsIconLabel">
+        <CheckBoxPreference
+            android:key="cl_show_dial_button"
+            android:title="@string/title_contacts_show_dial_button"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="cl_show_pic"
+            android:title="@string/title_contacts_show_pic"
+            android:defaultValue="false" />  
+        <CheckBoxPreference
+            android:key="cl_relative_time"
+            android:title="@string/title_cl_relative_time"
+            android:summaryOn="@string/summaryon_cl_relative_time"
+            android:summaryOff="@string/summaryoff_cl_relative_time"
+            android:disableDependentsState="true"
+            android:defaultValue="false" />
+        <CheckBoxPreference
+            android:key="cl_show_seconds"
+            android:title="@string/title_cl_show_seconds"
+            android:summary="@string/summary_cl_show_seconds"
+            android:dependency="cl_relative_time"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="cl_show_label"
+            android:title="@string/title_all_show_label"
+            android:summaryOn="@string/summaryon_all_show_label"
+            android:summaryOff="@string/summaryoff_all_show_label"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="cl_show_number"
+            android:title="@string/title_all_show_number"
+            android:summaryOn="@string/summaryon_all_show_number"
+            android:summaryOff="@string/summaryoff_all_show_number"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="cl_ask_before_clear"
+            android:title="@string/title_cl_ask_before_clear"
+            android:summaryOn="@string/summaryon_cl_ask_before_clear"
+            android:summaryOff="@string/summaryoff_cl_ask_before_clear"
+            android:defaultValue="false" />
+        <!--
+        <CheckBoxPreference
+            android:key="cl_always_clear_cache"
+            android:title="@string/title_cl_always_clear_cache"
+            android:summaryOn="@string/summaryon_cl_always_clear_cache"
+            android:summaryOff="@string/summaryoff_cl_always_clear_cache"
+            android:defaultValue="false" />
+        -->
+        <PreferenceScreen
+            android:key="cl_grouping_settings"
+            android:title="@string/title_cl_grouping_settings">
+            <CheckBoxPreference
+                android:key="cl_use_exp_grouping"
+                android:title="@string/title_cl_use_exp_grouping"
+                android:summary="@string/summary_cl_use_exp_grouping"
+                android:disableDependentsState="false"
+                android:defaultValue="false" />
+            <EditTextPreference
+                android:key="cl_exp_grouping_num"
+                android:numeric="integer"
+                android:title="@string/title_cl_exp_grouping_num"
+                android:summary="@string/summary_cl_exp_grouping_num"
+                android:dependency="cl_use_exp_grouping"
+                android:defaultValue="8" />              
+        </PreferenceScreen> 
+        <PreferenceScreen
+            android:key="view_call_log"
+            android:title="@string/title_view_cl"
+            android:summary="@string/summary_view_cl">
+            <ListPreference
+                android:key="cl_view_contact_pic_size"
+                android:title="@string/title_contacts_view_pic_size"
+                android:summary="@string/summary_contacts_view_pic_size"
+                android:dialogTitle="@string/title_contacts_choose_pic_size"
+                android:entries="@array/view_contact_pic_sizes"
+                android:entryValues="@array/view_contact_pic_sizes_values"
+                android:defaultValue="78" />                
+        </PreferenceScreen>            
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/contactsIconLabel">
+        <CheckBoxPreference
+            android:key="contacts_show_dial_button"
+            android:title="@string/title_contacts_show_dial_button"
+            android:summary="@string/summary_contacts_show_dial_button"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="contacts_show_pic"
+            android:title="@string/title_contacts_show_pic"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="contacts_show_label"
+            android:title="@string/title_all_show_label"
+            android:summaryOn="@string/summaryon_all_show_label"
+            android:summaryOff="@string/summaryoff_all_show_label"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="contacts_show_number"
+            android:title="@string/title_all_show_number"
+            android:summaryOn="@string/summaryon_all_show_number"
+            android:summaryOff="@string/summaryoff_all_show_number"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="contacts_show_alphabetical_separators"
+            android:title="@string/title_contacts_show_separators"
+            android:summaryOn="@string/summaryon_contacts_show_separators"
+            android:summaryOff="@string/summaryoff_contacts_show_separators"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="contacts_auto_hide_vk"
+            android:title="@string/title_auto_hide_keyboard"
+            android:summary="@string/summary_auto_hide_keyboard"
+            android:defaultValue="false" />
+        <PreferenceScreen
+            android:key="view_contact"
+            android:title="@string/title_view_contact"
+            android:summary="@string/summary_view_contact">
+            <ListPreference
+                android:key="contacts_view_contact_pic_size"
+                android:title="@string/title_contacts_view_pic_size"
+                android:summary="@string/summary_contacts_view_pic_size"
+                android:dialogTitle="@string/title_contacts_choose_pic_size"
+                android:entries="@array/view_contact_pic_sizes"
+                android:entryValues="@array/view_contact_pic_sizes_values"
+                android:defaultValue="78" />
+            <CheckBoxPreference
+                android:key="contacts_show_text_mobile_only"
+                android:title="@string/title_show_text_mobile_only"
+                android:summaryOn="@string/summaryon_show_text_mobile_only"
+                android:summaryOff="@string/summaryoff_show_text_mobile_only"
+                android:defaultValue="false" />                
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:key="groups_management"
+            android:title="@string/groups_manager_title"
+            android:summary="@string/groups_manager_summary"> 
+            <CheckBoxPreference
+                android:key="groups_ask_before_del"
+                android:title="@string/title_groups_ask_before_del"
+                android:summaryOn="@string/summaryon_groups_ask_before_del"
+                android:summaryOff="@string/summaryoff_groups_ask_before_del"
+                android:defaultValue="false" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/contactsFavoritesLabel">
+        <CheckBoxPreference
+            android:key="favs_show_dial_button"
+            android:title="@string/title_contacts_show_dial_button"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="favs_show_pic"
+            android:title="@string/title_contacts_show_pic"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="favs_show_label"
+            android:title="@string/title_all_show_label"
+            android:summaryOn="@string/summaryon_all_show_label"
+            android:summaryOff="@string/summaryoff_all_show_label"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="favs_show_number"
+            android:title="@string/title_all_show_number"
+            android:summaryOn="@string/summaryon_all_show_number"
+            android:summaryOff="@string/summaryoff_all_show_number"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="favourites_hide_freq_called"
+            android:title="@string/title_favourites_hide_freq_call"
+            android:summary="@string/summary_favourites_hide_freq_call"
+            android:disableDependentsState="true"
+            android:defaultValue="false" />
+        <CheckBoxPreference
+            android:key="favourites_ask_before_clear"
+            android:title="@string/title_favs_ask_before_clear"
+            android:summaryOn="@string/summaryon_favs_ask_before_clear"
+            android:summaryOff="@string/summaryoff_favs_ask_before_clear"
+	        android:dependency="favourites_hide_freq_called"
+            android:defaultValue="false" />
+    </PreferenceCategory>    
+    <PreferenceCategory android:title="@string/title_misc_category">
+        <CheckBoxPreference
+            android:key="misc_sensor_rotation"
+            android:title="@string/title_sensor_rotation"
+            android:defaultValue="false" />
+        <PreferenceScreen
+            android:key="misc_about"
+            android:title="@string/title_about"> 
+          <Preference
+                android:key="about_name"
+                android:title="@string/title_about_name"
+                android:summary="@string/summary_about_name"
+                android:enabled="false" />
+            <Preference
+                android:key="about_version"
+                android:title="@string/title_about_version"
+                android:summary="@string/summary_about_version"
+                android:enabled="false" />
+            <Preference
+                android:key="about_credits"
+                android:title="@string/title_about_credits"
+                android:summary="@string/summary_about_credits"
+                android:enabled="false" />
+        </PreferenceScreen>
+    </PreferenceCategory>    
+    
+</PreferenceScreen>
