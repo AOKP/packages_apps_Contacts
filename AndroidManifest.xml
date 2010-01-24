@@ -461,5 +461,14 @@
 
         <activity android:name=".ExportVCardActivity"
             android:theme="@style/BackgroundOnly" />
+            
+	    <!-- Wysie_Soh: Custom Intents -->
+    	<activity android:name="ContactsPreferences">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    
     </application>
 </manifest>

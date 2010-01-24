@@ -1168,4 +1168,31 @@
 
     <!-- Title shown in the search result activity of contacts app while searching -->
     <string name="search_results_searching">Searching...</string>
+    
+    <!-- Wysie: Menu strings -->
+    <string name="menu_preferences">Preferences</string>
+    
+    <!-- Wysie: Dialer strings -->
+    <string name="dialer_menu_sms">SMS/MMS</string>
+    
+    <!-- Wysie: Preferences strings -->
+    
+    <!-- Preferences: Dialer -->
+    <string name="title_vm_button">Left action button (LAB)</string>
+    <string name="title_vm_handler">Voicemail handler</string>
+    <string name="title_use_1_for_reg_vm">Use 1 for regular voicemail</string>
+    <string name="summaryon_use_1_for_reg_vm">Key 1 will be used for regular voicemail</string>
+    <string name="summaryoff_use_1_for_reg_vm">Key 1 will follow voicemail handler</string>
+    <string name="title_disable_num_check">Disable number checks</string>
+    <string name="summaryon_disable_num_check">Left action button (LAB) and menu will always be enabled</string>
+    <string name="summaryoff_disable_num_check">LAB and menu will be enabled only if at least one number is entered (except voicemail)</string>
+    <string name="title_enable_haptic_feedback">Enable haptic feedback</string>
+    <string name="title_change_digits_color">Change digits color</string>
+    <string name="title_digits_color_pressed">Digits color (pressed)</string>
+    <string name="title_digits_color_focused">Digits color (focused)</string>
+    <string name="title_digits_color_unselected">Digits color (not selected)</string>
+    <string name="title_choose_color">Choose a color</string>
+    <string name="title_use_custom_color">Use custom digits colors</string>
+    <string name="summaryon_custom_color">Supported formats: #RRGGBB or #AARRGGBB. Input the # as well.</string>
+    
 </resources>
