@@ -46,7 +46,7 @@
         <CheckBoxPreference
             android:key="dial_enable_haptic"
             android:title="@string/title_enable_haptic_feedback"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
         <PreferenceScreen
             android:key="dial_digits_color"
             android:title="@string/title_change_digits_color">  
@@ -56,7 +56,7 @@
                     android:dialogTitle="@string/title_choose_color"
                     android:entries="@array/digits_colors"
                     android:entryValues="@array/digits_colors_values"
-                    android:defaultValue="-16777216" />
+                    android:defaultValue="-1" />
                 <ListPreference
                     android:key="focused_digit_color"
                     android:title="@string/title_digits_color_focused"
@@ -70,7 +70,7 @@
                     android:dialogTitle="@string/title_choose_color"
                     android:entries="@array/digits_colors"
                     android:entryValues="@array/digits_colors_values"
-                    android:defaultValue="-1" />
+                    android:defaultValue="-16777216" />
                 <CheckBoxPreference
                     android:key="dial_digit_use_custom_color"
                     android:title="@string/title_use_custom_color"

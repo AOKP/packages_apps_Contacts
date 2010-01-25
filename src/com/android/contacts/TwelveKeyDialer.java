@@ -134,7 +134,8 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
     
     //Wysie
     private MenuItem mSmsMenuItem, mPreferences;
-    private SharedPreferences prefs; 
+    private SharedPreferences prefs;
+    private boolean prefVibrateOn;
 
     /** Identifier for the "Add Call" intent extra. */
     static final String ADD_CALL_MODE_KEY = "add_call_mode";
@@ -507,6 +508,16 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
         }
 
         updateDialAndDeleteButtonEnabledState();
+        
+        //Wysie: Use prefVibrateOn to decide whether to vibrate, in case mVibrateOn is used for something
+        //in future
+        if (mVibrateOn)
+            prefVibrateOn = prefs.getBoolean("dial_enable_haptic", true);
+        else
+            prefVibrateOn = false;        
+        
+        Log.d("prefVibrateOn", ""+prefVibrateOn);
+        
         updateDialer();
     }
 
@@ -551,7 +562,7 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
         mWaitMenuItem = menu.add(0, MENU_WAIT, 0, R.string.add_wait)
                 .setIcon(R.drawable.ic_menu_wait);
                 
-        mSmsMenuItem = menu.add(0, MENU_SMS, 0, R.string.dialer_menu_sms).setIcon(R.drawable.ic_menu_smsmms);
+        mSmsMenuItem = menu.add(0, MENU_SMS, 0, R.string.dialer_menu_sms).setIcon(R.drawable.ic_launcher_smsmms);
 	    mPreferences = menu.add(0, MENU_PREFERENCES, 0, R.string.menu_preferences).setIcon(android.R.drawable.ic_menu_preferences);
                 
         return true;
@@ -720,70 +731,71 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
             case R.id.one: {
                 playTone(ToneGenerator.TONE_DTMF_1);
                 keyPressed(KeyEvent.KEYCODE_1);
-                return;
+                break;
             }
             case R.id.two: {
                 playTone(ToneGenerator.TONE_DTMF_2);
                 keyPressed(KeyEvent.KEYCODE_2);
-                return;
+                break;
             }
             case R.id.three: {
                 playTone(ToneGenerator.TONE_DTMF_3);
                 keyPressed(KeyEvent.KEYCODE_3);
-                return;
+                break;
             }
             case R.id.four: {
                 playTone(ToneGenerator.TONE_DTMF_4);
                 keyPressed(KeyEvent.KEYCODE_4);
-                return;
+                break;
             }
             case R.id.five: {
                 playTone(ToneGenerator.TONE_DTMF_5);
                 keyPressed(KeyEvent.KEYCODE_5);
-                return;
+                break;
             }
             case R.id.six: {
                 playTone(ToneGenerator.TONE_DTMF_6);
                 keyPressed(KeyEvent.KEYCODE_6);
-                return;
+                break;
             }
             case R.id.seven: {
                 playTone(ToneGenerator.TONE_DTMF_7);
                 keyPressed(KeyEvent.KEYCODE_7);
-                return;
+                break;
             }
             case R.id.eight: {
                 playTone(ToneGenerator.TONE_DTMF_8);
                 keyPressed(KeyEvent.KEYCODE_8);
-                return;
+                break;
             }
             case R.id.nine: {
                 playTone(ToneGenerator.TONE_DTMF_9);
                 keyPressed(KeyEvent.KEYCODE_9);
-                return;
+                break;
             }
             case R.id.zero: {
                 playTone(ToneGenerator.TONE_DTMF_0);
                 keyPressed(KeyEvent.KEYCODE_0);
-                return;
+                break;
             }
             case R.id.pound: {
                 playTone(ToneGenerator.TONE_DTMF_P);
                 keyPressed(KeyEvent.KEYCODE_POUND);
-                return;
+                break;
             }
             case R.id.star: {
                 playTone(ToneGenerator.TONE_DTMF_S);
                 keyPressed(KeyEvent.KEYCODE_STAR);
-                return;
+                break;
             }
             case R.id.deleteButton: {
                 keyPressed(KeyEvent.KEYCODE_DEL);
-                return;
+                break;
             }
             case R.id.dialButton: {
                 vibrate();  // Vibrate here too, just like we do for the regular keys
                 dialButtonPressed();
+                //placeCall() ?
                 return;
             }
             case R.id.voicemailButton: {
@@ -795,7 +807,7 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
                 if (!isDigitsEmpty()) {
                     mDigits.setCursorVisible(true);
                 }
-                return;
+                break;
             }
             case R.id.voicemailButton: {
             	if (prefs.getString("vm_button", "0").equals("0")) {
@@ -808,9 +820,12 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
             		callVoicemail();
             	}
             	vibrate();
-            	return;
+            	break;
             }
         }
+        
+        //Wysie: Set the "voicemail"/add button to be enabled/disabled according to if any number is displayed   
+        checkForNumber();
     }
 
     public boolean onLongClick(View view) {
@@ -819,6 +834,8 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
         switch (id) {
             case R.id.deleteButton: {
                 digits.clear();
+                //Wysie: Invoke checkForNumber() to disable button
+                checkForNumber();
                 // TODO: The framework forgets to clear the pressed
                 // status of disabled button. Until this is fixed,
                 // clear manually the pressed status. b/2133127
@@ -1210,6 +1227,15 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
         return phoneOffhook;
     }
 
+    /**
+     * Triggers haptic feedback (if enabled) for dialer key presses.
+     */
+    private synchronized void vibrate() {
+        if (!mVibrateOn || !prefVibrateOn) {
+            return;
+        }
+        mHaptic.vibrate(mVibratePattern, VIBRATE_NO_REPEAT);
+    }
 
     /**
      * Returns true whenever any one of the options from the menu is selected.
@@ -1294,25 +1320,28 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
     /**
      * Check if voicemail is enabled/accessible.
      */
-    //YC: Some changes here to allow left action button to be set to other images
+    //Wysie: Some changes here to allow left action button to be set to other images
     private void initVoicemailButton() {
     	mVoicemailButton = (ImageButton)mVoicemailDialAndDeleteRow.findViewById(R.id.voicemailButton);
     	mVoicemailButton.setOnClickListener(this);
     	
     	if (prefs.getString("vm_button", "0").equals("0")) {
-    		mVoicemailButton.setImageResource(R.drawable.ic_add_contacts);    		
+    		mVoicemailButton.setImageResource(R.drawable.sym_action_add);
+    		//mVoicemailButton.setImageResource(R.drawable.sym_action_sms);
     	}
     	else if (prefs.getString("vm_button", "0").equals("1")) { //Wysie_Soh: startsWith changed to equals
-    	        mVoicemailButton.setImageResource(R.drawable.sym_action_sms);
+            mVoicemailButton.setImageResource(R.drawable.sym_action_sms);
     	}
     	else if (prefs.getString("vm_button", "0").equals("2")) {
     		mVoicemailButton.setImageResource(R.drawable.ic_dial_action_voice_mail);
     		
+    		/*
             if (hasVoicemail()) {
                 mVoicemailButton.setEnabled(true);
             } else {
                 mVoicemailButton.setEnabled(false);
             }
+            */
     	}
     }
 
@@ -1412,12 +1441,9 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
         if ((digits == null || !TextUtils.isGraphic(digits)) && !prefs.getBoolean("dial_disable_num_check", false)) {
             if (prefs.getString("vm_button", "0").equals("0") || prefs.getString("vm_button", "0").equals("1")) {
                 mVoicemailButton.setEnabled(false);
-                //mDelete.setEnabled(false);
             }
         } else {
             mVoicemailButton.setEnabled(true);
-            //Wysie_Soh: Known bug: mDelete will go into pressed state upon entering any digit after a long-press on mDelete.
-            //mDelete.setEnabled(true);
         }
     }
     
