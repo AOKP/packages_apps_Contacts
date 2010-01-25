@@ -90,6 +90,27 @@
                     android:title="@string/title_digits_color_unselected"
                     android:dependency="dial_digit_use_custom_color" />
         </PreferenceScreen>
-    </PreferenceCategory>  
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/title_misc_category">
+        <PreferenceScreen
+            android:key="misc_about"
+            android:title="@string/title_about"> 
+          <Preference
+                android:key="about_name"
+                android:title="@string/title_about_name"
+                android:summary="@string/summary_about_name"
+                android:enabled="false" />
+            <Preference
+                android:key="about_version"
+                android:title="@string/title_about_version"
+                android:summary="@string/summary_about_version"
+                android:enabled="false" />
+            <Preference
+                android:key="about_credits"
+                android:title="@string/title_about_credits"
+                android:summary="@string/summary_about_credits"
+                android:enabled="false" />
+        </PreferenceScreen>
+    </PreferenceCategory>
     
 </PreferenceScreen>

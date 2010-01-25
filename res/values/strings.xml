@@ -1195,4 +1195,17 @@
     <string name="title_use_custom_color">Use custom digits colors</string>
     <string name="summaryon_custom_color">Supported formats: #RRGGBB or #AARRGGBB. Input the # as well.</string>
     
+    
+    <!-- Preferences: Misc -->
+    <string name="title_misc_category">Miscellaneous</string>
+    
+    <!-- Wysie: About strings -->    
+    <string name="title_about">About</string>
+    <string name="title_about_name">Mod Name</string>
+    <string name="summary_about_name">Wysie Eclair Contacts Mod</string>
+    <string name="title_about_version">Version</string>
+    <string name="summary_about_version">0.5</string>
+    <string name="title_about_credits">Credits</string>
+    <string name="summary_about_credits">ChainsDD, geesun, niuchl, rac2030 and the rest of XDA! :)</string>
+    
 </resources>
