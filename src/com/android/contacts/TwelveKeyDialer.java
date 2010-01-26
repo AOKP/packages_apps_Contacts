@@ -115,8 +115,6 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
     private static final int MENU_ADD_CONTACTS = 1;
     private static final int MENU_2S_PAUSE = 2;
     private static final int MENU_WAIT = 3;
-    private static final int MENU_SMS = 4;
-    private static final int MENU_PREFERENCES = 5;
 
     // Last number dialed, retrieved asynchronously from the call DB
     // in onCreate. This number is displayed when the user hits the
@@ -134,8 +132,11 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
     
     //Wysie
     private MenuItem mSmsMenuItem, mPreferences;
-    private SharedPreferences prefs;
+    private SharedPreferences ePrefs;
     private boolean prefVibrateOn;
+    
+    private static final int MENU_SMS = 4;
+    private static final int MENU_PREFERENCES = 5;
 
     /** Identifier for the "Add Call" intent extra. */
     static final String ADD_CALL_MODE_KEY = "add_call_mode";
@@ -210,7 +211,7 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
         super.onCreate(icicle);
         
         //Wysie
-        prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        ePrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 
         Resources r = getResources();
         // Do not show title in the case the device is in carmode.
@@ -264,8 +265,8 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
         mDialpadChooser = (ListView) findViewById(R.id.dialpadChooser);
         mDialpadChooser.setOnItemClickListener(this);
         
-        //Wysie
-        updateDialer();
+        //Wysi: Should remove this since it's also in onResume. To be tested.
+        //updateDialer();
 
         if (!resolveIntent() && icicle != null) {
             super.onRestoreInstanceState(icicle);
@@ -512,7 +513,7 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
         //Wysie: Use prefVibrateOn to decide whether to vibrate, in case mVibrateOn is used for something
         //in future
         if (mVibrateOn)
-            prefVibrateOn = prefs.getBoolean("dial_enable_haptic", true);
+            prefVibrateOn = ePrefs.getBoolean("dial_enable_haptic", true);
         else
             prefVibrateOn = false;        
         
@@ -562,6 +563,8 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
                 
         mSmsMenuItem = menu.add(0, MENU_SMS, 0, R.string.dialer_menu_sms).setIcon(R.drawable.ic_launcher_smsmms);
 	    mPreferences = menu.add(0, MENU_PREFERENCES, 0, R.string.menu_preferences).setIcon(android.R.drawable.ic_menu_preferences);
+        //Wysie_Soh: Preferences intent
+        mPreferences.setIntent(new Intent(this, ContactsPreferences.class));
                 
         return true;
     }
@@ -626,24 +629,21 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
                                                       strLength, strDigits));
             }
             
-            if (prefs.getString("vm_button", "0").equals("0")) {
+            if (ePrefs.getString("vm_button", "0").equals("0")) {
                 mAddToContactMenuItem.setVisible(false);
             }
             else {
                 mAddToContactMenuItem.setVisible(true);
             }
             
-            if (prefs.getString("vm_button", "0").equals("1")) {
+            if (ePrefs.getString("vm_button", "0").equals("1")) {
         	    mSmsMenuItem.setVisible(false);
             }
             else {
                 mSmsMenuItem.setVisible(true);
 			}
 		
-        }      
-        
-        //Wysie_Soh: Preferences intent
-        mPreferences.setIntent(new Intent(this, ContactsPreferences.class));
+        }
         
         return true;
     }
@@ -808,13 +808,13 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
                 break;
             }
             case R.id.voicemailButton: {
-            	if (prefs.getString("vm_button", "0").equals("0")) {
+            	if (ePrefs.getString("vm_button", "0").equals("0")) {
             		addToContacts();
             	}
-            	else if (prefs.getString("vm_button", "0").equals("1")) {
+            	else if (ePrefs.getString("vm_button", "0").equals("1")) {
             		smsToNumber();
             	}
-            	else if (prefs.getString("vm_button", "0").equals("2")) {
+            	else if (ePrefs.getString("vm_button", "0").equals("2")) {
             		callVoicemail();
             	}
             	vibrate();
@@ -845,7 +845,7 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
                     //callVoicemail();
                     //Wysie
                     if (hasVoicemail()) {
-                        if (prefs.getBoolean("vm_use_1_for_regular_vm", false)) {
+                        if (ePrefs.getBoolean("vm_use_1_for_regular_vm", false)) {
                             Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED, Uri.fromParts("voicemail", "", null));
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
@@ -881,7 +881,7 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
     //Wysie
     void callVoicemail() {
         Intent intent;
-        String vmHandler = prefs.getString("vm_handler", "0");
+        String vmHandler = ePrefs.getString("vm_handler", "0");
         if (vmHandler.equals("0")) {
             intent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
                         Uri.fromParts("voicemail", "", null));
@@ -1323,14 +1323,14 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
     	mVoicemailButton = (ImageButton)mVoicemailDialAndDeleteRow.findViewById(R.id.voicemailButton);
     	mVoicemailButton.setOnClickListener(this);
     	
-    	if (prefs.getString("vm_button", "0").equals("0")) {
+    	if (ePrefs.getString("vm_button", "0").equals("0")) {
     		mVoicemailButton.setImageResource(R.drawable.sym_action_add);
     		//mVoicemailButton.setImageResource(R.drawable.sym_action_sms);
     	}
-    	else if (prefs.getString("vm_button", "0").equals("1")) { //Wysie_Soh: startsWith changed to equals
+    	else if (ePrefs.getString("vm_button", "0").equals("1")) { //Wysie_Soh: startsWith changed to equals
             mVoicemailButton.setImageResource(R.drawable.sym_action_sms);
     	}
-    	else if (prefs.getString("vm_button", "0").equals("2")) {
+    	else if (ePrefs.getString("vm_button", "0").equals("2")) {
     		mVoicemailButton.setImageResource(R.drawable.ic_dial_action_voice_mail);
     	}
     }
@@ -1426,24 +1426,29 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
     }    
     
     //Wysie: Method to check if there's any number entered
-    //Known Bug: Voicemail button is enabled on first launch. Will fix later.
-    private void checkForNumber() {
+    private void checkForNumber() {        
         CharSequence digits = mDigits.getText();
-        if ((digits == null || !TextUtils.isGraphic(digits)) && !prefs.getBoolean("dial_disable_num_check", false)) {
-            if (prefs.getString("vm_button", "0").equals("0") || prefs.getString("vm_button", "0").equals("1")) {
+        if ((digits == null || !TextUtils.isGraphic(digits)) && !ePrefs.getBoolean("dial_disable_num_check", false)) {
+            if (ePrefs.getString("vm_button", "0").equals("0") || ePrefs.getString("vm_button", "0").equals("1")) {
                 mVoicemailButton.setEnabled(false);
             }
         } else {
-            if (prefs.getString("title_vm_handler", "0").equals("0")) {
+    		    mVoicemailButton.setEnabled(true);
+        }
+        
+        //Wysie: Voicemail button will be enabled/disabled regardless if there are digits or not
+        //It's based on whether the user has a voicemail number configured
+        if (ePrefs.getString("vm_button", "0").equals("2")) {
+            if (ePrefs.getString("title_vm_handler", "0").equals("0")) {
                 if (hasVoicemail()) {
                     mVoicemailButton.setEnabled(true);
                 } else {
                     mVoicemailButton.setEnabled(false);
                 }
-    		}
-    		else {
-    		    mVoicemailButton.setEnabled(true);
-    		}
+            }
+            else {
+                mVoicemailButton.setEnabled(true);
+            }
         }
     }
     
@@ -1453,20 +1458,20 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
         int colorFocused = -16777216;
         int colorUnselected = -16777216;
         
-        if (prefs.getBoolean("dial_digit_use_custom_color", false)) {
+        if (ePrefs.getBoolean("dial_digit_use_custom_color", false)) {
             try {
-                colorPressed = Color.parseColor(prefs.getString("pressed_digit_color_custom", "-1"));
-                colorFocused = Color.parseColor(prefs.getString("focused_digit_color_custom", "-16777216"));                
-                colorUnselected = Color.parseColor(prefs.getString("unselected_digit_color_custom", "-16777216"));
+                colorPressed = Color.parseColor(ePrefs.getString("pressed_digit_color_custom", "-1"));
+                colorFocused = Color.parseColor(ePrefs.getString("focused_digit_color_custom", "-16777216"));                
+                colorUnselected = Color.parseColor(ePrefs.getString("unselected_digit_color_custom", "-16777216"));
             }
             catch (IllegalArgumentException e) {
                 //Do nothing
             }            
         }
         else {
-            colorPressed = Integer.parseInt(prefs.getString("pressed_digit_color", "-1"));
-            colorFocused = Integer.parseInt(prefs.getString("focused_digit_color", "-16777216"));
-            colorUnselected = Integer.parseInt(prefs.getString("unselected_digit_color", "-16777216"));
+            colorPressed = Integer.parseInt(ePrefs.getString("pressed_digit_color", "-1"));
+            colorFocused = Integer.parseInt(ePrefs.getString("focused_digit_color", "-16777216"));
+            colorUnselected = Integer.parseInt(ePrefs.getString("unselected_digit_color", "-16777216"));
         }
     
         mDigits.setTextColor(new ColorStateList(

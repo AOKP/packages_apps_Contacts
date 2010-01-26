@@ -91,6 +91,52 @@
                     android:dependency="dial_digit_use_custom_color" />
         </PreferenceScreen>
     </PreferenceCategory>
+    <PreferenceCategory android:title="@string/recentCallsIconLabel"> 
+        <CheckBoxPreference
+            android:key="cl_exact_time"
+            android:title="@string/title_cl_exact_time"
+            android:summaryOn="@string/summaryon_cl_exact_time"
+            android:summaryOff="@string/summaryoff_cl_exact_time"
+            android:disableDependentsState="false"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="cl_show_seconds"
+            android:title="@string/title_cl_show_seconds"
+            android:summary="@string/summary_cl_show_seconds"
+            android:dependency="cl_exact_time"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="cl_ask_before_clear"
+            android:title="@string/title_cl_ask_before_clear"
+            android:summaryOn="@string/summaryon_cl_ask_before_clear"
+            android:summaryOff="@string/summaryoff_cl_ask_before_clear"
+            android:defaultValue="false" />         
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/contactsIconLabel">
+        <CheckBoxPreference
+            android:key="contacts_show_dial_button"
+            android:title="@string/title_contacts_show_dial_button"
+            android:summary="@string/summary_contacts_show_dial_button"
+            android:defaultValue="true" />
+        <!--
+        <CheckBoxPreference
+            android:key="contacts_show_pic"
+            android:title="@string/title_contacts_show_pic"
+            android:defaultValue="true" />
+        -->
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/contactsFavoritesLabel">
+        <CheckBoxPreference
+            android:key="favs_show_dial_button"
+            android:title="@string/title_contacts_show_dial_button"
+            android:defaultValue="true" />
+        <!--
+        <CheckBoxPreference
+            android:key="favs_show_pic"
+            android:title="@string/title_contacts_show_pic"
+            android:defaultValue="true" />
+        -->
+    </PreferenceCategory>  
     <PreferenceCategory android:title="@string/title_misc_category">
         <PreferenceScreen
             android:key="misc_about"

@@ -126,6 +126,16 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+//Wysie
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
+/*TODO(emillar) I commented most of the code that deals with modes and filtering. It should be
+ * brought back in as we add back that functionality.
+ */
 
 /**
  * Displays a list of contacts. Usually is embedded into the ContactsActivity.
@@ -221,7 +231,7 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
     /** Unknown mode */
     static final int MODE_UNKNOWN = 0;
     /** Default mode */
-    static final int MODE_DEFAULT = 4 | MODE_MASK_SHOW_PHOTOS | MODE_MASK_SHOW_NUMBER_OF_CONTACTS;
+    static final int MODE_DEFAULT = 4 | MODE_MASK_SHOW_PHOTOS | MODE_MASK_SHOW_NUMBER_OF_CONTACTS | MODE_MASK_SHOW_CALL_BUTTON;
     /** Custom mode */
     static final int MODE_CUSTOM = 8;
     /** Show all starred contacts */
@@ -479,6 +489,16 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
     final String[] sLookupProjection = new String[] {
             Contacts.LOOKUP_KEY
     };
+    private static ExecutorService sImageFetchThreadPool;
+
+    //Wysie
+    private boolean mContacts = false;
+    private boolean mFavs = false;
+    private SharedPreferences ePrefs;
+    private static boolean showContactsDialButton;
+    private static boolean showContactsPic;
+    private static boolean showFavsDialButton;
+    private static boolean showFavsPic;
 
     static {
         sContactsIdMatcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -561,6 +581,9 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
+        //Wysie
+        ePrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+
         mIconSize = getResources().getDimensionPixelSize(android.R.dimen.app_icon_size);
         mContactsPrefs = new ContactsPreferences(this);
         mPhotoLoader = new ContactPhotoLoader(this, R.drawable.ic_contact_list_picture);
@@ -605,6 +628,7 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
         mMode = MODE_UNKNOWN;
         if (UI.LIST_DEFAULT.equals(action) || UI.FILTER_CONTACTS_ACTION.equals(action)) {
             mMode = MODE_DEFAULT;
+            mContacts = true;
             // When mDefaultMode is true the mode is set in onResume(), since the preferneces
             // activity may change it whenever this activity isn't running
         } else if (UI.LIST_GROUP_ACTION.equals(action)) {
@@ -624,6 +648,7 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
             mMode = mSearchMode ? MODE_DEFAULT : MODE_FREQUENT;
         } else if (UI.LIST_STREQUENT_ACTION.equals(action)) {
             mMode = mSearchMode ? MODE_DEFAULT : MODE_STREQUENT;
+            mFavs = true;
         } else if (UI.LIST_CONTACTS_WITH_PHONES_ACTION.equals(action)) {
             mMode = MODE_CUSTOM;
             mDisplayOnlyPhones = true;
@@ -802,6 +827,7 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
 
         if (mMode == MODE_UNKNOWN) {
             mMode = MODE_DEFAULT;
+            mContacts = true;
         }
 
         if (((mMode & MODE_MASK_SHOW_NUMBER_OF_CONTACTS) != 0 || mSearchMode)
@@ -1040,6 +1066,11 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
     protected void onResume() {
         super.onResume();
 
+        showContactsDialButton = ePrefs.getBoolean("contacts_show_dial_button", true);
+        showContactsPic = ePrefs.getBoolean("contacts_show_pic", true);
+        showFavsDialButton = ePrefs.getBoolean("favs_show_dial_button", true);
+        showFavsPic = ePrefs.getBoolean("favs_show_pic", true);
+
         registerProviderStatusObserver();
         mPhotoLoader.resume();
 
@@ -1273,6 +1304,9 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
                 });
                 startActivity(intent);
                 return true;
+            }
+            case R.id.menu_preferences: {
+                startActivity(new Intent(this, ContactsPreferences.class));
             }
         }
         return false;
@@ -3123,6 +3157,26 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
 
             boolean hasPhone = cursor.getColumnCount() >= SUMMARY_HAS_PHONE_COLUMN_INDEX
                     && cursor.getInt(SUMMARY_HAS_PHONE_COLUMN_INDEX) != 0;
+
+
+            //Wysie: Contacts or Favourites mode, check preferences
+            if (mContacts || mFavs) {
+                if ((mContacts && showContactsDialButton) || (mFavs && showFavsDialButton)) {
+                    mDisplayCallButton = true;
+                }
+                else {
+                    mDisplayCallButton = false;
+                }
+
+                /*
+                if ((mContacts && showContactsPic) || (mFavs && showFavsPic)) {
+                    mDisplayPhotos = true;
+                }
+                else {
+                    mDisplayPhotos = false;
+                }
+                */
+            }
 
             // Make the call button visible if requested.
             if (mDisplayCallButton && hasPhone) {

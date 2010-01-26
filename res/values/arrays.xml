@@ -60,7 +60,7 @@
   </string-array>
         
     <string-array name="vm_handlers">
-	    <item>Google Voice/com.google.android.apps.googlevoice/.SplashActivity</item>
+	    <item>Google Voice/com.google.android.apps.googlevoice/.HidingSplashActivity</item>
 	    <item>HulloMail UK Visual Voicemail/com.hullomail.android.messaging/.HulloMail</item>
 	    <item>HulloMail US Visual Voicemail/com.hullomail.android.messaging.us/.HulloMail</item>
 	    <item>PhoneFusion Visual Voicemail/com.phonefusion.voicemailplus.android/.VoicemailPlus</item>

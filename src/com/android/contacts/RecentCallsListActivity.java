@@ -79,6 +79,14 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Locale;
 
+//Wysie
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteException;
+import android.preference.PreferenceManager;
+import android.text.format.DateFormat;
+
 /**
  * Displays a list of call log entries.
  */
@@ -122,9 +130,14 @@ public class RecentCallsListActivity extends ListActivity
     static final int LABEL_COLUMN_INDEX = 3;
     static final int MATCHED_NUMBER_COLUMN_INDEX = 4;
 
-    private static final int MENU_ITEM_DELETE_ALL = 1;
-    private static final int CONTEXT_MENU_ITEM_DELETE = 1;
-    private static final int CONTEXT_MENU_CALL_CONTACT = 2;
+    private static final int MENU_ITEM_DELETE = 1;
+    private static final int MENU_ITEM_DELETE_ALL = 2;
+    private static final int MENU_ITEM_VIEW_CONTACTS = 3;
+    private static final int MENU_ITEM_DELETE_ALL_INCOMING = 4;
+    private static final int MENU_ITEM_DELETE_ALL_OUTGOING = 5;
+    private static final int MENU_ITEM_DELETE_ALL_MISSED = 6;
+    private static final int CONTEXT_MENU_ITEM_DELETE = 7;
+    private static final int CONTEXT_MENU_CALL_CONTACT = 8;
 
     private static final int QUERY_TOKEN = 53;
     private static final int UPDATE_TOKEN = 54;
@@ -134,6 +147,19 @@ public class RecentCallsListActivity extends ListActivity
     RecentCallsAdapter mAdapter;
     private QueryHandler mQueryHandler;
     String mVoiceMailNumber;
+    
+    //Wysie
+    private MenuItem mPreferences;    
+    private SharedPreferences ePrefs;
+    private static boolean exactTime;
+    private static boolean is24hour;
+    private static boolean showSeconds;
+    private static final String format24HourSeconds = "MMM d, kk:mm:ss";
+    private static final String format24Hour = "MMM d, kk:mm";
+    private static final String format12HourSeconds = "MMM d, h:mm:ssaa";
+    private static final String format12Hour = "MMM d, h:mmaa";
+    
+    private static final int MENU_PREFERENCES = 7;
 
     private boolean mScrollToTop;
 
@@ -740,12 +766,34 @@ public class RecentCallsListActivity extends ListActivity
             }
 
             long date = c.getLong(DATE_COLUMN_INDEX);
+            
+            if (!exactTime) {
+                // Set the date/time field by mixing relative and absolute times.
+                int flags = DateUtils.FORMAT_ABBREV_RELATIVE;
 
-            // Set the date/time field by mixing relative and absolute times.
-            int flags = DateUtils.FORMAT_ABBREV_RELATIVE;
+                views.dateView.setText(
+                        DateUtils.getRelativeTimeSpanString(date,
+                        System.currentTimeMillis(), DateUtils.MINUTE_IN_MILLIS,
+                        flags));
+            } else {
+                String format = null;
 
-            views.dateView.setText(DateUtils.getRelativeTimeSpanString(date,
-                    System.currentTimeMillis(), DateUtils.MINUTE_IN_MILLIS, flags));
+                if (is24hour) {
+                    if (showSeconds) {
+                        format = format24HourSeconds;
+                    } else {
+                        format = format24Hour;
+                    }
+                } else {
+                    if (showSeconds) {
+                        format = format12HourSeconds;
+                    } else {
+                        format = format12Hour;
+                    }                  	
+                }
+                
+                views.dateView.setText(DateFormat.format(format, date));                         
+            }            
 
             if (views.iconView != null) {
                 int type = c.getInt(CALL_TYPE_COLUMN_INDEX);
@@ -837,6 +885,9 @@ public class RecentCallsListActivity extends ListActivity
     protected void onCreate(Bundle state) {
         super.onCreate(state);
 
+        //Wysie
+        ePrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        
         setContentView(R.layout.recent_calls);
 
         // Typing here goes to the dialer
@@ -867,6 +918,10 @@ public class RecentCallsListActivity extends ListActivity
         if (mAdapter != null) {
             mAdapter.clearCache();
         }
+        
+        exactTime = ePrefs.getBoolean("cl_exact_time", true);
+        is24hour = DateFormat.is24HourFormat(this);
+        showSeconds = ePrefs.getBoolean("cl_show_seconds", true);
 
         startQuery();
         resetNewCallsFlag();
@@ -996,6 +1051,16 @@ public class RecentCallsListActivity extends ListActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(0, MENU_ITEM_DELETE_ALL, 0, R.string.recentCalls_deleteAll)
                 .setIcon(android.R.drawable.ic_menu_close_clear_cancel);
+        menu.add(0, MENU_ITEM_DELETE_ALL_INCOMING, 0, R.string.recentCalls_deleteAllIncoming).setIcon(
+                android.R.drawable.ic_menu_close_clear_cancel);
+        menu.add(0, MENU_ITEM_DELETE_ALL_OUTGOING, 0, R.string.recentCalls_deleteAllOutgoing).setIcon(
+                android.R.drawable.ic_menu_close_clear_cancel);
+        menu.add(0, MENU_ITEM_DELETE_ALL_MISSED, 0, R.string.recentCalls_deleteAllMissed).setIcon(
+                android.R.drawable.ic_menu_close_clear_cancel);
+                
+	    mPreferences = menu.add(0, MENU_PREFERENCES, 0, R.string.menu_preferences).setIcon(android.R.drawable.ic_menu_preferences);
+        //Wysie_Soh: Preferences intent
+        mPreferences.setIntent(new Intent(this, ContactsPreferences.class));
         return true;
     }
 
@@ -1114,7 +1179,18 @@ public class RecentCallsListActivity extends ListActivity
                 showDialog(R.id.dialog_clear_log);
                 return true;
             }
-
+            case MENU_ITEM_DELETE_ALL_INCOMING: {
+                clearCallLogType(Calls.INCOMING_TYPE);
+                return true;
+            }
+            case MENU_ITEM_DELETE_ALL_OUTGOING: {
+                clearCallLogType(Calls.OUTGOING_TYPE);
+                return true;
+            }
+            case MENU_ITEM_DELETE_ALL_MISSED: {
+                clearCallLogType(Calls.MISSED_TYPE);
+                return true;
+            }
             case MENU_ITEM_VIEW_CONTACTS: {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Contacts.CONTENT_URI);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -1312,5 +1388,76 @@ public class RecentCallsListActivity extends ListActivity
         } else {
             ContactsSearchManager.startSearch(this, initialQuery);
         }
+    }  
+    
+    // Wysie: Dialog to confirm if user wants to clear call log    
+    private void clearCallLog() {
+        if (ePrefs.getBoolean("cl_ask_before_clear", false)) {
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+            alert.setTitle(R.string.alert_clear_call_log_title);
+            alert.setMessage(R.string.alert_clear_call_log_message);
+      
+            alert.setPositiveButton(android.R.string.ok,
+                    new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    deleteCallLog(null, null);
+                }
+            });
+        
+            alert.setNegativeButton(android.R.string.cancel,
+                    new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {// Canceled.
+                }
+            });
+        
+            alert.show();
+        } else {
+            deleteCallLog(null, null);
+        }
+    }
+    
+    private void deleteCallLog(String where, String[] selArgs) {
+        try {
+            getContentResolver().delete(Calls.CONTENT_URI, where, selArgs);
+            // TODO The change notification should do this automatically, but it isn't working
+            // right now. Remove this when the change notification is working properly.
+            startQuery();
+        } catch (SQLiteException sqle) {// Nothing :P
+        }
+    }
+    
+    private void clearCallLogType(final int type) {
+        int msg = 0;
+        
+        if (type == Calls.INCOMING_TYPE) {
+            msg = R.string.alert_clear_cl_all_incoming;
+        } else if (type == Calls.OUTGOING_TYPE) {
+            msg = R.string.alert_clear_cl_all_outgoing;
+        } else if (type == Calls.MISSED_TYPE) {
+            msg = R.string.alert_clear_cl_all_missed;
+        }
+        
+        if (ePrefs.getBoolean("cl_ask_before_clear", false)) {
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+            alert.setTitle(R.string.alert_clear_call_log_title);
+            alert.setMessage(msg);
+            alert.setPositiveButton(android.R.string.ok,
+                    new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    deleteCallLog(Calls.TYPE + "=?", new String[] { Integer.toString(type) });
+                }
+            });        
+            alert.setNegativeButton(android.R.string.cancel,
+                    new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {// Canceled.
+                }
+            });        
+            alert.show();
+            
+        } else {
+            deleteCallLog(Calls.TYPE + "=?", new String[] { Integer.toString(type) });
+        }        
     }
 }
