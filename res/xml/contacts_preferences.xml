@@ -136,8 +136,26 @@
             android:title="@string/title_contacts_show_pic"
             android:defaultValue="true" />
         -->
+        <CheckBoxPreference
+            android:key="favourites_hide_freq_called"
+            android:title="@string/title_favourites_hide_freq_call"
+            android:summary="@string/summary_favourites_hide_freq_call"
+            android:disableDependentsState="true"
+            android:defaultValue="false" />
+        <CheckBoxPreference
+            android:key="favourites_ask_before_clear"
+            android:title="@string/title_favs_ask_before_clear"
+            android:summaryOn="@string/summaryon_favs_ask_before_clear"
+            android:summaryOff="@string/summaryoff_favs_ask_before_clear"
+	        android:dependency="favourites_hide_freq_called"
+            android:defaultValue="false" />
     </PreferenceCategory>  
     <PreferenceCategory android:title="@string/title_misc_category">
+        <CheckBoxPreference
+            android:key="misc_sensor_rotation"
+            android:title="@string/title_sensor_rotation"
+            android:summary="@string/summary_sensor_rotation"
+            android:defaultValue="false" />
         <PreferenceScreen
             android:key="misc_about"
             android:title="@string/title_about"> 

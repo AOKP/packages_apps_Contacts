@@ -43,6 +43,11 @@
 
     <!-- Wysie -->
     <item
+        android:id="@+id/menu_clear_freq_called"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="@string/fav_clear_freq" />        
+    
+    <item
         android:id="@+id/menu_preferences"
         android:icon="@android:drawable/ic_menu_preferences"
         android:title="@string/menu_preferences" />

@@ -1185,6 +1185,10 @@
     <string name="alert_clear_cl_all_outgoing">Are you sure you want to clear all outgoing call records?</string>
     <string name="alert_clear_cl_all_missed">Are you sure you want to clear all missed call records?</string>
     
+    <!-- Wysie: Favourites strings -->
+    <string name="fav_clear_freq">Clear frequently called</string>
+    <string name="alert_clear_freq_called_msg">Are you sure you want to clear all frequently called entries?</string>
+    
     <!-- Wysie: Preferences strings -->
     
     <!-- Preferences: Dialer -->
@@ -1220,15 +1224,24 @@
     <string name="title_contacts_show_dial_button">Show dial button</string>
     <string name="summary_contacts_show_dial_button">Show a dial button for contacts with numbers</string>
     
+    <!-- Preferences: Favourites -->
+    <string name="title_favourites_hide_freq_call">Hide frequently called</string>
+    <string name="summary_favourites_hide_freq_call">The actual data is not cleared, but hidden.</string>
+    <string name="title_favs_ask_before_clear">Ask before clearing</string>
+    <string name="summaryon_favs_ask_before_clear">Ask before clearing frequently called</string>
+    <string name="summaryoff_favs_ask_before_clear">Frequently called entries will be cleared without asking</string>
+    
     <!-- Preferences: Misc -->
     <string name="title_misc_category">Miscellaneous</string>
+    <string name="title_sensor_rotation">Enable sensor rotation</string>
+    <string name="summary_sensor_rotation">If enabled, it will rotate based on system\'s settings"</string>
     
     <!-- Wysie: About strings -->    
     <string name="title_about">About</string>
     <string name="title_about_name">Mod Name</string>
     <string name="summary_about_name">WyContacts Eclair</string>
     <string name="title_about_version">Version</string>
-    <string name="summary_about_version">0.6</string>
+    <string name="summary_about_version">0.7</string>
     <string name="title_about_credits">Credits</string>
     <string name="summary_about_credits">ChainsDD, geesun, niuchl, rac2030 and the rest of XDA! :)</string>
     

@@ -32,6 +32,11 @@ import android.util.Log;
 import android.view.Window;
 import android.widget.TabHost;
 
+//Wysie
+import android.content.pm.ActivityInfo;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
 /**
  * The dialer activity that has one tab with the virtual 12key
  * dialer, a tab with recent calls in it, a tab with the contacts and
@@ -58,10 +63,15 @@ public class DialtactsActivity extends TabActivity implements TabHost.OnTabChang
     private TabHost mTabHost;
     private String mFilterText;
     private Uri mDialUri;
+    
+    //Wysie
+    private SharedPreferences ePrefs;
 
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        
+        ePrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 
         final Intent intent = getIntent();
 
@@ -82,6 +92,21 @@ public class DialtactsActivity extends TabActivity implements TabHost.OnTabChang
         if (intent.getAction().equals(UI.FILTER_CONTACTS_ACTION)
                 && icicle == null) {
             setupFilterText(intent);
+        }        
+
+    }
+    
+    //Wysie
+    @Override
+    protected void onResume() {
+        super.onResume();
+        
+        //Wysie: Set rotation if necessary
+        if(ePrefs.getBoolean("misc_sensor_rotation", false)) {
+            this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+        }
+        else {
+        	this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         }
     }
 
