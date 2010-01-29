@@ -94,6 +94,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+//Wysie
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import java.util.List;
+
 /**
  * Displays the details of a specific contact.
  */
@@ -191,11 +198,16 @@ public class ViewContactActivity extends Activity
     }
 
     private ListView mListView;
-    private boolean mShowSmsLinksForAllPhones;
+    private boolean mShowSmsLinksForAllPhones;    
+    
+    //Wysie
+    private SharedPreferences ePrefs;
 
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        
+        ePrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 
         final Intent intent = getIntent();
         Uri data = intent.getData();
@@ -244,12 +256,16 @@ public class ViewContactActivity extends Activity
         mSections.add(mOtherEntries);
 
         //TODO Read this value from a preference
-        mShowSmsLinksForAllPhones = true;
+        //mShowSmsLinksForAllPhones = true;
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        
+        //Wysie: Read from preference
+        mShowSmsLinksForAllPhones = !ePrefs.getBoolean("contacts_show_text_mobile_only", false);        
+        
         startEntityQuery();
     }
 
@@ -899,7 +915,6 @@ public class ViewContactActivity extends Activity
                     mWritableRawContactIds.add(rawContactId);
                 }
 
-
                 for (NamedContentValues subValue : entity.getSubValues()) {
                     final ContentValues entryValues = subValue.values;
                     entryValues.put(Data.RAW_CONTACT_ID, rawContactId);
@@ -933,9 +948,12 @@ public class ViewContactActivity extends Activity
 
                         entry.isPrimary = isSuperPrimary;
                         mPhoneEntries.add(entry);
-
-                        if (entry.type == CommonDataKinds.Phone.TYPE_MOBILE
-                                || mShowSmsLinksForAllPhones) {
+                        
+                        //Wysie: Workaround for the entry.type bug, since entry.type always returns -1
+                        final Integer type = entryValues.getAsInteger(Phone.TYPE);                        
+                        
+                        //Wysie: Bug here, entry.type always returns -1.
+                        if (/*entry.type*/type == CommonDataKinds.Phone.TYPE_MOBILE || mShowSmsLinksForAllPhones) {
                             // Add an SMS entry
                             if (kind.iconAltRes > 0) {
                                 entry.secondaryActionIcon = kind.iconAltRes;
@@ -963,8 +981,20 @@ public class ViewContactActivity extends Activity
                     } else if (StructuredPostal.CONTENT_ITEM_TYPE.equals(mimeType) && hasData) {
                         // Build postal entries
                         entry.maxLines = 4;
-                        entry.intent = new Intent(Intent.ACTION_VIEW, entry.uri);
+                        entry.intent = new Intent(Intent.ACTION_VIEW, entry.uri);                        
+
+                        Intent i = startNavigation(entry.data);
+                        
+                        if (i != null) {
+                            entry.secondaryIntent = i;
+                            // Add a navigation entry
+                            if (kind.iconAltRes > 0) {
+                                entry.secondaryActionIcon = kind.iconAltRes;
+                            }
+                        }
+                        
                         mPostalEntries.add(entry);
+                        
                     } else if (Im.CONTENT_ITEM_TYPE.equals(mimeType) && hasData) {
                         // Build IM entries
                         entry.intent = ContactsUtils.buildImIntent(entryValues);
@@ -1383,6 +1413,36 @@ public class ViewContactActivity extends Activity
             super.startSearch(initialQuery, selectInitialQuery, appSearchData, globalSearch);
         } else {
             ContactsSearchManager.startSearch(this, initialQuery);
+        }
+    }
+    //Wysie
+    public boolean isIntentAvailable(Intent intent) {
+        final PackageManager packageManager = this.getPackageManager();
+        List<ResolveInfo> list = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        return list.size() > 0;
+    }
+        
+    //Wysie: Navigation code. Adapted from rac2030's NavStarter.
+    //http://code.google.com/p/andrac/source/browse/trunk/NavWidget/src/ch/racic/android/gnav/NavSearch.java
+    public Intent startNavigation(String address) {
+        address = address.replace('#', ' ');
+        Intent i = new Intent();
+        i.setAction(Intent.ACTION_VIEW);
+        i.setData(Uri.parse("http://maps.google.com/maps?myl=saddr&daddr=" + address + "&dirflg=d&nav=1"));
+        i.addFlags(0x10800000);
+        i.setClassName("com.google.android.apps.m4ps", "com.google.android.maps.driveabout.app.NavigationActivity");
+        
+        if (isIntentAvailable(i)) {
+            return i;
+        }
+        else {
+            i.setClassName("com.google.android.apps.maps", "com.google.android.maps.driveabout.app.NavigationActivity");
+            if (isIntentAvailable(i)) {
+                return i;
+            }
+            else {
+                return null;
+            }
         }
     }
 }

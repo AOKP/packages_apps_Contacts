@@ -124,6 +124,17 @@
             android:title="@string/title_contacts_show_pic"
             android:defaultValue="true" />
         -->
+        <PreferenceScreen
+            android:key="view_contact"
+            android:title="@string/title_view_contact"
+            android:summary="@string/summary_view_contact">
+            <CheckBoxPreference
+                android:key="contacts_show_text_mobile_only"
+                android:title="@string/title_show_text_mobile_only"
+                android:summaryOn="@string/summaryon_show_text_mobile_only"
+                android:summaryOff="@string/summaryoff_show_text_mobile_only"
+                android:defaultValue="false" />                
+        </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/contactsFavoritesLabel">
         <CheckBoxPreference

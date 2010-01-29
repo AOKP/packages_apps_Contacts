@@ -1224,6 +1224,13 @@
     <string name="title_contacts_show_dial_button">Show dial button</string>
     <string name="summary_contacts_show_dial_button">Show a dial button for contacts with numbers</string>
     
+    <!-- Preferences: Contacts - View Contact -->
+    <string name="title_view_contact">View contact</string>
+    <string name="summary_view_contact">Set preferences when viewing an individual contact</string>
+    <string name="title_show_text_mobile_only">Text action for mobile only</string>
+    <string name="summaryon_show_text_mobile_only">Only mobile numbers will have a text/sms action</string>
+    <string name="summaryoff_show_text_mobile_only">All numbers will have a text/sms action</string>
+    
     <!-- Preferences: Favourites -->
     <string name="title_favourites_hide_freq_call">Hide frequently called</string>
     <string name="summary_favourites_hide_freq_call">The actual data is not cleared, but hidden.</string>
@@ -1241,7 +1248,7 @@
     <string name="title_about_name">Mod Name</string>
     <string name="summary_about_name">WyContacts Eclair</string>
     <string name="title_about_version">Version</string>
-    <string name="summary_about_version">0.7</string>
+    <string name="summary_about_version">0.8</string>
     <string name="title_about_credits">Credits</string>
     <string name="summary_about_credits">ChainsDD, geesun, niuchl, rac2030 and the rest of XDA! :)</string>
     
