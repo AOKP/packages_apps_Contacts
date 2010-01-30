@@ -499,6 +499,7 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
     private static boolean showContactsPic;
     private static boolean showFavsDialButton;
     private static boolean showFavsPic;
+    private static boolean showDisplayHeaders;
     private MenuItem mClearFreqCalled;
 
     static {
@@ -1071,6 +1072,7 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
         showContactsPic = ePrefs.getBoolean("contacts_show_pic", true);
         showFavsDialButton = ePrefs.getBoolean("favs_show_dial_button", true);
         showFavsPic = ePrefs.getBoolean("favs_show_pic", true);
+        showDisplayHeaders = ePrefs.getBoolean("contacts_show_alphabetical_separators", true);
 
         registerProviderStatusObserver();
         mPhotoLoader.resume();
@@ -2924,6 +2926,68 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
 
             if ((mMode & MODE_MASK_SHOW_PHOTOS) == MODE_MASK_SHOW_PHOTOS) {
                 mDisplayPhotos = true;
+                setViewResource(R.layout.contacts_list_item_photo);
+                mBitmapCache = new HashMap<Long, SoftReference<Bitmap>>();
+                mItemsMissingImages = new HashSet<ImageView>();
+            }
+
+            if (mMode == MODE_STREQUENT || mMode == MODE_FREQUENT) {
+                mDisplaySectionHeaders = false;
+            }           
+
+        }
+
+        private class ImageFetchHandler extends Handler {
+
+            @Override
+            public void handleMessage(Message message) {
+                if (ContactsListActivity.this.isFinishing()) {
+                    return;
+                }
+                switch(message.what) {
+                    case FETCH_IMAGE_MSG: {
+                        final ImageView imageView = (ImageView) message.obj;
+                        if (imageView == null) {
+                            break;
+                        }
+
+                        final PhotoInfo info = (PhotoInfo)imageView.getTag();
+                        if (info == null) {
+                            break;
+                        }
+
+                        final long photoId = info.photoId;
+                        if (photoId == 0) {
+                            break;
+                        }
+
+                        SoftReference<Bitmap> photoRef = mBitmapCache.get(photoId);
+                        if (photoRef == null) {
+                            break;
+                        }
+                        Bitmap photo = photoRef.get();
+                        if (photo == null) {
+                            mBitmapCache.remove(photoId);
+                            break;
+                        }
+
+                        // Make sure the photoId on this image view has not changed
+                        // while we were loading the image.
+                        synchronized (imageView) {
+                            final PhotoInfo updatedInfo = (PhotoInfo)imageView.getTag();
+                            long currentPhotoId = updatedInfo.photoId;
+                            if (currentPhotoId == photoId) {
+                                imageView.setImageBitmap(photo);
+                                mItemsMissingImages.remove(imageView);
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+
+            public void clearImageFecthing() {
+                removeMessages(FETCH_IMAGE_MSG);
             }
         }
 
@@ -3066,6 +3130,12 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
                 v = convertView;
             }
             bindView(v, mContext, cursor);
+            
+            //Wysie
+            if (mContacts) {
+                mDisplaySectionHeaders = showDisplayHeaders;                
+            }
+            
             bindSectionHeader(v, realPosition, mDisplaySectionHeaders && !showingSuggestion);
             return v;
         }
@@ -3210,15 +3280,12 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
                 else {
                     mDisplayCallButton = false;
                 }
-
-                /*
                 if ((mContacts && showContactsPic) || (mFavs && showFavsPic)) {
                     mDisplayPhotos = true;
                 }
                 else {
                     mDisplayPhotos = false;
                 }
-                */
             }
 
             // Make the call button visible if requested.
@@ -3253,6 +3320,12 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
 
                 final int position = cursor.getPosition();
                 mPhotoLoader.loadPhoto(viewToUse, photoId);
+            }
+            else {
+                if (cache.photoView != null)
+                    cache.photoView.setVisibility(View.GONE);
+                if (cache.nonQuickContactPhotoView != null)
+                    cache.nonQuickContactPhotoView.setVisibility(View.GONE);
             }
 
             if ((mMode & MODE_MASK_NO_PRESENCE) == 0) {

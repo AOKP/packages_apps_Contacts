@@ -1223,6 +1223,11 @@
     <string name="title_contacts_show_pic">Show contact pictures</string>
     <string name="title_contacts_show_dial_button">Show dial button</string>
     <string name="summary_contacts_show_dial_button">Show a dial button for contacts with numbers</string>
+    <string name="title_contacts_show_count">Show contacts count</string>
+    <string name="summary_contacts_show_count">Contacts count will be shown at the top of the contacts list</string>
+    <string name="title_contacts_show_separators">Show alphabetical separators</string>
+    <string name="summaryon_contacts_show_separators">Alphabetical separators will be shown in the contacts list</string>
+    <string name="summaryoff_contacts_show_separators">Alphabetical separators will be hidden in the contacts list</string>
     
     <!-- Preferences: Contacts - View Contact -->
     <string name="title_view_contact">View contact</string>
@@ -1248,7 +1253,7 @@
     <string name="title_about_name">Mod Name</string>
     <string name="summary_about_name">WyContacts Eclair</string>
     <string name="title_about_version">Version</string>
-    <string name="summary_about_version">0.8</string>
+    <string name="summary_about_version">0.9</string>
     <string name="title_about_credits">Credits</string>
     <string name="summary_about_credits">ChainsDD, geesun, niuchl, rac2030 and the rest of XDA! :)</string>
     

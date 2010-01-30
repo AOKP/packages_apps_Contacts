@@ -91,7 +91,18 @@
                     android:dependency="dial_digit_use_custom_color" />
         </PreferenceScreen>
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/recentCallsIconLabel"> 
+    <PreferenceCategory android:title="@string/recentCallsIconLabel">
+        <!--
+        <CheckBoxPreference
+            android:key="cl_show_dial_button"
+            android:title="@string/title_contacts_show_dial_button"
+            android:summary="@string/summary_contacts_show_dial_button"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="cl_show_pic"
+            android:title="@string/title_contacts_show_pic"
+            android:defaultValue="true" />
+        -->
         <CheckBoxPreference
             android:key="cl_exact_time"
             android:title="@string/title_cl_exact_time"
@@ -110,7 +121,7 @@
             android:title="@string/title_cl_ask_before_clear"
             android:summaryOn="@string/summaryon_cl_ask_before_clear"
             android:summaryOff="@string/summaryoff_cl_ask_before_clear"
-            android:defaultValue="false" />         
+            android:defaultValue="false" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/contactsIconLabel">
         <CheckBoxPreference
@@ -118,12 +129,23 @@
             android:title="@string/title_contacts_show_dial_button"
             android:summary="@string/summary_contacts_show_dial_button"
             android:defaultValue="true" />
-        <!--
         <CheckBoxPreference
             android:key="contacts_show_pic"
             android:title="@string/title_contacts_show_pic"
             android:defaultValue="true" />
+        <!--
+        <CheckBoxPreference
+            android:key="contacts_show_count"
+            android:title="@string/title_contacts_show_count"
+            android:summary="@string/summary_contacts_show_count"
+            android:defaultValue="true" />
         -->
+        <CheckBoxPreference
+            android:key="contacts_show_alphabetical_separators"
+            android:title="@string/title_contacts_show_separators"
+            android:summaryOn="@string/summaryon_contacts_show_separators"
+            android:summaryOff="@string/summaryoff_contacts_show_separators"
+            android:defaultValue="true" />
         <PreferenceScreen
             android:key="view_contact"
             android:title="@string/title_view_contact"
@@ -141,12 +163,10 @@
             android:key="favs_show_dial_button"
             android:title="@string/title_contacts_show_dial_button"
             android:defaultValue="true" />
-        <!--
         <CheckBoxPreference
             android:key="favs_show_pic"
             android:title="@string/title_contacts_show_pic"
             android:defaultValue="true" />
-        -->
         <CheckBoxPreference
             android:key="favourites_hide_freq_called"
             android:title="@string/title_favourites_hide_freq_call"
