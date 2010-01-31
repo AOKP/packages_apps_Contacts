@@ -56,21 +56,21 @@
                     android:dialogTitle="@string/title_choose_color"
                     android:entries="@array/digits_colors"
                     android:entryValues="@array/digits_colors_values"
-                    android:defaultValue="-1" />
+                    android:defaultValue="-16777216" />
                 <ListPreference
                     android:key="focused_digit_color"
                     android:title="@string/title_digits_color_focused"
                     android:dialogTitle="@string/title_choose_color"
                     android:entries="@array/digits_colors"
                     android:entryValues="@array/digits_colors_values"
-                    android:defaultValue="-16777216" />
+                    android:defaultValue="-1" />
                 <ListPreference
                     android:key="unselected_digit_color"
                     android:title="@string/title_digits_color_unselected"
                     android:dialogTitle="@string/title_choose_color"
                     android:entries="@array/digits_colors"
                     android:entryValues="@array/digits_colors_values"
-                    android:defaultValue="-16777216" />
+                    android:defaultValue="-1" />
                 <CheckBoxPreference
                     android:key="dial_digit_use_custom_color"
                     android:title="@string/title_use_custom_color"
@@ -92,17 +92,15 @@
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/recentCallsIconLabel">
-        <!--
         <CheckBoxPreference
             android:key="cl_show_dial_button"
             android:title="@string/title_contacts_show_dial_button"
             android:summary="@string/summary_contacts_show_dial_button"
-            android:defaultValue="true" />
+            android:defaultValue="false" />
         <CheckBoxPreference
             android:key="cl_show_pic"
             android:title="@string/title_contacts_show_pic"
             android:defaultValue="true" />
-        -->
         <CheckBoxPreference
             android:key="cl_exact_time"
             android:title="@string/title_cl_exact_time"

@@ -73,6 +73,20 @@
         android:ellipsize="marquee"
         android:textAppearance="?android:attr/textAppearanceSmall"
     />
+ 
+    <android.widget.QuickContactBadge android:id="@+id/photo"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        style="@*android:style/Widget.QuickContactBadge.WindowLarge" />
+    />
+    
+    <ImageView android:id="@+id/noQuickContactPhoto"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"            
+        style="@*android:style/Widget.QuickContactBadge.WindowMedium"
+        android:background="@null" />
+    />
+
 
     <TextView android:id="@+id/line1"
         android:layout_width="wrap_content"
