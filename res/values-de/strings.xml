@@ -389,4 +389,89 @@
     <string name="upgrade_out_of_memory_retry" msgid="8431289830472724609">"Upgrade wiederholen"</string>
     <string name="search_results_for" msgid="8705490885073188513">"Suchergebnisse für: <xliff:g id="QUERY">%s</xliff:g>"</string>
     <string name="search_results_searching" msgid="7755623475227227314">"Suche..."</string>
+
+    <!-- Wysie: Menu strings -->
+    <string name="menu_preferences">Einstellungen</string>
+
+    <!-- Wysie: Dialer strings -->
+    <string name="dialer_menu_sms">SMS/MMS</string>
+
+    <!-- Wysie: Call log strings -->
+    <string name="recentCalls_deleteAllIncoming">Eingehende löschen</string>
+    <string name="recentCalls_deleteAllOutgoing">Ausgehende löschen</string>
+    <string name="recentCalls_deleteAllMissed">Verpasste löschen</string>
+    <string name="alert_clear_call_log_title">Anrufliste leeren</string>
+    <string name="alert_clear_call_log_message">Bist du sicher, dass du die Anrufliste leeren möchtest?</string>
+    <string name="alert_clear_cl_all_incoming">Bist du sicher, dass du alle eingegangenen Anrufe löschen möchtest?</string>
+    <string name="alert_clear_cl_all_outgoing">Bist du sicher, dass du alle ausgegangenen Anrufe löschen möchtest?</string>
+    <string name="alert_clear_cl_all_missed">Bist du sicher, dass du alle verpassten Anrufe löschen möchtest?</string>
+
+    <!-- Wysie: Favourites strings -->
+    <string name="fav_clear_freq">Häufig angerufen leeren</string>
+    <string name="alert_clear_freq_called_msg">Bist du sicher, dass du die Liste der häufig angerufenen Kontakte löschen möchtest?</string>
+
+    <!-- Preferences: Dialer -->
+
+    <string name="title_vm_button">Linke Aktionstaste (LAT)</string>
+    <string name="title_vm_handler">Mailbox Verwaltung</string>
+    <string name="title_use_1_for_reg_vm">1 wählt Mailbox</string>
+    <string name="summaryon_use_1_for_reg_vm">Taste 1 wird für Mailbox genutzt.</string>
+    <string name="summaryoff_use_1_for_reg_vm">Taste 1 entsprechend Mailbox Verwaltung.</string>
+    <string name="title_disable_num_check">Nummernprüfung ausschalten</string>
+    <string name="summaryon_disable_num_check">Linke Aktionstaste (LAT) und Menü werden dauerhaft aktiviert.</string>
+    <string name="summaryoff_disable_num_check">LAT und Menü werden aktiviert, wenn mindestens eine Nummer eingegeben wurde (ausser Mailbox).</string>
+    <string name="title_enable_haptic_feedback">Nutze haptische Rückmeldung</string>
+    <string name="title_change_digits_color">Farben der Zahlen</string>
+    <string name="title_digits_color_focused">Farbe der Zahlen (fokusiert)</string>
+    <string name="title_digits_color_pressed">Farbe der Zahlen (gedrückt)</string>
+    <string name="title_digits_color_unselected">Farbe der Zahlen (normal)</string>
+    <string name="title_choose_color">Wähle eine Farbe</string>
+    <string name="title_use_custom_color">Nutze eigene Farben für Zahlen</string>
+    <string name="summaryon_custom_color">Unterstützte Formate: #RRGGBB oder #AARRGGBB (mit #).</string>
+
+    <!-- Preferences: Call log -->
+    <string name="title_cl_exact_time">Genaue Zeiten</string>
+    <string name="summaryon_cl_exact_time">Zeige genaue Zeitenn in Anrufliste.</string>
+    <string name="summaryoff_cl_exact_time">Zeige relative Zeiten in Anrufliste.</string>
+    <string name="title_cl_show_seconds">Zeige Sekunden</string>
+    <string name="summary_cl_show_seconds">Zeige Sekunden bei genauen Zeiten in Anrufliste.</string>
+    <string name="title_cl_ask_before_clear">Anrufliste löschen bestätigen</string>
+    <string name="summaryon_cl_ask_before_clear">Anrufliste löschen mit Bestätigung.</string>
+    <string name="summaryoff_cl_ask_before_clear">Anrufliste löschen ohne Bestätigung.</string>
+
+    <!-- Preferences: Contacts -->
+    <string name="summary_contacts_show_pic">Zeige Bilder von Kontakten an.</string>
+    <string name="title_contacts_show_dial_button">Zeige Anruftaste</string>
+    <string name="summary_contacts_show_dial_button">Zeige Anruftaste für Kontakte mit Rufnummern.</string>
+    <string name="title_contacts_show_count">Anzahl Kontakte</string>
+    <string name="summary_contacts_show_count">Die Anzahl der Kontakte wird oberhalb der Kontaktliste angezeigt.</string>
+    <string name="title_contacts_show_separators">Alphabetische Trennmarke</string>
+    <string name="summaryon_contacts_show_separators">Alphabetische Trennung wird angezeigt in der Kontaktliste.</string>
+    <string name="summaryoff_contacts_show_separators">Alphabetische Trennung wird nicht angezeigt in der Kontaktliste.</string>
+
+    <!-- Preferences: Contacts - View Contact -->
+    <string name="title_view_contact">Kontakt anzeigen</string>
+    <string name="summary_view_contact">Einstellungen für Ansicht eines Kontaktes ändern.</string>
+    <string name="title_show_text_mobile_only">Textaktionen nur für Handys</string>
+    <string name="summaryon_show_text_mobile_only"> Text/SMS Aktion nur für Mobilfunknummern.</string>
+    <string name="summaryoff_show_text_mobile_only">Text/SMS Aktion nur für alle Nummern.</string>
+
+    <!-- Preferences: Favourites -->
+    <string name="title_favourites_hide_freq_call">Häufig Gewählte verbergen</string>
+    <string name="summary_favourites_hide_freq_call">Die Daten werden nicht gelöscht, nur verborgen.</string>
+    <string name="title_favs_ask_before_clear">Leeren bestätigen</string>
+    <string name="summaryon_favs_ask_before_clear">Leeren der Liste mit Bestätigung.</string>
+    <string name="summaryoff_favs_ask_before_clear">Leeren der Liste ohne Bestätigung.</string>
+
+    <!-- Preferences: Misc -->
+    <string name="title_misc_category">Sonstiges</string>
+    <string name="title_sensor_rotation">Autorotation verwenden</string>
+    <string name="summary_sensor_rotation">Wenn eingeschaltet, werden Systemeinstellungen verwendet."</string>
+
+    <!-- Wysie: About strings -->
+    <string name="title_about">Über</string>
+    <string name="title_about_name">Mod Name</string>
+    <string name="title_about_version">Version</string>
+    <string name="title_about_credits">Danksagung</string>
+    <string name="summary_about_credits">ChainsDD, geesun, niuchl, rac2030 und der Rest von XDA! :)</string>
 </resources>
