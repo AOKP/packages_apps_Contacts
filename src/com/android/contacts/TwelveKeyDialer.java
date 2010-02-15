@@ -75,6 +75,7 @@ import android.content.res.ColorStateList;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.preference.PreferenceManager;
+import android.provider.CallLog.Calls;
 import android.widget.ImageButton;
 
 /**
@@ -133,7 +134,7 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
     //Wysie
     private MenuItem mSmsMenuItem, mPreferences;
     private SharedPreferences ePrefs;
-    private boolean prefVibrateOn;
+    private boolean prefVibrateOn, retrieveLastDialled, returnToDialer;
     
     private static final int MENU_SMS = 4;
     private static final int MENU_PREFERENCES = 5;
@@ -507,16 +508,18 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
             // be visible if the phone is idle!
             showDialpadChooser(false);
         }
-
-        updateDialAndDeleteButtonEnabledState();
         
         //Wysie: Use prefVibrateOn to decide whether to vibrate, in case mVibrateOn is used for something
         //in future
         if (mVibrateOn)
             prefVibrateOn = ePrefs.getBoolean("dial_enable_haptic", true);
         else
-            prefVibrateOn = false;        
+            prefVibrateOn = false;
         
+        retrieveLastDialled = ePrefs.getBoolean("dial_retrieve_last", false);
+        returnToDialer = ePrefs.getBoolean("dial_return", false);
+
+        updateDialAndDeleteButtonEnabledState();
         updateDialer();
     }
 
@@ -791,6 +794,7 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
                 break;
             }
             case R.id.dialButton: {
+<<<<<<< HEAD
                 vibrate();  // Vibrate here too, just like we do for the regular keys
                 dialButtonPressed();
                 //placeCall() ?
@@ -800,6 +804,18 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
                 callVoicemail();
                 vibrate();
                 return;
+=======
+                // Vibrate here too, just like we do for the regular keys
+                vibrate();
+                if (mDigits.length() == 0) {
+                    mDigits.setText(getLastDialedNumber());
+                    mDigits.setSelection(mDigits.length());
+                }
+                else {                  
+                    placeCall();
+                }
+                break;
+>>>>>>> Release 1.1
             }
             case R.id.digits: {
                 if (!isDigitsEmpty()) {
@@ -895,7 +911,9 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         mDigits.getText().clear();
-        finish();
+        if (!returnToDialer) {
+            finish();
+        }
     }
 
     void dialButtonPressed() {
@@ -936,7 +954,7 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
         // 3-way or call waiting scenarios. Presumably, here we're in a special 3-way scenario
         // where the network needs a blank flash before being able to add the new participant.
         // (This is not the case with all 3-way calls, just certain CDMA infrastructures.)
-        if (!sendEmptyFlash) {
+        if (!sendEmptyFlash && !returnToDialer) {
             finish();
         }
     }
@@ -1403,9 +1421,10 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
     
     //Wysie
     private void smsToNumber() {
-    	Intent sendIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms://"));
-    	sendIntent.putExtra("address", mDigits.getText());
+    	Intent sendIntent = new Intent(Intent.ACTION_VIEW);
     	sendIntent.putExtra("sms_body", "");
+    	sendIntent.putExtra("address", mDigits.getText().toString());    	
+    	sendIntent.setType("vnd.android-dir/mms-sms");
     	startActivity(sendIntent); 
     }
     
@@ -1413,7 +1432,7 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
     private void addToContacts() {
     	// Put the current digits string into an intent
     	Intent intent = new Intent(Intent.ACTION_INSERT_OR_EDIT);
-    	intent.putExtra(Insert.PHONE, mDigits.getText());
+    	intent.putExtra(Insert.PHONE, mDigits.getText().toString());
     	intent.setType(People.CONTENT_ITEM_TYPE);
     	startActivity(intent);
     }
@@ -1504,5 +1523,21 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
     	}
     	
     	return hasVoicemail;
+    }
+    
+    private String getLastDialedNumber() {
+        final String[] PROJECTION = new String[] {
+            Calls.NUMBER
+        };
+        Cursor c = getContentResolver().query(Calls.CONTENT_URI, PROJECTION, null, null, Calls.DEFAULT_SORT_ORDER);
+        String num = "";
+        if (c != null) {
+            if (c.moveToFirst()) {
+                num = c.getString(0);
+            }
+            c.close();
+        }
+        
+        return num;
     }
 }

@@ -18,6 +18,15 @@
 <PreferenceScreen
         xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/dialerIconLabel">
+        <CheckBoxPreference
+            android:key="dial_retrieve_last"
+            android:title="@string/title_last_dialled"
+            android:summary="@string/summary_last_dialled"
+            android:defaultValue="false" />
+        <CheckBoxPreference
+            android:key="dial_return"
+            android:title="@string/title_return_to_dialer"
+            android:defaultValue="false" />
         <ListPreference
             android:key="vm_button"
             android:title="@string/title_vm_button"
