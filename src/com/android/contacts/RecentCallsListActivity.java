@@ -803,7 +803,6 @@ public class RecentCallsListActivity extends ListActivity
             // time. For private and unknown numbers: hide it.
             views.callView.setVisibility(View.VISIBLE);           
 
-
             if (!TextUtils.isEmpty(name)) {
                 views.line1View.setText(name);
                 views.labelView.setVisibility(View.VISIBLE);

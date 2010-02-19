@@ -32,7 +32,7 @@ import android.provider.CallLog.Calls;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.PhoneLookup;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.provider.Contacts.Intents.Insert;
+import android.provider.ContactsContract.Intents.Insert;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
