@@ -968,6 +968,31 @@ public class RecentCallsListActivity extends ListActivity
     }
 
     @Override
+    protected Dialog onCreateDialog(int id) {
+        Dialog dialog = null;
+        switch (id) {
+            case R.id.dialog_clear_log:
+                DialogInterface.OnClickListener clearLogDialogListener = new OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        getContentResolver().delete(Calls.CONTENT_URI, null, null);
+                        startQuery();
+                    }
+                };
+
+                dialog = new AlertDialog.Builder(this)
+                    .setTitle(R.string.clearConfirmation_title)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setMessage(R.string.clearLogConfirmation)
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .setPositiveButton(android.R.string.ok, clearLogDialogListener)
+                    .setCancelable(false)
+                    .create();
+                break;
+        }
+        return dialog;
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(0, MENU_ITEM_DELETE_ALL, 0, R.string.recentCalls_deleteAll)
                 .setIcon(android.R.drawable.ic_menu_close_clear_cancel);
@@ -1086,7 +1111,14 @@ public class RecentCallsListActivity extends ListActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_ITEM_DELETE_ALL: {
-                showDialog(DIALOG_CONFIRM_DELETE_ALL);
+                showDialog(R.id.dialog_clear_log);
+                return true;
+            }
+
+            case MENU_ITEM_VIEW_CONTACTS: {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Contacts.CONTENT_URI);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
                 return true;
             }
         }
