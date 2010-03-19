@@ -64,6 +64,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
@@ -149,14 +150,15 @@ public class RecentCallsListActivity extends ListActivity
     static final int PHOTO_ID_COLUMN_INDEX = 5;
     static final int LOOKUP_KEY_COLUMN_INDEX = 6;
 
-    private static final int MENU_ITEM_DELETE = 1;
-    private static final int MENU_ITEM_DELETE_ALL = 2;
-    private static final int MENU_ITEM_VIEW_CONTACTS = 3;
-    private static final int MENU_ITEM_DELETE_ALL_INCOMING = 4;
-    private static final int MENU_ITEM_DELETE_ALL_OUTGOING = 5;
-    private static final int MENU_ITEM_DELETE_ALL_MISSED = 6;
+    private static final int MENU_ITEM_CLEAR_CALL_LOG = 1;
+    private static final int MENU_PREFERENCES = 2;
+    private static final int MENU_ITEM_CLEAR_ALL = 3;
+    private static final int MENU_ITEM_CLEAR_INCOMING = 4;
+    private static final int MENU_ITEM_CLEAR_OUTGOING = 5;
+    private static final int MENU_ITEM_CLEAR_MISSED = 6;
     private static final int CONTEXT_MENU_ITEM_DELETE = 7;
     private static final int CONTEXT_MENU_CALL_CONTACT = 8;
+
 
     private static final int QUERY_TOKEN = 53;
     private static final int UPDATE_TOKEN = 54;
@@ -177,8 +179,7 @@ public class RecentCallsListActivity extends ListActivity
     private static final String format24Hour = "MMM d, kk:mm";
     private static final String format12HourSeconds = "MMM d, h:mm:ssaa";
     private static final String format12Hour = "MMM d, h:mmaa";
-    
-    private static final int MENU_PREFERENCES = 7;
+    private static int mRecordCount = 0;
     
     //Wysie: Contact pictures
     private static ExecutorService sImageFetchThreadPool;
@@ -1207,6 +1208,7 @@ public class RecentCallsListActivity extends ListActivity
                     activity.mList.smoothScrollToPosition(0);
                     activity.mScrollToTop = false;
                 }
+                mRecordCount = cursor.getCount();
             } else {
                 cursor.close();
             }
@@ -1397,18 +1399,23 @@ public class RecentCallsListActivity extends ListActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0, MENU_ITEM_DELETE_ALL, 0, R.string.recentCalls_deleteAll)
-                .setIcon(android.R.drawable.ic_menu_close_clear_cancel);
-        menu.add(0, MENU_ITEM_DELETE_ALL_INCOMING, 0, R.string.recentCalls_deleteAllIncoming).setIcon(
-                android.R.drawable.ic_menu_close_clear_cancel);
-        menu.add(0, MENU_ITEM_DELETE_ALL_OUTGOING, 0, R.string.recentCalls_deleteAllOutgoing).setIcon(
-                android.R.drawable.ic_menu_close_clear_cancel);
-        menu.add(0, MENU_ITEM_DELETE_ALL_MISSED, 0, R.string.recentCalls_deleteAllMissed).setIcon(
-                android.R.drawable.ic_menu_close_clear_cancel);
-                
+        SubMenu clearMenu = menu.addSubMenu(1, MENU_ITEM_CLEAR_CALL_LOG, 0, R.string.recent_calls_clear_call_log)
+                .setIcon(android.R.drawable.ic_menu_close_clear_cancel)
+                .setHeaderTitle(R.string.recent_calls_clear_what);
+        clearMenu.add(0, MENU_ITEM_CLEAR_ALL,      0, R.string.recent_calls_clear_all);
+        clearMenu.add(0, MENU_ITEM_CLEAR_INCOMING, 0, R.string.recent_calls_clear_incoming);
+        clearMenu.add(0, MENU_ITEM_CLEAR_OUTGOING, 0, R.string.recent_calls_clear_outgoing);
+        clearMenu.add(0, MENU_ITEM_CLEAR_MISSED,   0, R.string.recent_calls_clear_missed);
+
 	    mPreferences = menu.add(0, MENU_PREFERENCES, 0, R.string.menu_preferences).setIcon(android.R.drawable.ic_menu_preferences);
         //Wysie_Soh: Preferences intent
         mPreferences.setIntent(new Intent(this, ContactsPreferences.class));
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.setGroupVisible(1, (mRecordCount > 0));
         return true;
     }
 
@@ -1523,29 +1530,24 @@ public class RecentCallsListActivity extends ListActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case MENU_ITEM_DELETE_ALL: {
+            case MENU_ITEM_CLEAR_ALL: {
                 clearCallLog();
                 return true;
             }
-            case MENU_ITEM_DELETE_ALL_INCOMING: {
+            case MENU_ITEM_CLEAR_INCOMING: {
                 clearCallLogType(Calls.INCOMING_TYPE);
                 return true;
             }
-            case MENU_ITEM_DELETE_ALL_OUTGOING: {
+            case MENU_ITEM_CLEAR_OUTGOING: {
                 clearCallLogType(Calls.OUTGOING_TYPE);
                 return true;
             }
-            case MENU_ITEM_DELETE_ALL_MISSED: {
+            case MENU_ITEM_CLEAR_MISSED: {
                 clearCallLogType(Calls.MISSED_TYPE);
                 return true;
             }
-            case MENU_ITEM_VIEW_CONTACTS: {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Contacts.CONTENT_URI);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                return true;
-            }
         }
+
         return super.onOptionsItemSelected(item);
     }
 

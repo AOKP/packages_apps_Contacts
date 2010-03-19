@@ -1176,9 +1176,12 @@
     <string name="dialer_menu_sms">SMS/MMS</string>
     
     <!-- Wysie: Call log strings -->
-    <string name="recentCalls_deleteAllIncoming">Clear incoming</string>
-    <string name="recentCalls_deleteAllOutgoing">Clear outgoing</string>
-    <string name="recentCalls_deleteAllMissed">Clear missed</string>
+    <string name="recent_calls_clear_call_log">Clear call log</string>
+    <string name="recent_calls_clear_what">Clear what?</string>
+    <string name="recent_calls_clear_all">All</string>
+    <string name="recent_calls_clear_incoming">Incoming</string>
+    <string name="recent_calls_clear_outgoing">Outgoing</string>
+    <string name="recent_calls_clear_missed">Missed</string>
     <string name="alert_clear_call_log_title">Clear call log</string>
     <string name="alert_clear_call_log_message">Are you sure you want to clear all call records?</string>
     <string name="alert_clear_cl_all_incoming">Are you sure you want to clear all incoming call records?</string>
