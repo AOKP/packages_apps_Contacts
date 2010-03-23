@@ -3504,9 +3504,29 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
         }
 
         private void updateIndexer(Cursor cursor) {
-            if (cursor == null) {
-                mIndexer = null;
-                return;
+            if (mIndexer == null) {
+                mIndexer = getNewIndexer(cursor);
+            } else {
+                if (Locale.getDefault().equals(Locale.JAPAN)) {
+                    if (mIndexer instanceof JapaneseContactListIndexer) {
+                        ((JapaneseContactListIndexer)mIndexer).setCursor(cursor);
+                    } else {
+                        mIndexer = getNewIndexer(cursor);
+                    }
+                }
+                if (Locale.getDefault().equals(Locale.CHINA)) {
+                    if (mIndexer instanceof ChineseContactListIndexer) {
+                        ((ChineseContactListIndexer)mIndexer).setCursor(cursor);
+                    } else {
+                        mIndexer = getNewIndexer(cursor);
+                    }
+                }else {
+                    if (mIndexer instanceof AlphabetIndexer) {
+                        ((AlphabetIndexer)mIndexer).setCursor(cursor);
+                    } else {
+                        mIndexer = getNewIndexer(cursor);
+                    }
+                }
             }
 
             Bundle bundle = cursor.getExtras();
