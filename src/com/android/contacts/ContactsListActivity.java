@@ -3003,6 +3003,17 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
             mSuggestionsCursorCount = cursor == null ? 0 : cursor.getCount();
         }
 
+        private SectionIndexer getNewIndexer(Cursor cursor) {
+             if (Locale.getDefault().getLanguage().equals(Locale.JAPAN.getLanguage())) {
+                return new JapaneseContactListIndexer(cursor, SORT_STRING_INDEX);
+             } else if (Locale.getDefault().getLanguage().equals(Locale.CHINA.getLanguage())) {
+            	 return new ChineseContactListIndexer(cursor, SORT_STRING_INDEX);
+             }
+             else {
+                return new AlphabetIndexer(cursor, SUMMARY_NAME_COLUMN_INDEX, mAlphabet);
+             } 
+        }
+
         /**
          * Callback on the UI thread when the content observer on the backing cursor fires.
          * Instead of calling requery we need to do an async query so that the requery doesn't
