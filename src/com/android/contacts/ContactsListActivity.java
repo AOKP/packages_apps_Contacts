@@ -17,7 +17,7 @@
 package com.android.contacts;
 
 import com.android.contacts.TextHighlightingAnimation.TextWithHighlighting;
-import com.android.contacts.model.ContactsSource;
+import com.android.contacts.model.ContactsSource;  
 import com.android.contacts.model.Sources;
 import com.android.contacts.ui.ContactsPreferences;
 import com.android.contacts.ui.ContactsPreferencesActivity;
