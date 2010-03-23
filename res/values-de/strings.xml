@@ -397,9 +397,12 @@
     <string name="dialer_menu_sms">SMS/MMS</string>
 
     <!-- Wysie: Call log strings -->
-    <string name="recentCalls_deleteAllIncoming">Eingehende löschen</string>
-    <string name="recentCalls_deleteAllOutgoing">Ausgehende löschen</string>
-    <string name="recentCalls_deleteAllMissed">Verpasste löschen</string>
+    <string name="recent_calls_clear_call_log">Anrufliste leeren</string>
+    <string name="recent_calls_clear_what">Welche Anrufe?</string>
+    <string name="recent_calls_clear_all">Alle</string>
+    <string name="recent_calls_clear_incoming">Eingehend</string>
+    <string name="recent_calls_clear_outgoing">Ausgehend</string>
+    <string name="recent_calls_clear_missed">Verpasst</string>
     <string name="alert_clear_call_log_title">Anrufliste leeren</string>
     <string name="alert_clear_call_log_message">Bist du sicher, dass du die Anrufliste leeren möchtest?</string>
     <string name="alert_clear_cl_all_incoming">Bist du sicher, dass du alle eingegangenen Anrufe löschen möchtest?</string>
