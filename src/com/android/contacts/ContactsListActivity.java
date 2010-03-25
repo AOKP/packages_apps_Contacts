@@ -3004,14 +3004,11 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
         }
 
         private SectionIndexer getNewIndexer(Cursor cursor) {
-             if (Locale.getDefault().getLanguage().equals(Locale.JAPAN.getLanguage())) {
+            /* if (Locale.getDefault().getLanguage().equals(Locale.JAPAN.getLanguage())) {
                 return new JapaneseContactListIndexer(cursor, SORT_STRING_INDEX);
-             } else if (Locale.getDefault().getLanguage().equals(Locale.CHINA.getLanguage())) {
-            	 return new ChineseContactListIndexer(cursor, SORT_STRING_INDEX);
-             }
-             else {
+            } else { */
                 return new AlphabetIndexer(cursor, SUMMARY_NAME_COLUMN_INDEX, mAlphabet);
-             } 
+            /* } */
         }
 
         /**
@@ -3524,14 +3521,7 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
                     } else {
                         mIndexer = getNewIndexer(cursor);
                     }
-                }
-                if (Locale.getDefault().equals(Locale.CHINA)) {
-                    if (mIndexer instanceof ChineseContactListIndexer) {
-                        ((ChineseContactListIndexer)mIndexer).setCursor(cursor);
-                    } else {
-                        mIndexer = getNewIndexer(cursor);
-                    }
-                }else {
+                } else {
                     if (mIndexer instanceof AlphabetIndexer) {
                         ((AlphabetIndexer)mIndexer).setCursor(cursor);
                     } else {
