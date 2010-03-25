@@ -389,4 +389,97 @@
     <string name="upgrade_out_of_memory_retry" msgid="8431289830472724609">"Zkusit upgradovat znovu"</string>
     <string name="search_results_for" msgid="8705490885073188513">"Výsledky vyhledávání pro dotaz: <xliff:g id="QUERY">%s</xliff:g>"</string>
     <string name="search_results_searching" msgid="7755623475227227314">"Vyhledávání..."</string>
+    <string name="menu_preferences">Nastavení</string>
+    
+    <!-- Wysie: Dialer strings -->
+    <string name="dialer_menu_sms">SMS/MMS</string>
+    
+    <!-- Wysie: Call log strings -->
+    <string name="recent_calls_clear_call_log">Vymazat záznamy hovorů</string>
+    <string name="recent_calls_clear_what">Vymazat co?</string>
+    <string name="recent_calls_clear_all">Vše</string>
+    <string name="recent_calls_clear_incoming">Příchozí</string>
+    <string name="recent_calls_clear_outgoing">Odchozí</string>
+    <string name="recent_calls_clear_missed">Zmeškané</string>
+    <string name="alert_clear_call_log_title">Vymazat záznamy</string>
+    <string name="alert_clear_call_log_message">Jste si jisti, že chcete vymazat všechny záznamy hovorů?</string>
+    <string name="alert_clear_cl_all_incoming">Jste si jisti, že chcete vymazat všechny záznamy příchozích hovorů?</string>
+    <string name="alert_clear_cl_all_outgoing">Jste si jisti, že chcete vymazat všechny záznamy odchozích hovorů?</string>
+    <string name="alert_clear_cl_all_missed">Jste si jisti, že chcete vymazat všechny záznamy zmeškaných hovorů?</string>
+    
+    <!-- Wysie: Favourites strings -->
+    <string name="fav_clear_freq">Vymazat často voláné</string>
+    <string name="alert_clear_freq_called_msg">Jste si jisti, že chcete vymazat všechny záznamy často volaných hovorů?</string>
+    
+    <!-- Wysie: Preferences strings -->
+    
+    <!-- Preferences: Dialer -->
+    <string name="title_last_dialled">Zobrazení posledního volaného čísla</string>
+    <string name="summary_last_dialled">Poslední volané číslo bude zobrazeno při stisku zeleného sluchátka</string>
+    <string name="title_return_to_dialer">Zpět na číselník po hovoru</string>
+    <string name="title_vm_button">Levé akční tlačítko</string>
+    <string name="title_vm_handler">Obsluha hlasové schránky</string>
+    <string name="title_use_1_for_reg_vm">Kláv. "1" pro hlasovou schránku</string>
+    <string name="summaryon_use_1_for_reg_vm">Klávesa "1" se používá pro klasickou hlasovou schránku</string>
+    <string name="summaryoff_use_1_for_reg_vm">Klávesa "1" se používá pro obsluhu hlasové schránky</string>
+    <string name="title_disable_num_check">Vypnout kontrolu čísel</string>
+    <string name="summaryon_disable_num_check">Levé tlačítko a menu bude vždy aktivní</string>
+    <string name="summaryoff_disable_num_check">Levé tlačítko a menu bude aktivní pokud bude zadáno alespoň 1 číslo</string>
+    <string name="title_enable_haptic_feedback">Zapnout odezvu doteků</string>
+    <string name="title_change_digits_color">Změnit barvu číslic</string>
+    <string name="title_digits_color_pressed">Barva číslic (zmáčknuté)</string>
+    <string name="title_digits_color_focused">Barva číslic (aktivní)</string>
+    <string name="title_digits_color_unselected">Barva číslic (nevybrané)</string>
+    <string name="title_choose_color">Zvolte barvu</string>
+    <string name="title_use_custom_color">Použít vlastní barvu číslic</string>
+    <string name="summaryon_custom_color">Použijte: #RRGGBB nebo #AARRGGBB (s #). Zadejte všechny tři stavy .</string>
+    
+    <!-- Preferences: Call log -->
+    <string name="title_cl_exact_time">Přesný čas</string>
+    <string name="summaryon_cl_exact_time">Používají se přesné časy pro záznamy hovorů</string>
+    <string name="summaryoff_cl_exact_time">Používají se relativní časy pro záznamy hovorů</string>
+    <string name="title_cl_show_seconds">Zobrazit sekundy</string>
+    <string name="summary_cl_show_seconds">Zobrazit sekundy při použití přesných časů</string>          
+    <string name="title_cl_ask_before_clear">Zeptat se před vymazáním</string>
+    <string name="summaryon_cl_ask_before_clear">Zeptat se před vymazáním záznamů hovorů</string>
+    <string name="summaryoff_cl_ask_before_clear">Záznamy hovorů se vymažou bez dotazu</string>
+    
+    <!-- Preferences: Contacts -->
+    <string name="title_contacts_show_pic">Zobrazit obrázek kontaktu</string>
+    <string name="title_contacts_show_dial_button">Zobrazit vytáčení</string>
+    <string name="summary_contacts_show_dial_button">Zobrazit tlačítko pro vytáčení u kontaktu s číslem</string>
+    <string name="title_contacts_show_count">Zobrazit počet kontaků</string>
+    <string name="summary_contacts_show_count">Celkový počet kontaktů bude zobrazen na začátku seznamu kontaktů</string>
+    <string name="title_contacts_show_separators">Oddělit kontaky abecedně</string>
+    <string name="summaryon_contacts_show_separators">Abecední oddělovače budou zobrazeny v seznamu kontaktů</string>
+    <string name="summaryoff_contacts_show_separators">Abecední oddělovače budou nebudou zobrazeny v seznamu kontaktů</string>
+    
+    <!-- Preferences: Contacts - View Contact -->
+    <string name="title_view_contact">Zobrazit kontakt</string>
+    <string name="summary_view_contact">Nastavení zobrazení individuálních kontaktů</string>
+    <string name="title_show_text_mobile_only">Tlačítko SMS pro mobilní čísla</string>
+    <string name="summaryon_show_text_mobile_only">Pouze mobilní čísla budou mít tlačítko pro odeslání SMS </string>
+    <string name="summaryoff_show_text_mobile_only">Všechny čísla budou mít tlačítko pro odeslání SMS</string>
+    
+    <!-- Preferences: Favourites -->
+    <string name="title_favourites_hide_freq_call">Schovat často volané</string>
+    <string name="summary_favourites_hide_freq_call">Data nebudou smazána, pouze schovaná.</string>
+    <string name="title_favs_ask_before_clear">Zeptat se před smazáním</string>
+    <string name="summaryon_favs_ask_before_clear">Zeptat se před vymazáním záznamů často volaných hovorů</string>
+    <string name="summaryoff_favs_ask_before_clear">Záznamy často volaných hovorů se vymažou bez dotazu</string>
+    
+    <!-- Preferences: Misc -->
+    <string name="title_misc_category">Různé</string>
+    <string name="title_sensor_rotation">Použít polohový senzor</string>
+    <string name="summary_sensor_rotation">Povolit rotace obrazovky podle sytémového nastavení</string>
+    
+    <!-- Wysie: About strings -->    
+    <string name="title_about">O aplikaci</string>
+    <string name="title_about_name">Mod Name</string>
+    <string name="summary_about_name">WyContacts Eclair</string>
+    <string name="title_about_version">Version</string>
+    <string name="summary_about_version">1.1</string>
+    <string name="title_about_credits">Credits</string>
+    <string name="summary_about_credits">ChainsDD, geesun, niuchl, rac2030 and the rest of XDA! :)</string>
+    
 </resources>
