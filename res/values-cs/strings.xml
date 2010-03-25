@@ -475,11 +475,5 @@
     
     <!-- Wysie: About strings -->    
     <string name="title_about">O aplikaci</string>
-    <string name="title_about_name">Mod Name</string>
-    <string name="summary_about_name">WyContacts Eclair</string>
-    <string name="title_about_version">Version</string>
-    <string name="summary_about_version">1.1</string>
-    <string name="title_about_credits">Credits</string>
-    <string name="summary_about_credits">ChainsDD, geesun, niuchl, rac2030 and the rest of XDA! :)</string>
     
 </resources>
