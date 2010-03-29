@@ -414,9 +414,8 @@
     <string name="alert_clear_freq_called_msg">Bist du sicher, dass du die Liste der häufig angerufenen Kontakte löschen möchtest?</string>
 
     <!-- Preferences: Dialer -->
-
     <string name="title_last_dialled">Anruftaste holt letzte Nummer</string>
-    <string name="summary_last_dialled">Die zuletzt gewählte Nummer wird geholt, wenn keine Zahlen eingegeben wurden.</string>
+    <string name="summary_last_dialled">Die zuletzt gewählte Nummer wird geholt, solange keine Zahlen eingegeben wurden.</string>
     <string name="title_return_to_dialer">Zurück zum Telefon nach Anruf</string>
     <string name="title_vm_button">Linke Aktionstaste (LAT)</string>
     <string name="title_vm_handler">Mailbox Verwaltung</string>
@@ -426,7 +425,7 @@
     <string name="title_disable_num_check">Nummernprüfung ausschalten</string>
     <string name="summaryon_disable_num_check">Linke Aktionstaste (LAT) und Menü werden dauerhaft aktiviert.</string>
     <string name="summaryoff_disable_num_check">LAT und Menü werden aktiviert, wenn mindestens eine Nummer eingegeben wurde (ausser Mailbox).</string>
-    <string name="title_enable_haptic_feedback">Nutze haptische Rückmeldung</string>
+    <string name="title_enable_haptic_feedback">Nutze haptisches Feedback</string>
     <string name="title_change_digits_color">Farben der Zahlen</string>
     <string name="title_digits_color_focused">Farbe der Zahlen (fokusiert)</string>
     <string name="title_digits_color_pressed">Farbe der Zahlen (gedrückt)</string>
@@ -446,7 +445,7 @@
     <string name="summaryoff_cl_ask_before_clear">Anrufliste löschen ohne Bestätigung.</string>
 
     <!-- Preferences: Contacts -->
-    <string name="summary_contacts_show_pic">Zeige Bilder von Kontakten an.</string>
+    <string name="title_contacts_show_pic">Kontaktbilder zeigen</string>
     <string name="title_contacts_show_dial_button">Zeige Anruftaste</string>
     <string name="summary_contacts_show_dial_button">Zeige Anruftaste für Kontakte mit Rufnummern.</string>
     <string name="title_contacts_show_count">Anzahl Kontakte</string>
