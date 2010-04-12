@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <string-array name="entries_vm_button">
+        <item>"連絡先に追加"</item>
+        <item>"SMS/MMS"</item>
+        <item>"ボイスメール"</item>
+    </string-array>
+
+    <string-array name="digits_colors">
+        <item>"黒"</item>
+        <item>"青"</item>
+        <item>"シアン"</item>
+        <item>"ダークグレー"</item>
+        <item>"灰"</item>
+        <item>"緑"</item>
+        <item>"ライトグレー"</item>
+        <item>"マゼンタ"</item>
+        <item>"赤"</item>
+        <item>"白"</item>
+        <item>"黄"</item>
+   </string-array>
+   
+    <string-array name="view_contact_pic_sizes">
+        <item>"小 (デフォルト)"</item>
+        <item>"中"</item>
+        <item>"大"</item>
+        <item>"最大"</item>
+    </string-array>
+    
+</resources>
