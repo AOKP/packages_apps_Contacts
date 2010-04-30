@@ -415,15 +415,15 @@
     <!-- Preferences: Dialer -->
     <string name="title_last_dialled">"発信ボタンでリダイヤル"</string>
     <string name="summary_last_dialled">"番号を入力せずに発信ボタンで最後に発信した番号にリダイヤルします。"</string>
-    <string name="title_return_to_dialer">"ダイヤラーに戻る"</string>
-    <string name="title_vm_button">"左ボタンの挙動(実験)"</string>
+    <string name="title_return_to_dialer">"発信後ダイヤラーに戻る"</string>
+    <string name="title_vm_button">"左ボタン(LAB)"</string>
     <string name="title_vm_handler">"ボイスメールハンドラ"</string>
     <string name="title_use_1_for_reg_vm">"1で通常のボイスメール"</string>
     <string name="summaryon_use_1_for_reg_vm">"1キーを通常のボイスメールにする。"</string>
     <string name="summaryoff_use_1_for_reg_vm">"1キーはボイスメールハンドラに従う。"</string>
     <string name="title_disable_num_check">"番号チェック無効"</string>
-    <string name="summaryon_disable_num_check">"左ボタン(実験)とメニューは常に有効。"</string>
-    <string name="summaryoff_disable_num_check">"左ボタンとメニューは番号が入力されたときのみ有効。(ボイスメール以外)"</string>
+    <string name="summaryon_disable_num_check">"左ボタン(LAB)とメニューは常に有効。"</string>
+    <string name="summaryoff_disable_num_check">"左ボタンとメニューは番号が入力されたときのみ有効(ボイスメール以外)"</string>
     <string name="title_enable_haptic_feedback">"タッチフィードバック"</string>
     <string name="title_change_digits_color">"番号の色を変える"</string>
     <string name="title_digits_color_pressed">"番号の色 (押下)"</string>
