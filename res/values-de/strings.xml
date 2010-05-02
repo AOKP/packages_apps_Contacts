@@ -427,16 +427,16 @@
     <string name="summaryoff_disable_num_check">LAT und Menü werden aktiviert, wenn mindestens eine Nummer eingegeben wurde (ausser Mailbox).</string>
     <string name="title_enable_haptic_feedback">Nutze haptisches Feedback</string>
     <string name="title_change_digits_color">Farben der Zahlen</string>
-    <string name="title_digits_color_focused">Farbe der Zahlen (fokusiert)</string>
-    <string name="title_digits_color_pressed">Farbe der Zahlen (gedrückt)</string>
-    <string name="title_digits_color_unselected">Farbe der Zahlen (normal)</string>
+    <string name="title_digits_color_focused">Fokusiert</string>
+    <string name="title_digits_color_pressed">Gedrückt</string>
+    <string name="title_digits_color_unselected">Normal</string>
     <string name="title_choose_color">Wähle eine Farbe</string>
     <string name="title_use_custom_color">Nutze eigene Farben für Zahlen</string>
     <string name="summaryon_custom_color">Unterstützte Formate: #RRGGBB oder #AARRGGBB (mit #).</string>
 
     <!-- Preferences: Call log -->
     <string name="title_cl_exact_time">Genaue Zeiten</string>
-    <string name="summaryon_cl_exact_time">Zeige genaue Zeitenn in Anrufliste.</string>
+    <string name="summaryon_cl_exact_time">Zeige genaue Zeiten in Anrufliste.</string>
     <string name="summaryoff_cl_exact_time">Zeige relative Zeiten in Anrufliste.</string>
     <string name="title_cl_show_seconds">Zeige Sekunden</string>
     <string name="summary_cl_show_seconds">Zeige Sekunden bei genauen Zeiten in Anrufliste.</string>
