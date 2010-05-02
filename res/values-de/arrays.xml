@@ -18,7 +18,7 @@
   <string-array name="entries_vm_button">
     <item>Zu Kontakkten hinzufügen</item>
     <item>SMS/MMS</item>
-    <item>Sprachnachricht</item>
+    <item>Mailbox</item>
   </string-array>
 
   <string-array name="digits_colors">
