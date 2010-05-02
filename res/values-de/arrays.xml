@@ -16,9 +16,9 @@
 
 <resources>
   <string-array name="entries_vm_button">
-    <item>Add to Contacts</item>
+    <item>Zu Kontakkten hinzufügen</item>
     <item>SMS/MMS</item>
-    <item>Voicemail</item>
+    <item>Sprachnachricht</item>
   </string-array>
 
   <string-array name="digits_colors">
