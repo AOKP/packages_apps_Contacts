@@ -415,7 +415,7 @@
 
     <!-- Preferences: Dialer -->
     <string name="title_last_dialled">Anruftaste holt letzte Nummer</string>
-    <string name="summary_last_dialled">Die zuletzt gewählte Nummer wird geholt, solange keine Zahlen eingegeben wurden.</string>
+    <string name="summary_last_dialled">Zuletzt gewählte Nummer holen, solange keine Eingabe.</string>
     <string name="title_return_to_dialer">Zurück zum Telefon nach Anruf</string>
     <string name="title_vm_button">Linke Aktionstaste (LAT)</string>
     <string name="title_vm_handler">Mailbox Verwaltung</string>
@@ -423,8 +423,8 @@
     <string name="summaryon_use_1_for_reg_vm">Taste 1 wird für Mailbox genutzt.</string>
     <string name="summaryoff_use_1_for_reg_vm">Taste 1 entsprechend Mailbox Verwaltung.</string>
     <string name="title_disable_num_check">Nummernprüfung ausschalten</string>
-    <string name="summaryon_disable_num_check">Linke Aktionstaste (LAT) und Menü werden dauerhaft aktiviert.</string>
-    <string name="summaryoff_disable_num_check">LAT und Menü werden aktiviert, wenn mindestens eine Nummer eingegeben wurde (ausser Mailbox).</string>
+    <string name="summaryon_disable_num_check">LAT und Menü werden dauerhaft aktiviert.</string>
+    <string name="summaryoff_disable_num_check">LAT und Menü werden aktiviert, wenn mind. eine Nummer eingegeben.</string>
     <string name="title_enable_haptic_feedback">Nutze haptisches Feedback</string>
     <string name="title_change_digits_color">Farben der Zahlen</string>
     <string name="title_digits_color_focused">Fokusiert</string>
