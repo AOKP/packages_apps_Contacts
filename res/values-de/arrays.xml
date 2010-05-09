@@ -16,7 +16,7 @@
 
 <resources>
   <string-array name="entries_vm_button">
-    <item>Zu Kontakkten hinzufügen</item>
+    <item>Zu Kontakten hinzufügen</item>
     <item>SMS/MMS</item>
     <item>Mailbox</item>
   </string-array>
