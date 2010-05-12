@@ -414,15 +414,15 @@
 
     <!-- Preferences: Dialer -->
     <string name="title_last_dialled">"発信ボタンでリダイヤル"</string>
-    <string name="summary_last_dialled">"番号を入力せずに発信ボタンで最後に発信した番号にリダイヤルします。"</string>
+    <string name="summary_last_dialled">"番号を入力せずに発信ボタンで最後に発信した番号にリダイヤルする"</string>
     <string name="title_return_to_dialer">"発信後ダイヤラーに戻る"</string>
     <string name="title_vm_button">"左ボタン(LAB)"</string>
     <string name="title_vm_handler">"ボイスメールハンドラ"</string>
     <string name="title_use_1_for_reg_vm">"1で通常のボイスメール"</string>
-    <string name="summaryon_use_1_for_reg_vm">"1キーを通常のボイスメールにする。"</string>
-    <string name="summaryoff_use_1_for_reg_vm">"1キーはボイスメールハンドラに従う。"</string>
+    <string name="summaryon_use_1_for_reg_vm">"1キーを通常のボイスメールにする"</string>
+    <string name="summaryoff_use_1_for_reg_vm">"1キーはボイスメールハンドラに従う"</string>
     <string name="title_disable_num_check">"番号チェック無効"</string>
-    <string name="summaryon_disable_num_check">"左ボタン(LAB)とメニューは常に有効。"</string>
+    <string name="summaryon_disable_num_check">"左ボタン(LAB)とメニューは常に有効"</string>
     <string name="summaryoff_disable_num_check">"左ボタンとメニューは番号が入力されたときのみ有効(ボイスメール以外)"</string>
     <string name="title_enable_haptic_feedback">"タッチフィードバック"</string>
     <string name="title_change_digits_color">"番号の色を変える"</string>
@@ -431,47 +431,47 @@
     <string name="title_digits_color_unselected">"番号の色 (通常)"</string>
     <string name="title_choose_color">"色を選択"</string>
     <string name="title_use_custom_color">"カスタム色を使う"</string>
-    <string name="summaryon_custom_color">"対応する書式: #RRGGBB や #AARRGGBB. #(シャープ)の入力も必要。</string>
+    <string name="summaryon_custom_color">"対応する書式: #RRGGBB や #AARRGGBB. #(シャープ)の入力も必要</string>
 
     <!-- Preferences: Call log -->
     <string name="title_cl_exact_time">"時刻表示"</string>
-    <string name="summaryon_cl_exact_time">"実際の時刻を履歴に表示する。"</string>
-    <string name="summaryoff_cl_exact_time">"経過時間を履歴に表示する。"</string>
+    <string name="summaryon_cl_exact_time">"実際の時刻を履歴に表示する"</string>
+    <string name="summaryoff_cl_exact_time">"経過時間を履歴に表示する"</string>
     <string name="title_cl_show_seconds">"秒を表示"</string>
-    <string name="summary_cl_show_seconds">"時刻に秒を表示する。"</string>
+    <string name="summary_cl_show_seconds">"時刻に秒を表示する"</string>
 
     <string name="title_cl_ask_before_clear">"消去の確認"</string>
-    <string name="summaryon_cl_ask_before_clear">"通話履歴を消去する前に確認する。"</string>
-    <string name="summaryoff_cl_ask_before_clear">"確認なしに通話履歴を消去する。"</string>
+    <string name="summaryon_cl_ask_before_clear">"通話履歴を消去する前に確認する"</string>
+    <string name="summaryoff_cl_ask_before_clear">"確認なしに通話履歴を消去する"</string>
 
     <!-- Preferences: Contacts -->
     <string name="title_contacts_show_pic">"連絡先の写真を表示"</string>
-    <string name="title_contacts_show_dial_button">"発信ボタンを表示する。"</string>
-    <string name="summary_contacts_show_dial_button">"連絡先の番号に発信ボタンを表示する。"</string>
+    <string name="title_contacts_show_dial_button">"発信ボタンを表示"</string>
+    <string name="summary_contacts_show_dial_button">"連絡先の番号に発信ボタンを表示する"</string>
     <string name="title_contacts_show_count">"連絡先の数を表示"</string>
-    <string name="summary_contacts_show_count">"連絡先リストのトップに連絡先の数を表示する。"</string>
+    <string name="summary_contacts_show_count">"連絡先リストのトップに連絡先の数を表示する"</string>
     <string name="title_contacts_show_separators">"ABCセパレータ"</string>
-    <string name="summaryon_contacts_show_separators">"連絡先リストにアルファベットごとのセパレータを表示する。"</string>
-    <string name="summaryoff_contacts_show_separators">"連絡先リストにアルファベットごとのセパレータを表示しない。"</string>
+    <string name="summaryon_contacts_show_separators">"連絡先リストにアルファベットごとのセパレータを表示する"</string>
+    <string name="summaryoff_contacts_show_separators">"連絡先リストにアルファベットごとのセパレータを表示しない"</string>
 
     <!-- Preferences: Contacts - View Contact -->
     <string name="title_view_contact">"連絡先表示"</string>
     <string name="summary_view_contact">"個別の連絡先を表示するときの設定"</string>
     <string name="title_show_text_mobile_only">"携帯電話向け機能"</string>
-    <string name="summaryon_show_text_mobile_only">"携帯電話番号にのみ、SMSやテキストアクションを表示する。"</string>
-    <string name="summaryoff_show_text_mobile_only">"すべての番号にSMSやテキストアクションを表示する。"</string>
+    <string name="summaryon_show_text_mobile_only">"携帯電話番号にのみ、SMSやテキストアクションを表示する"</string>
+    <string name="summaryoff_show_text_mobile_only">"すべての番号にSMSやテキストアクションを表示する"</string>
 
     <!-- Preferences: Favourites -->
     <string name="title_favourites_hide_freq_call">"お気に入りを隠す"</string>
-    <string name="summary_favourites_hide_freq_call">"実際のデータは消去しないが、表示しない。"</string>
+    <string name="summary_favourites_hide_freq_call">"実際のデータは消去しないが、表示しない"</string>
     <string name="title_favs_ask_before_clear">"消去する前に確認"</string>
-    <string name="summaryon_favs_ask_before_clear">"お気に入りを消去する前に確認する。"</string>
-    <string name="summaryoff_favs_ask_before_clear">"確認をしないでお気に入りを消去する。"</string>
+    <string name="summaryon_favs_ask_before_clear">"お気に入りを消去する前に確認する"</string>
+    <string name="summaryoff_favs_ask_before_clear">"確認をしないでお気に入りを消去する"</string>
 
     <!-- Preferences: Misc -->
     <string name="title_misc_category">"その他"</string>
     <string name="title_sensor_rotation">"回転センサ"</string>
-    <string name="summary_sensor_rotation">"有効にするとシステムの設定にしたがって画面を回転する。"</string>
+    <string name="summary_sensor_rotation">"有効にするとシステムの設定にしたがって画面を回転する"</string>
 
     <!-- Wysie: About strings -->
     <string name="title_about">"情報"</string>
