@@ -811,6 +811,8 @@ public class ViewContactActivity extends Activity
                         StickyTabs.saveTab(this, getIntent());
                         return true;
                     }
+
+                //FIXME: I think this do same has mNumPhoneNumbers != 0 from Wysie need
                 } else if (mPrimaryPhoneUri != null) {
                     // There isn't anything selected, call the default number
                     final Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
@@ -818,6 +820,14 @@ public class ViewContactActivity extends Activity
                     startActivity(intent);
                     StickyTabs.saveTab(this, getIntent());
                     return true;
+                } else if (mNumPhoneNumbers != 0) {
+                    // There isn't anything selected; pick the correct number to dial.
+                    long freshContactId = getRefreshedContactId();
+
+                    if(!ContactsUtils.callOrSmsContact(freshContactId, this, false)) {
+                        signalError();
+                        return false;
+                    }
                 }
                 return false;
             }
