@@ -430,6 +430,8 @@
     <string name="title_digits_color_focused">"番号の色 (フォーカス)"</string>
     <string name="title_digits_color_unselected">"番号の色 (通常)"</string>
     <string name="title_choose_color">"色を選択"</string>
+    <string name="instructions_choose_color">"色を確定するために中央をタップ\n戻るボタンでキャンセル"</string>
+    <string name="entry_no_vm_handler">"なし (ボイスメール番号をダイヤル)"</string>
 
     <!-- Preferences: Call log -->
     <string name="title_cl_exact_time">"時刻表示"</string>
