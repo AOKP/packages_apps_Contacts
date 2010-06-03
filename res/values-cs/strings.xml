@@ -431,8 +431,6 @@
     <string name="title_digits_color_focused">Barva číslic (aktivní)</string>
     <string name="title_digits_color_unselected">Barva číslic (nevybrané)</string>
     <string name="title_choose_color">Zvolte barvu</string>
-    <string name="title_use_custom_color">Použít vlastní barvu číslic</string>
-    <string name="summaryon_custom_color">Použijte: #RRGGBB nebo #AARRGGBB (s #). Zadejte všechny tři stavy .</string>
     
     <!-- Preferences: Call log -->
     <string name="title_cl_exact_time">Přesný čas</string>

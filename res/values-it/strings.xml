@@ -430,8 +430,6 @@
     <string name="title_digits_color_focused">Colore numeri (selezionati)</string>
     <string name="title_digits_color_unselected">Colore numeri(non selezionati)</string>
     <string name="title_choose_color">Scegli un colore</string>
-    <string name="title_use_custom_color">Usa colori numeri personalizzati</string>
-    <string name="summaryon_custom_color">Formati supportati: #RRGGBB o #AARRGGBB. Scrivi anche il #.</string>
 
     <!-- Preferences: Call log -->
     <string name="title_cl_exact_time">Tempo effettivo</string>

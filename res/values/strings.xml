@@ -1212,8 +1212,8 @@
     <string name="title_digits_color_focused">Digits color (focused)</string>
     <string name="title_digits_color_unselected">Digits color (not selected)</string>
     <string name="title_choose_color">Choose a color</string>
-    <string name="title_use_custom_color">Use custom digits colors</string>
-    <string name="summaryon_custom_color">Supported formats: #RRGGBB or #AARRGGBB. Input the # as well.</string>
+    <string name="instructions_choose_color">Tap on center color to confirm.\nPress back to cancel.</string>
+    <string name="entry_no_vm_handler">None (Dial Voicemail Number)</string>
     
     <!-- Preferences: Call log -->
     <string name="title_cl_exact_time">Exact times</string>
@@ -1259,7 +1259,7 @@
     <string name="title_about_name">Mod Name</string>
     <string name="summary_about_name">WyContacts Eclair</string>
     <string name="title_about_version">Version</string>
-    <string name="summary_about_version">1.1</string>
+    <string name="summary_about_version">1.2</string>
     <string name="title_about_credits">Credits</string>
     <string name="summary_about_credits">ChainsDD, geesun, niuchl, rac2030 and the rest of XDA! :)</string>
     

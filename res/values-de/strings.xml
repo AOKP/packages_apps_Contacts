@@ -431,8 +431,6 @@
     <string name="title_digits_color_pressed">Gedrückt</string>
     <string name="title_digits_color_unselected">Normal</string>
     <string name="title_choose_color">Wähle eine Farbe</string>
-    <string name="title_use_custom_color">Nutze eigene Farben für Zahlen</string>
-    <string name="summaryon_custom_color">Unterstützte Formate: #RRGGBB oder #AARRGGBB (mit #).</string>
 
     <!-- Preferences: Call log -->
     <string name="title_cl_exact_time">Genaue Zeiten</string>

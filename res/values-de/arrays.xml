@@ -20,20 +20,6 @@
     <item>SMS/MMS</item>
     <item>Mailbox</item>
   </string-array>
-
-  <string-array name="digits_colors">
-    <item>Schwarz</item>
-    <item>Blau</item>
-    <item>Cyan</item>
-    <item>Dunkelgrau</item>
-    <item>Grau</item>
-    <item>Grün</item>
-    <item>Hellgrau</item>
-    <item>Magenta</item>
-    <item>Rot</item>
-    <item>Weiss</item>
-    <item>Gelb</item>
-  </string-array>
    
   <string-array name="view_contact_pic_sizes">
     <item>Klein (Standard)</item>

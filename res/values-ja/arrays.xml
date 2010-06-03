@@ -21,20 +21,6 @@
         <item>"SMS/MMS"</item>
         <item>"ボイスメール"</item>
     </string-array>
-
-    <string-array name="digits_colors">
-        <item>"黒"</item>
-        <item>"青"</item>
-        <item>"シアン"</item>
-        <item>"ダークグレー"</item>
-        <item>"灰"</item>
-        <item>"緑"</item>
-        <item>"ライトグレー"</item>
-        <item>"マゼンタ"</item>
-        <item>"赤"</item>
-        <item>"白"</item>
-        <item>"黄"</item>
-   </string-array>
    
     <string-array name="view_contact_pic_sizes">
         <item>"小 (デフォルト)"</item>

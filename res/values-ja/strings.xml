@@ -430,8 +430,6 @@
     <string name="title_digits_color_focused">"番号の色 (フォーカス)"</string>
     <string name="title_digits_color_unselected">"番号の色 (通常)"</string>
     <string name="title_choose_color">"色を選択"</string>
-    <string name="title_use_custom_color">"カスタム色を使う"</string>
-    <string name="summaryon_custom_color">"対応する書式: #RRGGBB や #AARRGGBB. #(シャープ)の入力も必要</string>
 
     <!-- Preferences: Call log -->
     <string name="title_cl_exact_time">"時刻表示"</string>
