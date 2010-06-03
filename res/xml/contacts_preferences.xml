@@ -59,45 +59,18 @@
         <PreferenceScreen
             android:key="dial_digits_color"
             android:title="@string/title_change_digits_color">  
-                <ListPreference
-                    android:key="pressed_digit_color"
+                <Preference
+                    android:key="pressed_digits_color"
                     android:title="@string/title_digits_color_pressed"
-                    android:dialogTitle="@string/title_choose_color"
-                    android:entries="@array/digits_colors"
-                    android:entryValues="@array/digits_colors_values"
                     android:defaultValue="-16777216" />
-                <ListPreference
-                    android:key="focused_digit_color"
+                <Preference
+                    android:key="focused_digits_color"
                     android:title="@string/title_digits_color_focused"
-                    android:dialogTitle="@string/title_choose_color"
-                    android:entries="@array/digits_colors"
-                    android:entryValues="@array/digits_colors_values"
                     android:defaultValue="-1" />
-                <ListPreference
-                    android:key="unselected_digit_color"
+                <Preference
+                    android:key="unselected_digits_color"
                     android:title="@string/title_digits_color_unselected"
-                    android:dialogTitle="@string/title_choose_color"
-                    android:entries="@array/digits_colors"
-                    android:entryValues="@array/digits_colors_values"
                     android:defaultValue="-1" />
-                <CheckBoxPreference
-                    android:key="dial_digit_use_custom_color"
-                    android:title="@string/title_use_custom_color"
-                    android:defaultValue="false"
-                    android:summary="@string/summaryon_custom_color"
-                    android:disableDependentsState="false" />
-                <EditTextPreference
-                    android:key="pressed_digit_color_custom"
-                    android:title="@string/title_digits_color_pressed"
-                    android:dependency="dial_digit_use_custom_color" />
-                <EditTextPreference
-                    android:key="focused_digit_color_custom"
-                    android:title="@string/title_digits_color_focused"
-                    android:dependency="dial_digit_use_custom_color" />
-                <EditTextPreference
-                    android:key="unselected_digit_color_custom"
-                    android:title="@string/title_digits_color_unselected"
-                    android:dependency="dial_digit_use_custom_color" />
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/recentCallsIconLabel">

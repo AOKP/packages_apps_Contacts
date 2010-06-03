@@ -22,6 +22,7 @@ import android.preference.Preference;
 import android.preference.ListPreference;
 import android.preference.CheckBoxPreference;
 import android.preference.PreferenceActivity;
+import 	android.preference.PreferenceScreen;
 import android.content.ComponentName;
 import android.content.pm.PackageManager;
 import android.content.Intent;
@@ -31,14 +32,19 @@ import android.content.pm.ResolveInfo;
 
 import android.util.Log;
 
-public class ContactsPreferences extends PreferenceActivity implements Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener {
+public class ContactsPreferences extends PreferenceActivity implements Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "ContactsPreferences";
 
+    private static final String VM_BUTTON = "vm_button";
+    private static final String VM_HANDLER = "vm_handler";
+    private static final String PRESSED_DIGIT_COLOR = "pressed_digits_color";
+    private static final String FOCUSED_DIGIT_COLOR = "focused_digits_color";
+    private static final String UNSELECTED_DIGIT_COLOR = "unselected_digits_color";
+
     private ListPreference mVMButton;
     private ListPreference mVMHandler;
-    private ListPreference colorFocused, colorPressed, colorUnselected;
-    private CheckBoxPreference useCustomColor;
+    private Preference colorFocused, colorPressed, colorUnselected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,51 +53,19 @@ public class ContactsPreferences extends PreferenceActivity implements Preferenc
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.contacts_preferences);
 
-        mVMButton = (ListPreference) findPreference("vm_button");
-        mVMHandler = (ListPreference) findPreference("vm_handler");       
-        colorFocused = (ListPreference) findPreference("focused_digit_color");
-        colorPressed = (ListPreference) findPreference("pressed_digit_color");
-        colorUnselected = (ListPreference) findPreference("unselected_digit_color");
-        useCustomColor = (CheckBoxPreference) findPreference("dial_digit_use_custom_color");
+        mVMButton = (ListPreference) findPreference(VM_BUTTON);
+        mVMHandler = (ListPreference) findPreference(VM_HANDLER);
+        colorPressed = (Preference) findPreference(PRESSED_DIGIT_COLOR);
+        colorFocused = (Preference) findPreference(FOCUSED_DIGIT_COLOR);
+        colorUnselected = (Preference) findPreference(UNSELECTED_DIGIT_COLOR);
 
         mVMButton.setOnPreferenceChangeListener(this);
         mVMHandler.setOnPreferenceChangeListener(this);
-        colorFocused.setOnPreferenceChangeListener(this);
-        colorPressed.setOnPreferenceChangeListener(this);
-        colorUnselected.setOnPreferenceChangeListener(this);
-        useCustomColor.setOnPreferenceClickListener(this);
-
         loadHandlers();
 
         updatePrefs(mVMButton, mVMButton.getValue());
         updatePrefs(mVMHandler, mVMHandler.getValue());
-        updatePrefs(colorFocused, colorFocused.getValue());
-        updatePrefs(colorPressed, colorPressed.getValue());
-        updatePrefs(colorUnselected, colorUnselected.getValue());        
-        updatePrefs(useCustomColor);
-    }
-    
-    public boolean onPreferenceClick(Preference preference) {
-        updatePrefs(preference);
-        
-        return true;
-    }
-    
-    private void updatePrefs(Preference preference) {
-        if (preference.getKey().equals("dial_digit_use_custom_color")) {
-            CheckBoxPreference p = (CheckBoxPreference) findPreference(preference.getKey());
-            if (p.isChecked()) {
-                colorFocused.setEnabled(false);
-                colorPressed.setEnabled(false);
-                colorUnselected.setEnabled(false);
-            }
-            else {
-                colorFocused.setEnabled(true);
-                colorPressed.setEnabled(true);
-                colorUnselected.setEnabled(true);
-            }            
-        }
-    }
+    }    
     
     public boolean onPreferenceChange (Preference preference, Object newValue) {
         updatePrefs(preference, newValue);
@@ -104,14 +78,8 @@ public class ContactsPreferences extends PreferenceActivity implements Preferenc
         try {       
             p.setSummary(p.getEntries()[p.findIndexOfValue((String) newValue)]);
         } catch (ArrayIndexOutOfBoundsException e) {
-            if (p.getKey().equals("vm_button") || p.getKey().equals("vm_handler")) {
+            if (p.getKey().equals(VM_BUTTON) || p.getKey().equals(VM_HANDLER)) {
                 p.setValue("0");
-            }
-            else if (p.getKey().equals("focused_digit_color") || p.getKey().equals("pressed_digit_color")) {
-                p.setValue("-16777216");
-            }
-            else if (p.getKey().equals("unselected_digit_color")) {
-                p.setValue("-1");
             }
             updatePrefs(p, p.getValue());
         }
@@ -125,7 +93,7 @@ public class ContactsPreferences extends PreferenceActivity implements Preferenc
         List<String> entries = new ArrayList<String>();
         List<String> entryValues = new ArrayList<String>();
         
-        entries.add("None (Dial Voicemail Number)");
+        entries.add(getResources().getString(R.string.entry_no_vm_handler));
         entryValues.add("0");
 
         for (String s : vmHandlers) {
@@ -147,4 +115,74 @@ public class ContactsPreferences extends PreferenceActivity implements Preferenc
         String[] entryValuesArray = entryValues.toArray(new String[0]);
         mVMHandler.setEntryValues(entryValuesArray);
     }
+    
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == colorPressed) {
+            ColorPickerDialog cp = new ColorPickerDialog(this,
+                mColorPressedListener,
+                readColorPressed());
+            cp.show();
+            return true;
+        }
+        else if (preference == colorFocused) {
+            ColorPickerDialog cp = new ColorPickerDialog(this,
+                mColorFocusedListener,
+                readColorFocused());
+            cp.show();
+            return true;           
+        }
+        else if (preference == colorUnselected) {
+            ColorPickerDialog cp = new ColorPickerDialog(this,
+                mColorUnselectedListener,
+                readColorUnselected());
+            cp.show();
+            return true;
+        }
+        
+        return false;
+    }
+    
+    ColorPickerDialog.OnColorChangedListener mColorPressedListener = 
+        new ColorPickerDialog.OnColorChangedListener() {
+            public void colorChanged(int color) {           
+                SharedPreferences.Editor editor = colorPressed.getEditor();
+				editor.putInt(PRESSED_DIGIT_COLOR, color);
+				editor.commit();
+            }
+    };
+    
+    private int readColorPressed() {
+        SharedPreferences mPrefs = colorPressed.getSharedPreferences();
+		return mPrefs.getInt(PRESSED_DIGIT_COLOR, -16777216);
+    }
+    
+    ColorPickerDialog.OnColorChangedListener mColorFocusedListener = 
+        new ColorPickerDialog.OnColorChangedListener() {
+            public void colorChanged(int color) {
+                SharedPreferences.Editor editor = colorPressed.getEditor();
+				editor.putInt(FOCUSED_DIGIT_COLOR, color);
+				editor.commit();
+            }
+    };
+    
+    private int readColorFocused() {
+        SharedPreferences mPrefs = colorPressed.getSharedPreferences();
+		return mPrefs.getInt(FOCUSED_DIGIT_COLOR, -1);
+    }
+    
+    ColorPickerDialog.OnColorChangedListener mColorUnselectedListener = 
+        new ColorPickerDialog.OnColorChangedListener() {
+            public void colorChanged(int color) {
+                SharedPreferences.Editor editor = colorPressed.getEditor();
+				editor.putInt(UNSELECTED_DIGIT_COLOR, color);
+				editor.commit();
+            }
+    };
+    
+    private int readColorUnselected() {
+        SharedPreferences mPrefs = colorPressed.getSharedPreferences();
+		return mPrefs.getInt(UNSELECTED_DIGIT_COLOR, -1);
+    }    
+    
 }
