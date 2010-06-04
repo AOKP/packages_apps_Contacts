@@ -431,6 +431,8 @@
     <string name="title_digits_color_pressed">Gedrückt</string>
     <string name="title_digits_color_unselected">Normal</string>
     <string name="title_choose_color">Wähle eine Farbe</string>
+    <string name="instructions_choose_color">Zum Bestätigen auf Mitte der Farbe tippen.\nZum Abbrechen Zurück drücken.</string>
+    <string name="entry_no_vm_handler">Kein (Wähle Mailbox-Number)</string>
 
     <!-- Preferences: Call log -->
     <string name="title_cl_exact_time">Genaue Zeiten</string>
