@@ -73,6 +73,7 @@ import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 
 import java.lang.ref.WeakReference;
@@ -262,7 +263,7 @@ public class RecentCallsListActivity extends ListActivity
     }
 
     /** Adapter class to fill in data for the Call Log */
-    final class RecentCallsAdapter extends ResourceCursorAdapter
+    final class RecentCallsAdapter extends GroupingListAdapter
             implements Runnable, ViewTreeObserver.OnPreDrawListener, View.OnClickListener, OnScrollListener {
         HashMap<String,ContactInfo> mContactInfo;
         private final LinkedList<CallerInfoQuery> mRequests;

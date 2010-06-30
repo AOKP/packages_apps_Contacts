@@ -60,6 +60,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.net.Uri.Builder;
 import android.os.Bundle;
+import android.os.Message;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.os.RemoteException;
@@ -111,8 +112,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AlphabetIndexer;
 import android.widget.Button;
-import android.widget.CursorAdapter;
+import android.widget.ResourceCursorAdapter;
 import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -122,10 +124,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AbsListView.OnScrollListener;
 
+import java.lang.ref.SoftReference;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -366,6 +372,7 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
     static final int SUMMARY_SNIPPET_MIMETYPE_COLUMN_INDEX = 11;
     static final int SUMMARY_SNIPPET_DATA1_COLUMN_INDEX = 12;
     static final int SUMMARY_SNIPPET_DATA4_COLUMN_INDEX = 13;
+
 
     static final String[] PHONES_PROJECTION = new String[] {
         Phone._ID, //0
@@ -2865,11 +2872,34 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
     }
 
     final static class ContactListItemCache {
+        public View header;
+        public TextView headerText;
+        public View divider;
+        public TextView nameView;
+        public View callView;
+        public ImageView callButton;
         public CharArrayBuffer nameBuffer = new CharArrayBuffer(128);
+        public TextView labelView;
+        public CharArrayBuffer labelBuffer = new CharArrayBuffer(128);
+        public TextView dataView;
         public CharArrayBuffer dataBuffer = new CharArrayBuffer(128);
+        public ImageView presenceView;
+        public QuickContactBadge photoView;
+        public ImageView nonQuickContactPhotoView;
         public CharArrayBuffer highlightedTextBuffer = new CharArrayBuffer(128);
         public TextWithHighlighting textWithHighlighting;
         public CharArrayBuffer phoneticNameBuffer = new CharArrayBuffer(128);
+    }
+
+    final static class PhotoInfo {
+        public int position;
+        public long photoId;
+
+        public PhotoInfo(int position, long photoId) {
+            this.position = position;
+            this.photoId = photoId;
+        }
+        public QuickContactBadge photoView;
     }
 
     final static class PinnedHeaderCache {
@@ -2878,21 +2908,26 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
         public Drawable background;
     }
 
-    private final class ContactItemListAdapter extends CursorAdapter
+    private final class ContactItemListAdapter extends ResourceCursorAdapter
             implements SectionIndexer, OnScrollListener, PinnedHeaderListView.PinnedHeaderAdapter {
         private SectionIndexer mIndexer;
+        private String mAlphabet;
         private boolean mLoading = true;
         private CharSequence mUnknownNameText;
         private boolean mDisplayPhotos = false;
         private boolean mDisplayCallButton = false;
         private boolean mDisplayAdditionalData = true;
+        private HashMap<Long, SoftReference<Bitmap>> mBitmapCache = null;
+        private HashSet<ImageView> mItemsMissingImages = null;
         private int mFrequentSeparatorPos = ListView.INVALID_POSITION;
         private boolean mDisplaySectionHeaders = true;
         private Cursor mSuggestionsCursor;
         private int mSuggestionsCursorCount;
+        private static final int FETCH_IMAGE_MSG = 1;
+
 
         public ContactItemListAdapter(Context context) {
-            super(context, null, false);
+            super(context, R.layout.contacts_list_item, null, false);
 
             mUnknownNameText = context.getText(android.R.string.unknownName);
             switch (mMode) {
@@ -3009,7 +3044,7 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
             /* if (Locale.getDefault().getLanguage().equals(Locale.JAPAN.getLanguage())) {
                 return new JapaneseContactListIndexer(cursor, SORT_STRING_INDEX);
             } else { */
-                return new AlphabetIndexer(cursor, SUMMARY_NAME_COLUMN_INDEX, mAlphabet);
+                return new AlphabetIndexer(cursor, SUMMARY_DISPLAY_NAME_PRIMARY_COLUMN_INDEX, mAlphabet);
             /* } */
         }
 
@@ -3517,6 +3552,7 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
             if (mIndexer == null) {
                 mIndexer = getNewIndexer(cursor);
             } else {
+                /*
                 if (Locale.getDefault().equals(Locale.JAPAN)) {
                     if (mIndexer instanceof JapaneseContactListIndexer) {
                         ((JapaneseContactListIndexer)mIndexer).setCursor(cursor);
@@ -3524,12 +3560,13 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
                         mIndexer = getNewIndexer(cursor);
                     }
                 } else {
+                */
                     if (mIndexer instanceof AlphabetIndexer) {
                         ((AlphabetIndexer)mIndexer).setCursor(cursor);
                     } else {
                         mIndexer = getNewIndexer(cursor);
                     }
-                }
+                //}
             }
 
             Bundle bundle = cursor.getExtras();

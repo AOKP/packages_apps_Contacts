@@ -98,6 +98,9 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
     /** Stream type used to play the DTMF tones off call, and mapped to the volume control keys */
     private static final int DIAL_TONE_STREAM_TYPE = AudioManager.STREAM_MUSIC;
 
+    /** Play the vibrate pattern only once. */
+    private static final int VIBRATE_NO_REPEAT = -1;
+
     private EditText mDigits;
     private View mDelete;
     private MenuItem mAddToContactMenuItem;
@@ -128,7 +131,7 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
     private boolean mDTMFToneEnabled;
 
     // Vibration (haptic feedback) for dialer key presses.
-    private HapticFeedback mHaptic = new HapticFeedback();
+    private Vibrator mVibrator;
     private boolean mVibrateOn;
     private long[] mVibratePattern;
     
@@ -272,12 +275,6 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
 
         if (!resolveIntent() && icicle != null) {
             super.onRestoreInstanceState(icicle);
-        }
-
-        try {
-            mHaptic.init(this, r.getBoolean(R.bool.config_enable_dialer_key_vibration));
-        } catch (Resources.NotFoundException nfe) {
-             Log.e(TAG, "Vibrate control bool missing.", nfe);
         }
 
     }
@@ -454,9 +451,6 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
         mDTMFToneEnabled = Settings.System.getInt(getContentResolver(),
                 Settings.System.DTMF_TONE_WHEN_DIALING, 1) == 1;
 
-        // Retrieve the haptic feedback setting.
-        mHaptic.checkSystemSetting();
-
         // if the mToneGenerator creation fails, just continue without it.  It is
         // a local audio signal, and is not as important as the dtmf tone itself.
         synchronized(mToneGeneratorLock) {
@@ -581,13 +575,12 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
         }
 
         CharSequence digits = mDigits.getText();
-        if ((isDigitsEmpty() || !TextUtils.isGraphic(digits)) && !prefs.getBoolean("dial_disable_num_check", false)) {
+        if ((isDigitsEmpty() || !TextUtils.isGraphic(digits)) && !ePrefs.getBoolean("dial_disable_num_check", false)) {
             mAddToContactMenuItem.setVisible(false);
             m2SecPauseMenuItem.setVisible(false);
             mWaitMenuItem.setVisible(false);
             mSmsMenuItem.setVisible(false);
         } else {
-            CharSequence digits = mDigits.getText();
 
             // Put the current digits string into an intent
             /*
@@ -806,11 +799,13 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
                 }
                 break;
             }
+            /*
             case R.id.voicemailButton: {
                 callVoicemail();
                 vibrate();
                 return;
             }
+            */
             case R.id.digits: {
                 if (!isDigitsEmpty()) {
                     mDigits.setCursorVisible(true);
@@ -1244,7 +1239,10 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
         if (!mVibrateOn || !prefVibrateOn) {
             return;
         }
-        mHaptic.vibrate(mVibratePattern, VIBRATE_NO_REPEAT);
+        if (mVibrator == null) {
+            mVibrator = new Vibrator();
+        }
+        mVibrator.vibrate(mVibratePattern, VIBRATE_NO_REPEAT);
     }
 
     /**

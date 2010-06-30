@@ -58,7 +58,7 @@ public abstract class GroupingListAdapter extends BaseAdapter {
         private int listPosition = -1;
     }
 
-    private Context mContext;
+    protected Context mContext;
     private Cursor mCursor;
 
     /**
