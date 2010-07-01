@@ -22,7 +22,7 @@
         android:layout_marginTop="5dip"
         android:layout_marginBottom="5dip"
         android:layout_toLeftOf="@id/call_icon"
-        android:layout_marginLeft="11dip"
+        android:layout_marginLeft="2dip"
         android:background="@drawable/divider_vertical_dark"
     />
 
@@ -30,7 +30,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@id/call_icon"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_marginRight="9dip"
         android:layout_marginLeft="4dip"
     />
 
@@ -40,7 +42,8 @@
         android:layout_toLeftOf="@id/divider"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="8dip"
-        android:layout_marginLeft="10dip"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_marginRight="5dip"
 
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:singleLine="true"
@@ -49,11 +52,12 @@
     <TextView android:id="@+id/label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_toRightOf="@id/photo"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="36dip"
-        android:layout_marginRight="5dip"
-        android:layout_alignBaseline="@id/date"
+        android:layout_marginBottom="8dip"
+        android:layout_marginTop="-10dip"
+        android:layout_marginLeft="8dip"
+        android:layout_alignWithParentIfMissing="true"
 
         android:singleLine="true"
         android:ellipsize="marquee"
@@ -94,7 +98,7 @@
         android:layout_toLeftOf="@id/divider"
         android:layout_above="@id/date"
         android:layout_alignWithParentIfMissing="true"
-        android:layout_marginLeft="36dip"
+        android:layout_marginLeft="54dip"
         android:layout_marginBottom="-10dip"
 
         android:textAppearance="?android:attr/textAppearanceLarge"
