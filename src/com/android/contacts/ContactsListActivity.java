@@ -2923,11 +2923,15 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
         private boolean mDisplaySectionHeaders = true;
         private Cursor mSuggestionsCursor;
         private int mSuggestionsCursorCount;
+        private ImageFetchHandler mHandler;
         private static final int FETCH_IMAGE_MSG = 1;
 
 
         public ContactItemListAdapter(Context context) {
             super(context, R.layout.contacts_list_item, null, false);
+
+            mHandler = new ImageFetchHandler();
+            mAlphabet = context.getString(com.android.internal.R.string.fast_scroll_alphabet);
 
             mUnknownNameText = context.getText(android.R.string.unknownName);
             switch (mMode) {
@@ -3044,7 +3048,7 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
             /* if (Locale.getDefault().getLanguage().equals(Locale.JAPAN.getLanguage())) {
                 return new JapaneseContactListIndexer(cursor, SORT_STRING_INDEX);
             } else { */
-                return new AlphabetIndexer(cursor, SUMMARY_DISPLAY_NAME_PRIMARY_COLUMN_INDEX, mAlphabet);
+                return new AlphabetIndexer(cursor, getSummaryDisplayNameColumnIndex(), mAlphabet);
             /* } */
         }
 
@@ -3568,7 +3572,7 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
                     }
                 //}
             }
-
+            /*
             Bundle bundle = cursor.getExtras();
             if (bundle.containsKey(ContactCounts.EXTRA_ADDRESS_BOOK_INDEX_TITLES)) {
                 String sections[] =
@@ -3578,6 +3582,7 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
             } else {
                 mIndexer = null;
             }
+            */
         }
 
         /**
