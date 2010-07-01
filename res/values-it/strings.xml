@@ -473,10 +473,10 @@
     <!-- Wysie: About strings -->
     <string name="title_about">Informazioni</string>
     <string name="title_about_name">Nome della Mod</string>
-    <string name="summary_about_name">WyContacts Eclair</string>
+    <string name="summary_about_name">WyContacts Froyo</string>
     <string name="title_about_version">Versione</string>
     <string name="summary_about_version">1.1</string>
     <string name="title_about_credits">Crediti</string>
-    <string name="summary_about_credits">ChainsDD, geesun, niuchl, rac2030 e il resto di XDA! :)</string>
+    <string name="summary_about_credits">ChainsDD, geesun, niuchl, rac2030, sileht e il resto di XDA! :)</string>
 
 </resources>

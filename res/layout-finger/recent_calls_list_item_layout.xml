@@ -78,14 +78,12 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         style="@*android:style/Widget.QuickContactBadge.WindowLarge" />
-    />
     
     <ImageView android:id="@+id/noQuickContactPhoto"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"            
         style="@*android:style/Widget.QuickContactBadge.WindowMedium"
         android:background="@null" />
-    />
 
 
     <TextView android:id="@+id/line1"
