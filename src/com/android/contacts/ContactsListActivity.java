@@ -1341,7 +1341,8 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
             }
             //Wysie
             case R.id.menu_preferences: {
-                startActivity(new Intent(this, ContactsPreferences.class));
+                //Use full classpath due tu duplicate classname
+                startActivity(new Intent(this, com.android.contacts.ContactsPreferences.class));
                 return true;
             }
         }
