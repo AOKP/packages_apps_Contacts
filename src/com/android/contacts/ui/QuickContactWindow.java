@@ -173,7 +173,6 @@ public class QuickContactWindow implements Window.Callback,
     private int mRequestedY;
 
     private boolean mHasValidSocial = false;
-    private boolean mHasData = false;
     private boolean mMakePrimary = false;
 
     private ImageView mArrowUp;
@@ -609,7 +608,7 @@ public class QuickContactWindow implements Window.Callback,
      * {@link #showInternal()} when all data items are present.
      */
     private void considerShowing() {
-        if (mHasData && !mShowing && !mDismissed) {
+        if (!mShowing && !mDismissed) {
             if (mMode == QuickContact.MODE_MEDIUM && !mHasValidSocial) {
                 // Missing valid social, swap medium for small header
                 mHeader.setVisibility(View.GONE);
@@ -634,7 +633,6 @@ public class QuickContactWindow implements Window.Callback,
         }
 
         handleData(cursor);
-        mHasData = true;
 
         if (!cursor.isClosed()) {
             cursor.close();
@@ -981,8 +979,8 @@ public class QuickContactWindow implements Window.Callback,
         /** {@inheritDoc} */
         public Intent getIntent() {
             final Intent intent = new Intent(Intent.ACTION_VIEW, mLookupUri);
-	    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-	    return intent;
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            return intent;
         }
 
         /** {@inheritDoc} */
@@ -1279,9 +1277,12 @@ public class QuickContactWindow implements Window.Callback,
         // All the mime-types to add.
         final Set<String> containedTypes = new HashSet<String>(mActions.keySet());
 
+        boolean hasData = false;
+
         // First, add PRECEDING_MIMETYPES, which are most common.
         for (String mimeType : PRECEDING_MIMETYPES) {
             if (containedTypes.contains(mimeType)) {
+                hasData = true;
                 mTrack.addView(inflateAction(mimeType), index++);
                 containedTypes.remove(mimeType);
             }
@@ -1293,6 +1294,7 @@ public class QuickContactWindow implements Window.Callback,
         // Then, add FOLLOWING_MIMETYPES, which are least common.
         for (String mimeType : FOLLOWING_MIMETYPES) {
             if (containedTypes.contains(mimeType)) {
+                hasData = true;
                 mTrack.addView(inflateAction(mimeType), index++);
                 containedTypes.remove(mimeType);
             }
@@ -1301,9 +1303,16 @@ public class QuickContactWindow implements Window.Callback,
         // Go back to just after PRECEDING_MIMETYPES, and append the rest.
         index = indexAfterPreceding;
         final String[] remainingTypes = containedTypes.toArray(new String[containedTypes.size()]);
+        if (remainingTypes.length > 0) hasData = true;
         Arrays.sort(remainingTypes);
         for (String mimeType : remainingTypes) {
             mTrack.addView(inflateAction(mimeType), index++);
+        }
+
+        // When there is no data to display, add a TextView to show the user there's no data
+        if (!hasData) {
+            View view = mInflater.inflate(R.layout.quickcontact_item_nodata, mTrack, false);
+            mTrack.addView(view, index++);
         }
     }
 
@@ -1337,6 +1346,10 @@ public class QuickContactWindow implements Window.Callback,
      * possible recycling during another pass.
      */
     private synchronized void releaseView(View view) {
+        // Only add CheckableImageViews
+        if (!(view instanceof CheckableImageView)) {
+            return;
+        }
         mActionPool.offer(view);
         mActionRecycled++;
     }
