@@ -82,25 +82,26 @@ public class DialtactsActivity extends TabActivity implements TabHost.OnTabChang
         mTabHost.setOnTabChangedListener(this);
 
         String componentName = intent.getComponent().getClassName();
+
 	/* If intent is to view the Contacts List, prevent Dialer tab
 	 * from being set as current tab.
-	 */
+	 *
         if (!getClass().getName().equals(componentName) &&
 	    !FAVORITES_ENTRY_COMPONENT.equals(componentName)) {
             mTabHost.setAvoidFirstTabLoad(true);
-	}
+	}*/
 
         // Setup the tabs
         setupDialerTab();
 
 	/* If intent is to view the Contacts List, restore the state of mTabhost so
 	 * that the rest of the application semantics remains unchanged.
-	 */
+	 *
         if (!getClass().getName().equals(componentName) &&
 	    !FAVORITES_ENTRY_COMPONENT.equals(componentName)) {
 	    mTabHost.setCurrentTabToZero();
 	    mTabHost.setAvoidFirstTabLoad(false);
-	}
+	} */
 
         setupCallLogTab();
         setupContactsTab();
