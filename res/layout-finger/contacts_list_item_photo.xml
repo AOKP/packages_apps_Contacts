@@ -83,7 +83,7 @@
         <android.widget.QuickContactBadge android:id="@+id/photo"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            style="@*android:style/Widget.QuickContactBadge.WindowMedium" />
+            style="@*android:style/Widget.QuickContactBadge.WindowMedium"
         />
         
         <!-- Wysie: Removed the following
@@ -93,7 +93,6 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"            
             style="@*android:style/Widget.QuickContactBadge.WindowMedium"
-            android:background="@null" />
         />
 
         <TextView android:id="@+id/label"

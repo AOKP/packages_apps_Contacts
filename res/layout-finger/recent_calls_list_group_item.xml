@@ -17,7 +17,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
-    android:paddingLeft="7dip"
+    android:paddingLeft="4dip"
 >
 
     <com.android.contacts.ui.widget.DontPressWithParentImageView android:id="@+id/call_icon"
@@ -38,9 +38,20 @@
         android:layout_marginTop="5dip"
         android:layout_marginBottom="5dip"
         android:layout_toLeftOf="@id/call_icon"
-        android:layout_marginLeft="11dip"
+        android:layout_marginLeft="2dip"
         android:background="@drawable/divider_vertical_dark"
     />
+
+    <ImageView android:id="@+id/call_type_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@id/call_icon"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_marginRight="9dip"
+        android:layout_marginLeft="4dip"
+    />
+
 
     <TextView android:id="@+id/date"
         android:layout_width="wrap_content"
@@ -48,7 +59,8 @@
         android:layout_toLeftOf="@id/divider"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="8dip"
-        android:layout_marginLeft="10dip"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_marginRight="5dip"
 
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:singleLine="true"
@@ -57,11 +69,12 @@
     <TextView android:id="@+id/label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_toRightOf="@id/photo"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="36dip"
-        android:layout_marginRight="5dip"
-        android:layout_alignBaseline="@id/date"
+        android:layout_marginBottom="8dip"
+        android:layout_marginTop="-10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_alignWithParentIfMissing="true"
 
         android:singleLine="true"
         android:ellipsize="marquee"
@@ -85,27 +98,53 @@
     <TextView android:id="@+id/groupSize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/call_type_icon"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@id/divider"
-        android:layout_above="@id/date"
+        android:layout_marginTop="8dip"
         android:layout_alignWithParentIfMissing="true"
-        android:layout_marginBottom="-10dip"
+        android:layout_marginRight="5dip"
+
 
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:singleLine="true"
+    />
+
+    <android.widget.QuickContactBadge android:id="@+id/photo"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        style="@*android:style/Widget.QuickContactBadge.WindowLarge" />
+    
+    <ImageView android:id="@+id/noQuickContactPhoto"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"            
+        style="@*android:style/Widget.QuickContactBadge.WindowMedium"
+    />
+
+    <ImageView
+        android:id="@+id/groupIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/photo"
+        android:layout_above="@id/date"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_marginBottom="-10dip"
+        android:layout_marginLeft="2dip"
+
+        android:layout_centerVertical="true"
+        android:src="@*android:drawable/expander_ic_minimized"
         android:gravity="center_vertical"
     />
 
     <TextView android:id="@+id/line1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/groupSize"
+        android:layout_toRightOf="@id/groupIndicator"
         android:layout_above="@id/date"
         android:layout_alignWithParentIfMissing="true"
-        android:layout_marginLeft="36dip"
         android:layout_marginBottom="-10dip"
+        android:layout_marginLeft="2dip"
 
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:singleLine="true"
@@ -113,13 +152,5 @@
         android:gravity="center_vertical"
     />
 
-    <ImageView
-        android:id="@+id/groupIndicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:src="@*android:drawable/expander_ic_minimized"
-        android:gravity="center_vertical"
-    />
+
 </RelativeLayout>
