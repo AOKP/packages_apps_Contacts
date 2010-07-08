@@ -3565,15 +3565,16 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
                         mIndexer = getNewIndexer(cursor);
                     }
                 } else {
-                */
+                // This code leads to acore crash when searching a contact and clearing the query quickly.
+                // Things seem to work without it, so I'm reverting to the original method for froyo
                     if (mIndexer instanceof AlphabetIndexer) {
                         ((AlphabetIndexer)mIndexer).setCursor(cursor);
                     } else {
                         mIndexer = getNewIndexer(cursor);
                     }
-                //}
+                }
             }
-            /*
+            */
             Bundle bundle = cursor.getExtras();
             if (bundle.containsKey(ContactCounts.EXTRA_ADDRESS_BOOK_INDEX_TITLES)) {
                 String sections[] =
@@ -3583,7 +3584,7 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
             } else {
                 mIndexer = null;
             }
-            */
+            
         }
 
         /**
