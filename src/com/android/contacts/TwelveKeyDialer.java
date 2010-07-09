@@ -699,7 +699,6 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
     }
 
     private void keyPressed(int keyCode) {
-    	Log.i("MIKE", "keyPressed called - about to call vibrate()");
         vibrate();
         KeyEvent event = new KeyEvent(KeyEvent.ACTION_DOWN, keyCode);
         mDigits.onKeyDown(keyCode, event);
