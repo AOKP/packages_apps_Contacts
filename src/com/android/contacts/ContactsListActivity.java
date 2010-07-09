@@ -3554,6 +3554,11 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
         }
 
         private void updateIndexer(Cursor cursor) {
+            if (cursor == null) {
+                mIndexer = null;
+                return;
+            }
+
             if (mIndexer == null) {
                 mIndexer = getNewIndexer(cursor);
             } else {
