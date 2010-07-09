@@ -55,6 +55,7 @@
         <CheckBoxPreference
             android:key="dial_enable_haptic"
             android:title="@string/title_enable_haptic_feedback"
+            android:summary="@string/summary_enable_haptic_feedback"
             android:defaultValue="true" />
         <PreferenceScreen
             android:key="dial_digits_color"

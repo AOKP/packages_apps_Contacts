@@ -1207,6 +1207,7 @@
     <string name="summaryon_disable_num_check">Left action button (LAB) and menu will always be enabled</string>
     <string name="summaryoff_disable_num_check">LAB and menu will be enabled only if at least one number is entered (except voicemail)</string>
     <string name="title_enable_haptic_feedback">Enable haptic feedback</string>
+    <string name="summary_enable_haptic_feedback">Uses keypad tap pattern - see CyanogenMod settings to adjust</string>
     <string name="title_change_digits_color">Change digits color</string>
     <string name="title_digits_color_pressed">Digits color (pressed)</string>
     <string name="title_digits_color_focused">Digits color (focused)</string>
