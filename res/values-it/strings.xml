@@ -425,6 +425,7 @@
     <string name="summaryon_disable_num_check">Il pulsante azione sinistro(LAB) e il menu verranno abilitati</string>
     <string name="summaryoff_disable_num_check">LAB e menu attivi solo se l\'ultimo num è stato digitato (tranne voicemail)</string>
     <string name="title_enable_haptic_feedback">Abilita feedback aptico</string>
+    <string name="summary_enable_haptic_feedback">Usa la sequenza keypad - vai a CyanogenMod settings per la configurazione</string>
     <string name="title_change_digits_color">Cambia colore numeri</string>
     <string name="title_digits_color_pressed">Colore numeri (premuti)</string>
     <string name="title_digits_color_focused">Colore numeri (selezionati)</string>
