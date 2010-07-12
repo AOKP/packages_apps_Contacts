@@ -389,4 +389,97 @@
     <string name="upgrade_out_of_memory_retry" msgid="8431289830472724609">"重新尝试升级"</string>
     <string name="search_results_for" msgid="8705490885073188513">"“<xliff:g id="QUERY">%s</xliff:g>”的搜索结果"</string>
     <string name="search_results_searching" msgid="7755623475227227314">"正在搜索..."</string>
+
+    <!-- Wysie: Menu strings -->
+	<string name="menu_preferences">设定</string>
+	
+	<!-- Wysie: Dialer strings -->
+	<string name="dialer_menu_sms">短信/彩信</string>
+	
+    <!-- Wysie: Call log strings -->
+	<string name="recent_calls_clear_call_log">清除通话记录</string>
+    <string name="recent_calls_clear_what">清除哪些通话记录？</string>
+    <string name="recent_calls_clear_all">全部</string>
+    <string name="recent_calls_clear_incoming">来电</string>
+    <string name="recent_calls_clear_outgoing">去电</string>
+    <string name="recent_calls_clear_missed">未接来电</string>
+    <string name="alert_clear_call_log_title">清除通话记录</string>
+    <string name="alert_clear_call_log_message">确认清除所有通话记录？</string>
+    <string name="alert_clear_cl_all_incoming">确认清除所有来电通话记录？</string>
+    <string name="alert_clear_cl_all_outgoing">确认清除所有去电通话记录？</string>
+    <string name="alert_clear_cl_all_missed">确认清除所有未接来电通话记录？</string>
+
+    <!-- Wysie: Favourites strings -->
+    <string name="fav_clear_freq">清除常用联系人</string>
+    <string name="alert_clear_freq_called_msg">确认清除所有常用联系人？</string>
+
+    <!-- Wysie: Preferences strings -->
+    
+    <!-- Preferences: Dialer -->
+    <string name="title_last_dialled">按拨号按钮时重拨</string>
+    <string name="summary_last_dialled">未输入电话号码按拨号按钮时将重播最后一个去电电话号码</string>
+    <string name="title_return_to_dialer">通话结束后返回拨号面板</string>
+    <string name="title_vm_button">左按钮(LAB)</string>
+    <string name="title_vm_handler">语音邮箱设定</string>
+    <string name="title_use_1_for_reg_vm">1为默认语音邮箱</string>
+    <string name="summaryon_use_1_for_reg_vm">按键1将被设定为默认语音邮箱</string>
+    <string name="summaryoff_use_1_for_reg_vm">按键1将根据语音邮箱设定而变化</string>
+    <string name="title_disable_num_check">禁止号码检测</string>
+    <string name="summaryon_disable_num_check">左按钮(LAB)及菜单总是有效</string>
+    <string name="summaryoff_disable_num_check">左按钮(LAB)及菜单仅在至少输入一个号码后有效(除语音邮箱外)</string>
+    <string name="title_enable_haptic_feedback">开启震动反馈</string>
+    <string name="summary_enable_haptic_feedback">轻击拨号键盘有震动反馈 - 在CyanogenMod设定中调节</string>
+    <string name="title_change_digits_color">更改数字颜色</string>
+    <string name="title_digits_color_pressed">数字颜色(点击时)</string>
+    <string name="title_digits_color_focused">数字颜色(已输入)</string>
+    <string name="title_digits_color_unselected">数字颜色(未选中)</string>
+    <string name="title_choose_color">选择一个颜色</string>
+    <string name="instructions_choose_color">触摸中间的颜色以确定选择。\n按返回按钮取消操作。</string>
+    <string name="entry_no_vm_handler">无(拨打语音信箱号码)</string>
+
+	<!-- Preferences: Call log -->
+    <string name="title_cl_exact_time">显示时间</string>
+    <string name="summaryon_cl_exact_time">在通话记录中显示具体时间</string>
+    <string name="summaryoff_cl_exact_time">在通话记录中显示相对时间</string>
+    <string name="title_cl_show_seconds">显示秒</string>
+    <string name="summary_cl_show_seconds">在显示具体时间时精确到秒</string>
+    <string name="title_cl_ask_before_clear">清除时需要确认</string>
+    <string name="summaryon_cl_ask_before_clear">在清除通话记录时需要确认</string>
+    <string name="summaryoff_cl_ask_before_clear">在清除通话记录时不需确认</string>
+ 
+    <!-- Preferences: Contacts -->
+    <string name="title_contacts_show_pic">显示联系人照片</string>
+    <string name="title_contacts_show_dial_button">显示拨号按钮</string>
+    <string name="summary_contacts_show_dial_button">为有电话号码的联系人显示拨号按钮</string>
+    <string name="title_contacts_show_count">显示联系人数量</string>
+    <string name="summary_contacts_show_count">联系人的数量将会显示在联系人列表之上</string>
+    <string name="title_contacts_show_separators">显示联系人排序首字母</string>
+    <string name="summaryon_contacts_show_separators">将会在联系人列表中显示用于为联系人排序的首字母</string>
+    <string name="summaryoff_contacts_show_separators">将不会在联系人列表中显示用于为联系人排序的首字母</string>
+
+     <!-- Preferences: Contacts - View Contact -->
+    <string name="title_view_contact">查看联系人</string>
+    <string name="summary_view_contact">更改查看单个联系人时的设定</string>
+    <string name="title_show_text_mobile_only">只为手机号码显示短信按钮</string>
+    <string name="summaryon_show_text_mobile_only">只在有手机号码时才显示短信按钮</string>
+    <string name="summaryoff_show_text_mobile_only">只要有号码都显示短信按钮</string>
+
+	<!-- Preferences: Favourites -->
+    <string name="title_favourites_hide_freq_call">隐藏常用联系人</string>
+    <string name="summary_favourites_hide_freq_call">联系人信息并不会被清除，只是被隐藏。</string>
+    <string name="title_favs_ask_before_clear">清除时需确认</string>
+    <string name="summaryon_favs_ask_before_clear">在清除常用联系人时需要确认</string>
+    <string name="summaryoff_favs_ask_before_clear">在清除常用联系人时不需确认</string>
+    
+    <!-- Preferences: Misc -->
+    <string name="title_misc_category">其他设定</string>
+    <string name="title_sensor_rotation">使用重力感应</string>
+    <string name="summary_sensor_rotation">如果允许该项，拨号面板将会根据设定旋转方向"</string>
+    
+    <!-- Wysie: About strings -->
+    <string name="title_about">关于</string>
+    <string name="title_about_name">插件名称</string>
+    <string name="title_about_version">版本</string>
+    <string name="title_about_credits">感谢</string>
+
 </resources>
