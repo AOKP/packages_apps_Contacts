@@ -46,9 +46,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@id/call_icon"
+        android:layout_toLeftOf="@id/divider"
         android:layout_alignWithParentIfMissing="true"
-        android:layout_marginRight="9dip"
+        android:layout_marginRight="-2dip"
         android:layout_marginLeft="4dip"
     />
 
@@ -105,7 +105,7 @@
         android:layout_marginRight="5dip"
 
 
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         android:singleLine="true"
     />
 
@@ -141,6 +141,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@id/groupIndicator"
+        android:layout_toLeftOf="@id/groupSize"
         android:layout_above="@id/date"
         android:layout_alignWithParentIfMissing="true"
         android:layout_marginBottom="-10dip"
