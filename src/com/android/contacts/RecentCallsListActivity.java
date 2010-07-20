@@ -184,12 +184,12 @@ public class RecentCallsListActivity extends ListActivity
     
     //Wysie: Contact pictures
     private static ExecutorService sImageFetchThreadPool;
-    private int mScrollState;
     private static boolean mDisplayPhotos;
     private static boolean isQuickContact;
     private static boolean showDialButton;
 
     private boolean mScrollToTop;
+    private ContactPhotoLoader mPhotoLoader;
 
     static final class ContactInfo {
         public long personId;
@@ -281,16 +281,6 @@ public class RecentCallsListActivity extends ListActivity
         private Drawable mDrawableOutgoing;
         private Drawable mDrawableMissed;
         
-        //Wysie
-        private ImageFetchHandler mImageHandler;
-        private ImageDbFetcher mImageFetcher;
-        private static final int FETCH_IMAGE_MSG = 3;
-        
-        //Wysie: Contact pictures
-        private HashMap<Long, SoftReference<Bitmap>> mBitmapCache = null;
-        private HashSet<ImageView> mItemsMissingImages = null;
-        
-
         /**
          * Reusable char array buffers.
          */
@@ -358,10 +348,6 @@ public class RecentCallsListActivity extends ListActivity
                     R.drawable.ic_call_log_list_missed_call);
             mLabelArray = getResources().getTextArray(com.android.internal.R.array.phoneTypes);
             
-            //Wysie: Contact pictures
-            mBitmapCache = new HashMap<Long, SoftReference<Bitmap>>();
-            mItemsMissingImages = new HashSet<ImageView>();
-            mImageHandler = new ImageFetchHandler();
         }
 
         /**
@@ -897,39 +883,7 @@ public class RecentCallsListActivity extends ListActivity
                 
                 final int position = c.getPosition();
                 viewToUse.setTag(new PhotoInfo(position, photoId, contactUri));
-
-                if (photoId == 0) {
-                    viewToUse.setImageResource(R.drawable.ic_contact_list_picture);
-                } else {
-
-                    Bitmap photo = null;
-
-                    // Look for the cached bitmap
-                    SoftReference<Bitmap> ref = mBitmapCache.get(photoId);
-                    if (ref != null) {
-                        photo = ref.get();
-                        if (photo == null) {
-                            mBitmapCache.remove(photoId);
-                        }
-                    }
-
-                    // Bind the photo, or use the fallback no photo resource
-                    if (photo != null) {
-                        viewToUse.setImageBitmap(photo);
-                    } else {
-                        // Cache miss
-                        viewToUse.setImageResource(R.drawable.ic_contact_list_picture);
-
-                        // Add it to a set of images that are populated asynchronously.
-                        mItemsMissingImages.add(viewToUse);
-
-                        if (mScrollState != OnScrollListener.SCROLL_STATE_FLING) {
-
-                            // Scrolling is idle or slow, go get the image right now.
-                            sendFetchImageMessage(viewToUse);
-                        }
-                    }
-                }
+                mPhotoLoader.loadPhoto(viewToUse, photoId);
             }
             else {
                 views.photoView.setVisibility(View.GONE);
@@ -999,108 +953,7 @@ public class RecentCallsListActivity extends ListActivity
                 view.getViewTreeObserver().addOnPreDrawListener(this);
             }
         }
-        
-        
-        //Wysie: Contact pictures
-        private class ImageFetchHandler extends Handler {
 
-            @Override
-            public void handleMessage(Message message) {
-                if (RecentCallsListActivity.this.isFinishing()) {
-                    return;
-                }
-                switch(message.what) {
-                    case FETCH_IMAGE_MSG: {
-                        final ImageView imageView = (ImageView) message.obj;
-                        if (imageView == null) {
-                            break;
-                        }
-
-                        final PhotoInfo info = (PhotoInfo)imageView.getTag();
-                        if (info == null) {
-                            break;
-                        }
-
-                        final long photoId = info.photoId;
-                        if (photoId == 0) {
-                            break;
-                        }
-
-                        SoftReference<Bitmap> photoRef = mBitmapCache.get(photoId);
-                        if (photoRef == null) {
-                            break;
-                        }
-                        Bitmap photo = photoRef.get();
-                        if (photo == null) {
-                            mBitmapCache.remove(photoId);
-                            break;
-                        }
-
-                        // Make sure the photoId on this image view has not changed
-                        // while we were loading the image.
-                        synchronized (imageView) {
-                            final PhotoInfo updatedInfo = (PhotoInfo)imageView.getTag();
-                            long currentPhotoId = updatedInfo.photoId;
-                            if (currentPhotoId == photoId) {
-                                imageView.setImageBitmap(photo);
-                                mItemsMissingImages.remove(imageView);
-                            }
-                        }
-                        break;
-                    }
-                }
-            }
-
-            public void clearImageFecthing() {
-                removeMessages(FETCH_IMAGE_MSG);
-            }
-        }
-        
-        //Wysie: Contact pictures
-        private class ImageDbFetcher implements Runnable {
-            long mPhotoId;
-            private ImageView mImageView;
-
-            public ImageDbFetcher(long photoId, ImageView imageView) {
-                this.mPhotoId = photoId;
-                this.mImageView = imageView;
-            }
-
-            public void run() {
-                if (RecentCallsListActivity.this.isFinishing()) {
-                    return;
-                }
-
-                if (Thread.interrupted()) {
-                    // shutdown has been called.
-                    return;
-                }
-                Bitmap photo = null;
-                try {
-                    photo = ContactsUtils.loadContactPhoto(mContext, mPhotoId, null);
-                } catch (OutOfMemoryError e) {
-                    // Not enough memory for the photo, do nothing.
-                }
-
-                if (photo == null) {
-                    return;
-                }
-
-                mBitmapCache.put(mPhotoId, new SoftReference<Bitmap>(photo));
-
-                if (Thread.interrupted()) {
-                    // shutdown has been called.
-                    return;
-                }
-
-                // Update must happen on UI thread
-                Message msg = new Message();
-                msg.what = FETCH_IMAGE_MSG;
-                msg.obj = mImageView;
-                mImageHandler.sendMessage(msg);
-            }
-        }
-        
         //Wysie: Contact pictures
         public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount,
                 int totalItemCount) {
@@ -1108,52 +961,13 @@ public class RecentCallsListActivity extends ListActivity
         }
         
         public void onScrollStateChanged(AbsListView view, int scrollState) {
-            mScrollState = scrollState;
             if (scrollState == OnScrollListener.SCROLL_STATE_FLING) {
-                // If we are in a fling, stop loading images.
-                clearImageFetching();
+                mPhotoLoader.pause();
             } else if (mDisplayPhotos) {
-                processMissingImageItems(view);
+                mPhotoLoader.resume();
             }
         }
 
-        private void processMissingImageItems(AbsListView view) {
-            for (ImageView iv : mItemsMissingImages) {
-                sendFetchImageMessage(iv);
-            }
-        }
-
-        private void sendFetchImageMessage(ImageView view) {
-            final PhotoInfo info = (PhotoInfo) view.getTag();
-            if (info == null) {
-                return;
-            }
-            final long photoId = info.photoId;
-            if (photoId == 0) {
-                return;
-            }
-            mImageFetcher = new ImageDbFetcher(photoId, view);
-            synchronized (RecentCallsListActivity.this) {
-                // can't sync on sImageFetchThreadPool.
-                if (sImageFetchThreadPool == null) {
-                    // Don't use more than 3 threads at a time to update. The thread pool will be
-                    // shared by all contact items.
-                    sImageFetchThreadPool = Executors.newFixedThreadPool(3);
-                }
-                sImageFetchThreadPool.execute(mImageFetcher);
-            }
-        }
-        
-        public void clearImageFetching() {
-            synchronized (RecentCallsListActivity.this) {
-                if (sImageFetchThreadPool != null) {
-                    sImageFetchThreadPool.shutdownNow();
-                    sImageFetchThreadPool = null;
-                }
-            }
-
-            mImageHandler.clearImageFecthing();
-        }
     }
 
     private static final class QueryHandler extends AsyncQueryHandler {
@@ -1226,6 +1040,8 @@ public class RecentCallsListActivity extends ListActivity
         
         setContentView(R.layout.recent_calls);
 
+        mPhotoLoader = new ContactPhotoLoader(this, R.drawable.ic_contact_list_picture);
+
         // Typing here goes to the dialer
         setDefaultKeyMode(DEFAULT_KEYS_DIALER);
 
@@ -1252,19 +1068,13 @@ public class RecentCallsListActivity extends ListActivity
         if (isQuickContact) {
             isQuickContact = false;
             super.onResume();
-        }
-        else {
+        } else {
             // The adapter caches looked up numbers, clear it so they will get
             // looked up again.
             if (mAdapter != null) {
                 mAdapter.clearCache();
             }
-            
-            // Force cache to reload so we don't show stale photos.
-            if (mAdapter.mBitmapCache != null) {
-                mAdapter.mBitmapCache.clear();
-            }
-            
+
             exactTime = ePrefs.getBoolean("cl_exact_time", true);
             is24hour = DateFormat.is24HourFormat(this);
             showSeconds = ePrefs.getBoolean("cl_show_seconds", true);
@@ -1276,8 +1086,7 @@ public class RecentCallsListActivity extends ListActivity
             startQuery();
             resetNewCallsFlag();
         
-            mScrollState = OnScrollListener.SCROLL_STATE_IDLE;
-
+            mPhotoLoader.resume();
             mAdapter.mPreDrawListener = null; // Let it restart the thread after next draw
         }
     }
@@ -1293,6 +1102,7 @@ public class RecentCallsListActivity extends ListActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        mPhotoLoader.stop();
         mAdapter.stopRequestProcessing();
         mAdapter.changeCursor(null);
     }
