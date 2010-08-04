@@ -129,6 +129,7 @@ public class RecentCallsListActivity extends ListActivity
     static final int CALLER_NAME_COLUMN_INDEX = 5;
     static final int CALLER_NUMBERTYPE_COLUMN_INDEX = 6;
     static final int CALLER_NUMBERLABEL_COLUMN_INDEX = 7;
+    static final int MENU_ITEM_BLACKLIST = 666;
 
     /** The projection to use when querying the phones table */
     static final String[] PHONES_PROJECTION = new String[] {
@@ -188,7 +189,12 @@ public class RecentCallsListActivity extends ListActivity
     private static boolean isQuickContact;
     private static boolean showDialButton;
 
+<<<<<<< HEAD
     private boolean mScrollToTop;
+=======
+    private static final String INSERT_BLACKLIST = "com.android.phone.INSERT_BLACKLIST";
+
+>>>>>>> add ability to send number to phone for blacklist
     private ContactPhotoLoader mPhotoLoader;
 
     static final class ContactInfo {
@@ -1310,6 +1316,7 @@ public class RecentCallsListActivity extends ListActivity
             intent.putExtra(Insert.PHONE, number);
             menu.add(0, 0, 0, R.string.recentCalls_addToContact)
                     .setIntent(intent);
+	    menu.add(0, MENU_ITEM_BLACKLIST, 0, R.string.recentCalls_addToBlacklist);
         }
         menu.add(0, CONTEXT_MENU_ITEM_DELETE, 0, R.string.recentCalls_removeFromRecentList);
     }
@@ -1364,18 +1371,18 @@ public class RecentCallsListActivity extends ListActivity
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case CONTEXT_MENU_ITEM_DELETE: {
-                // Convert the menu info to the proper type
-                AdapterView.AdapterContextMenuInfo menuInfo;
-                try {
-                     menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-                } catch (ClassCastException e) {
-                    Log.e(TAG, "bad menuInfoIn", e);
-                    return false;
-                }
+        // Convert the menu info to the proper type
+        AdapterView.AdapterContextMenuInfo menuInfo;
+        try {
+             menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        } catch (ClassCastException e) {
+            Log.e(TAG, "bad menuInfoIn", e);
+            return false;
+        }
 
-                Cursor cursor = (Cursor)mAdapter.getItem(menuInfo.position);
+        Cursor cursor = (Cursor)mAdapter.getItem(menuInfo.position);
+        switch (item.getItemId()) {
+            case MENU_ITEM_DELETE: {
                 int groupSize = 1;
                 if (mAdapter.isGroupHeader(menuInfo.position)) {
                     groupSize = mAdapter.getGroupSize(menuInfo.position);
@@ -1393,17 +1400,19 @@ public class RecentCallsListActivity extends ListActivity
 
                 getContentResolver().delete(Calls.CONTENT_URI, Calls._ID + " IN (" + sb + ")",
                         null);
-                return true;
-            }
+            }break;
             case CONTEXT_MENU_CALL_CONTACT: {
                 StickyTabs.saveTab(this, getIntent());
                 startActivity(item.getIntent());
                 return true;
             }
-            default: {
-                return super.onContextItemSelected(item);
-            }
+	    	case MENU_ITEM_BLACKLIST: {
+	    		Intent intent = new Intent(INSERT_BLACKLIST);
+			intent.putExtra("Insert.BLACKLIST", cursor.getString(NUMBER_COLUMN_INDEX));
+			sendBroadcast(intent);
+ 	    	}break;
         }
+        return super.onContextItemSelected(item);
     }
 
     @Override

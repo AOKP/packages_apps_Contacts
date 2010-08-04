@@ -375,6 +375,9 @@
     <!-- Menu item used to copy a number from the call log to the dialer so it can be edited before calling it -->
     <string name="recentCalls_editNumberBeforeCall">Edit number before call</string>
 
+    <!--Menu item used to add a number from the call log to Blacklist  -->
+    <string name="recentCalls_addToBlacklist">Add to Blacklist</string>
+    
     <!-- Menu item used to add a number from the call log to contacts -->
     <string name="recentCalls_addToContact">Add to contacts</string>
 
