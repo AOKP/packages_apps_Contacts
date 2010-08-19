@@ -142,6 +142,10 @@
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"Textnachricht senden"</string>
     <string name="recentCalls_callNumber" msgid="1756372533999226126">"<xliff:g id="NAME">%s</xliff:g> anrufen"</string>
     <string name="recentCalls_editNumberBeforeCall" msgid="7756171675833267857">"Nr. vor Anruf bearbeiten"</string>
+
+    <!--Menu item used to add a number from the call log to Blacklist  -->
+    <string name="recentCalls_addToBlacklist">Zur Blacklist hinzufügen</string>
+
     <string name="recentCalls_addToContact" msgid="1429899535546487008">"Zu Kontakten hinzufügen"</string>
     <string name="recentCalls_removeFromRecentList" msgid="401662244636511330">"Aus Anrufliste entfernen"</string>
     <string name="recentCalls_deleteAll" msgid="6352364392762163704">"Anrufliste löschen"</string>
@@ -264,6 +268,10 @@
     <string name="quickcontact_missing_app" msgid="4600366393134289038">"Für diese Aktion wurde keine Anwendung gefunden."</string>
     <string name="quickcontact_remember_choice" msgid="5964536411579749424">"Diese Auswahl speichern"</string>
     <string name="quickcontact_missing_name" msgid="5590266114306996632">"Unbekannt"</string>
+
+    <!-- Text that is shown in the Badge, when there is no data to display -->
+    <string name="quickcontact_no_data">Keine Daten</string>
+
     <string name="menu_accounts" msgid="8499114602017077970">"Konten"</string>
     <string name="menu_import_export" msgid="3765725645491577190">"Importieren/Exportieren"</string>
     <string name="dialog_import_export" msgid="4771877268244096596">"Kontakte importieren/exportieren"</string>
