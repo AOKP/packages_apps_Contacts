@@ -960,7 +960,12 @@ public class ViewContactActivity extends Activity
                         mPhoneEntries.add(entry);
                         
                         //Wysie: Workaround for the entry.type bug, since entry.type always returns -1
-                        final Integer type = entryValues.getAsInteger(Phone.TYPE);                        
+                        Integer type;
+                        try {
+                            type = entryValues.getAsInteger(Phone.TYPE);
+                        } catch (NullPointerException e) {
+                        	type = CommonDataKinds.Phone.TYPE_HOME;
+                        }
                         
                         //Wysie: Bug here, entry.type always returns -1.
                         if (/*entry.type*/type == CommonDataKinds.Phone.TYPE_MOBILE || mShowSmsLinksForAllPhones) {
