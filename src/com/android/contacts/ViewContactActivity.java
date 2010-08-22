@@ -960,15 +960,10 @@ public class ViewContactActivity extends Activity
                         mPhoneEntries.add(entry);
                         
                         //Wysie: Workaround for the entry.type bug, since entry.type always returns -1
-                        Integer type;
-                        try {
-                            type = entryValues.getAsInteger(Phone.TYPE);
-                        } catch (NullPointerException e) {
-                        	type = CommonDataKinds.Phone.TYPE_HOME;
-                        }
                         
+                        Integer type = entryValues.getAsInteger(Phone.TYPE);
                         //Wysie: Bug here, entry.type always returns -1.
-                        if (/*entry.type*/type == CommonDataKinds.Phone.TYPE_MOBILE || mShowSmsLinksForAllPhones) {
+                        if (/*entry.type*/type.intValue() == (CommonDataKinds.Phone.TYPE_MOBILE) || mShowSmsLinksForAllPhones) {
                             // Add an SMS entry
                             if (kind.iconAltRes > 0) {
                                 entry.secondaryActionIcon = kind.iconAltRes;
