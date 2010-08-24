@@ -142,6 +142,9 @@
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"Enviar SMS/MMS"</string>
     <string name="recentCalls_callNumber" msgid="1756372533999226126">"Chamar <xliff:g id="NAME">%s</xliff:g>"</string>
     <string name="recentCalls_editNumberBeforeCall" msgid="7756171675833267857">"Editar número antes da chamada"</string>
+    <!--Menu item used to add a number from the call log to Blacklist  -->
+    <string name="recentCalls_addToBlacklist">Adicionar a lista de bloqueio</string>
+
     <string name="recentCalls_addToContact" msgid="1429899535546487008">"Adicionar aos contatos"</string>
     <string name="recentCalls_removeFromRecentList" msgid="401662244636511330">"Remover do registro de chamadas"</string>
     <string name="recentCalls_deleteAll" msgid="6352364392762163704">"Limpar registro de chamadas"</string>
