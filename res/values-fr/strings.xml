@@ -397,14 +397,14 @@
     <string name="dialer_menu_sms">SMS/MMS</string>
 
     <!-- Wysie: Call log strings -->
-    <string name="recent_calls_clear_call_log">Effacer historique d'appels</string>
+    <string name="recent_calls_clear_call_log">Effacer historique d\'appels</string>
     <string name="recent_calls_clear_what">Effacer quoi ?</string>
     <string name="recent_calls_clear_all">Tout</string>
     <string name="recent_calls_clear_incoming">Appels reçus</string>
     <string name="recent_calls_clear_outgoing">Appels sortant</string>
     <string name="recent_calls_clear_missed">Appels en absence</string>
-    <string name="alert_clear_call_log_title">Effacer historique d'appels</string>
-    <string name="alert_clear_call_log_message">Êtes-vous sûr de vouloir effacer l'historique d'appels ?</string>
+    <string name="alert_clear_call_log_title">Effacer historique d\'appels</string>
+    <string name="alert_clear_call_log_message">Êtes-vous sûr de vouloir effacer l\'historique d\'appels ?</string>
     <string name="alert_clear_cl_all_incoming">Êtes-vous sûr de vouloir effacer tous les appels reçus ?</string>
     <string name="alert_clear_cl_all_outgoing">Êtes-vous sûr de vouloir effacer tous les appels sortants ?</string>
     <string name="alert_clear_cl_all_missed">Êtes-vous sûr de vouloir effacer tous les appels en absence ?</string>
@@ -417,15 +417,15 @@
 
     <!-- Preferences: Dialer -->
     <string name="title_last_dialled">Le bouton &quot;Appeler&quot; rappele le dernier numéro composé</string>
-    <string name="summary_last_dialled">Si aucun numéro n'est entré, le dernier numéro composé va être rappelé </string>
+    <string name="summary_last_dialled">Si aucun numéro n\'est entré, le dernier numéro composé va être rappelé </string>
     <string name="title_return_to_dialer">Retourner à la numérotation après un appel</string>
-    <string name="title_vm_button">Bouton d'action gauche (BAG)</string>
+    <string name="title_vm_button">Bouton d\'action gauche (BAG)</string>
     <string name="title_vm_handler">Gestionnaire de messagerie vocale</string>
     <string name="title_use_1_for_reg_vm">Utiliser la touche 1 pour la messagerie vocale standard</string>
     <string name="summaryon_use_1_for_reg_vm">La touche 1 est un raccourci pour la messagerie vocale standard</string>
     <string name="summaryoff_use_1_for_reg_vm">La touche 1 utilise le gestionnaire de messagerie vocale</string>
     <string name="title_disable_num_check">Désactiver la vérification des numéros</string>
-    <string name="summaryon_disable_num_check">Le bouton d'action gauche (BAG) et le menu sont toujours actifs</string>
+    <string name="summaryon_disable_num_check">Le bouton d\'action gauche (BAG) et le menu sont toujours actifs</string>
     <string name="summaryoff_disable_num_check">Le BAG et le menu ne sont actifs que si au moins un chiffre est entré (sauf messagerie vocale)</string>
     <string name="title_enable_haptic_feedback">Activer le retour haptique</string>
     <string name="summary_enable_haptic_feedback">Utiliser le retour haptique du clavier - voir les Paramètres CyanogenMod pour les réglages</string>
@@ -439,13 +439,13 @@
 
     <!-- Preferences: Call log -->
     <string name="title_cl_exact_time">Horodatages absolus / relatifs</string>
-    <string name="summaryon_cl_exact_time">Utiliser des horodatages absolus dans l'historique des appels</string>
-    <string name="summaryoff_cl_exact_time">Utiliser des horodatages relatifs dans l'historique des appels</string>
+    <string name="summaryon_cl_exact_time">Utiliser des horodatages absolus dans l\'historique des appels</string>
+    <string name="summaryoff_cl_exact_time">Utiliser des horodatages relatifs dans l\'historique des appels</string>
     <string name="title_cl_show_seconds">Afficher les secondes</string>
     <string name="summary_cl_show_seconds">Afficher les secondes avec les horodatages absolus</string>
     <string name="title_cl_ask_before_clear">Demander confirmation avant effacement</string>
-    <string name="summaryon_cl_ask_before_clear">Demander confirmation avant l'effacement de l'historique des appels</string>
-    <string name="summaryoff_cl_ask_before_clear">Ne pas demander confirmation avant l'effacement de l'historique des appels</string>
+    <string name="summaryon_cl_ask_before_clear">Demander confirmation avant l\'effacement de l\'historique des appels</string>
+    <string name="summaryoff_cl_ask_before_clear">Ne pas demander confirmation avant l\'effacement de l\'historique des appels</string>
 
     <!-- Preferences: Contacts -->
     <string name="title_contacts_show_pic">Afficher la photo des contacts</string>
@@ -459,17 +459,17 @@
 
     <!-- Preferences: Contacts - View Contact -->
     <string name="title_view_contact">Afficher contact</string>
-    <string name="summary_view_contact">Configuration de l'option &quot;Afficher contact&quot;</string>
+    <string name="summary_view_contact">Configuration de l\'option &quot;Afficher contact&quot;</string>
     <string name="title_show_text_mobile_only">Action &quot;SMS&quot; pour numéro mobile uniquement</string>
-    <string name="summaryon_show_text_mobile_only">Seulement les numéros mobiles ont l'action &quot;SMS&quot;</string>
-    <string name="summaryoff_show_text_mobile_only">Tous les numéros ont l'action &quot;SMS&quot;</string>
+    <string name="summaryon_show_text_mobile_only">Seulement les numéros mobiles ont l\'action &quot;SMS&quot;</string>
+    <string name="summaryoff_show_text_mobile_only">Tous les numéros ont l\'action &quot;SMS&quot;</string>
 
     <!-- Preferences: Favourites -->
     <string name="title_favourites_hide_freq_call">Cacher les &quot;Contactés fréquemment&quot;</string>
     <string name="summary_favourites_hide_freq_call">Les données ne sont pas effacées mais juste cachées.</string>
     <string name="title_favs_ask_before_clear">Demander confirmation avant effacement</string>
-    <string name="summaryon_favs_ask_before_clear">Demander confirmation avant l'effacement des &quot;Contactés fréquemment&quot;</string>
-    <string name="summaryoff_favs_ask_before_clear">Ne pas demander confirmation avant l'effacement des &quot;Contactés fréquemment&quot;</string>
+    <string name="summaryon_favs_ask_before_clear">Demander confirmation avant l\'effacement des &quot;Contactés fréquemment&quot;</string>
+    <string name="summaryoff_favs_ask_before_clear">Ne pas demander confirmation avant l\'effacement des &quot;Contactés fréquemment&quot;</string>
 
     <!-- Preferences: Misc -->
     <string name="title_misc_category">Divers</string>
