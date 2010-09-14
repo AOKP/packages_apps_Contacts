@@ -19,7 +19,7 @@
     <string-array name="entries_vm_button">
         <item>Aggiungi ai contatti</item>
         <item>SMS/MMS</item>
-        <item>Casella vocale</item>
+        <item>Segreteria</item>
     </string-array>
     
     <string-array name="view_contact_pic_sizes">

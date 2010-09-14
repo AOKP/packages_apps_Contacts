@@ -142,6 +142,8 @@
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"Invia messaggio di testo"</string>
     <string name="recentCalls_callNumber" msgid="1756372533999226126">"Chiama <xliff:g id="NAME">%s</xliff:g>"</string>
     <string name="recentCalls_editNumberBeforeCall" msgid="7756171675833267857">"Modifica prima di chiamare"</string>
+    <!--Menu item used to add a number from the call log to Blacklist  -->
+    <string name="recentCalls_addToBlacklist">Aggiungi a Blacklist</string>
     <string name="recentCalls_addToContact" msgid="1429899535546487008">"Aggiungi a contatti"</string>
     <string name="recentCalls_removeFromRecentList" msgid="401662244636511330">"Rimuovi da registro"</string>
     <string name="recentCalls_deleteAll" msgid="6352364392762163704">"Cancella registro chiamate"</string>
@@ -264,6 +266,8 @@
     <string name="quickcontact_missing_app" msgid="4600366393134289038">"Nessuna applicazione trovata in grado di gestire questa azione"</string>
     <string name="quickcontact_remember_choice" msgid="5964536411579749424">"Memorizza questa scelta"</string>
     <string name="quickcontact_missing_name" msgid="5590266114306996632">"Sconosciuto"</string>
+    <!-- Text that is shown in the Badge, when there is no data to display -->
+    <string name="quickcontact_no_data">Nessun dato</string>
     <string name="menu_accounts" msgid="8499114602017077970">"Account"</string>
     <string name="menu_import_export" msgid="3765725645491577190">"Importa/esporta"</string>
     <string name="dialog_import_export" msgid="4771877268244096596">"Importa/esporta contatti"</string>
@@ -400,6 +404,12 @@
     <string name="recentCalls_deleteAllIncoming">Canc. chiamate in arrivo</string>
     <string name="recentCalls_deleteAllOutgoing">Canc. chiamate in uscita</string>
     <string name="recentCalls_deleteAllMissed">Canc. chiamate perse</string>
+    <string name="recent_calls_clear_call_log">Cancella registro</string>
+    <string name="recent_calls_clear_what">Cosa cancellare?</string>
+    <string name="recent_calls_clear_all">Tutte</string>
+    <string name="recent_calls_clear_incoming">In arrivo</string>
+    <string name="recent_calls_clear_outgoing">In uscita</string>
+    <string name="recent_calls_clear_missed">Perse</string>
     <string name="alert_clear_call_log_title">Cancella tutte le chiamate</string>
     <string name="alert_clear_call_log_message">Sei sicuro di voler cancellare l\'elenco di tutte le chiamate?</string>
     <string name="alert_clear_cl_all_incoming">Sei sicuro di voler cancellare l\'elenco delle chiamate in arrivo?</string>
@@ -417,20 +427,22 @@
     <string name="summary_last_dialled">Premendo il tasto chiama viene ricomposto l\'ultimo numero chiamato</string>
     <string name="title_return_to_dialer">Torna al dialer dopo chiamata</string>
     <string name="title_vm_button">Pulsante azione sx (LAB)</string>
-    <string name="title_vm_handler">Gestore Voicemail</string>
-    <string name="title_use_1_for_reg_vm">Tasto 1 per Voicemail</string>
-    <string name="summaryon_use_1_for_reg_vm">Il tasto 1 verrà usato per la voicemail di default</string>
-    <string name="summaryoff_use_1_for_reg_vm">Il tasto 1 avvia gestore voicemail</string>
+    <string name="title_vm_handler">Gestore Segreteria</string>
+    <string name="title_use_1_for_reg_vm">Tasto 1 per Segreteria</string>
+    <string name="summaryon_use_1_for_reg_vm">Il tasto 1 verrà usato per la segreteria di default</string>
+    <string name="summaryoff_use_1_for_reg_vm">Il tasto 1 avvia gestore segreteria</string>
     <string name="title_disable_num_check">Disabilita controllo num.</string>
     <string name="summaryon_disable_num_check">Il pulsante azione sinistro(LAB) e il menu verranno abilitati</string>
-    <string name="summaryoff_disable_num_check">LAB e menu attivi solo se l\'ultimo num è stato digitato (tranne voicemail)</string>
+    <string name="summaryoff_disable_num_check">LAB e menu attivi solo se l\'ultimo num. è stato digitato (tranne segreteria)</string>
     <string name="title_enable_haptic_feedback">Abilita feedback aptico</string>
-    <string name="summary_enable_haptic_feedback">Usa la sequenza keypad - vai a CyanogenMod settings per la configurazione</string>
+    <string name="summary_enable_haptic_feedback">Usa la sequenza keypad - vai a Impostazioni CyanogenMod per la configurazione</string>
     <string name="title_change_digits_color">Cambia colore numeri</string>
     <string name="title_digits_color_pressed">Colore numeri (premuti)</string>
     <string name="title_digits_color_focused">Colore numeri (selezionati)</string>
     <string name="title_digits_color_unselected">Colore numeri(non selezionati)</string>
     <string name="title_choose_color">Scegli un colore</string>
+    <string name="instructions_choose_color">Premi al centro per confermare.\nPremi indietro per annullare.</string>
+    <string name="entry_no_vm_handler">Nessuno (Componi num. segreteria)</string>
 
     <!-- Preferences: Call log -->
     <string name="title_cl_exact_time">Tempo effettivo</string>
@@ -461,7 +473,7 @@
 
     <!-- Preferences: Favourites -->
     <string name="title_favourites_hide_freq_call">Nascondi chiam. frequenti</string>
-    <string name="summary_favourites_hide_freq_call">I dati attuali non sono cancellati ma nascosti</string>
+    <string name="summary_favourites_hide_freq_call">I dati attuali non sono stati cancellati ma nascosti</string>
     <string name="title_favs_ask_before_clear">Chiedi prima di cancellare le chiamate frequenti</string>
     <string name="summaryon_favs_ask_before_clear">Conferma cancellazione</string>
     <string name="summaryoff_favs_ask_before_clear">Se selezionato le chiamate frequenti verranno cancellate senza conferma</string>
@@ -474,7 +486,6 @@
     <!-- Wysie: About strings -->
     <string name="title_about">Informazioni</string>
     <string name="title_about_name">Nome della Mod</string>
-    <string name="summary_about_name">WyContacts Froyo</string>
     <string name="title_about_version">Versione</string>
     <string name="title_about_credits">Crediti</string>
     <string name="summary_about_credits">Wysie, ChainsDD, geesun, niuchl, rac2030, sileht e il resto di XDA! :)</string>
