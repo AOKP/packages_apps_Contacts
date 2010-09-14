@@ -32,6 +32,7 @@ import android.provider.ContactsContract.Data;
 import android.provider.ContactsContract.RawContacts;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.telephony.PhoneNumberUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -214,10 +215,31 @@ public class PhoneDisambigDialog implements DialogInterface.OnClickListener,
         while (phonesCursor.moveToNext()) {
             long id = phonesCursor.getLong(phonesCursor.getColumnIndex(Data._ID));
             String phone = phonesCursor.getString(phonesCursor.getColumnIndex(Phone.NUMBER));
-            String accountType =
+
+            String accountType;
+            if (phonesCursor.getColumnIndex(RawContacts.ACCOUNT_TYPE) != -1){
+                accountType=
                     phonesCursor.getString(phonesCursor.getColumnIndex(RawContacts.ACCOUNT_TYPE));
-            int type = phonesCursor.getInt(phonesCursor.getColumnIndex(Phone.TYPE));
-            String label = phonesCursor.getString(phonesCursor.getColumnIndex(Phone.LABEL));
+            }else{
+                Log.d("PhoneDisambigDialog", "AccountType was undefined");
+                accountType = "";
+            }
+
+            int type;
+            if(phonesCursor.getColumnIndex(Phone.TYPE) != -1){
+                type = phonesCursor.getInt(phonesCursor.getColumnIndex(Phone.TYPE));
+            }else{
+                Log.d("PhoneDisambigDialog", "type was undefined");
+                type = 0;
+            }
+
+            String label;
+            if (phonesCursor.getColumnIndex(Phone.LABEL) != -1){
+                label = phonesCursor.getString(phonesCursor.getColumnIndex(Phone.LABEL));
+            }else{
+                Log.d("PhoneDisambigDialog", "label was undefined");
+                label = "";
+            }
 
             phoneList.add(new PhoneItem(id, phone, accountType, type, label));
         }
