@@ -707,7 +707,8 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
     public boolean onKey(View view, int keyCode, KeyEvent event) {
         switch (view.getId()) {
             case R.id.digits:
-                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                if ((event.getAction() == KeyEvent.ACTION_UP) &&
+                    (keyCode == KeyEvent.KEYCODE_ENTER)) {
                     dialButtonPressed();
                     return true;
                 }
