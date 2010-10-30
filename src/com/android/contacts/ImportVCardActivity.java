@@ -752,7 +752,9 @@ public class ImportVCardActivity extends Activity {
         super.onCreate(bundle);
 
         final Intent intent = getIntent();
+        boolean accountIsNull = false;
         if (intent != null) {
+            accountIsNull = intent.getBooleanExtra("account_isnull", false);
             final String accountName = intent.getStringExtra("account_name");
             final String accountType = intent.getStringExtra("account_type");
             if (!TextUtils.isEmpty(accountName) && !TextUtils.isEmpty(accountType)) {
@@ -763,13 +765,13 @@ public class ImportVCardActivity extends Activity {
         }
 
         // The caller often does not know account information at all, so we show the UI instead.
-        if (mAccount == null) {
+        if (!accountIsNull && mAccount == null) {
             // There's three possibilities:
             // - more than one accounts -> ask the user
             // - just one account -> use the account without asking the user
             // - no account -> use phone-local storage without asking the user
             final Sources sources = Sources.getInstance(this);
-            final List<Account> accountList = sources.getAccounts(true);
+            final List<Account> accountList = sources.getAccounts(true, true);
             final int size = accountList.size();
             if (size > 1) {
                 final int resId = R.string.import_from_sdcard;

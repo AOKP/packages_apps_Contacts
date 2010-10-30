@@ -246,11 +246,15 @@ public class Sources extends BroadcastReceiver implements OnAccountsUpdateListen
         return null;
     }
 
+    public ArrayList<Account> getAccounts(boolean writableOnly) {
+        return getAccounts(writableOnly, false);
+    }
+
     /**
      * Return list of all known, writable {@link ContactsSource}. Sources
      * returned may require inflation before they can be used.
      */
-    public ArrayList<Account> getAccounts(boolean writableOnly) {
+    public ArrayList<Account> getAccounts(boolean writableOnly, boolean addPhoneOnlyDummy) {
         final AccountManager am = mAccountManager;
         final Account[] accounts = am.getAccounts();
         final ArrayList<Account> matching = Lists.newArrayList();
@@ -265,6 +269,10 @@ public class Sources extends BroadcastReceiver implements OnAccountsUpdateListen
                 matching.add(account);
             }
         }
+
+        if (addPhoneOnlyDummy)
+            matching.add(null);
+
         return matching;
     }
 

@@ -90,7 +90,7 @@ public class AccountSelectionUtil {
             DialogInterface.OnClickListener onClickListener,
             DialogInterface.OnCancelListener onCancelListener) {
         final Sources sources = Sources.getInstance(context);
-        final List<Account> writableAccountList = sources.getAccounts(true);
+        final List<Account> writableAccountList = sources.getAccounts(true, true);
 
         // Assume accountList.size() > 1
 
@@ -119,12 +119,17 @@ public class AccountSelectionUtil {
 
                 final Account account = this.getItem(position);
                 final ContactsSource source =
-                    sources.getInflatedSource(account.type,
+                    sources.getInflatedSource(account != null ? account.type : null,
                             ContactsSource.LEVEL_SUMMARY);
                 final Context context = getContext();
 
-                text1.setText(account.name);
-                text2.setText(source.getDisplayLabel(context));
+                if (account == null) {
+                    text1.setText(source.getDisplayLabel(context));
+                    text2.setText("");
+                } else {
+                    text1.setText(account.name);
+                    text2.setText(source.getDisplayLabel(context));
+                }
 
                 return convertView;
             }
@@ -169,7 +174,9 @@ public class AccountSelectionUtil {
 
         Intent importIntent = new Intent(Intent.ACTION_VIEW);
         importIntent.setType("vnd.android.cursor.item/sim-contact");
-        if (account != null) {
+        if (account == null) {
+            importIntent.putExtra("account_isnull", true);
+        } else {
             importIntent.putExtra("account_name", account.name);
             importIntent.putExtra("account_type", account.type);
         }
@@ -183,7 +190,9 @@ public class AccountSelectionUtil {
         }
 
         Intent importIntent = new Intent(context, ImportVCardActivity.class);
-        if (account != null) {
+        if (account == null) {
+            importIntent.putExtra("account_isnull", true);
+        } else {
             importIntent.putExtra("account_name", account.name);
             importIntent.putExtra("account_type", account.type);
         }

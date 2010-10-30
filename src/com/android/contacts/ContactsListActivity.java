@@ -1591,7 +1591,7 @@ public class ContactsListActivity extends ListActivity implements View.OnCreateC
         // - just one account -> use the account without asking the user
         // - no account -> use phone-local storage without asking the user
         final Sources sources = Sources.getInstance(this);
-        final List<Account> accountList = sources.getAccounts(true);
+        final List<Account> accountList = sources.getAccounts(true, true);
         final int size = accountList.size();
         if (size > 1) {
             showDialog(resId);
