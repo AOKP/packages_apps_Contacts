@@ -142,6 +142,7 @@
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"发送短信"</string>
     <string name="recentCalls_callNumber" msgid="1756372533999226126">"呼叫<xliff:g id="NAME">%s</xliff:g>"</string>
     <string name="recentCalls_editNumberBeforeCall" msgid="7756171675833267857">"呼叫之前编辑号码"</string>
+    <string name="recentCalls_addToBlacklist">加入黑名单</string>
     <string name="recentCalls_addToContact" msgid="1429899535546487008">"添加到“联系人”"</string>
     <string name="recentCalls_removeFromRecentList" msgid="401662244636511330">"从通话记录中删除"</string>
     <string name="recentCalls_deleteAll" msgid="6352364392762163704">"清除通话记录"</string>
@@ -419,23 +420,23 @@
     <string name="title_last_dialled">按拨号按钮时重拨</string>
     <string name="summary_last_dialled">未输入电话号码按拨号按钮时将重播最后一个去电电话号码</string>
     <string name="title_return_to_dialer">通话结束后返回拨号面板</string>
-    <string name="title_vm_button">左按钮(LAB)</string>
+    <string name="title_vm_button">左按钮 (LAB)</string>
     <string name="title_vm_handler">语音邮箱设定</string>
-    <string name="title_use_1_for_reg_vm">1为默认语音邮箱</string>
-    <string name="summaryon_use_1_for_reg_vm">按键1将被设定为默认语音邮箱</string>
-    <string name="summaryoff_use_1_for_reg_vm">按键1将根据语音邮箱设定而变化</string>
+    <string name="title_use_1_for_reg_vm">1 为默认语音邮箱</string>
+    <string name="summaryon_use_1_for_reg_vm">按键 1 将被设定为默认语音邮箱</string>
+    <string name="summaryoff_use_1_for_reg_vm">按键 1 将根据语音邮箱设定而变化</string>
     <string name="title_disable_num_check">禁止号码检测</string>
-    <string name="summaryon_disable_num_check">左按钮(LAB)及菜单总是有效</string>
-    <string name="summaryoff_disable_num_check">左按钮(LAB)及菜单仅在至少输入一个号码后有效(除语音邮箱外)</string>
+    <string name="summaryon_disable_num_check">左按钮 (LAB) 及菜单总是有效</string>
+    <string name="summaryoff_disable_num_check">左按钮 (LAB) 及菜单仅在至少输入一个号码后有效 (除语音邮箱外)</string>
     <string name="title_enable_haptic_feedback">开启震动反馈</string>
-    <string name="summary_enable_haptic_feedback">轻击拨号键盘有震动反馈 - 在CyanogenMod设定中调节</string>
+    <string name="summary_enable_haptic_feedback">轻击拨号键盘有震动反馈 - 在 CyanogenMod 设置中调节</string>
     <string name="title_change_digits_color">更改数字颜色</string>
-    <string name="title_digits_color_pressed">数字颜色(点击时)</string>
-    <string name="title_digits_color_focused">数字颜色(已输入)</string>
-    <string name="title_digits_color_unselected">数字颜色(未选中)</string>
+    <string name="title_digits_color_pressed">数字颜色 (点击时)</string>
+    <string name="title_digits_color_focused">数字颜色 (已输入)</string>
+    <string name="title_digits_color_unselected">数字颜色 (未选中)</string>
     <string name="title_choose_color">选择一个颜色</string>
     <string name="instructions_choose_color">触摸中间的颜色以确定选择。\n按返回按钮取消操作。</string>
-    <string name="entry_no_vm_handler">无(拨打语音信箱号码)</string>
+    <string name="entry_no_vm_handler">无 (拨打语音信箱号码)</string>
 
 	<!-- Preferences: Call log -->
     <string name="title_cl_exact_time">显示时间</string>
