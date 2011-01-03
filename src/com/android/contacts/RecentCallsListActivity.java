@@ -189,12 +189,9 @@ public class RecentCallsListActivity extends ListActivity
     private static boolean isQuickContact;
     private static boolean showDialButton;
 
-<<<<<<< HEAD
     private boolean mScrollToTop;
-=======
     private static final String INSERT_BLACKLIST = "com.android.phone.INSERT_BLACKLIST";
 
->>>>>>> add ability to send number to phone for blacklist
     private ContactPhotoLoader mPhotoLoader;
 
     static final class ContactInfo {
@@ -511,8 +508,7 @@ public class RecentCallsListActivity extends ListActivity
 							//Wysie: Contact pictures
 							info.photoId = dataTableCursor.getLong(dataTableCursor.getColumnIndex(Data.PHOTO_ID));
 							info.lookupKey = dataTableCursor.getString(dataTableCursor.getColumnIndex(Data.LOOKUP_KEY));
-							
-							
+
                             infoUpdated = true;
                         }
                         dataTableCursor.close();
@@ -533,6 +529,10 @@ public class RecentCallsListActivity extends ListActivity
                             info.type = phonesCursor.getInt(PHONE_TYPE_COLUMN_INDEX);
                             info.label = phonesCursor.getString(LABEL_COLUMN_INDEX);
                             info.number = phonesCursor.getString(MATCHED_NUMBER_COLUMN_INDEX);
+                        	
+                        	//Wysie: Contact pictures
+                        	info.photoId = phonesCursor.getLong(PHOTO_ID_COLUMN_INDEX);
+                        	info.lookupKey = phonesCursor.getString(LOOKUP_KEY_COLUMN_INDEX);
 
                         	//Wysie: Contact pictures
                         	info.photoId = phonesCursor.getLong(PHOTO_ID_COLUMN_INDEX);
@@ -1381,8 +1381,9 @@ public class RecentCallsListActivity extends ListActivity
         }
 
         Cursor cursor = (Cursor)mAdapter.getItem(menuInfo.position);
+
         switch (item.getItemId()) {
-            case MENU_ITEM_DELETE: {
+            case CONTEXT_MENU_ITEM_DELETE: {
                 int groupSize = 1;
                 if (mAdapter.isGroupHeader(menuInfo.position)) {
                     groupSize = mAdapter.getGroupSize(menuInfo.position);
@@ -1400,17 +1401,19 @@ public class RecentCallsListActivity extends ListActivity
 
                 getContentResolver().delete(Calls.CONTENT_URI, Calls._ID + " IN (" + sb + ")",
                         null);
-            }break;
+            }
+				break;
+		    case MENU_ITEM_BLACKLIST: {
+		    	Intent intent = new Intent(INSERT_BLACKLIST);
+				intent.putExtra("Insert.BLACKLIST", cursor.getString(NUMBER_COLUMN_INDEX));
+				sendBroadcast(intent);
+			}
+				break;
             case CONTEXT_MENU_CALL_CONTACT: {
                 StickyTabs.saveTab(this, getIntent());
                 startActivity(item.getIntent());
                 return true;
             }
-	    	case MENU_ITEM_BLACKLIST: {
-	    		Intent intent = new Intent(INSERT_BLACKLIST);
-			intent.putExtra("Insert.BLACKLIST", cursor.getString(NUMBER_COLUMN_INDEX));
-			sendBroadcast(intent);
- 	    	}break;
         }
         return super.onContextItemSelected(item);
     }

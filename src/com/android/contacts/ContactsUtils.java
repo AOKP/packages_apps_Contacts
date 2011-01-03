@@ -495,7 +495,7 @@ public class ContactsUtils {
      * Calls the specified contact ID, displaying a number picker if necessary.
      * @return true if the call was initiated, false otherwise
      */
-    public static boolean callOrSmsContact(long contactId, Context context, boolean sendSms) {
+    public static boolean callOrSmsContact(long contactId, Context context, boolean sendSms, int stickyTab) {
         String phone = null;
         Cursor phonesCursor = null;
         phonesCursor = queryPhoneNumbers(context.getContentResolver(), contactId);
@@ -521,12 +521,13 @@ public class ContactsUtils {
         if (phone == null) {
             // Display dialog to choose a number to call.
             PhoneDisambigDialog phoneDialog = new PhoneDisambigDialog(
-                    context, phonesCursor, sendSms);
+                    context, phonesCursor, sendSms, stickyTab);
             phoneDialog.show();
         } else {
             if (sendSms) {
                 ContactsUtils.initiateSms(context, phone);
             } else {
+                StickyTabs.saveTab(context, stickyTab);
                 ContactsUtils.initiateCall(context, phone);
             }
         }

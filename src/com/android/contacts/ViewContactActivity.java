@@ -824,7 +824,7 @@ public class ViewContactActivity extends Activity
                     // There isn't anything selected; pick the correct number to dial.
                     long freshContactId = getRefreshedContactId();
 
-                    if(!ContactsUtils.callOrSmsContact(freshContactId, this, false)) {
+                    if(!ContactsUtils.callOrSmsContact(freshContactId, this, false, StickyTabs.getTab(getIntent()))) {
                         signalError();
                         return false;
                     }

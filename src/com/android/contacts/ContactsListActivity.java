@@ -24,6 +24,7 @@ import com.android.contacts.ui.ContactsPreferencesActivity;
 import com.android.contacts.ui.ContactsPreferencesActivity.Prefs;
 import com.android.contacts.util.AccountSelectionUtil;
 import com.android.contacts.util.Constants;
+import com.android.contacts.PhoneDisambigDialog;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
