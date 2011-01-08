@@ -29,4 +29,17 @@
         <item>Molto Grandi</item>
     </string-array>
     
+    <string-array name="view_data_font_sizes">
+        <item>Piccolo (Default)</item>
+        <item>Medio</item>
+        <item>Grande</item>
+        <item>Molto Grande</item>
+    </string-array>
+    
+    <string-array name="view_data_font_sizes_values" translatable="false">
+        <item>14</item>
+        <item>18</item>
+        <item>22</item>
+        <item>26</item>
+    </string-array>
 </resources>

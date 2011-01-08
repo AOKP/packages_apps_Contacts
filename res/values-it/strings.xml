@@ -482,6 +482,8 @@
     <string name="title_misc_category">Varie</string>
     <string name="title_sensor_rotation">Sensore di rotazione</string>
     <string name="summary_sensor_rotation">Se abilitato la rotazione sarà basata sulle impostazioni di sistema</string>
+    <string name="title_data_font_size">Dimensione testo info contatto</string>
+    <string name="summary_data_font_size">Seleziona la dimensione del testo dei dettagli di un contatto (numero di telefono, email, indirizzo, etc.)</string>
 
     <!-- Wysie: About strings -->
     <string name="title_about">Informazioni</string>

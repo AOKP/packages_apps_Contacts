@@ -74,6 +74,7 @@ import android.provider.ContactsContract.CommonDataKinds.Website;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.ContextMenu;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -1287,6 +1288,8 @@ public class ViewContactActivity extends Activity
                 views = new ViewCache();
                 views.label = (TextView) v.findViewById(android.R.id.text1);
                 views.data = (TextView) v.findViewById(android.R.id.text2);
+                float fontSize = Float.parseFloat(ePrefs.getString("misc_data_font_size", "14"));
+                views.data.setTextSize(TypedValue.COMPLEX_UNIT_DIP, fontSize);
                 views.footer = (TextView) v.findViewById(R.id.footer);
                 views.actionIcon = (ImageView) v.findViewById(R.id.action_icon);
                 views.primaryIcon = (ImageView) v.findViewById(R.id.primary_icon);

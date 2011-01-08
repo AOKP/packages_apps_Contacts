@@ -1260,6 +1260,8 @@
     <string name="title_misc_category">Miscellaneous</string>
     <string name="title_sensor_rotation">Enable sensor rotation</string>
     <string name="summary_sensor_rotation">If enabled, it will rotate based on system\'s settings"</string>
+    <string name="title_data_font_size">Contact info font size</string>
+    <string name="summary_data_font_size">Allows you to choose the size of the font used to display detailed contact information (phone number, email, address, etc.)</string>
     
     <!-- Wysie: About strings -->    
     <string name="title_about">About</string>

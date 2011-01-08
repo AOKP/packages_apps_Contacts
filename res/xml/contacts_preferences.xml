@@ -168,6 +168,14 @@
             android:title="@string/title_sensor_rotation"
             android:summary="@string/summary_sensor_rotation"
             android:defaultValue="false" />
+        <ListPreference
+            android:key="misc_data_font_size"
+            android:title="@string/title_data_font_size"
+            android:dialogTitle="@string/title_data_font_size"
+            android:summary="@string/summary_data_font_size"
+            android:entries="@array/view_data_font_sizes"
+            android:entryValues="@array/view_data_font_sizes_values"
+            android:defaultValue="14" />
         <PreferenceScreen
             android:key="misc_about"
             android:title="@string/title_about"> 
