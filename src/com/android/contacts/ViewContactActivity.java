@@ -1288,8 +1288,6 @@ public class ViewContactActivity extends Activity
                 views = new ViewCache();
                 views.label = (TextView) v.findViewById(android.R.id.text1);
                 views.data = (TextView) v.findViewById(android.R.id.text2);
-                float fontSize = Float.parseFloat(ePrefs.getString("misc_data_font_size", "14"));
-                views.data.setTextSize(TypedValue.COMPLEX_UNIT_DIP, fontSize);
                 views.footer = (TextView) v.findViewById(R.id.footer);
                 views.actionIcon = (ImageView) v.findViewById(R.id.action_icon);
                 views.primaryIcon = (ImageView) v.findViewById(R.id.primary_icon);
@@ -1298,6 +1296,11 @@ public class ViewContactActivity extends Activity
                         R.id.secondary_action_button);
                 views.secondaryActionButton.setOnClickListener(this);
                 views.secondaryActionDivider = v.findViewById(R.id.divider);
+
+                // Set the text size of data row (phone number, email, address, etc.)
+                float fontSize = Float.parseFloat(ePrefs.getString("misc_data_font_size", "14"));
+                views.data.setTextSize(TypedValue.COMPLEX_UNIT_DIP, fontSize);
+
                 v.setTag(views);
             }
 
