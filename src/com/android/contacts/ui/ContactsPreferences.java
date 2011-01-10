@@ -135,6 +135,15 @@ public final class ContactsPreferences extends ContentObserver {
     }
 
     @Override
+    protected void finalize() throws Throwable {
+        try {
+               this.unregisterChangeListener();
+        } finally {
+            super.finalize();
+        }
+    }
+
+    @Override
     public void onChange(boolean selfChange) {
         // This notification is not sent on the Ui thread. Use the previously created Handler
         // to switch to the Ui thread
