@@ -480,6 +480,8 @@
     <string name="title_misc_category">Sonstiges</string>
     <string name="title_sensor_rotation">Autorotation verwenden</string>
     <string name="summary_sensor_rotation">Wenn eingeschaltet, werden Systemeinstellungen verwendet."</string>
+    <string name="title_data_font_size">Schriftgröße Kontaktinfo</string>
+    <string name="summary_data_font_size">Die Schriftgröße für die detaillierten Kontaktinformationen einstellen. (Nummer, Email, Adresse, etc.)</string>
 
     <!-- Wysie: About strings -->
     <string name="title_about">Über</string>
