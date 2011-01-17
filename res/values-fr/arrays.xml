@@ -27,4 +27,11 @@
         <item>Grand</item>
         <item>Très grand</item>
     </string-array>
+
+    <string-array name="view_data_font_sizes">
+        <item>Petit (par défaut)</item>
+        <item>Moyen</item>
+        <item>Grand</item>
+        <item>Très grand</item>
+    </string-array>
 </resources>

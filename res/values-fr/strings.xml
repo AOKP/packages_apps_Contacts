@@ -61,10 +61,12 @@
     <string name="menu_contactOptions" msgid="1957061455705020617">"Options"</string>
     <string name="contactOptionsTitle" msgid="8259347644090700915">"Options"</string>
     <string name="deleteConfirmation_title" msgid="6394309508930335204">"Supprimer"</string>
+    <string name="clearConfirmation_title">Vider journal d\'appels</string>
     <string name="readOnlyContactWarning" msgid="1390849295342594265">"Impossible de supprimer des contacts des comptes en lecture seule, mais vous pouvez les masquer dans la liste des contacts."</string>
     <string name="readOnlyContactDeleteConfirmation" msgid="2137170726670196909">"Ce contact contient des informations provenant de plusieurs comptes. Vous pouvez masquer dans votre liste de contacts les informations des comptes en lecture seule, mais pas les supprimer."</string>
     <string name="multipleContactDeleteConfirmation" msgid="938900978442960800">"La suppression de ce contact entraînera celle d\'informations provenant de plusieurs comptes."</string>
     <string name="deleteConfirmation" msgid="811706994761610640">"Ce contact sera supprimé."</string>
+    <string name="clearLogConfirmation">Toutes les entrées du journal d\'appels seront supprimées</string>
     <string name="menu_done" msgid="796017761764190697">"OK"</string>
     <string name="menu_doNotSave" msgid="2174577548513895144">"Annuler"</string>
     <string name="editContact_title_edit" msgid="7678695190666836093">"Modifier le contact"</string>
@@ -477,6 +479,8 @@
     <string name="title_misc_category">Divers</string>
     <string name="title_sensor_rotation">Rotation automatique</string>
     <string name="summary_sensor_rotation">Si activé, la rotation sera effective selon la configuration du système</string>
+    <string name="title_data_font_size">Taille police infos contact</string>
+    <string name="summary_data_font_size">Permet de choisir la taille de la police utilisée pour afficher les informations détaillées des contacts (n° tél., e-mail, adresse, etc.)</string>
 
     <!-- Wysie: About strings -->
     <string name="title_about">À propos de</string>
