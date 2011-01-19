@@ -475,6 +475,8 @@
     <string name="title_misc_category">"その他"</string>
     <string name="title_sensor_rotation">"回転センサ"</string>
     <string name="summary_sensor_rotation">"有効にするとシステムの設定にしたがって画面を回転する"</string>
+    <string name="title_data_font_size">連絡先情報のフォントサイズ</string>
+    <string name="summary_data_font_size">連絡先情報の詳細(電話番号,メール,住所など)を表示するフォントサイズを選択できます</string>
 
     <!-- Wysie: About strings -->
     <string name="title_about">"情報"</string>
@@ -482,4 +484,7 @@
     <string name="title_about_version">"バージョン"</string>
     <string name="title_about_credits">"クレジット"</string>
 
+    <string name="clearConfirmation_title">発信履歴を消去</string>
+    <string name="clearLogConfirmation">すべての発信履歴は削除されます。</string>
+    <string name="quickcontact_no_data">データなし</string>
 </resources>
