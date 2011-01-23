@@ -389,4 +389,101 @@
     <string name="upgrade_out_of_memory_retry" msgid="8431289830472724609">"Ponów próbę uaktualnienia"</string>
     <string name="search_results_for" msgid="8705490885073188513">"Wyniki wyszukiwania dla: <xliff:g id="QUERY">%s</xliff:g>"</string>
     <string name="search_results_searching" msgid="7755623475227227314">"Trwa wyszukiwanie..."</string>
+    
+    <!-- Wysie: Menu strings -->
+    <string name="menu_preferences">Ustawienia</string>
+    
+    <!-- Wysie: Dialer strings -->
+    <string name="dialer_menu_sms">SMS/MMS</string>
+    
+    <!-- Wysie: Call log strings -->
+    <string name="recent_calls_clear_call_log">Wyczyść rejestr rozmów</string>
+    <string name="recent_calls_clear_what">Co usunąć?</string>
+    <string name="recent_calls_clear_all">Wszystko</string>
+    <string name="recent_calls_clear_incoming">Przychodzące</string>
+    <string name="recent_calls_clear_outgoing">Wychodzące</string>
+    <string name="recent_calls_clear_missed">Nieodebrane</string>
+    <string name="alert_clear_call_log_title">Wyczyść rejestr rozmów</string>
+    <string name="alert_clear_call_log_message">Czy napewno chcesz usunąć cały rejestr rozmów?</string>
+    <string name="alert_clear_cl_all_incoming">Czy napewno chcesz usunąć rejetr połączeń przychodzących?</string>
+    <string name="alert_clear_cl_all_outgoing">Czy napewno chcesz usunąć rejestr połączeń wychodzących?</string>
+    <string name="alert_clear_cl_all_missed">Czy napewno chcesz usunąć rejestr połączeń nieodebranych?</string>
+    
+    <!-- Wysie: Favourites strings -->
+    <string name="fav_clear_freq">Wyczyść najczęściej wybierane</string>
+    <string name="alert_clear_freq_called_msg">Czy napewno chcesz usunąć rejestr najczęściej wybieranych połączeń?</string>
+    
+    <!-- Wysie: Preferences strings -->
+    
+    <!-- Preferences: Dialer -->
+    <string name="title_last_dialled">Przycisk wybierania przywraca ostatni numer</string>
+    <string name="summary_last_dialled">Ostatni użyty numer zostanie przywrócony jeśli pole numeru jest puste</string>
+    <string name="title_return_to_dialer">Powróć do wybierania po połączeniu</string>
+    <string name="title_vm_button">Lewy przycisk akcji (LAB)</string>
+    <string name="title_vm_handler">Obsługa poczty głosowej</string>
+    <string name="title_use_1_for_reg_vm">Użyj 1 dla poczty głosowej</string>
+    <string name="summaryon_use_1_for_reg_vm">Przycisk 1 będzie zarezerwowany dla zwykłej poczty głosowej</string>
+    <string name="summaryoff_use_1_for_reg_vm">Przycisk 1 będzie zarezerwowany dla obsługi poczty głosowej</string>
+    <string name="title_disable_num_check">Wyłącz sprawdzanie numeru</string>
+    <string name="summaryon_disable_num_check">Lewy przycisk akcji (LAB) i menu będą zawsze dostępne</string>
+    <string name="summaryoff_disable_num_check">LAB and menu jedynie gdy wprowadzona jest conajmniej jedna cyfra (oprócz poczty głosowej)</string>
+    <string name="title_enable_haptic_feedback">Włącz reakcję na dotyk</string>
+    <string name="summary_enable_haptic_feedback">Uaktywnia reakcję na dotyk - do dostosowania w ustawieniach CyanogenMod</string>
+    <string name="title_change_digits_color">Zmień kolor cyfr</string>
+    <string name="title_digits_color_pressed">Kolor cyfr (wciśnięte)</string>
+    <string name="title_digits_color_focused">Kolor cyfr (wybrane)</string>
+    <string name="title_digits_color_unselected">Kolor cyfr (nie wybrane)</string>
+    <string name="title_choose_color">Wybierz kolor</string>
+    <string name="instructions_choose_color">Puknij na środku, by potwierdzić.\nWciśnij wstecz, by anulować.</string>
+    <string name="entry_no_vm_handler">Wybierz numer poczty głosowej</string>
+    
+    <!-- Preferences: Call log -->
+    <string name="title_cl_exact_time">Dokładny czas</string>
+    <string name="summaryon_cl_exact_time">Pokaż dokładny czas w rejestrze rozmów</string>
+    <string name="summaryoff_cl_exact_time">Pokaż odstęp czasu w rejestrze rozmów</string>
+    <string name="title_cl_show_seconds">Pokaż sekundy</string>
+    <string name="summary_cl_show_seconds">Pokazuje sekundy przy dokładnym czasie</string>          
+    <string name="title_cl_ask_before_clear">Zapytaj przed wyczyszczeniem</string>
+    <string name="summaryon_cl_ask_before_clear">Zapytaj przed wyczyszczeniem rejestru rozmów</string>
+    <string name="summaryoff_cl_ask_before_clear">Rejestr rozmów będzie wyczyszczony bez potwierdzenia</string>
+    
+    <!-- Preferences: Contacts -->
+    <string name="title_contacts_show_pic">Pokaż obrazek kontaktu</string>
+    <string name="title_contacts_show_dial_button">Pokaż przycisk wybierania</string>
+    <string name="summary_contacts_show_dial_button">Pokaż przycisk wybierania obok kontaktów z numerem</string>
+    <string name="title_contacts_show_count">Pokaż ilość kontaktów</string>
+    <string name="summary_contacts_show_count">Na początku listy kontaktów będzie wyświetlana ich ilość</string>
+    <string name="title_contacts_show_separators">Oddziel litery alfabetu</string>
+    <string name="summaryon_contacts_show_separators">Litery alfabetu będą pokazane na liście kontaktów</string>
+    <string name="summaryoff_contacts_show_separators">Litery alfabetu będą ukryte</string>
+    
+    <!-- Preferences: Contacts - View Contact -->
+    <string name="title_view_contact">Pokaż kontakt</string>
+    <string name="summary_view_contact">Ustawienia wyświetlania kontaktu</string>
+    <string name="title_show_text_mobile_only">Wiadomości tekstowe tylko dla komórek</string>
+    <string name="summaryon_show_text_mobile_only">Tylko numery komórkowe będą miały opcje wysłania wiadomości</string>
+    <string name="summaryoff_show_text_mobile_only">Wszystkie numery będą miały opcje wysłania wiadomości</string>
+    
+    <!-- Preferences: Favourites -->
+    <string name="title_favourites_hide_freq_call">Ukryj częste kontakty</string>
+    <string name="summary_favourites_hide_freq_call">Dane nie są usunięte, ale ukryte.</string>
+    <string name="title_favs_ask_before_clear">Zapytaj przed usunięciem</string>
+    <string name="summaryon_favs_ask_before_clear">Zapytaj przed usunięciem najczęściej wybieranych numerów</string>
+    <string name="summaryoff_favs_ask_before_clear">Najczęściej wybierane numery będą usuwane bez pytania</string>
+    
+    <!-- Preferences: Misc -->
+    <string name="title_misc_category">Inne</string>
+    <string name="title_sensor_rotation">Włącz obsługę obrotu ekranu</string>
+    <string name="summary_sensor_rotation">Jeśli włączone, ekran będzie obracany według ustawień systemowych"</string>
+    <string name="title_data_font_size">Rozmiar czcionki informacji o kontakcie</string>
+    <string name="summary_data_font_size">Pozwala wybrać rozmiar czcionki szczegółowych informacji o kontakcie</string>
+    
+    <!-- Wysie: About strings -->    
+    <string name="title_about">O programie</string>
+    <string name="title_about_name">Nazwa modyfikacji</string>
+    <string name="summary_about_name">WyContacts Froyo</string>
+    <string name="title_about_version">Wersja</string>
+    <string name="summary_about_version">1.2</string>
+    <string name="title_about_credits">Podziękowania</string>
+    <string name="summary_about_credits">Wysie, ChainsDD, geesun, niuchl, rac2030, sileht and the rest of XDA! :)</string>
 </resources>
