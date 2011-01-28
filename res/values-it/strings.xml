@@ -47,6 +47,14 @@
     <string name="menu_viewAddress" msgid="1814744325763202024">"Indirizzo su mappa"</string>
     <string name="menu_makeDefaultNumber" msgid="4838759253316649534">"Rendi numero predefinito"</string>
     <string name="menu_makeDefaultEmail" msgid="2599044610375789994">"Rendi ind. email predefinito"</string>
+    <!-- Menu item used to share the plain-text representation of a specific phone number -->
+    <string name="menu_shareNumber">Condividi numero</string>
+
+    <!-- Menu item used to share the plain-text representation of a specific email address -->
+    <string name="menu_shareEmail">Condividi email</string>
+
+    <!-- Menu item used to share the plain-text representation of a specific address -->
+    <string name="menu_shareAddress">Condividi indirizzo</string>
     <string name="menu_splitAggregate" msgid="8368636463748691868">"Separa"</string>
     <string name="contactsSplitMessage" msgid="5253490235863170269">"Contatti separati"</string>
     <string name="splitConfirmation_title" msgid="6716467920283502570">"Separa contatto"</string>
