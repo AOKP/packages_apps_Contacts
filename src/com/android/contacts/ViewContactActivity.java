@@ -100,7 +100,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import java.util.List;
 
 /**
  * Displays the details of a specific contact.
@@ -122,6 +121,9 @@ public class ViewContactActivity extends Activity
 
     public static final int MENU_ITEM_MAKE_DEFAULT = 3;
     public static final int MENU_ITEM_CALL = 4;
+    public static final int MENU_ITEM_SHARE = 5;
+
+    private static final String PLAIN_TEXT_TYPE = "text/plain";
 
     protected Uri mLookupUri;
     private ContentResolver mResolver;
@@ -592,13 +594,22 @@ public class ViewContactActivity extends Activity
             if (!entry.isPrimary) {
                 menu.add(0, MENU_ITEM_MAKE_DEFAULT, 0, R.string.menu_makeDefaultNumber);
             }
+            if (!mAllRestricted) {
+                menu.add(0, MENU_ITEM_SHARE, 0, R.string.menu_shareNumber);
+            }
         } else if (entry.mimetype.equals(CommonDataKinds.Email.CONTENT_ITEM_TYPE)) {
             menu.add(0, 0, 0, R.string.menu_sendEmail).setIntent(entry.intent);
             if (!entry.isPrimary) {
                 menu.add(0, MENU_ITEM_MAKE_DEFAULT, 0, R.string.menu_makeDefaultEmail);
             }
+            if (!mAllRestricted) {
+                menu.add(0, MENU_ITEM_SHARE, 0, R.string.menu_shareEmail);
+            }
         } else if (entry.mimetype.equals(CommonDataKinds.StructuredPostal.CONTENT_ITEM_TYPE)) {
             menu.add(0, 0, 0, R.string.menu_viewAddress).setIntent(entry.intent);
+            if (!mAllRestricted) {
+                menu.add(0, MENU_ITEM_SHARE, 0, R.string.menu_shareAddress);
+            }
         }
     }
 
@@ -678,10 +689,32 @@ public class ViewContactActivity extends Activity
                 startActivity(item.getIntent());
                 return true;
             }
+            case MENU_ITEM_SHARE: {
+                shareContactInfo(item);
+                return true;
+            }
             default: {
                 return super.onContextItemSelected(item);
             }
         }
+    }
+
+    private boolean shareContactInfo(MenuItem item) {
+        ViewEntry entry = getViewEntryForMenuItem(item);
+        if (mAllRestricted || entry == null) {
+            return false;
+        }
+
+        final Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType(PLAIN_TEXT_TYPE);
+        intent.putExtra(Intent.EXTRA_TEXT, entry.data);
+
+        try {
+            startActivity(Intent.createChooser(intent, getText(R.string.share_via)));
+        } catch (ActivityNotFoundException ex) {
+            Toast.makeText(this, R.string.share_error, Toast.LENGTH_SHORT).show();
+        }
+        return true;
     }
 
     private boolean makeItemDefault(MenuItem item) {
