@@ -47,6 +47,14 @@
     <string name="menu_viewAddress" msgid="1814744325763202024">"Adresse auf der Karte"</string>
     <string name="menu_makeDefaultNumber" msgid="4838759253316649534">"Als Standardnr. festlegen"</string>
     <string name="menu_makeDefaultEmail" msgid="2599044610375789994">"Standard-E-Mail festlegen"</string>
+
+    <!-- Menu item used to share the plain-text representation of a specific phone number -->
+    <string name="menu_shareNumber">Nummer weiterleiten</string>
+    <!-- Menu item used to share the plain-text representation of a specific email address -->
+    <string name="menu_shareEmail">Email weiterleiten</string>
+    <!-- Menu item used to share the plain-text representation of a specific address -->
+    <string name="menu_shareAddress">Adresse weiterleiten</string>
+
     <string name="menu_splitAggregate" msgid="8368636463748691868">"Teilen"</string>
     <string name="contactsSplitMessage" msgid="5253490235863170269">"Kontakte unterteilt"</string>
     <string name="splitConfirmation_title" msgid="6716467920283502570">"Kontakt teilen"</string>
