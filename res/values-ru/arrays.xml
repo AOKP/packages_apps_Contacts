@@ -21,5 +21,12 @@
         <item>Сообщение</item>
         <item>Голосовая почта</item>
     </string-array>
+
+    <string-array name="view_data_font_sizes">
+        <item>Мелкий (по умолчанию)</item>
+        <item>Средний</item>
+        <item>Крупный</item>
+        <item>Очень крупный</item>
+    </string-array>
   
 </resources>
