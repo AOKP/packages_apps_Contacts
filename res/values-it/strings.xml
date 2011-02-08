@@ -409,9 +409,6 @@
     <string name="dialer_menu_sms">SMS/MMS</string>
 
     <!-- Wysie: Call log strings -->
-    <string name="recentCalls_deleteAllIncoming">Canc. chiamate in arrivo</string>
-    <string name="recentCalls_deleteAllOutgoing">Canc. chiamate in uscita</string>
-    <string name="recentCalls_deleteAllMissed">Canc. chiamate perse</string>
     <string name="recent_calls_clear_call_log">Cancella registro</string>
     <string name="recent_calls_clear_what">Cosa cancellare?</string>
     <string name="recent_calls_clear_all">Tutte</string>
