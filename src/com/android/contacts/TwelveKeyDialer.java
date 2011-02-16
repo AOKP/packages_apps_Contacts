@@ -547,18 +547,18 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        mAddToContactMenuItem = menu.add(0, MENU_ADD_CONTACTS, 0, R.string.recentCalls_addToContact)
-                .setIcon(android.R.drawable.ic_menu_add);
         m2SecPauseMenuItem = menu.add(0, MENU_2S_PAUSE, 0, R.string.add_2sec_pause)
                 .setIcon(R.drawable.ic_menu_2sec_pause);
         mWaitMenuItem = menu.add(0, MENU_WAIT, 0, R.string.add_wait)
                 .setIcon(R.drawable.ic_menu_wait);
-                
-        mSmsMenuItem = menu.add(0, MENU_SMS, 0, R.string.dialer_menu_sms).setIcon(R.drawable.ic_launcher_smsmms);
-	    mPreferences = menu.add(0, MENU_PREFERENCES, 0, R.string.menu_preferences).setIcon(android.R.drawable.ic_menu_preferences);
+        mAddToContactMenuItem = menu.add(0, MENU_ADD_CONTACTS, 0, R.string.recentCalls_addToContact)
+                .setIcon(android.R.drawable.ic_menu_add);
+        mSmsMenuItem = menu.add(0, MENU_SMS, 0, R.string.dialer_menu_sms)
+                .setIcon(R.drawable.ic_menu_smsmms);
+        mPreferences = menu.add(0, MENU_PREFERENCES, 0, R.string.menu_preferences)
+                .setIcon(android.R.drawable.ic_menu_preferences);
         //Wysie_Soh: Preferences intent
         mPreferences.setIntent(new Intent(this, ContactsPreferences.class));
-                
         return true;
     }
 
