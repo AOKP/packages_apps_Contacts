@@ -392,4 +392,98 @@
     <string name="upgrade_out_of_memory_retry" msgid="8431289830472724609">"Tentar atualizar novamente"</string>
     <string name="search_results_for" msgid="8705490885073188513">"Resultados da pesquisa para: <xliff:g id="QUERY">%s</xliff:g>"</string>
     <string name="search_results_searching" msgid="7755623475227227314">"Pesquisando..."</string>
+
+    <!-- Wysie: Menu strings -->
+    <string name="menu_preferences">Preferências</string>
+
+    <!-- Wysie: Call log strings -->
+    <string name="recent_calls_clear_call_log">Limpar histórico de chamadas</string>
+    <string name="recent_calls_clear_what">O que limpar?</string>
+    <string name="recent_calls_clear_all">Tudo</string>
+    <string name="recent_calls_clear_incoming">Recebidas</string>
+    <string name="recent_calls_clear_outgoing">Realizadas</string>
+    <string name="recent_calls_clear_missed">Não atendidas</string>
+    <string name="alert_clear_call_log_title">Limpar histórico de chamadas</string>
+    <string name="alert_clear_call_log_message">Você tem certeza que deseja limpar todo o histórico de chamdas?</string>
+    <string name="alert_clear_cl_all_incoming">Você tem certeza que deseja limpar todas as chamadas recebidas?</string>
+    <string name="alert_clear_cl_all_outgoing">Você tem certeza que deseja limpar todas as chamdas realizadas?</string>
+    <string name="alert_clear_cl_all_missed">Você tem certeza que deseja limpar todas as chamadas não atendidas?</string>
+
+    <!-- Wysie: Favourites strings -->
+    <string name="fav_clear_freq">Limpar chamadas realizadas com frequência</string>
+    <string name="alert_clear_freq_called_msg">Você tem certeza que deseja limpar todas as chamadas realizadas com frequência?</string>
+
+    <!-- Wysie: Preferences strings -->
+
+    <!-- Preferences: Dialer -->
+    <string name="title_last_dialled">Botão de ligar recupera último número discado</string>
+    <string name="summary_last_dialled">Último número discado vai ser recuperado se os digitos estão vazios</string>
+    <string name="title_return_to_dialer">Retorna ao discador depois da ligação</string>
+    <string name="title_vm_button">Botão de ação esquero (LAB)</string>
+    <string name="title_vm_handler">Manipulador do Correio de Voz</string>
+    <string name="title_use_1_for_reg_vm">Usar 1 para Correio de Voz habitual</string>
+    <string name="summaryon_use_1_for_reg_vm">Tecla 1 vai ser usada para Correio de Voz habitual</string>
+    <string name="summaryoff_use_1_for_reg_vm">Tecla 1 vai seguir o manipulador de Correio de Voz</string>
+    <string name="title_disable_num_check">Disabilita checagens de número</string>
+    <string name="summaryon_disable_num_check">Botão de ação esquerdo (LAB) e menu irão sempre estar habilitados</string>
+    <string name="summaryoff_disable_num_check">LAB e menu irão sempre estar habilitados somente se pelo menos um número for digitado (exceto Correio de Voz)</string>
+    <string name="title_enable_haptic_feedback">Habilitar feedback de toque</string>
+    <string name="summary_enable_haptic_feedback">Usa padrão de toque no teclado - veja configuração CyanogenMod para ajustar</string>
+    <string name="title_change_digits_color">Trocar cor dos digitos</string>
+    <string name="title_digits_color_pressed">Cor dos digitos (pressionados)</string>
+    <string name="title_digits_color_focused">Cor dos digitos (focalizados)</string>
+    <string name="title_digits_color_unselected">Cor dos digitos (não selecionados)</string>
+    <string name="title_choose_color">Escolha uma cor</string>
+    <string name="instructions_choose_color">Toque na cor do centro para confirmar.\nPressione Voltar para cancelar.</string>
+    <string name="entry_no_vm_handler">Nenhum (Número de Correio de Voz)</string>
+
+    <!-- Preferences: Call log -->
+    <string name="title_cl_exact_time">Tempo exato</string>
+    <string name="summaryon_cl_exact_time">Usar tempo exato no histórico de chamada</string>
+    <string name="summaryoff_cl_exact_time">Usar tempo estimado no histórico de chamada</string>
+    <string name="title_cl_show_seconds">Mostrar segundos</string>
+    <string name="summary_cl_show_seconds">Mostrar segundos quando usando tempo exato</string>
+    <string name="title_cl_ask_before_clear">Perguntar antes de apagar</string>
+    <string name="summaryon_cl_ask_before_clear">Perguntar antes de apagar histórico de chamada</string>
+    <string name="summaryoff_cl_ask_before_clear">Histórico de chamadas vai ser apagado sem perguntar</string>
+
+    <!-- Preferences: Contacts -->
+    <string name="title_contacts_show_pic">Mostrar fotos dos contatos</string>
+    <string name="title_contacts_show_dial_button">Mostrar botão de chamada</string>
+    <string name="summary_contacts_show_dial_button">Mostrar um botão de chamada para contatos com número(s)</string>
+    <string name="title_contacts_show_count">Mostrar quantidade de contatos</string>
+    <string name="summary_contacts_show_count">Quantidade de contatos vai ser mostrato no topo da lista de contatos</string>
+    <string name="title_contacts_show_separators">Mostrar separador alfabético</string>
+    <string name="summaryon_contacts_show_separators">Separador alfabético vai ser mostrado na lista de contatos</string>
+    <string name="summaryoff_contacts_show_separators">Seprador alfabético vai estar escondido na lista de contato</string>
+
+    <!-- Preferences: Contacts - View Contact -->
+    <string name="title_view_contact">Visualizar contato</string>
+    <string name="summary_view_contact">Defina preferência quando vizualizando um único contato</string>
+    <string name="title_show_text_mobile_only">Ação de mensagem apenas para celular</string>
+    <string name="summaryon_show_text_mobile_only">Apenas números de celulares irão ter ação de mensagem/sms</string>
+    <string name="summaryoff_show_text_mobile_only">Todos os números irão ter ação de mensagem/sms</string>
+
+    <!-- Preferences: Favourites -->
+    <string name="title_favourites_hide_freq_call">Esconder chamadas realizadas com frequência</string>
+    <string name="summary_favourites_hide_freq_call">Os dados reais não são apagados, mas escondidos</string>
+    <string name="title_favs_ask_before_clear">Perguntar antes de apagar</string>
+    <string name="summaryon_favs_ask_before_clear">Perguntar antes de apagar chamadas realizadas com frequência</string>
+    <string name="summaryoff_favs_ask_before_clear">Chamadas realizadas com frequência irão ser apagas sem perguntar</string>
+
+    <!-- Preferences: Misc -->
+    <string name="title_misc_category">Diversos</string>
+    <string name="title_sensor_rotation">Habilitar sensor de rotação</string>
+    <string name="summary_sensor_rotation">Se habilitado, irá rotacionar baseado nas configurações de sistema</string>
+    <string name="title_data_font_size">Tamanho da fonte das informações de contato</string>
+    <string name="summary_data_font_size">Permite você selecionar o tamanho da fonte que vai ser usada para mostrar as informações (número de telefone, email, endereço, etc.) dos contatos</string>
+
+    <!-- Wysie: About strings -->
+    <string name="title_about">Sobre</string>
+    <string name="title_about_name">Nome do Mod</string>
+    <string name="summary_about_name">WyContacts Froyo</string>
+    <string name="title_about_version">Versão</string>
+    <string name="summary_about_version">1.2</string>
+    <string name="title_about_credits">Créditos</string>
+    <string name="summary_about_credits">Wysie, ChainsDD, geesun, niuchl, rac2030, sileht e o resto da XDA! :)</string>
 </resources>
