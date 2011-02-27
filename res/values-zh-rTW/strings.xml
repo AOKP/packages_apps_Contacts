@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--  Copyright (C) 2006 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2006 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -12,381 +12,1248 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
- -->
-
+-->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Label for this app's shared user ID (and thus for all other
+         apps sharing the uid). -->
     <string name="sharedUserLabel" msgid="7965035505237135241">"Android 核心應用程式"</string>
+
+    <!-- Title for the activity that shows contacts.  This is the name
+         used in the Launcher icon. -->
     <string name="contactsList" msgid="8661624236494819731">"聯絡人"</string>
+
+    <!-- Title for the activity that dials the phone.  This is the name
+         used in the Launcher icon. -->
     <string name="launcherDialer" msgid="8636288196618486553">"電話"</string>
+
+    <!-- Name of activity that allows users to create shortcuts on the home screen to a contact.
+         This shows up in a list of things like bookmark, folder, music playlist, etc -->
     <string name="shortcutContact" msgid="749243779392912958">"聯絡人"</string>
+
+    <!-- Name of activity that allows users to create shortcuts on the home screen to dial a contact.
+         This shows up in a list of things like bookmark, folder, music playlist, etc -->
     <string name="shortcutDialContact" msgid="746622101599186779">"直接撥號"</string>
+
+    <!-- Name of activity that allows users to create shortcuts on the home screen to message (SMS) a contact.
+         This shows up in a list of things like bookmark, folder, music playlist, etc -->
     <string name="shortcutMessageContact" msgid="2460337253595976198">"直接傳訊"</string>
+
+    <!-- Activity title when the user is selecting a contact for a shortcut. -->
     <string name="shortcutActivityTitle" msgid="6642877210643565436">"選擇聯絡人捷徑"</string>
+
+    <!-- Activity title when the user is selecting a contact for a direct dial shortcut. -->
     <string name="callShortcutActivityTitle" msgid="6065749861423648991">"選擇去電號碼"</string>
+
+    <!-- Activity title when the user is selecting a contact for a direct message shortcut. -->
     <string name="messageShortcutActivityTitle" msgid="3084542316620335911">"選擇傳訊號碼"</string>
+
+    <!-- Title for the activity that shows only starred contacts -->
     <string name="starredList" msgid="4817256136413959463">"已加星號"</string>
+
+    <!-- Title for the activity that shows only frequently contacted contacts -->
     <string name="frequentList" msgid="7154768136473953056">"經常聯絡"</string>
+
+    <!-- Title for the activity that shows a mix of starred contacts and frequently contacted
+         contacts. -->
     <string name="strequentList" msgid="5640192862059373511">"我的最愛"</string>
+
+    <!-- The title bar when viewing the contact details activity -->
     <string name="viewContactTitle" msgid="7989394521836644384">"聯絡人詳細資料"</string>
+
+    <!-- The description presented to the user in the Intent choose when there are multiple activities that allow
+         viewing a contact. This string represents the built in way to view the contact. -->
     <string name="viewContactDesription" msgid="214186610887547860">"檢視聯絡人"</string>
+
+    <!-- The description presented to the user in the Intent choose when there are multiple activities that allow
+         editing a contact. This string represents the built in way to edit the contact. -->
     <string name="editContactDescription" msgid="2947202828256214947">"編輯聯絡人"</string>
+
+    <!-- The description presented to the user in the Intent choose when there are multiple activities that allow
+         creating a new contact. This string represents the built in way to create the contact. -->
     <string name="insertContactDescription" msgid="4709878105452681987">"建立聯絡人"</string>
+
+    <!-- Hint text in the search box when the user hits the Search key while in the contacts app -->
     <string name="searchHint" msgid="8482945356247760701">"搜尋聯絡人"</string>
+
+    <!-- Menu item to search contacts -->
     <string name="menu_search" msgid="9147752853603483719">"搜尋"</string>
+
+    <!-- Menu item to create a new contact -->
     <string name="menu_newContact" msgid="1209922412763274638">"新增聯絡人"</string>
+
+    <!-- Menu item used to view the details for a specific contact -->
     <string name="menu_viewContact" msgid="2795575601596468581">"檢視聯絡人"</string>
+
+    <!-- Menu item used to call a contact, containing the name of the contact to call -->
     <string name="menu_callNumber" msgid="5142851348489387516">"撥打電話給 <xliff:g id="NAME">%s</xliff:g>"</string>
+
+    <!-- Menu item used to add a star to a contact, which makes that contact show up at the top of favorites -->
     <string name="menu_addStar" msgid="2908478235715404876">"新增至我的最愛"</string>
+
+    <!-- Menu item used to remove a star from a contact, making the contact no longer show up at the top of favorites -->
     <string name="menu_removeStar" msgid="5844227078364227030">"從我的最愛中移除"</string>
+
+    <!-- Menu item used to edit a specific contact -->
     <string name="menu_editContact" msgid="3452858480713561396">"編輯聯絡人"</string>
+
+    <!-- Menu item used to delete a specific contact -->
     <string name="menu_deleteContact" msgid="1916555454274101750">"刪除聯絡人"</string>
+
+    <!-- Menu item used to call a specific contact when viewing the details of that contact. -->
     <string name="menu_call" msgid="3992595586042260618">"去電聯絡人"</string>
+
+    <!-- Menu item used to send an SMS or MMS message to a specific phone number or a contacts default phone number -->
     <string name="menu_sendSMS" msgid="5535886767547006515">"傳送簡訊至聯絡人"</string>
+
+    <!-- Menu item used to send an email message to a specific email address -->
     <string name="menu_sendEmail" msgid="7293508859242926187">"傳送電子郵件"</string>
+
+    <!-- Menu item used to view a contact's address on a map -->
     <string name="menu_viewAddress" msgid="1814744325763202024">"在地圖上顯示地址"</string>
+
+    <!-- Menu item that makes a phone the default for a contact. The default number used when you
+         try to call a contact without specifying a specific number. -->
     <string name="menu_makeDefaultNumber" msgid="4838759253316649534">"設為預設號碼"</string>
+
+    <!-- Menu item that makes an email address the default for a contact. The default email used
+         when you try to email a contact without specifying a specific address. -->
     <string name="menu_makeDefaultEmail" msgid="2599044610375789994">"設為預設電子郵件"</string>
+
+    <!-- Menu item used to share the plain-text representation of a specific phone number -->
+    <string name="menu_shareNumber">分享號碼</string>
+
+    <!-- Menu item used to share the plain-text representation of a specific email address -->
+    <string name="menu_shareEmail">分享電子郵件</string>
+
+    <!-- Menu item used to share the plain-text representation of a specific address -->
+    <string name="menu_shareAddress">分享地址</string>
+
+    <!-- Menu item that splits an item from the contact detail into a separate aggregate -->
     <string name="menu_splitAggregate" msgid="8368636463748691868">"分割"</string>
+
+    <!-- Toast shown after a contact has been split from an aggregate by a user action -->
     <string name="contactsSplitMessage" msgid="5253490235863170269">"已分割的聯絡人"</string>
+
+    <!-- Title of the confirmation dialog for separating contacts into multiple instances  -->
     <string name="splitConfirmation_title" msgid="6716467920283502570">"分割聯絡人"</string>
+
+    <!-- Confirmation dialog for separating contacts into multiple instances  -->
     <string name="splitConfirmation" msgid="1150797297503944823">"您確定要將這個聯絡人分割成多組聯絡資訊嗎 (個別分到相關的聯絡資訊分類)？"</string>
+
+    <!-- Menu item that joins an aggregate with another aggregate -->
     <string name="menu_joinAggregate" msgid="5027981918265667970">"合併"</string>
+
+    <!-- Heading of the Join Contact screen -->
     <string name="titleJoinContactDataWith" msgid="7684875775798635354">"合併聯絡人"</string>
+
+    <!-- Info blurb on the Join Contact screen -->
     <string name="blurbJoinContactDataWith" msgid="995870557595050304">"選取要與<xliff:g id="NAME">%s</xliff:g>合併的聯絡人。"</string>
+
+    <!-- An item in the Join Contact activity that opens up the full contact A-Z list -->
     <string name="showAllContactsJoinItem" msgid="2189695051430392383">"顯示所有聯絡人"</string>
+
+    <!-- List separator for the Join Contact list: Suggestions -->
     <string name="separatorJoinAggregateSuggestions" msgid="2831414448851313345">"建議聯絡人"</string>
+
+    <!-- List separator for the Join Contact list: A-Z -->
     <string name="separatorJoinAggregateAll" msgid="7939932265026181043">"所有聯絡人"</string>
+
+    <!-- Toast shown after two contacts have been joined by a user action -->
     <string name="contactsJoinedMessage" msgid="7208148163607047389">"已合併聯絡人"</string>
+
+    <!-- Menu item that opens the Options activity for a given contact -->
     <string name="menu_contactOptions" msgid="1957061455705020617">"選項"</string>
+
+    <!-- Title for the Options activity for a given contact -->
     <string name="contactOptionsTitle" msgid="8259347644090700915">"選項"</string>
+
+    <!-- Confirmation dialog title after users selects to delete a contact. -->
     <string name="deleteConfirmation_title" msgid="6394309508930335204">"刪除"</string>
+
+    <!-- Confirmation dialog title after users selects clear log. -->
+    <string name="clearConfirmation_title">清除通話記錄</string>
+
+    <!-- Warning dialog contents after users selects to delete a ReadOnly contact. -->
     <string name="readOnlyContactWarning" msgid="1390849295342594265">"您無法從唯讀帳戶中刪除聯絡人，但可在您的聯絡人清單中隱藏他們。"</string>
+
+    <!-- Warning dialog contents after users selects to delete a contact with ReadOnly and Writable sources. -->
     <string name="readOnlyContactDeleteConfirmation" msgid="2137170726670196909">"此聯絡人包含來自多個帳戶的資訊。您的聯絡人清單不會顯示唯讀帳戶的資訊 (這些資訊並不會被刪除)。"</string>
+
+    <!-- Warning dialog contents after users selects to delete a contact with multiple Writable sources. -->
     <string name="multipleContactDeleteConfirmation" msgid="938900978442960800">"刪除此聯絡人將會刪除多個帳戶的資訊。"</string>
+
+    <!-- Confirmation dialog contents after users selects to delete a Writable contact. -->
     <string name="deleteConfirmation" msgid="811706994761610640">"刪除此聯絡人？"</string>
+
+    <!-- Confirmation dialog contents after users selects to clear call log. -->
+    <string name="clearLogConfirmation">所有通話記錄將會被移除。</string>
+
+    <!-- Menu item to indicate you are done editing a contact and want to save the changes you've made -->
     <string name="menu_done" msgid="796017761764190697">"完成"</string>
+
+    <!-- Menu item to indicate you want to stop editing a contact and NOT save the changes you've made -->
     <string name="menu_doNotSave" msgid="2174577548513895144">"取消"</string>
+
+    <!-- The title of the activity that edits and existing contact -->
     <string name="editContact_title_edit" msgid="7678695190666836093">"編輯聯絡人"</string>
+
+    <!-- The title of the activity that creates a new contact -->
     <string name="editContact_title_insert" msgid="9125600232291405757">"新增聯絡人"</string>
+
+    <!-- The label describing the phonetic pronunciation/reading of a contact name -->
     <string name="label_phonetic_name" msgid="2288082649573927286">"拼音"</string>
+
+    <!-- The label describing the Notes field of a contact. This field allows free form text entry about a contact -->
     <string name="label_notes" msgid="8337354953278341042">"附註"</string>
+
+    <!-- The label describing the SIP address field of a contact. [CHAR LIMIT=20] -->
     <string name="label_sip_address" msgid="124073911714324974">"網路電話"</string>
+
+    <!-- The label describing the custom ringtone for a contact -->
     <string name="label_ringtone" msgid="8833166825330686244">"鈴聲"</string>
+
+    <!-- Hint text for the contact name when editing -->
     <string name="ghostData_name" msgid="6490954238641157585">"姓名"</string>
+
+    <!-- Hint text for the phonetic reading of the contact name when editing -->
     <string name="ghostData_phonetic_name" msgid="7852749081984070902">"姓名拼音"</string>
+
+    <!-- Hint text for the organization name when editing -->
     <string name="ghostData_company" msgid="5414421120553765775">"公司"</string>
+
+    <!-- Hint text for the organization title when editing -->
     <string name="ghostData_title" msgid="7496735200318496110">"標題"</string>
+
+    <!-- Message displayed in a toast when you try to view the details of a contact that
+         for some reason doesn't exist anymore. -->
     <string name="invalidContactMessage" msgid="5816991830260044593">"聯絡人不存在。"</string>
+
+    <!-- When picking a contact from a list of all contacts there is an entry at the top of the
+         list that allows the user to create a new contact, which this string is used for -->
     <string name="pickerNewContactHeader" msgid="7750705279843568147">"建立新聯絡人"</string>
+
+    <!-- Dialog title when you select a label when creating or edit a contact -->
     <string name="selectLabel" msgid="4255424123394910733">"選取標籤"</string>
+
+    <!-- Header that expands to list all of the types of phone numbers when editing or creating a phone number for a contact -->
     <string name="phoneLabelsGroup" msgid="6468091477851199285">"電話"</string>
+
+    <!-- Header that expands to list all of the types of email addresses when editing or creating an email address for a contact -->
     <string name="emailLabelsGroup" msgid="8389931313045344406">"電子郵件"</string>
+
+    <!-- Header that expands to list all of the types of IM account when editing or creating an IM account for a contact -->
     <string name="imLabelsGroup" msgid="3898238486262614027">"即時訊息"</string>
+
+    <!-- Header that expands to list all of the types of postal addresses when editing or creating an postal address for a contact -->
     <string name="postalLabelsGroup" msgid="1618078212734693682">"郵寄地址"</string>
-  <string-array name="otherLabels">
-    <item msgid="8287841928119937597">"機構"</item>
-    <item msgid="7196592230748086755">"附註"</item>
-  </string-array>
+
+    <!-- The order of the items below is important, don't reorder without changing EditContactActivity.java -->
+    <skip/>
+    <!-- The labels that are under the otherLabelsGroup when editing a contact. -->
+    <string-array name="otherLabels">
+        <!-- An organization associated with a contact -->
+        <item msgid="8287841928119937597">"機構"</item>
+        <!-- A note associated with a contact -->
+        <item msgid="7196592230748086755">"附註"</item>
+    </string-array>
+
+    <!-- Description in the dialog that appears if there are no pictures from which to create an icon for a contact -->
     <string name="photoPickerNotFoundText" msgid="431331662154342581">"手機上沒有相片 。"</string>
+
+    <!-- Description of the activity used to set a photo in the pictures application as the icon for a contact -->
     <string name="attachToContact" msgid="8820530304406066714">"聯絡人圖示"</string>
+
+    <!-- Title of the dialog used to set a custom label for a contact detail, like a phone number or email address.
+         For example, this may be used to set a phone number's label to "Vaction house" -->
     <string name="customLabelPickerTitle" msgid="1081475101983255212">"自訂標籤名稱"</string>
+
+    <!-- The menu item to open the list of groups to display -->
     <string name="menu_displayGroup" msgid="5655505437727616553">"顯示選項"</string>
+
+    <!-- Title of activity that lets user pick which contact groups to display -->
     <string name="displayGroups" msgid="2278964020773993336">"顯示選項"</string>
+
+    <!-- Check box label that allows calls to the contact to be sent directly to voicemail -->
     <string name="send_to_voicemail_checkbox" msgid="9001686764070676353">"直接將來電轉到語音信箱"</string>
+
+    <!-- String used to indicate that a contact doesn't have a custom ringtone -->
     <string name="default_ringtone" msgid="9099988849649827972">"預設值"</string>
+
+    <!-- The button/menu item that allows you to change an existing contact picture -->
     <string name="changePicture" msgid="2943329047610967714">"變更圖示"</string>
+
+    <!-- The menu item that allows you to remove a picture from a contact -->
     <string name="removePicture" msgid="3041230993155966350">"移除圖示"</string>
+
+    <!-- The text displayed when the contacts list is empty while displaying all contacts -->
     <string name="noContacts" msgid="8579310973261953559">"沒有聯絡人。"</string>
+
+    <!-- The text displayed when the contacts list is empty while displaying results after searching contacts -->
     <string name="noMatchingContacts" msgid="4266283206853990471">"找不到符合的聯絡人。"</string>
+
+    <!-- The text displayed when the contacts list is empty while displaying only contacts that have phone numbers -->
     <string name="noContactsWithPhoneNumbers" msgid="1605457050218824269">"沒有包含電話號碼的聯絡人資訊。"</string>
+
+    <!-- The title of the filter to only show contacts with phone numbers -->
     <string name="showFilterPhones" msgid="4184858075465653970">"僅顯示有電話號碼的聯絡人"</string>
+
+    <!-- The description of the filter to only show contacts with phone numbers -->
     <string name="showFilterPhonesDescrip" msgid="6644443248815191067">"僅顯示有電話號碼的聯絡人"</string>
+
+    <!-- The header over the list of all contacts groups -->
     <string name="headerContactGroups" msgid="2426134991932503843">"選擇要顯示的聯絡人"</string>
-  <plurals name="groupDescrip">
-    <item quantity="other" msgid="3507881585720628389">"<xliff:g id="COUNT">%0$d</xliff:g> 位聯絡人"</item>
-  </plurals>
-  <plurals name="groupDescripPhones">
-    <item quantity="other" msgid="3816047547470490208">"<xliff:g id="COUNT_0">%1$d</xliff:g> 位聯絡人，<xliff:g id="COUNTWITHPHONES">%2$d</xliff:g> 組電話號碼"</item>
-  </plurals>
+
+    <!-- The description of a group with the total number of contacts -->
+    <plurals name="groupDescrip">
+        <item quantity="other" msgid="3507881585720628389">"<xliff:g id="COUNT">%0$d</xliff:g> 位聯絡人"</item>
+    </plurals>
+
+    <!-- The description of a group with the total number of contacts, and the total number of contacts with phone numbers -->
+    <plurals name="groupDescripPhones">
+        <item quantity="other" msgid="3816047547470490208">"<xliff:g id="COUNT_0">%1$d</xliff:g> 位聯絡人，<xliff:g id="COUNTWITHPHONES">%2$d</xliff:g> 組電話號碼"</item>
+    </plurals>
+
+    <!-- Displayed in a spinner dialog after the user creates a contact and it's being saved to the database -->
     <string name="savingContact" msgid="4075751076741924939">"正在儲存聯絡人..."</string>
+
+    <!-- Displayed in a spinner dialog as user changes to display options are saved -->
     <string name="savingDisplayGroups" msgid="2133152192716475939">"正在儲存顯示選項..."</string>
+
+    <!-- Toast displayed when a contact is saved -->
     <string name="contactSavedToast" msgid="7152589189385441091">"聯絡人已儲存。"</string>
+
+    <!-- Toast displayed when saving a contact failed -->
     <string name="contactSavedErrorToast" msgid="9189098776225004666">"發生錯誤，無法儲存聯絡人變更。"</string>
-  <plurals name="listTotalPhoneContacts">
-    <item quantity="one" msgid="8721111084815668845">"顯示 1 位附有電話號碼的聯絡人"</item>
-    <item quantity="other" msgid="6133262880804110289">"顯示 <xliff:g id="COUNT">%d</xliff:g> 位附有電話號碼的聯絡人"</item>
-  </plurals>
+
+    <!-- Displayed at the top of the contacts showing the total number of contacts visible when "Only contacts with phones" is selected -->
+    <plurals name="listTotalPhoneContacts">
+        <item quantity="one" msgid="8721111084815668845">"顯示 1 位附有電話號碼的聯絡人"</item>
+        <item quantity="other" msgid="6133262880804110289">"顯示 <xliff:g id="COUNT">%d</xliff:g> 位附有電話號碼的聯絡人"</item>
+    </plurals>
+
+    <!-- Displayed at the top of the contacts showing the zero as total number of contacts visible when "Only contacts with phones" is selected -->
     <string name="listTotalPhoneContactsZero" msgid="2756295259674938869">"在可顯示的聯絡人中，找不到附有電話號碼的聯絡人"</string>
-  <plurals name="listTotalAllContacts">
-    <item quantity="one" msgid="1096068709488455155">"顯示 1 位聯絡人"</item>
-    <item quantity="other" msgid="2865867557378939630">"顯示 <xliff:g id="COUNT">%d</xliff:g> 位聯絡人"</item>
-  </plurals>
+
+    <!-- Displayed at the top of the contacts showing the total number of contacts visible when "Only contacts with phones" not selected -->
+    <plurals name="listTotalAllContacts">
+        <item quantity="one" msgid="1096068709488455155">"顯示 1 位聯絡人"</item>
+        <item quantity="other" msgid="2865867557378939630">"顯示 <xliff:g id="COUNT">%d</xliff:g> 位聯絡人"</item>
+    </plurals>
+
+    <!-- Displayed at the top of the contacts showing the zero total number of contacts visible when "Only contacts with phones" not selected -->
     <string name="listTotalAllContactsZero" msgid="6811347506748072822">"沒有可顯示的聯絡人"</string>
-  <plurals name="listFoundAllContacts">
-    <item quantity="one" msgid="2830107332033967280">"已找到 1 位聯絡人"</item>
-    <item quantity="other" msgid="7752927996850263152">"已找到 <xliff:g id="COUNT">%d</xliff:g> 位聯絡人"</item>
-  </plurals>
+
+    <!-- Displayed at the top of the contacts showing the total number of contacts found when "Only contacts with phones" not selected -->
+    <plurals name="listFoundAllContacts">
+        <item quantity="one" msgid="2830107332033967280">"已找到 1 位聯絡人"</item>
+        <item quantity="other" msgid="7752927996850263152">"已找到 <xliff:g id="COUNT">%d</xliff:g> 位聯絡人"</item>
+    </plurals>
+
+    <!-- Displayed at the top of the contacts showing the zero total number of contacts found when "Only contacts with phones" not selected -->
     <string name="listFoundAllContactsZero" msgid="5554368784319460828">"找不到聯絡人"</string>
-  <plurals name="searchFoundContacts">
-    <item quantity="one" msgid="916648718690661777">"1 位聯絡人"</item>
-    <item quantity="other" msgid="5660384247071761844">"<xliff:g id="COUNT">%d</xliff:g> 位聯絡人"</item>
-  </plurals>
+
+    <!-- Displayed at the top of the contacts showing the total number of contacts found when typing search query -->
+    <plurals name="searchFoundContacts">
+        <item quantity="one" msgid="916648718690661777">"1 位聯絡人"</item>
+        <item quantity="other" msgid="5660384247071761844">"<xliff:g id="COUNT">%d</xliff:g> 位聯絡人"</item>
+    </plurals>
+
+    <!-- The description text for the contacts tab. Space is limited for this string, so the shorter the better -->
     <string name="contactsIconLabel" msgid="7666609097606552806">"聯絡人"</string>
+
+    <!-- The description text for the favorites tab. Space is limited for this string, so the shorter the better -->
     <string name="contactsFavoritesLabel" msgid="8417039765586853670">"我的最愛"</string>
+
+    <!-- The description text for the dialer tab. Space is limited for this string, so the shorter the better -->
     <string name="dialerIconLabel" msgid="6500826552823403796">"電話"</string>
+
+    <!-- The description text for the call log tab. Space is limited for this string, so the shorter the better -->
     <string name="recentCallsIconLabel" msgid="1419116422359067949">"通話記錄"</string>
     <string name="liveFolderAll" msgid="4789010460767506206">"全部聯絡人"</string>
     <string name="liveFolderFavorites" msgid="3100957542927222282">"有星號標記的聯絡人"</string>
     <string name="liveFolderPhone" msgid="3739376066610926780">"有電話號碼的聯絡人"</string>
+
+    <!-- Menu item used to send an SMS or MMS message to a phone number  -->
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"傳送簡訊"</string>
+
+    <!-- Menu item used to call a contact from the call log -->
     <string name="recentCalls_callNumber" msgid="1756372533999226126">"撥電話給<xliff:g id="NAME">%s</xliff:g>"</string>
+
+    <!-- Menu item used to copy a number from the call log to the dialer so it can be edited before calling it -->
     <string name="recentCalls_editNumberBeforeCall" msgid="7756171675833267857">"撥打電話前編輯號碼"</string>
+
+    <!--Menu item used to add a number from the call log to Blacklist  -->
+    <string name="recentCalls_addToBlacklist">新增至黑名單</string>
+
+    <!-- Menu item used to add a number from the call log to contacts -->
     <string name="recentCalls_addToContact" msgid="1429899535546487008">"新增至聯絡人"</string>
+
+    <!-- Menu item used to remove a single call from the call log -->
     <string name="recentCalls_removeFromRecentList" msgid="401662244636511330">"從通話記錄中移除"</string>
+
+    <!-- Menu item used to remove all calls from the call log -->
     <string name="recentCalls_deleteAll" msgid="6352364392762163704">"清除通話記錄"</string>
+
+    <!-- Text displayed when the call log is empty -->
     <string name="recentCalls_empty" msgid="247053222448663107">"無通話記錄。"</string>
+
+    <!-- Title of the confirmation dialog for clearing the call log  -->
     <string name="clearCallLogConfirmation_title" msgid="718072843006222703">"清除通話記錄"</string>
+
+    <!-- Confirmation dialog for clearing the call log  -->
     <string name="clearCallLogConfirmation" msgid="7625927669136267636">"確定要清除通話記錄嗎？"</string>
+
+    <!-- The title of a dialog that displays the IMEI of the phone -->
     <string name="imei" msgid="3045126336951684285">"IMEI"</string>
+
+    <!-- The title of a dialog that displays the MEID of the CDMA phone -->
     <string name="meid" msgid="6210568493746275750">"MEID"</string>
+
+    <!-- String used for displaying calls to the voicemail number in the call log -->
     <string name="voicemail" msgid="3851469869202611441">"語音留言"</string>
+
+    <!-- String used to display calls from unknown numbers in the call log -->
     <string name="unknown" msgid="740067747858270469">"不明"</string>
+
+    <!-- String used to display calls from private numbers in the call log -->
     <string name="private_num" msgid="6374339738119166953">"私人號碼"</string>
+
+    <!-- String used to display calls from pay phone in the call log -->
     <string name="payphone" msgid="4864313342828942922">"公共電話"</string>
+
+    <!-- Displayed in the text entry box in the dialer when in landscape mode to guide the user
+         to dial using the physical keyboard -->
     <string name="dialerKeyboardHintText" msgid="5401660096579787344">"使用鍵盤撥號"</string>
+
+    <!-- Hint text displayed in the "digits" field above the dialer's
+         dialpad, if there's already a call in progress.  (This hint
+         reminds the user that the dialer will add a new call, as opposed
+         to sending DTMF tones over the current call.) -->
     <string name="dialerDialpadHintText" msgid="5824490365898349041">"撥號即可新增通話"</string>
+
+    <!-- Dialog text displayed when loading a phone number from the SIM card for speed dial -->
     <string name="simContacts_emptyLoading" msgid="6700035985448642408">"從  SIM 卡讀取中…"</string>
+
+    <!-- Dialog title displayed when loading a phone number from the SIM card for speed dial -->
     <string name="simContacts_title" msgid="27341688347689769">"SIM 卡聯絡人"</string>
+
+    <!-- Displayed full screen when the user want to create a shortcut, but there is no contacts, and contact syncing is enabled -->
     <string name="noContactsHelpTextWithSyncForCreateShortcut" msgid="801504710275614594">"您沒有任何聯絡人可供顯示 (如果您剛剛才新增帳戶，系統需要幾分鐘的時間才能同步聯絡人資訊)。"</string>
+
+    <!-- Displayed full screen when the user want to create a shortcut, but there is no contacts -->
     <string name="noContactsHelpTextForCreateShortcut" msgid="3081286388667108335">"您沒有任何聯絡人可供顯示。"</string>
+
+    <!-- Displayed full screen when the user has no contacts and they are displaying the My Contacts group, and contact syncing is disabled -->
     <string name="noContactsHelpText" msgid="6788487368878712350">"您沒有任何聯絡人。"\n\n"如要新增聯絡人，請按下 ["<font fgcolor="#ffffffff">"選單"<b></b></font>"] 並輕觸："\n" "\n<li>"["<font fgcolor="#ffffffff">"帳戶"<b></b></font>" 來新增或設定您可以同步處理手機資料的聯絡人帳戶"\n</li>" "\n<li>"["<font fgcolor="#ffffffff">"新增聯絡人"<b></b></font>"] 從頭開始建立聯絡人"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"匯入/匯出"</b></font>\n</li></string>
+
+    <!-- Displayed full screen when the user has no contacts and they are displaying the My Contacts group, and contact syncing is enabled -->
     <string name="noContactsHelpTextWithSync" msgid="3734101165712848179">"您沒有任何聯絡人 (如果您剛剛才新增帳戶，系統需要幾分鐘的時間才能同步聯絡人資訊)。"\n\n"如要新增聯絡人，請按下 ["<font fgcolor="#ffffffff">"選單"</font><b></b>"] 並輕觸："\n\n"["<li><font fgcolor="#ffffffff">"帳戶"<b></b></font>"] 來新增或設定您可以同步處理手機資料的聯絡人帳戶"\n</li>" "\n<li>"["<font fgcolor="#ffffffff">"顯示選項"<b></b></font>"] 來變更聯絡人的顯示狀態"\n</li>" "\n<li>"["<font fgcolor="#ffffffff">"新增聯絡人"<b></b></font>"] 從頭開始建立聯絡人"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"匯入/匯出"</b></font>\n</li></string>
+
+    <!-- Displayed full screen when the user has no contacts and they are displaying the My Contacts group, and contact syncing is disabled, and there is no sim card (cdma)-->
     <string name="noContactsNoSimHelpText" msgid="6553845386917463292">"您沒有任何聯絡人。"\n\n"如要新增聯絡人，請按下 ["<font fgcolor="#ffffffff">"選單"<b></b></font>"] 並輕觸："\n" "\n<li>"["<font fgcolor="#ffffffff">"帳戶"<b></b></font>" 來新增或設定您可以同步處理手機資料的聯絡人帳戶"\n</li>" "\n<li>"["<font fgcolor="#ffffffff">"新增聯絡人"<b></b></font>"] 從頭開始建立聯絡人"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"匯入/匯出"</b></font>\n</li></string>
+
+    <!-- Displayed full screen when the user has no contacts and they are displaying the My Contacts group, and contact syncing is enabled, and there is no sim card (cdma) -->
     <string name="noContactsNoSimHelpTextWithSync" msgid="1122296298361373488">"您沒有任何聯絡人 (如果您剛剛才新增帳戶，系統需要幾分鐘的時間才能同步聯絡人資訊)。"\n\n"如要新增聯絡人，請按下 ["<font fgcolor="#ffffffff">"選單"</font><b></b>"] 並輕觸："\n\n"["<li><font fgcolor="#ffffffff">"帳戶"<b></b></font>"] 來新增或設定您可以同步處理手機資料的聯絡人帳戶"\n</li>" "\n<li>"["<font fgcolor="#ffffffff">"顯示選項"<b></b></font>"] 來變更聯絡人的顯示狀態"\n</li>" "\n<li>"["<font fgcolor="#ffffffff">"新增聯絡人"<b></b></font>"] 從頭開始建立聯絡人"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"匯入/匯出"</b></font>\n</li></string>
+
+    <!-- Displayed full screen when the user has no favorites and they are displaying the favorites tab -->
     <string name="noFavoritesHelpText" msgid="3744655776704833277">"您沒有任何最愛。"\n\n"如要將聯絡人新增至最愛清單："\n\n<li>"輕觸 [聯絡人"<b></b>"] 標籤"\n</li>" "\n<li>"輕觸要新增至最愛的聯絡人"\n</li>" "\n<li>"輕觸聯絡人名稱旁邊的星號圖示"\n</li></string>
+
+    <!-- Activity title for the activity that lets the user choose which groups of contacts to sync from the server -->
+
+
+    <!-- Live folder label for all contacts -->
     <string name="liveFolder_all_label" msgid="5961411940473276616">"所有聯絡人"</string>
+
+    <!-- Live folder label for only starred contacts -->
     <string name="liveFolder_favorites_label" msgid="2674341514070517105">"已加星號"</string>
+
+    <!-- Live folder label for all contacts with phone numbers -->
     <string name="liveFolder_phones_label" msgid="1709786878793436245">"電話"</string>
+
+    <!-- Item label: jump to the in-call DTMF dialpad.
+         (Part of a list of options shown in the dialer when another call
+         is already in progress.) -->
     <string name="dialer_useDtmfDialpad" msgid="1707548397435075040">"使用觸控音按鍵"</string>
+
+    <!-- Item label: jump to the in-call UI.
+         (Part of a list of options shown in the dialer when another call
+         is already in progress.) -->
     <string name="dialer_returnToInCallScreen" msgid="3719386377550913067">"返回進行中的通話"</string>
+
+    <!-- Item label: use the Dialer's dialpad to add another call.
+         (Part of a list of options shown in the dialer when another call
+         is already in progress.) -->
     <string name="dialer_addAnotherCall" msgid="4205688819890074468">"新增通話"</string>
+
+    <!-- Title bar for call detail screen -->
     <string name="callDetailTitle" msgid="5340227785196217938">"通話詳細資料"</string>
+
+    <!-- Toast for call detail screen when couldn't read the requested details -->
     <string name="toast_call_detail_error" msgid="7200975244804730096">"無法解讀通話要求詳細資訊。"</string>
+
+    <!-- Title for incoming call details screen -->
     <string name="type_incoming" msgid="6502076603836088532">"來電"</string>
+
+    <!-- Title for outgoing call details screen -->
     <string name="type_outgoing" msgid="343108709599392641">"撥出電話"</string>
+
+    <!-- Title for missed call details screen -->
     <string name="type_missed" msgid="2720502601640509542">"未接來電"</string>
+
+    <!-- Description for incoming calls going to voice mail vs. not -->
     <string name="actionIncomingCall" msgid="6028930669817038600">"來電"</string>
+
+    <!-- Action string for calling back a number in the call log -->
     <string name="callBack" msgid="5498224409038809224">"回播電話"</string>
+
+    <!-- Action string for calling a number in the call log again -->
     <string name="callAgain" msgid="3197312117049874778">"重撥"</string>
+
+    <!-- Action string for returning a missed call in the call log -->
     <string name="returnCall" msgid="8171961914203617813">"回電"</string>
+
+    <!-- A nicely formatted call duration displayed when viewing call details. For example "42 mins 28 secs" -->
     <string name="callDetailsDurationFormat" msgid="8157706382818184268">"<xliff:g id="MINUTES">%1$s</xliff:g> 分 <xliff:g id="SECONDS">%2$s</xliff:g> 秒"</string>
+
+    <!-- A list separator for the Favorites tab indicating that items below it are frequently contacted contacts rather than starred contacts -->
     <string name="favoritesFrquentSeparator" msgid="8107518433381283736">"常用聯絡人"</string>
+
+    <!-- Dialog title when prompting before creating a contact -->
     <string name="add_contact_dlg_title" msgid="2896685845822146494">"新增聯絡人"</string>
+    <!-- Dialog message when prompting before creating a contact. Includes
+         the email address, e.g. "Add xyz@foo.com to contacts?" -->
     <string name="add_contact_dlg_message_fmt" msgid="7986472669444326576">"要將「<xliff:g id="EMAIL">%s</xliff:g>」新增為聯絡人嗎？"</string>
+
+    <!-- Label for the all data tab in the view and edit card -->
     <string name="all_tab_label" msgid="4003124364397916826">"全部"</string>
+
+    <!-- String describing the image on ImageButton one
+
+        Note: AccessibilityServices use this attribute to announce what the view represents.
+              This is especially valuable for views without textual representation like ImageView.
+    -->
     <string name="description_image_button_one" msgid="1740638037139856139">"1"</string>
+
+    <!-- String describing the image on ImageButton two
+
+        Note: AccessibilityServices use this attribute to announce what the view represents.
+              This is especially valuable for views without textual representation like ImageView.
+    -->
     <string name="description_image_button_two" msgid="5882638439003731308">"2"</string>
+
+    <!-- String describing the image on ImageButton three
+
+        Note: AccessibilityServices use this attribute to announce what the view represents.
+              This is especially valuable for views without textual representation like ImageView.
+    -->
     <string name="description_image_button_three" msgid="8709731759376015180">"3"</string>
+
+    <!-- String describing the image on ImageButton four
+
+        Note: AccessibilityServices use this attribute to announce what the view represents.
+              This is especially valuable for views without textual representation like ImageView.
+    -->
     <string name="description_image_button_four" msgid="3530239685642246130">"4"</string>
+
+    <!-- String describing the image on ImageButton five
+
+        Note: AccessibilityServices use this attribute to announce what the view represents.
+              This is especially valuable for views without textual representation like ImageView.
+    -->
     <string name="description_image_button_five" msgid="1182465427501188413">"5"</string>
+
+    <!-- String describing the image on ImageButton six
+
+        Note: AccessibilityServices use this attribute to announce what the view represents.
+              This is especially valuable for views without textual representation like ImageView.
+    -->
     <string name="description_image_button_six" msgid="2093656269261415475">"6"</string>
+
+    <!-- String describing the image on ImageButton seven
+
+        Note: AccessibilityServices use this attribute to announce what the view represents.
+              This is especially valuable for views without textual representation like ImageView.
+    -->
     <string name="description_image_button_seven" msgid="2450357020447676481">"7"</string>
+
+    <!-- String describing the image on ImageButton eight
+
+        Note: AccessibilityServices use this attribute to announce what the view represents.
+              This is especially valuable for views without textual representation like ImageView.
+    -->
     <string name="description_image_button_eight" msgid="6969435115163287801">"8"</string>
+
+    <!-- String describing the image on ImageButton nine
+
+        Note: AccessibilityServices use this attribute to announce what the view represents.
+              This is especially valuable for views without textual representation like ImageView.
+    -->
     <string name="description_image_button_nine" msgid="7857248695662558323">"9"</string>
+
+    <!-- String describing the image on ImageButton star
+
+        Note: AccessibilityServices use this attribute to announce what the view represents.
+              This is especially valuable for views without textual representation like ImageView.
+    -->
     <string name="description_image_button_star" msgid="3365919907520767866">"星號"</string>
+
+    <!-- String describing the image on ImageButton zero
+
+        Note: AccessibilityServices use this attribute to announce what the view represents.
+              This is especially valuable for views without textual representation like ImageView.
+    -->
     <string name="description_image_button_zero" msgid="4133108949401820710">"0"</string>
+
+    <!-- String describing the image on ImageButton pound
+
+        Note: AccessibilityServices use this attribute to announce what the view represents.
+              This is especially valuable for views without textual representation like ImageView.
+    -->
     <string name="description_image_button_pound" msgid="3039765597595889230">"磅"</string>
+
+    <!-- String describing the Voicemail ImageButton
+
+         Used by AccessibilityService to announce the purpose of the button.
+    -->
     <string name="description_voicemail_button" msgid="3402506823655455591">"語音信箱"</string>
+
+    <!-- String describing the Dial ImageButton
+
+         Used by AccessibilityService to announce the purpose of the button.
+    -->
     <string name="description_dial_button" msgid="1274091017188142646">"撥號"</string>
+
+    <!-- String describing the Delete/Backspace ImageButton
+
+         Used by AccessibilityService to announce the purpose of the button.
+    -->
     <string name="description_delete_button" msgid="6263102114033407382">"Backspace"</string>
+
+    <!-- String describing the digits text box containing the number to dial.
+
+         Used by AccessibilityService to announce the purpose of the view.
+    -->
     <string name="description_digits_edittext" msgid="8760207516497016437">"撥號號碼"</string>
+
+    <!-- String describing the Contact Photo Image
+
+         Used by AccessibilityService to announce the purpose of the view.
+    -->
     <string name="description_contact_photo" msgid="3387458082667894062">"聯絡人相片"</string>
+
+    <!-- String describing the Contact Editor Minus button
+
+         Used by AccessibilityService to announce the purpose of the button.
+    -->
     <string name="description_minus_button" msgid="387136707700230172">"負號"</string>
+
+    <!-- String describing the Contact Editor Plus button
+
+         Used by AccessibilityService to announce the purpose of the button.
+    -->
     <string name="description_plus_button" msgid="515164827856229880">"加號"</string>
+
+    <!-- Dialog title shown when USB storage does not exist [CHAR LIMIT=25] -->
     <string name="no_sdcard_title" product="nosdcard" msgid="5362631473262100989">"沒有可用的 USB 儲存裝置"</string>
+    <!-- Dialog title shown when SD Card does not exist -->
     <string name="no_sdcard_title" product="default" msgid="5911758680339949273">"無 SD 卡"</string>
+
+    <!-- Dialog message shown when USB storage does not exist [CHAR LIMIT=30] -->
     <string name="no_sdcard_message" product="nosdcard" msgid="8045830739790534254">"未偵測到 USB 儲存裝置"</string>
+    <!-- Dialog message shown when SDcard does not exist -->
     <string name="no_sdcard_message" product="default" msgid="6019391476490445358">"未偵測到 SD 卡"</string>
+
+    <!-- Dialog title shown when searching VCard data from SD Card -->
     <string name="searching_vcard_title" msgid="4970508055399376813">"正在搜尋 VCard"</string>
+
+    <!-- Action string for selecting SIM for importing contacts -->
     <string name="import_from_sim" msgid="3859272228033941659">"從 SIM 卡匯入"</string>
+
+    <!-- Action string for selecting USB storage for importing contacts [CHAR LIMIT=25] -->
     <string name="import_from_sdcard" product="nosdcard" msgid="8294728696808674154">"從 USB 儲存裝置匯入"</string>
+    <!-- Action string for selecting SD Card for importing contacts -->
     <string name="import_from_sdcard" product="default" msgid="8550360976693202816">"從 SD 卡匯入"</string>
+
+    <!-- Action that exports all contacts to USB storage [CHAR LIMIT=25] -->
     <string name="export_to_sdcard" product="nosdcard" msgid="7201274701382901259">"匯出到 USB 儲存裝置"</string>
+    <!-- Action that exports all contacts to SD Card -->
     <string name="export_to_sdcard" product="default" msgid="2597105442616166277">"匯出至 SD 卡"</string>
+
+    <!-- Action that shares visible contacts -->
     <string name="share_visible_contacts" msgid="890150378880783797">"分享正常顯示的聯絡人"</string>
+
+    <!-- One of alternatives shown when the system allows a user to select how many vCard files
+         should be imported. This message shows only when the system is certain that there's more
+         than one vCard files available in the system. -->
     <string name="import_one_vcard_string" msgid="9059163467020328433">"匯入一個 vCard 檔案"</string>
+
+    <!-- One of alternatives shown when the system allows a user to select how many vCard files
+         should be imported. This message shows only when the system is certain that there's more
+         than one vCard files available in the system. -->
     <string name="import_multiple_vcard_string" msgid="3810226492811062392">"匯入多個 vCard 檔案"</string>
+
+    <!-- One of alternatives shown when the system allows a user to select how many vCard files
+         should be imported. This message shows only when the system is certain that there's more
+         than one vCard files available in the system. -->
     <string name="import_all_vcard_string" msgid="5518136113853448474">"匯入所有 vCard 檔案"</string>
+
+    <!-- Dialog message shown when searching VCard data from SD Card [CHAR LIMIT=NONE] -->
     <string name="searching_vcard_message" product="nosdcard" msgid="8214795338181412751">"正在 USB 儲存裝置中搜尋 vCard 資料"</string>
+    <!-- Dialog message shown when searching VCard data from SD Card -->
     <string name="searching_vcard_message" product="default" msgid="6917522333561434546">"在 SD 卡上搜尋 VCard 資料"</string>
+
+    <!-- Dialog title shown when scanning VCard data failed. [CHAR LIMIT=NONE] -->
     <string name="scanning_sdcard_failed_title" product="nosdcard" msgid="7447077516493667568">"掃描 USB 儲存裝置失敗"</string>
+    <!-- Dialog title shown when scanning VCard data failed. -->
     <string name="scanning_sdcard_failed_title" product="default" msgid="3506782007953167180">"無法掃描 SD 卡"</string>
+
+    <!-- Dialog message shown when searching VCard data failed.
+         An exact reason for the failure should [CHAR LIMIT=NONE] -->
     <string name="scanning_sdcard_failed_message" product="nosdcard" msgid="5645544323676912703">"掃描 USB 儲存裝置失敗 (原因：「<xliff:g id="FAIL_REASON">%s</xliff:g>」)"</string>
+    <!-- Dialog message shown when searching VCard data failed.
+         An exact reason for the failure should -->
     <string name="scanning_sdcard_failed_message" product="default" msgid="3761992500690182922">"無法掃描 SD 卡 (原因：「<xliff:g id="FAIL_REASON">%s</xliff:g>」)"</string>
+
+    <!-- The failed reason shown when Contacts app (especially vCard importer/exporter)
+         emitted some I/O error. Exact reason will be appended by the system. -->
     <string name="fail_reason_io_error" msgid="5922864781066136340">"I/O 錯誤"</string>
+
+    <!-- The failed reason shown when vCard parser was not able to be parsed by the current vCard
+         implementation. This might happen even when the input vCard is completely valid, though
+         we believe it is rather rare in the actual world. -->
     <string name="fail_reason_vcard_parse_error" msgid="1201233722762680214">"因未預期原因，無法剖析 VCard"</string>
+
+    <!-- The failed reason shown when the current vCard importer cannot parse the file since the
+         parser is incomplete (actually, there's missing part in the current vCard parser, though
+         our understanding is that the functionality missed by the current vCard parser
+         is rarely needed in the actual vCard...). -->
     <string name="fail_reason_vcard_not_supported_error" msgid="655208100451286027">"VCard 格式正確，但目前的實作系統不支援此格式，因此無法剖析"</string>
+
+    <!-- The failed reason shown when the system could not find any vCard file
+         (with extension ".vcf" in SDCard.) [CHAR LIMIT=NONE] -->
     <string name="fail_reason_no_vcard_file" product="nosdcard" msgid="4231528180481838813">"在 USB 儲存裝置中找不到 vCard 檔案"</string>
+    <!-- The failed reason shown when the system could not find any vCard file
+         (with extension ".vcf" in SDCard.) -->
     <string name="fail_reason_no_vcard_file" product="default" msgid="6376516175882881595">"SD 卡上沒有 vCard 檔案"</string>
+
+    <!-- The failed reason shown when the import of some of vCard files failed during multiple vCard
+         files import. It includes the case where all files were failed to be imported. -->
     <string name="fail_reason_failed_to_read_files" msgid="3659521123567134029">"無法匯入一或多個檔案 (%s)。"</string>
+
+    <!-- The failed reason which should not be shown but it may in some buggy condition. -->
     <string name="fail_reason_unknown" msgid="999034019513096768">"未知的錯誤"</string>
+
+    <!-- Dialog title shown when a user is asked to select VCard file -->
     <string name="select_vcard_title" msgid="3968948173786172468">"選取 VCard 檔案"</string>
+
+    <!-- The message shown while reading a vCard file/entry. The first argument is like
+    "Reading VCard" or "Reading VCard files" and the second is the display name of the current
+    data being parsed -->
     <string name="progress_shower_message" msgid="5636525578293752526">"<xliff:g id="ACTION">%1$s</xliff:g>"\n"<xliff:g id="FILENAME">%2$s</xliff:g>"</string>
+
+    <!-- Dialog title shown when reading VCard data -->
     <string name="reading_vcard_title" msgid="4723433501579653199">"正在讀取 VCard"</string>
+
+    <!-- Dialog message shown when reading a VCard file -->
     <string name="reading_vcard_message" msgid="6381368920030748743">"正在讀取 VCard 檔案"</string>
+
+    <!-- Dialog title shown when reading VCard data failed -->
     <string name="reading_vcard_failed_title" msgid="4923008144735294994">"無法讀取 VCard 資料"</string>
+
+    <!-- Message while reading one vCard file "(current number) of (total number) contacts" The order of "current number" and "total number" cannot be changed (like "total: (total number), current: (current number)")-->
     <string name="reading_vcard_contacts" msgid="3066834102042012868">"第 <xliff:g id="CURRENT_NUMBER">%1$s</xliff:g> 位聯絡人，共 <xliff:g id="TOTAL_NUMBER">%2$s</xliff:g> 位"</string>
+
+    <!-- Message while reading multiple vCard files "(current number) of (total number) files" The order of "current number" and "total number" cannot be changed (like "total: (total number), current: (current number)")-->
     <string name="reading_vcard_files" msgid="34180143726972661">"第 <xliff:g id="CURRENT_NUMBER">%1$s</xliff:g> 個檔案，共 <xliff:g id="TOTAL_NUMBER">%2$s</xliff:g> 個"</string>
+
+    <!-- Dialog title shown when a user confirms whether he/she export Contact data -->
     <string name="confirm_export_title" msgid="7648747763127442983">"確認匯出"</string>
+
+    <!-- Dialog message shown when a user confirms whether he/she export Contact data -->
     <string name="confirm_export_message" msgid="3875683519257829750">"確定要將聯絡人清單匯出至「<xliff:g id="VCARD_FILENAME">%s</xliff:g>」嗎？"</string>
+
+    <!-- Dialog title shown when exporting Contact data failed -->
     <string name="exporting_contact_failed_title" msgid="585823094820602526">"無法匯出聯絡人資料"</string>
+
+    <!-- Dialog message shown when exporting Contact data failed -->
     <string name="exporting_contact_failed_message" msgid="4151348002470298092">"匯出聯絡人資料失敗。"\n"失敗原因：「<xliff:g id="FAIL_REASON">%s</xliff:g>」"</string>
+
+    <!-- The failed reason shown when there's no contact which is allowed to be exported.
+         Note that user may have contacts data but all of them are probably not allowed to be
+         exported because of security/permission reasons. -->
     <string name="fail_reason_no_exportable_contact" msgid="4919714086648344495">"沒有可匯出的聯絡人"</string>
+
+    <!-- The failed reason shown when vCard exporter could not create a file for the vCard since
+         there are too many files relevant to vCard. [CHAR LIMIT=NONE] -->
     <string name="fail_reason_too_many_vcard" product="nosdcard" msgid="2638638826954895225">"USB 儲存裝置中的 vCard 檔案過多"</string>
+    <!-- The failed reason shown when vCard exporter could not create a file for the vCard since
+         there are too many files relevant to vCard. -->
     <string name="fail_reason_too_many_vcard" product="default" msgid="7084146295639672658">"SD 卡中的 VCard 檔案過多"</string>
+
+    <!-- The failed reason shown when the given file name is too long for the system.
+         The length limit of each file is different in each Android device, so we don't need to
+         mention it here. -->
     <string name="fail_reason_too_long_filename" msgid="1915716071321839166">"要求的檔案名稱過長 (「<xliff:g id="FILENAME">%s</xliff:g>」)"</string>
+
+    <!-- Dialog title shown when the application is exporting contact data outside -->
     <string name="exporting_contact_list_title" msgid="9072240631534457415">"正在匯出聯絡人資料"</string>
+
+    <!-- Message shown when the application is exporting contact data outside -->
     <string name="exporting_contact_list_message" msgid="5640326540405486055">"正在將聯絡人資料匯出至「<xliff:g id="FILE_NAME">%s</xliff:g>」"</string>
+
+    <!-- The failed reason shown when contacts exporter fails to be initialized.
+         Some exact reason must follow this. -->
     <string name="fail_reason_could_not_initialize_exporter" msgid="4943708332700987376">"無法初始化匯出程式：「<xliff:g id="EXACT_REASON">%s</xliff:g>」"</string>
+
+    <!-- The failed reason shown when some error happend during contacts export.
+         Some exact reason must follow this. -->
     <string name="fail_reason_error_occurred_during_export" msgid="2151165129433831202">"匯出時發生錯誤：「<xliff:g id="EXACT_REASON">%s</xliff:g>」"</string>
+
+    <!-- The error reason the vCard composer "may" emit when database is corrupted or
+         something is going wrong. Usually users should not see this text. -->
     <string name="composer_failed_to_get_database_infomation" msgid="3723109558155169053">"無法取得資料庫資訊"</string>
+
+    <!-- This error message shown when the user actually have no contact
+         (e.g. just after data-wiping), or, data providers of the contact list prohibits their
+         contacts from being exported to outside world via vcard exporter, etc. -->
     <string name="composer_has_no_exportable_contact" msgid="754734132189369094">"沒有可匯出的聯絡人。如果您的手機中確實存有聯絡人資料，這可能是因為某些資料提供者禁止您將所有聯絡人匯出手機。"</string>
+
+    <!-- The error reason the vCard composer may emit when vCard composer is not initialized
+         even when needed.
+         Users should not usually see this error message. -->
     <string name="composer_not_initialized" msgid="8041534450748388843">"VCard 編輯器並未正確初始化"</string>
+
+    <!-- The failed reason shown when vCard importer/exporter could not open the file
+         specified by a user. The file name should be in the message. -->
     <string name="fail_reason_could_not_open_file" msgid="4013520943128739511">"無法開啟「<xliff:g id="FILE_NAME">%1$s</xliff:g>」：<xliff:g id="EXACT_REASON">%2$s</xliff:g>"</string>
+
+    <!-- Message in progress bar while exporting contact list to a file "(current number) of (total number) contacts" The order of "current number" and "total number" cannot be changed (like "total: (total number), current: (current number)")-->
     <string name="exporting_contact_list_progress" msgid="560522409559101193">"第 <xliff:g id="CURRENT_NUMBER">%1$s</xliff:g> 位聯絡人，共 <xliff:g id="TOTAL_NUMBER">%2$s</xliff:g> 位"</string>
+
+    <!-- The string used to describe Contacts as a searchable item within system search settings. -->
     <string name="search_settings_description" msgid="2675223022992445813">"您的聯絡人姓名"</string>
+
+    <!-- Menu items for dialpad options as part of Pause and Wait ftr -->
     <string name="add_2sec_pause" msgid="9214012315201040129">"新增 2 秒暫停功能"</string>
     <string name="add_wait" msgid="3360818652790319634">"新增插播功能"</string>
+
+    <!-- Title for the call disambiguation dialog -->
     <string name="call_disambig_title" msgid="1911302597959335178">"去電使用"</string>
+
+    <!-- Title for the sms disambiguation dialog -->
     <string name="sms_disambig_title" msgid="4675399294513152364">"簡訊使用："</string>
+
+    <!-- Message next to disamgiguation dialog check box -->
     <string name="make_primary" msgid="5829291915305113983">"記住這個選擇"</string>
+
+    <!-- Shown as a toast when the user taps on a Fast-Track icon, and no application
+         was found that could perform the selected action -->
     <string name="quickcontact_missing_app" msgid="4600366393134289038">"找不到可以處理這個動作的應用程式"</string>
+
+    <!-- Shown as the checkbox label that, when checked, will store remember the
+         selected choice and shortcut to it in the future.  For example, this would
+         make a selected phone number the default. -->
     <string name="quickcontact_remember_choice" msgid="5964536411579749424">"記住這個選擇"</string>
+
+    <!-- Shown as the header name for a person when the name is missing or unknown. -->
     <string name="quickcontact_missing_name" msgid="5590266114306996632">"不明"</string>
+
+    <!-- Text that is shown in the Badge, when there is no data to display -->
+    <string name="quickcontact_no_data">沒有資料</string>
+
+    <!-- The menu item to open the list of accounts -->
     <string name="menu_accounts" msgid="8499114602017077970">"帳戶"</string>
+
+    <!-- The menu item to bulk import or bulk export contacts from SIM card or SD card. -->
     <string name="menu_import_export" msgid="3765725645491577190">"匯入/匯出"</string>
+
+    <!-- Dialog title when selecting the bulk operation to perform from a list. -->
     <string name="dialog_import_export" msgid="4771877268244096596">"匯入/匯出聯絡人"</string>
+
+    <!-- The menu item to share the currently viewed contact -->
     <string name="menu_share" msgid="943789700636542260">"分享"</string>
+
+    <!-- Dialog title when picking the application to share a contact with. -->
     <string name="share_via" msgid="563121028023030093">"使用下列應用程式分享聯絡人資訊："</string>
+
+    <!-- Toast indicating that sharing a contact has failed. -->
     <string name="share_error" msgid="4374508848981697170">"無法分享此聯絡人。"</string>
+
+    <!-- Header that expands to list all name types when editing a structured name of a contact -->
     <string name="nameLabelsGroup" msgid="2034640839640477827">"姓名"</string>
+    <!-- Header that expands to list all nickname types when editing a nickname of a contact -->
     <string name="nicknameLabelsGroup" msgid="2891682101053358010">"暱稱"</string>
+    <!-- Header that expands to list all organization types when editing an organization of a contact -->
     <string name="organizationLabelsGroup" msgid="2478611760751832035">"機構"</string>
+    <!-- Header that expands to list all website types when editing a website of a contact -->
     <string name="websiteLabelsGroup" msgid="4202998982804009261">"網站"</string>
+    <!-- Header that expands to list all event types when editing an event of a contact -->
     <string name="eventLabelsGroup" msgid="8069912895912714412">"活動"</string>
+
+    <!-- Single-character overlay for home phone numbers when creating desktop shortcuts -->
     <string name="type_short_home" msgid="7770424864090605384">"住家"</string>
+    <!-- Single-character overlay for mobile phone numbers when creating desktop shortcuts -->
     <string name="type_short_mobile" msgid="1655473281466676216">"行動"</string>
+    <!-- Single-character overlay for work phone numbers when creating desktop shortcuts -->
     <string name="type_short_work" msgid="4925330752504537861">"工作"</string>
+    <!-- Single-character overlay for pager phone numbers when creating desktop shortcuts -->
     <string name="type_short_pager" msgid="2613818970827594238">"呼叫器"</string>
+    <!-- Single-character overlay for other phone numbers when creating desktop shortcuts -->
     <string name="type_short_other" msgid="5669407180177236769">"其他"</string>
+
+    <!-- In edit dialog, shown if the contact is marked as being read-only -->
     <string name="edit_read_only" msgid="8158629550655830981">"此聯絡人為唯讀"</string>
+
+    <!-- Shown as the header title over a collapsible section that, by default, hides
+         secondary contact detail edit fields, such as birthday. -->
     <string name="edit_secondary_collapse" msgid="5371618426594477103">"更多"</string>
+
     <string name="dialog_primary_name" msgid="5521591005692614833">"主要名稱"</string>
     <string name="dialog_new_contact_account" msgid="9044704073286262197">"在帳戶下建立聯絡人"</string>
+
     <string name="menu_sync_remove" msgid="3266725887008450161">"移除同步處理群組"</string>
     <string name="dialog_sync_add" msgid="8267045393119375803">"新增同步處理群組"</string>
     <string name="display_more_groups" msgid="2682547080423434170">"更多群組..."</string>
+
+    <!-- List title for a special contacts group that covers all contacts.-->
     <string name="display_ungrouped" msgid="4602580795576261158">"所有其他聯絡人"</string>
+
+    <!-- List title for a special contacts group that covers all contacts that
+         aren't members of any other group. -->
     <string name="display_all_contacts" msgid="6846131371214707956">"所有聯絡人"</string>
+
+    <!-- Warning message given to users just before they remove a currently syncing
+         group that would also cause all ungrouped contacts to stop syncing. -->
     <string name="display_warn_remove_ungrouped" msgid="2314043155909167610">"如果從同步處理群組中移除「<xliff:g id="GROUP">%s</xliff:g>」群組，系統也會從同步處理群組中移除所有未分組的聯絡人。"</string>
+
+    <!-- Title for data source when creating or editing a contact that doesn't
+         belong to a specific account.  This contact will only exist on the phone
+         and will not be synced. -->
     <string name="account_phone" msgid="3682950835276226870">"僅儲存於手機 (不會同步處理)"</string>
+
+    <!-- Action string for calling a custom phone number -->
     <string name="call_custom" msgid="7756571794763171802">"去電<xliff:g id="CUSTOM">%s</xliff:g>"</string>
+    <!-- Action string for calling a home phone number -->
     <string name="call_home" msgid="1990519474420545392">"去電住家電話"</string>
+    <!-- Action string for calling a mobile phone number -->
     <string name="call_mobile" msgid="7502236805487609178">"去電行動裝置"</string>
+    <!-- Action string for calling a work phone number -->
     <string name="call_work" msgid="5328785911463744028">"去電公司電話"</string>
+    <!-- Action string for calling a work fax phone number -->
     <string name="call_fax_work" msgid="7467763592359059243">"去電公司傳真"</string>
+    <!-- Action string for calling a home fax phone number -->
     <string name="call_fax_home" msgid="8342175628887571876">"去電住家傳真"</string>
+    <!-- Action string for calling a pager phone number -->
     <string name="call_pager" msgid="9003902812293983281">"去電呼叫器"</string>
+    <!-- Action string for calling an other phone number -->
     <string name="call_other" msgid="8563753966926932052">"通話"</string>
+    <!-- Action string for calling a callback number -->
     <string name="call_callback" msgid="1910165691349426858">"去電回撥號碼"</string>
+    <!-- Action string for calling a car phone number -->
     <string name="call_car" msgid="3280537320306436445">"去電汽車電話"</string>
+    <!-- Action string for calling a company main phone number -->
     <string name="call_company_main" msgid="6105120947138711257">"去電公司代表號"</string>
+    <!-- Action string for calling a ISDN phone number -->
     <string name="call_isdn" msgid="1541590690193403411">"去電 ISDN"</string>
+    <!-- Action string for calling a main phone number -->
     <string name="call_main" msgid="6082900571803441339">"去電代表號"</string>
+    <!-- Action string for calling an other fax phone number -->
     <string name="call_other_fax" msgid="5745314124619636674">"撥打傳真"</string>
+    <!-- Action string for calling a radio phone number -->
     <string name="call_radio" msgid="8296755876398357063">"去電無線電"</string>
+    <!-- Action string for calling a Telex phone number -->
     <string name="call_telex" msgid="2223170774548648114">"去電 Telex"</string>
+    <!-- Action string for calling a TTY/TDD phone number -->
     <string name="call_tty_tdd" msgid="8951266948204379604">"去電 TTY/TDD"</string>
+    <!-- Action string for calling a work mobile phone number -->
     <string name="call_work_mobile" msgid="8707874281430105394">"去電公司行動電話"</string>
+    <!-- Action string for calling a work pager phone number -->
     <string name="call_work_pager" msgid="3419348514157949008">"去電公司呼叫器"</string>
+    <!-- Action string for calling an assistant phone number -->
     <string name="call_assistant" msgid="2141641383068514308">"去電<xliff:g id="ASSISTANT">%s</xliff:g>"</string>
+    <!-- Action string for calling a MMS phone number -->
     <string name="call_mms" msgid="6274041545876221437">"去電 MMS"</string>
+
+    <!-- Action string for sending an SMS to a custom phone number -->
     <string name="sms_custom" msgid="5932736853732191825">"傳送簡訊至<xliff:g id="CUSTOM">%s</xliff:g>"</string>
+    <!-- Action string for sending an SMS to a home phone number -->
     <string name="sms_home" msgid="7524332261493162995">"傳送簡訊至住家電話"</string>
+    <!-- Action string for sending an SMS to a mobile phone number -->
     <string name="sms_mobile" msgid="5200107250451030769">"傳送簡訊至行動裝置"</string>
+    <!-- Action string for sending an SMS to a work phone number -->
     <string name="sms_work" msgid="2269624156655267740">"傳送簡訊至公司電話"</string>
+    <!-- Action string for sending an SMS to a work fax phone number -->
     <string name="sms_fax_work" msgid="8028189067816907075">"傳送簡訊至公司傳真"</string>
+    <!-- Action string for sending an SMS to a home fax phone number -->
     <string name="sms_fax_home" msgid="9204042076306809634">"傳送簡訊至住家傳真"</string>
+    <!-- Action string for sending an SMS to a pager phone number -->
     <string name="sms_pager" msgid="7730404569637015192">"傳送簡訊至呼叫器"</string>
+    <!-- Action string for sending an SMS to an other phone number -->
     <string name="sms_other" msgid="806127844607642331">"傳送簡訊"</string>
+    <!-- Action string for sending an SMS to a callback number -->
     <string name="sms_callback" msgid="5004824430094288752">"傳送簡訊至回撥號碼"</string>
+    <!-- Action string for sending an SMS to a car phone number -->
     <string name="sms_car" msgid="7444227058437359641">"傳送簡訊至汽車電話"</string>
+    <!-- Action string for sending an SMS to a company main phone number -->
     <string name="sms_company_main" msgid="118970873419678087">"傳送簡訊至公司代表號"</string>
+    <!-- Action string for sending an SMS to a ISDN phone number -->
     <string name="sms_isdn" msgid="8153785037515047845">"傳送簡訊至 ISDN"</string>
+    <!-- Action string for sending an SMS to a main phone number -->
     <string name="sms_main" msgid="8621625784504541679">"傳送簡訊至代表號"</string>
+    <!-- Action string for sending an SMS to an other fax phone number -->
     <string name="sms_other_fax" msgid="3888842199855843152">"傳送簡訊至傳真"</string>
+    <!-- Action string for sending an SMS to a radio phone number -->
     <string name="sms_radio" msgid="3329166673433967820">"傳送簡訊至無線電"</string>
+    <!-- Action string for sending an SMS to a Telex phone number -->
     <string name="sms_telex" msgid="9034802430065267848">"傳送簡訊至 Telex"</string>
+    <!-- Action string for sending an SMS to a TTY/TDD phone number -->
     <string name="sms_tty_tdd" msgid="6782284969132531532">"傳送簡訊至 TTY/TDD"</string>
+    <!-- Action string for sending an SMS to a work mobile phone number -->
     <string name="sms_work_mobile" msgid="2459939960512702560">"傳送簡訊至公司行動電話"</string>
+    <!-- Action string for sending an SMS to a work pager phone number -->
     <string name="sms_work_pager" msgid="5566924423316960597">"傳送簡訊至公司呼叫器"</string>
+    <!-- Action string for sending an SMS to an assistant phone number -->
     <string name="sms_assistant" msgid="2773424339923116234">"傳送簡訊至<xliff:g id="ASSISTANT">%s</xliff:g>"</string>
+    <!-- Action string for sending an SMS to a MMS phone number -->
     <string name="sms_mms" msgid="4069352461380762677">"傳送 MMS 簡訊"</string>
+
+    <!-- Action string for sending an email to a home email address -->
     <string name="email_home" msgid="8573740658148184279">"傳送電子郵件至住家電子郵件地址"</string>
+    <!-- Action string for sending an email to a mobile email address -->
     <string name="email_mobile" msgid="2042889209787989814">"傳送電子郵件至行動裝置"</string>
+    <!-- Action string for sending an email to a work email address -->
     <string name="email_work" msgid="2807430017302722689">"傳送電子郵件至公司電子郵件地址"</string>
+    <!-- Action string for sending an email to an other email address -->
     <string name="email_other" msgid="3454004077967657109">"傳送電子郵件"</string>
+    <!-- Action string for sending an email to a custom email address -->
     <string name="email_custom" msgid="7548003991586214105">"傳送電子郵件至<xliff:g id="CUSTOM">%s</xliff:g>"</string>
+
+    <!-- Generic action string for sending an email -->
     <string name="email" msgid="5668400997660065897">"傳送電子郵件"</string>
+
+    <!-- Action string for viewing a home postal address -->
     <string name="map_home" msgid="1243547733423343982">"檢視住家地址"</string>
+    <!-- Action string for viewing a work postal address -->
     <string name="map_work" msgid="1360474076921878088">"檢視公司地址"</string>
+    <!-- Action string for viewing an other postal address -->
     <string name="map_other" msgid="3817820803587012641">"檢視地址"</string>
+    <!-- Action string for viewing a custom postal address -->
     <string name="map_custom" msgid="6184363799976265281">"檢視<xliff:g id="CUSTOM">%s</xliff:g>地址"</string>
+
+    <!-- Action string for starting an IM chat with the AIM protocol -->
     <string name="chat_aim" msgid="2588492205291249142">"使用 AIM 進行即時通訊"</string>
+    <!-- Action string for starting an IM chat with the MSN or Windows Live protocol -->
     <string name="chat_msn" msgid="8041633440091073484">"使用 Windows Live 進行即時通訊"</string>
+    <!-- Action string for starting an IM chat with the Yahoo protocol -->
     <string name="chat_yahoo" msgid="6629211142719943666">"使用 Yahoo 進行即時通訊"</string>
+    <!-- Action string for starting an IM chat with the Skype protocol -->
     <string name="chat_skype" msgid="1210045020427480566">"使用 Skype 進行即時通訊"</string>
+    <!-- Action string for starting an IM chat with the QQ protocol -->
     <string name="chat_qq" msgid="4294637812847719693">"使用 QQ 進行即時通訊"</string>
+    <!-- Action string for starting an IM chat with the Google Talk protocol -->
     <string name="chat_gtalk" msgid="981575737258117697">"使用 Google Talk 進行即時通訊"</string>
+    <!-- Action string for starting an IM chat with the ICQ protocol -->
     <string name="chat_icq" msgid="8438405386153745775">"使用 ICQ 進行即時通訊"</string>
+    <!-- Action string for starting an IM chat with the Jabber protocol -->
     <string name="chat_jabber" msgid="7561444230307829609">"使用 Jabber 進行即時通訊"</string>
+
+    <!-- Generic action string for starting an IM chat -->
     <string name="chat" msgid="9025361898797412245">"即時通訊"</string>
+
+    <!-- Field title for the street of a structured postal address of a contact -->
     <string name="postal_street" msgid="8133143961580058972">"街道"</string>
+    <!-- Field title for the PO box of a structured postal address of a contact -->
     <string name="postal_pobox" msgid="4431938829180269821">"郵政信箱"</string>
+    <!-- Field title for the neighborhood of a structured postal address of a contact -->
     <string name="postal_neighborhood" msgid="1450783874558956739">"鄰"</string>
+    <!-- Field title for the city of a structured postal address of a contact -->
     <string name="postal_city" msgid="6597491300084895548">"鄉/鎮/市/區"</string>
+    <!-- Field title for the region, or state, of a structured postal address of a contact -->
     <string name="postal_region" msgid="6045263193478437672">"州/省"</string>
+    <!-- Field title for the postal code of a structured postal address of a contact -->
     <string name="postal_postcode" msgid="572136414136673751">"郵遞區號"</string>
+    <!-- Field title for the country of a structured postal address of a contact -->
     <string name="postal_country" msgid="7638264508416368690">"國家/地區"</string>
+
+    <!-- Field title for the given name of a contact -->
     <string name="name_given" msgid="1687286314106019813">"名字"</string>
+    <!-- Field title for the family name of a contact -->
     <string name="name_family" msgid="3416695586119999058">"姓氏"</string>
+    <!-- Field title for the prefix name of a contact -->
     <string name="name_prefix" msgid="59756378548779822">"姓名前稱銜"</string>
+    <!-- Field title for the middle name of a contact -->
     <string name="name_middle" msgid="8467433655992690326">"中間名"</string>
+    <!-- Field title for the suffix name of a contact -->
     <string name="name_suffix" msgid="3855278445375651441">"姓名後稱銜"</string>
+    <!-- Field title for the phonetic given name of a contact -->
     <string name="name_phonetic_given" msgid="6853570431394449191">"名字 (拼音)"</string>
+    <!-- Field title for the phonetic middle name of a contact -->
     <string name="name_phonetic_middle" msgid="8643721493320405200">"中間名 (拼音)"</string>
+    <!-- Field title for the phonetic family name of a contact -->
     <string name="name_phonetic_family" msgid="462095502140180305">"姓氏 (拼音)"</string>
+
+    <!-- String describing which account type a contact came from when editing it -->
     <string name="account_type_format" msgid="718948015590343010">"<xliff:g id="SOURCE">%1$s</xliff:g> 聯絡人"</string>
+
+    <!-- String describing which account a contact came from when editing it -->
     <string name="from_account_format" msgid="687567483928582084">"來自 <xliff:g id="SOURCE">%1$s</xliff:g>"</string>
+
+    <!-- Checkbox asking the user if they want to display a particular photo for a contact -->
     <string name="use_photo_as_primary" msgid="8807110122951157246">"使用此相片"</string>
+
+    <!-- Text used to explain that a contact cannot be edited since the data is read only -->
     <string name="contact_read_only" msgid="1203216914575723978">"無法在此裝置編輯 <xliff:g id="SOURCE">%1$s</xliff:g> 的聯絡人資訊"</string>
+
+    <!-- Text describing that a contact has no information available other than name and photo -->
     <string name="no_contact_details" msgid="6754415338321837001">"沒有此聯絡人的其他資訊"</string>
+
+    <!-- Label of the "sort list by" display option -->
     <string name="display_options_sort_list_by" msgid="6080091755852211076">"清單排序依據"</string>
+
+    <!-- An allowable value for the "sort list by" contact display option  -->
     <string name="display_options_sort_by_given_name" msgid="184916793466387067">"名字"</string>
+
+    <!-- An allowable value for the "sort list by" contact display option  -->
     <string name="display_options_sort_by_family_name" msgid="7857986975275712622">"姓氏"</string>
+
+    <!-- Label of the "view names as" display option -->
     <string name="display_options_view_names_as" msgid="18022868169627979">"聯絡人姓名顯示方式"</string>
+
+    <!-- An allowable value for the "view names as" contact display option  -->
     <string name="display_options_view_given_name_first" msgid="6968288511197363292">"名字在前"</string>
+
+    <!-- An allowable value for the "view names as" contact display option  -->
     <string name="display_options_view_family_name_first" msgid="1447288164951453714">"姓氏在前"</string>
+
+    <!-- Gray hint displayed in the search field in Contacts when empty -->
     <string name="search_bar_hint" msgid="1012756309632856553">"搜尋聯絡人"</string>
+
+    <!-- Button displayed underneath the list of filtered visible contacts -->
     <string name="search_for_all_contacts" msgid="6644963335787294131">"搜尋所有聯絡人"</string>
+
+    <!-- An option in the 'change photo' or 'pick photo' dialog -->
     <string name="take_photo" msgid="7496128293167402354">"拍照"</string>
+
+    <!-- An option in the 'change photo' or 'pick photo' dialog -->
     <string name="pick_photo" msgid="448886509158039462">"從圖片庫選取相片"</string>
+
+    <!-- Text shown in the contacts app while the background process updates contacts after a locale change -->
     <string name="locale_change_in_progress" msgid="1124266507671178413">"正在更新聯絡人清單以反映語言變更。"\n\n"請稍候..."</string>
+
+    <!-- Text shown in the contacts app while the background process updates contacts after a system upgrade -->
     <string name="upgrade_in_progress" msgid="7530893673211750223">"正在更新聯絡人清單。"\n\n"請稍候..."</string>
+
+    <!-- Text shown in the contacts app if the background process updating contacts fails because of memory shortage -->
     <string name="upgrade_out_of_memory" msgid="492151063059824962">"正在進行聯絡人升級。"\n\n"升級程序需要大約 <xliff:g id="SIZE_IN_MEGABYTES">%d</xliff:g> MB 的手機內部儲存空間。"\n\n"請選擇下列其中一個選項："</string>
+
+    <!-- Button shown in the contacts app if the background process updating contacts fails because of memory shortage -->
     <string name="upgrade_out_of_memory_uninstall" msgid="1721798828992091432">"解除安裝一些應用程式"</string>
+
+    <!-- Button shown in the contacts app if the background process updating contacts fails because of memory shortage -->
     <string name="upgrade_out_of_memory_retry" msgid="8431289830472724609">"重試升級"</string>
+
+    <!-- Title shown in the search result activity of contacts app -->
     <string name="search_results_for" msgid="8705490885073188513">"此項目之搜尋結果：<xliff:g id="QUERY">%s</xliff:g>"</string>
+
+    <!-- Title shown in the search result activity of contacts app while searching -->
     <string name="search_results_searching" msgid="7755623475227227314">"搜尋中..."</string>
+
+    <!-- Wysie: Menu strings -->
+    <string name="menu_preferences">設定</string>
+
+    <!-- Wysie: Dialer strings -->
+    <string name="dialer_menu_sms">簡訊</string>
+
+    <!-- Wysie: Call log strings -->
+    <string name="recent_calls_clear_call_log">清除通話記錄</string>
+    <string name="recent_calls_clear_what">要清除甚麼？</string>
+    <string name="recent_calls_clear_all">全部</string>
+    <string name="recent_calls_clear_incoming">來電</string>
+    <string name="recent_calls_clear_outgoing">撥出</string>
+    <string name="recent_calls_clear_missed">未接來電</string>
+    <string name="alert_clear_call_log_title">清除通話記錄</string>
+    <string name="alert_clear_call_log_message">您確定要清除全部通話記錄？</string>
+    <string name="alert_clear_cl_all_incoming">您確定要清除所有來電記錄？</string>
+    <string name="alert_clear_cl_all_outgoing">您確定要清除所有撥出記錄？</string>
+    <string name="alert_clear_cl_all_missed">您確定要清除所有未接來電記錄？</string>
+
+    <!-- Wysie: Favourites strings -->
+    <string name="fav_clear_freq">清除常用聯絡人</string>
+    <string name="alert_clear_freq_called_msg">您確定要清除所有常用聯絡人記錄？</string>
+
+    <!-- Wysie: Preferences strings -->
+
+    <!-- Preferences: Dialer -->
+    <string name="title_last_dialled">通話鍵載入最後號碼</string>
+    <string name="summary_last_dialled">未輸入號碼時按通話鍵載入最後通話號碼</string>
+    <string name="title_return_to_dialer">通話結束後返回撥號介面</string>
+    <string name="title_vm_button">左邊動作按鍵（左鍵）</string>
+    <string name="title_vm_handler">語音信箱處理方式</string>
+    <string name="title_use_1_for_reg_vm">1 代表常規語音信箱</string>
+    <string name="summaryon_use_1_for_reg_vm">1 號鍵會用作常規語音信箱</string>
+    <string name="summaryoff_use_1_for_reg_vm">1 號鍵會用作自訂的語音信箱處理方式</string>
+    <string name="title_disable_num_check">停用號碼檢測</string>
+    <string name="summaryon_disable_num_check">總是顯示左鍵及其選單</string>
+    <string name="summaryoff_disable_num_check">左鍵及其選單只在最少有一個號碼被輸入後才顯示（語音信箱除外）</string>
+    <string name="title_enable_haptic_feedback">觸動回饋</string>
+    <string name="summary_enable_haptic_feedback">跟隨按鍵設定值作出震動回饋。能在“CyanogenMod 設定”中調整</string>
+    <string name="title_change_digits_color">變更數字色彩</string>
+    <string name="title_digits_color_pressed">數字色彩（按壓）</string>
+    <string name="title_digits_color_focused">數字色彩（焦點）</string>
+    <string name="title_digits_color_unselected">數字色彩（未選）</string>
+    <string name="title_choose_color">選擇顏色</string>
+    <string name="instructions_choose_color">輕按中央顏色來確定。\n要取消請按返回鍵。</string>
+    <string name="entry_no_vm_handler">沒有（語音信箱號碼）</string>
+
+    <!-- Preferences: Call log -->
+    <string name="title_cl_exact_time">顯示實際時間</string>
+    <string name="summaryon_cl_exact_time">在通話記錄中顯示實際時間</string>
+    <string name="summaryoff_cl_exact_time">在通話記錄中顯示相對時間</string>
+    <string name="title_cl_show_seconds">顯示秒數</string>
+    <string name="summary_cl_show_seconds">顯示實際時間時包含秒數</string>
+    <string name="title_cl_ask_before_clear">清除前先詢問</string>
+    <string name="summaryon_cl_ask_before_clear">清除通話記錄前必須先徵求確定</string>
+    <string name="summaryoff_cl_ask_before_clear">直接清除通話記錄，無需徵求確定</string>
+
+    <!-- Preferences: Contacts -->
+    <string name="title_contacts_show_pic">顯示聯絡人圖示</string>
+    <string name="title_contacts_show_dial_button">顯示撥號按鈕</string>
+    <string name="summary_contacts_show_dial_button">如聯絡人有電話號碼，則顯示撥號按鈕</string>
+    <string name="title_contacts_show_count">顯示聯絡人總數</string>
+    <string name="summary_contacts_show_count">在聯絡人列表頂端顯示聯絡人總計數目</string>
+    <string name="title_contacts_show_separators">顯示字母分組</string>
+    <string name="summaryon_contacts_show_separators">在聯絡人列表中顯示字母分組標題</string>
+    <string name="summaryoff_contacts_show_separators">不會為聯絡人列表按字母分組</string>
+
+    <!-- Preferences: Contacts - View Contact -->
+    <string name="title_view_contact">檢視頁面</string>
+    <string name="summary_view_contact">檢視個別聯絡人時的頁面偏好設定</string>
+    <string name="title_show_text_mobile_only">簡訊動作只給行動裝置</string>
+    <string name="summaryon_show_text_mobile_only">只有行動裝置號碼會顯示簡訊動作圖示</string>
+    <string name="summaryoff_show_text_mobile_only">所有號碼都會顯示簡訊動作圖示</string>
+
+    <!-- Preferences: Favourites -->
+    <string name="title_favourites_hide_freq_call">隱藏常用聯絡人</string>
+    <string name="summary_favourites_hide_freq_call">只隱藏常用聯絡人而不刪除其實際記錄資料</string>
+    <string name="title_favs_ask_before_clear">清除前先詢問</string>
+    <string name="summaryon_favs_ask_before_clear">清除常用聯絡人前必須先徵求確定</string>
+    <string name="summaryoff_favs_ask_before_clear">直接清除常用聯絡人，無需徵求確定</string>
+
+    <!-- Preferences: Misc -->
+    <string name="title_misc_category">雜項</string>
+    <string name="title_sensor_rotation">自動旋轉螢幕</string>
+    <string name="summary_sensor_rotation">跟隨系統的自動旋轉螢幕設定</string>
+    <string name="title_data_font_size">聯絡人資料字型大小</string>
+    <string name="summary_data_font_size">讓您選擇顯示聯絡人資料（如電話號碼、電子郵件、地址等）時所使用的字型大小</string>
+
+    <!-- Wysie: About strings -->
+    <string name="title_about">關於</string>
+    <string name="title_about_name">模組名稱</string>
+    <string name="summary_about_name">WyContacts Froyo</string>
+    <string name="title_about_version">版本</string>
+    <string name="summary_about_version">1.2</string>
+    <string name="title_about_credits">歸功於</string>
+    <string name="summary_about_credits">Wysie, ChainsDD, geesun, niuchl, rac2030, sileht 及 XDA 一眾會員! :)</string>
+
 </resources>
