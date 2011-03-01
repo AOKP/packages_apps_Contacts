@@ -314,14 +314,14 @@
     <string name="call_fax_work" msgid="7467763592359059243">"Anruf (Fax, geschäftl.)"</string>
     <string name="call_fax_home" msgid="8342175628887571876">"Anruf Fax (privat)"</string>
     <string name="call_pager" msgid="9003902812293983281">"Anruf (Pager)"</string>
-    <string name="call_other" msgid="8563753966926932052">"Anruf bei"</string>
+    <string name="call_other" msgid="8563753966926932052">"Anruf"</string>
     <string name="call_callback" msgid="1910165691349426858">"Rückrufnummer anrufen"</string>
     <string name="call_car" msgid="3280537320306436445">"Anruf (Auto)"</string>
     <string name="call_company_main" msgid="6105120947138711257">"Anruf (Firmenhauptnummer)"</string>
     <string name="call_isdn" msgid="1541590690193403411">"ISDN-Nummer anrufen"</string>
     <string name="call_main" msgid="6082900571803441339">"Hauptnummer anrufen"</string>
     <string name="call_other_fax" msgid="5745314124619636674">"Anruf an Fax"</string>
-    <string name="call_radio" msgid="8296755876398357063">"Anruf (Mobilfunk)"</string>
+    <string name="call_radio" msgid="8296755876398357063">"Anruf (Funktelefon)"</string>
     <string name="call_telex" msgid="2223170774548648114">"Telexnummer anrufen"</string>
     <string name="call_tty_tdd" msgid="8951266948204379604">"TTY/TDD anrufen"</string>
     <string name="call_work_mobile" msgid="8707874281430105394">"Anruf Handy (geschäftl.)"</string>
@@ -342,7 +342,7 @@
     <string name="sms_isdn" msgid="8153785037515047845">"Textnachricht an ISDN"</string>
     <string name="sms_main" msgid="8621625784504541679">"Textnachricht an Hauptnummer"</string>
     <string name="sms_other_fax" msgid="3888842199855843152">"Textnachricht an Fax"</string>
-    <string name="sms_radio" msgid="3329166673433967820">"Text (Mobilfunk)"</string>
+    <string name="sms_radio" msgid="3329166673433967820">"Text (Funktelefon)"</string>
     <string name="sms_telex" msgid="9034802430065267848">"Textnachricht an Telex"</string>
     <string name="sms_tty_tdd" msgid="6782284969132531532">"Textnachricht an TTY/TDD"</string>
     <string name="sms_work_mobile" msgid="2459939960512702560">"SMS an Handy (geschäftl.)"</string>
