@@ -205,29 +205,21 @@
   <string name="description_minus_button">פחות</string>
   <string name="description_plus_button">פלוס</string>
   <string name="no_sdcard_title">אין כרטיס זכרון</string>
-  <string name="no_sdcard_title">אין כרטיס זכרון</string>
-  <string name="no_sdcard_message">לא זוהה כרטיס זכרון</string>
   <string name="no_sdcard_message">לא זוהה כרטיס זכרון</string>
   <string name="searching_vcard_title">מחפש vcard</string>
   <string name="import_from_sim">ייבוא מכרטיס סים</string>
   <string name="import_from_sdcard">ייבוא מכרטיס זכרון</string>
-  <string name="import_from_sdcard">ייבוא מכרטיס זכרון</string>
-  <string name="export_to_sdcard">ייצוא לכרטיס זכרון</string>
   <string name="export_to_sdcard">ייצוא לכרטיס זכרון</string>
   <string name="share_visible_contacts">שיתוף אנשי קשר גלויים</string>
   <string name="import_one_vcard_string">ייבוא קובץ vcard</string>
   <string name="import_multiple_vcard_string">ייבוא מספר קבצי vCard</string>
   <string name="import_all_vcard_string">ייבוא כל קבצי ה- vCard</string>
   <string name="searching_vcard_message">מחפש קבצי vCard בכרטיס הזכרון</string>
-  <string name="searching_vcard_message">מחפש קבצי vCard בכרטיס הזכרון</string>
   <string name="scanning_sdcard_failed_title">סריקת כרטיס זכרון נכשלה</string>
-  <string name="scanning_sdcard_failed_title">סריקת כרטיס זכרון נכשלה</string>
-  <string name="scanning_sdcard_failed_message">סריקת כרטיס זכרון נכשלה (סיבה: \"&lt;xliff:g id="fail_reason"&gt;%s&lt;/xliff:g&gt;\")</string>
   <string name="scanning_sdcard_failed_message">סריקת כרטיס זכרון נכשלה (סיבה: \"&lt;xliff:g id="fail_reason"&gt;%s&lt;/xliff:g&gt;\")</string>
   <string name="fail_reason_io_error">שגיאה בקריאה/כתיבה</string>
   <string name="fail_reason_vcard_parse_error">נכשל ניתוח vCard מסיבה לא צפויה</string>
   <string name="fail_reason_vcard_not_supported_error">נכשל ניתוח vCard על אף שמבנהו נראה תקין, היות והיישום הנוכחי לא תומך בו</string>
-  <string name="fail_reason_no_vcard_file">לא נמצא קובץ vCard על כרטיס הזיכרון</string>
   <string name="fail_reason_no_vcard_file">לא נמצא קובץ vCard על כרטיס הזיכרון</string>
   <string name="fail_reason_failed_to_read_files">הייבוא של קובץ אחד או יותר נכשל (%s).</string>
   <string name="fail_reason_unknown">שגיאה לא ידועה</string>
@@ -243,7 +235,6 @@
   <string name="exporting_contact_failed_title">נכשל בייצוא איש קשר</string>
   <string name="exporting_contact_failed_message">נכשל בייצוא איש קשר.\nנכשל מסיבה: \"&lt;xliff:g id="fail_reason"&gt;%s&lt;/xliff:g&gt;\"</string>
   <string name="fail_reason_no_exportable_contact">אין אנשי קשר שניתן לייצא</string>
-  <string name="fail_reason_too_many_vcard">ישנם קבצי vCard רבים מדי על כרטיס הזיכרון</string>
   <string name="fail_reason_too_many_vcard">ישנם קבצי vCard רבים מדי על כרטיס הזיכרון</string>
   <string name="fail_reason_too_long_filename">שם הקובץ ארוך מדי (\"&lt;xliff:g id="filename"&gt;%s&lt;/xliff:g&gt;\")</string>
   <string name="exporting_contact_list_title">מייצא אנשי קשר</string>
