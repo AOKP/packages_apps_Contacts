@@ -457,8 +457,6 @@
   <string name="summary_about_version">1.2</string>
   <string name="title_about_credits">תודות</string>
   <string name="summary_about_credits">Wysie, ChainsDD, geesun, niuchl, rac2030, sileht ושאר ה XDA! :)</string>
-  <string-array name=""/>
-  <string-array name=""/>
   <plurals name="groupDescrip">
     <item quantity="other"> אנשי קשר</item>
   </plurals>
