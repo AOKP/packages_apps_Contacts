@@ -47,6 +47,9 @@
     <string name="menu_viewAddress" msgid="1814744325763202024">"Visa adress på karta"</string>
     <string name="menu_makeDefaultNumber" msgid="4838759253316649534">"Använd som standardnummer"</string>
     <string name="menu_makeDefaultEmail" msgid="2599044610375789994">"Använd som standardadress"</string>
+    <string name="menu_shareNumber">Dela nummer</string>
+    <string name="menu_shareEmail">Dela e-postadress</string>
+    <string name="menu_shareAddress">Dela adress</string>
     <string name="menu_splitAggregate" msgid="8368636463748691868">"Dela upp"</string>
     <string name="contactsSplitMessage" msgid="5253490235863170269">"Kontakterna har delats upp"</string>
     <string name="splitConfirmation_title" msgid="6716467920283502570">"Dela upp kontakt"</string>
@@ -61,10 +64,12 @@
     <string name="menu_contactOptions" msgid="1957061455705020617">"Alternativ"</string>
     <string name="contactOptionsTitle" msgid="8259347644090700915">"Alternativ"</string>
     <string name="deleteConfirmation_title" msgid="6394309508930335204">"Ta bort"</string>
+    <string name="clearConfirmation_title">Rensa samtalshistorik</string>
     <string name="readOnlyContactWarning" msgid="1390849295342594265">"Det går inte att ta bort kontakter från skrivskyddade konton, men du kan dölja dem i kontaktlistan."</string>
     <string name="readOnlyContactDeleteConfirmation" msgid="2137170726670196909">"Den här kontakten har information från flera konton. Information från skrivskyddade konton döljs i kontaktlistan, men tas inte bort."</string>
     <string name="multipleContactDeleteConfirmation" msgid="938900978442960800">"Om du tar bort den här kontakten tar du bort information från flera konton."</string>
     <string name="deleteConfirmation" msgid="811706994761610640">"Kontakten kommer att tas bort."</string>
+    <string name="clearLogConfirmation">Alla poster i samtalshistoriken kommer tas bort.</string>
     <string name="menu_done" msgid="796017761764190697">"Färdig"</string>
     <string name="menu_doNotSave" msgid="2174577548513895144">"Tillbaka"</string>
     <string name="editContact_title_edit" msgid="7678695190666836093">"Redigera kontakt"</string>
@@ -142,6 +147,7 @@
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"Skicka SMS"</string>
     <string name="recentCalls_callNumber" msgid="1756372533999226126">"Ring <xliff:g id="NAME">%s</xliff:g>"</string>
     <string name="recentCalls_editNumberBeforeCall" msgid="7756171675833267857">"Redigera nummer före samtal"</string>
+    <string name="recentCalls_addToBlacklist">Svartlista</string>
     <string name="recentCalls_addToContact" msgid="1429899535546487008">"Lägg till i Kontakter"</string>
     <string name="recentCalls_removeFromRecentList" msgid="401662244636511330">"Ta bort från samtalshistorik"</string>
     <string name="recentCalls_deleteAll" msgid="6352364392762163704">"Rensa samtalshistorik"</string>
@@ -264,6 +270,7 @@
     <string name="quickcontact_missing_app" msgid="4600366393134289038">"Ingen app som kan hantera åtgärden hittades"</string>
     <string name="quickcontact_remember_choice" msgid="5964536411579749424">"Kom ihåg det här valet"</string>
     <string name="quickcontact_missing_name" msgid="5590266114306996632">"Okänd"</string>
+    <string name="quickcontact_no_data">Ingen info</string>
     <string name="menu_accounts" msgid="8499114602017077970">"Konton"</string>
     <string name="menu_import_export" msgid="3765725645491577190">"Importera/exportera"</string>
     <string name="dialog_import_export" msgid="4771877268244096596">"Importera/exportera kontakter"</string>
@@ -389,4 +396,97 @@
     <string name="upgrade_out_of_memory_retry" msgid="8431289830472724609">"Försök uppgradera igen"</string>
     <string name="search_results_for" msgid="8705490885073188513">"Sökresultat för: <xliff:g id="QUERY">%s</xliff:g>"</string>
     <string name="search_results_searching" msgid="7755623475227227314">"Söker..."</string>
+    <string name="menu_preferences">Inställningar</string>
+    <string name="dialer_menu_sms">SMS/MMS</string>
+
+    <!-- Wysie: Call log strings -->
+    <string name="recent_calls_clear_call_log">Rensa samtalshistoriken</string>
+    <string name="recent_calls_clear_what">Rensa vad?</string>
+    <string name="recent_calls_clear_all">Allt</string>
+    <string name="recent_calls_clear_incoming">Inkommande</string>
+    <string name="recent_calls_clear_outgoing">Utgående</string>
+    <string name="recent_calls_clear_missed">Missade</string>
+    <string name="alert_clear_call_log_title">Rensa samtalshistoriken</string>
+    <string name="alert_clear_call_log_message">Är du säker på att du vill rensa samtliga samtalsposter?</string>
+    <string name="alert_clear_cl_all_incoming">Är du säker på att du vill rensa alla poster för inkommande samtal?</string>
+    <string name="alert_clear_cl_all_outgoing">Är du säker på att du vill rensa alla poster för utgående samtal?</string>
+    <string name="alert_clear_cl_all_missed">Är du säker på att du vill rensa alla poster för missade samtal?</string>
+
+    <!-- Wysie: Favourites strings -->
+    <string name="fav_clear_freq">Rensa ofta ringda</string>
+    <string name="alert_clear_freq_called_msg">Är du säker på att du vill rensa alla poster för samtal du ofta ringer?</string>
+
+    <!-- Wysie: Preferences strings -->
+
+    <!-- Preferences: Dialer -->
+    <string name="title_last_dialled">Ring-knappen hämtar senast ringda nummer</string>
+    <string name="summary_last_dialled">Senast ringde nummer kommer att hämtas om inga siffror slagits in</string>
+    <string name="title_return_to_dialer">Återgå till Telefonprogrammet efter samtal</string>
+    <string name="title_vm_button">Vänster händelseknapp (LAB)</string>
+    <string name="title_vm_handler">Hanterare för röstbrevlåda</string>
+    <string name="title_use_1_for_reg_vm">Använd 1 för vanlig röstbrevlåda</string>
+    <string name="summaryon_use_1_for_reg_vm">Knapp 1 kommer användas för vanlig röstbrevlåda</string>
+    <string name="summaryoff_use_1_for_reg_vm">Knapp 1 kommer följa hanteraren för röstbrevlåda</string>
+    <string name="title_disable_num_check">Inaktivera nummerkontroller</string>
+    <string name="summaryon_disable_num_check">Vänster händelseknapp (LAB) och meny kommer alltid att vara aktiva</string>
+    <string name="summaryoff_disable_num_check">LAB och meny kommer bara aktiveras om minst en siffra skrivs (förutom röstbrevlåda)</string>
+    <string name="title_enable_haptic_feedback">Aktivera haptisk återkoppling</string>
+    <string name="summary_enable_haptic_feedback">Använder knappsatsens tryckmönster - gå till CyanogenMod-inställningar för att justera</string>
+    <string name="title_change_digits_color">Ändra färg på siffror</string>
+    <string name="title_digits_color_pressed">Sifferfärg (nedtryckt)</string>
+    <string name="title_digits_color_focused">Sifferfärg (fokuserat)</string>
+    <string name="title_digits_color_unselected">Sifferfärg (inte markerat)</string>
+    <string name="title_choose_color">Välj en färg</string>
+    <string name="instructions_choose_color">Tryck på mittenfärgen för att bekräfta.\nTryck bakåt för att avbryta.</string>
+    <string name="entry_no_vm_handler">Ingen (Ring numret till röstbrevlådan)</string>
+
+    <!-- Preferences: Call log -->
+    <string name="title_cl_exact_time">Exakta tider</string>
+    <string name="summaryon_cl_exact_time">Använd exakta tider i samtalshistoriken</string>
+    <string name="summaryoff_cl_exact_time">Använd relativa tider i samtalshistoriken</string>
+    <string name="title_cl_show_seconds">Visa sekunder</string>
+    <string name="summary_cl_show_seconds">Visa sekunder när exakta tider används</string>
+    <string name="title_cl_ask_before_clear">Fråga innan rensning</string>
+    <string name="summaryon_cl_ask_before_clear">Fråga innan samtalshistoriken rensas</string>
+    <string name="summaryoff_cl_ask_before_clear">Samtalshistoriken kommer rensas utan bekräftelse</string>
+
+    <!-- Preferences: Contacts -->
+    <string name="title_contacts_show_pic">Visa kontaktbilder</string>
+    <string name="title_contacts_show_dial_button">Visa Ring-knapp</string>
+    <string name="summary_contacts_show_dial_button">Visa en Ring-knapp för kontakter med nummer</string>
+    <string name="title_contacts_show_count">Visa antal kontakter</string>
+    <string name="summary_contacts_show_count">Antalet kontakter kommer visas längst upp i kontaktlistan</string>
+    <string name="title_contacts_show_separators">Visa alfabetiska avskiljare</string>
+    <string name="summaryon_contacts_show_separators">Alfabetiska avskiljare kommer visas i kontaktlistan</string>
+    <string name="summaryoff_contacts_show_separators">Alfabetiska avskiljare kommer inte visas i kontaktlistan</string>
+
+    <!-- Preferences: Contacts - View Contact -->
+    <string name="title_view_contact">Visa kontakt</string>
+    <string name="summary_view_contact">Inställningar för visning av en individuell kontakt</string>
+    <string name="title_show_text_mobile_only">SMS-åtgärd endast för mobil</string>
+    <string name="summaryon_show_text_mobile_only">Bara mobiltelefonnummer kommer ha en SMS-åtgärd</string>
+    <string name="summaryoff_show_text_mobile_only">Alla nummer kommer ha en SMS-åtgärd</string>
+
+    <!-- Preferences: Favourites -->
+    <string name="title_favourites_hide_freq_call">Göm ofta ringda</string>
+    <string name="summary_favourites_hide_freq_call">Den faktiskta informationen göms, men rensas inte.</string>
+    <string name="title_favs_ask_before_clear">Fråga innan rensning</string>
+    <string name="summaryon_favs_ask_before_clear">Fråga innan poster med ofta ringda samtal rensas</string>
+    <string name="summaryoff_favs_ask_before_clear">Poster med ofta ringda samtal kommer rensas utan bekräftelse</string>
+
+    <!-- Preferences: Misc -->
+    <string name="title_misc_category">Övrigt</string>
+    <string name="title_sensor_rotation">Aktivera rotation med sensor</string>
+    <string name="summary_sensor_rotation">Roterar baserat på systeminställningar, om aktiverad.</string>
+    <string name="title_data_font_size">Fontstorlek för kontaktinformation</string>
+    <string name="summary_data_font_size">Låter dig välja fontstorlek som används för att visa detaljerad kontaktinformation (telefonnummer, e-postadress, adress, osv.)</string>
+
+    <!-- Wysie: About strings -->
+    <string name="title_about">Om</string>
+    <string name="title_about_name">Mod-namn</string>
+    <string name="summary_about_name">WyContacts Froyo</string>
+    <string name="title_about_version">Version</string>
+    <string name="summary_about_version">1.2</string>
+    <string name="title_about_credits">Erkännanden</string>
+    <string name="summary_about_credits">Wysie, ChainsDD, geesun, niuchl, rac2030, sileht och resten av XDA! :)</string>
 </resources>
