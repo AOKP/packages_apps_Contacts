@@ -486,4 +486,12 @@
     <string name="summary_about_version">1.2</string>
     <string name="title_about_credits">Créditos</string>
     <string name="summary_about_credits">Wysie, ChainsDD, geesun, niuchl, rac2030, sileht e o resto da XDA! :)</string>
+    <string name="menu_shareNumber">Compartilhar número</string>
+    <string name="menu_shareEmail">Compartilhar email</string>
+    <string name="menu_shareAddress">Compartilhar endereço</string>
+    <string name="clearConfirmation_title">Limpar histórico de ligações</string>
+    <string name="clearLogConfirmation">Todo o histórico de chamada irá ser removido.</string>
+    <string name="quickcontact_no_data">Sem dados</string>
+    <string name="quickcontact_no_data">Não contém dados</string>
+    <string name="quickcontact_no_data">Não há dados</string>
 </resources>
