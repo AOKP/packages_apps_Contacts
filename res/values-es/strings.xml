@@ -47,6 +47,9 @@
     <string name="menu_viewAddress" msgid="1814744325763202024">"Dirección en mapa"</string>
     <string name="menu_makeDefaultNumber" msgid="4838759253316649534">"Convertir en número predeterminado"</string>
     <string name="menu_makeDefaultEmail" msgid="2599044610375789994">"Establecer como dirección de email predeterminada"</string>
+    <string name="menu_shareNumber">Compartir número</string>
+    <string name="menu_shareEmail">Compartir email</string>
+    <string name="menu_shareAddress">Compartir dirección</string>
     <string name="menu_splitAggregate" msgid="8368636463748691868">"Dividir"</string>
     <string name="contactsSplitMessage" msgid="5253490235863170269">"Contactos divididos"</string>
     <string name="splitConfirmation_title" msgid="6716467920283502570">"Dividir contacto"</string>
@@ -61,10 +64,12 @@
     <string name="menu_contactOptions" msgid="1957061455705020617">"Opciones"</string>
     <string name="contactOptionsTitle" msgid="8259347644090700915">"Opciones"</string>
     <string name="deleteConfirmation_title" msgid="6394309508930335204">"Eliminar"</string>
+    <string name="clearConfirmation_title">Borrar historial de llamadas</string>
     <string name="readOnlyContactWarning" msgid="1390849295342594265">"No puedes eliminar contactos de las cuentas de solo lectura, pero puedes ocultarlos en las listas de contactos."</string>
     <string name="readOnlyContactDeleteConfirmation" msgid="2137170726670196909">"Este contacto contiene información de varias cuentas. La información de las cuentas de solo lectura se ocultará en las listas de contactos, pero no se eliminará."</string>
     <string name="multipleContactDeleteConfirmation" msgid="938900978442960800">"Si se elimina este contacto, se eliminará la información de varias cuentas."</string>
     <string name="deleteConfirmation" msgid="811706994761610640">"El contacto se eliminará."</string>
+    <string name="clearLogConfirmation">Todas las entradas del historial serán borradas.</string>
     <string name="menu_done" msgid="796017761764190697">"OK"</string>
     <string name="menu_doNotSave" msgid="2174577548513895144">"Volver"</string>
     <string name="editContact_title_edit" msgid="7678695190666836093">"Editar contacto"</string>
@@ -142,6 +147,7 @@
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"Enviar un mensaje de texto"</string>
     <string name="recentCalls_callNumber" msgid="1756372533999226126">"Llamar a <xliff:g id="NAME">%s</xliff:g>"</string>
     <string name="recentCalls_editNumberBeforeCall" msgid="7756171675833267857">"Editar número antes de llamar"</string>
+    <string name="recentCalls_addToBlacklist">Añadir a la Lista Negra</string>
     <string name="recentCalls_addToContact" msgid="1429899535546487008">"Añadir a contactos"</string>
     <string name="recentCalls_removeFromRecentList" msgid="401662244636511330">"Eliminar del registro de llamadas"</string>
     <string name="recentCalls_deleteAll" msgid="6352364392762163704">"Borrar registro de llamadas"</string>
@@ -264,6 +270,7 @@
     <string name="quickcontact_missing_app" msgid="4600366393134289038">"No se ha encontrado ninguna aplicación que pueda realizar esta acción."</string>
     <string name="quickcontact_remember_choice" msgid="5964536411579749424">"Recordar esta opción"</string>
     <string name="quickcontact_missing_name" msgid="5590266114306996632">"Desconocido"</string>
+    <string name="quickcontact_no_data">Sin datos</string>
     <string name="menu_accounts" msgid="8499114602017077970">"Cuentas"</string>
     <string name="menu_import_export" msgid="3765725645491577190">"Importar/exportar"</string>
     <string name="dialog_import_export" msgid="4771877268244096596">"Importar/exportar contactos"</string>
@@ -389,4 +396,77 @@
     <string name="upgrade_out_of_memory_retry" msgid="8431289830472724609">"Reintentar actualización"</string>
     <string name="search_results_for" msgid="8705490885073188513">"Resultados de la búsqueda de: <xliff:g id="QUERY">%s</xliff:g>"</string>
     <string name="search_results_searching" msgid="7755623475227227314">"Buscando..."</string>
+    <string name="menu_preferences">Preferencias</string>
+    <string name="dialer_menu_sms">SMS/MMS</string>
+    <string name="recent_calls_clear_call_log">Borrar historial de llamadas</string>
+    <string name="recent_calls_clear_what">¿Borrar cuál?</string>
+    <string name="recent_calls_clear_all">Todo</string>
+    <string name="recent_calls_clear_incoming">Entrantes</string>
+    <string name="recent_calls_clear_outgoing">Salientes</string>
+    <string name="recent_calls_clear_missed">Perdidas</string>
+    <string name="alert_clear_call_log_title">Borrar historial de llamadas</string>
+    <string name="alert_clear_call_log_message">¿Está seguro que desea borrar todos los registros de llamadas?</string>
+    <string name="alert_clear_cl_all_incoming">¿Está seguro que desea borrar todos los registros de llamadas entrantes?</string>
+    <string name="alert_clear_cl_all_outgoing">¿Está seguro que desea borrar todos los registros de llamadas salientes?</string>
+    <string name="alert_clear_cl_all_missed">¿Está seguro que desea borrar todos los registros de llamadas perdidas?</string>
+    <string name="fav_clear_freq">Borrar llamados con frecuencia</string>
+    <string name="alert_clear_freq_called_msg">¿Está seguro que desea borrar todas las entradas llamadas con frecuencia?</string>
+    <string name="title_last_dialled">Botón llamar recupera el último número marcado</string>
+    <string name="summary_last_dialled">Último número marcado se recuperará si los dígitos están vacíos</string>
+    <string name="title_return_to_dialer">Volver al marcador después de la llamada</string>
+    <string name="title_vm_button">Acción Botón izquierdo (LAB)</string>
+    <string name="title_vm_handler">Buzón de voz</string>
+    <string name="title_use_1_for_reg_vm">Utilice 1 para buzón de voz</string>
+    <string name="summaryon_use_1_for_reg_vm">La tecla 1 se utiliza para buzón de voz</string>
+    <string name="summaryoff_use_1_for_reg_vm">La tecla 1 seguirá siendo el buzón de voz</string>
+    <string name="title_disable_num_check">Desactivar control de número</string>
+    <string name="summaryon_disable_num_check">Botón izquierdo acción (LAB) y el menú siempre se habilitarán</string>
+    <string name="summaryoff_disable_num_check">LAB y menú se habilitan sólo si al menos un número se introduce (con excepción de buzón de voz)</string>
+    <string name="title_enable_haptic_feedback">Habilitar retrovibración</string>
+    <string name="summary_enable_haptic_feedback">Usa patrón de teclado - vea configuración CyanogenMod para ajustar</string>
+    <string name="title_change_digits_color">Cambiar color de los dígitos</string>
+    <string name="title_digits_color_pressed">Color dígitos (presionado)</string>
+    <string name="title_digits_color_focused">Color dígitos (centrado)</string>
+    <string name="title_digits_color_unselected">Color dígitos (no seleccionado)</string>
+    <string name="title_choose_color">Elija un color</string>
+    <string name="instructions_choose_color">Toque en el centro de color para confirmar.\nPulse volver para cancelar.</string>
+    <string name="entry_no_vm_handler">Ninguno (Número Buzón de Voz)</string>
+    <string name="title_cl_exact_time">Tiempos exactos</string>
+    <string name="summaryon_cl_exact_time">Usar tiempos exactos en el historial de llamadas</string>
+    <string name="summaryoff_cl_exact_time">Usar tiempos relativos en el historial de llamadas</string>
+    <string name="title_cl_show_seconds">Ver segundos</string>
+    <string name="summary_cl_show_seconds">Ver segundos cuando se utiliza el tiempo exacto</string>
+    <string name="title_cl_ask_before_clear">Preguntar antes de borrar</string>
+    <string name="summaryon_cl_ask_before_clear">Preguntar antes de borrar registro de llamadas</string>
+    <string name="summaryoff_cl_ask_before_clear">Los registros de llamadas se borrarán sin preguntar</string>
+    <string name="title_contacts_show_pic">Mostrar imágenes de contactos</string>
+    <string name="title_contacts_show_dial_button">Mostrar botón de marcación</string>
+    <string name="summary_contacts_show_dial_button">Mostrar botón de marcación en contactos con números</string>
+    <string name="title_contacts_show_count">Mostrar cuentas de contactos</string>
+    <string name="summary_contacts_show_count">Cuentas de contactos se mostrarán en la parte superior de la lista de contactos</string>
+    <string name="title_contacts_show_separators">Mostrar separadores alfabéticos</string>
+    <string name="summaryon_contacts_show_separators">Separadores alfabéticos se mostrarán en la lista de contactos</string>
+    <string name="summaryoff_contacts_show_separators">Separadores alfabéticos no se mostrarán en la lista de contactos</string>
+    <string name="title_view_contact">Ver contacto</string>
+    <string name="summary_view_contact">Establecer las preferencias durante la visualización de un contacto individual</string>
+    <string name="title_show_text_mobile_only">Opción texto/sms sólo para móviles</string>
+    <string name="summaryon_show_text_mobile_only">Sólo números de móvil tendrán la opción de enviar texto/sms</string>
+    <string name="summaryoff_show_text_mobile_only">Todos los números tendrán la opción de enviar texto/sms</string>
+    <string name="title_favourites_hide_freq_call">Ocultar llamados frecuentemente</string>
+    <string name="summary_favourites_hide_freq_call">Los datos actuales no estan borrados, pero si ocultos.</string>
+    <string name="title_favs_ask_before_clear">Preguntar antes de borrar</string>
+    <string name="summaryon_favs_ask_before_clear">Pregunte antes de limpiar llamados frecuentemente</string>
+    <string name="summaryoff_favs_ask_before_clear">Las llamadas frecuentes se borrarán sin preguntar</string>
+    <string name="title_misc_category">Varios</string>
+    <string name="title_sensor_rotation">Habilitar el sensor de rotación</string>
+    <string name="summary_sensor_rotation">Si está activado, girará basado en la configuración del sistema"</string>
+    <string name="title_data_font_size">Tamaño de fuente de información de contacto</string>
+    <string name="summary_data_font_size">Le permite elegir el tamaño de la fuente utilizada para mostrar información de contacto detallada (número de teléfono, correo electrónico, dirección, etc)</string>
+    <string name="title_about">Acerca de</string>
+    <string name="title_about_name">Nombre Mod</string>
+    <string name="summary_about_name">WyContacts Froyo</string>
+    <string name="title_about_version">Version</string>
+    <string name="summary_about_version">1.2</string>
+    <string name="title_about_credits">Creditos</string>
+    <string name="summary_about_credits">Wysie, ChainsDD, geesun, niuchl, rac2030, sileht y el resto de XDA! :)</string>
 </resources>
