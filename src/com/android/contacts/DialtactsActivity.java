@@ -60,6 +60,16 @@ public class DialtactsActivity extends TabActivity implements TabHost.OnTabChang
     private static final String PREF_FAVORITES_AS_CONTACTS = "favorites_as_contacts";
     private static final boolean PREF_FAVORITES_AS_CONTACTS_DEFAULT = false;
 
+    /** Which tab to show when launching the Phone app */
+    private static final String PREF_DEFAULT_PHONE_TAB = "misc_default_phone_tab";
+    private static final int PREF_DEFAULT_PHONE_TAB_LAST_USED = 0; //Default
+    private static final int PREF_DEFAULT_PHONE_TAB_LAST_VIEWED = 1;
+    private static final int PREF_DEFAULT_PHONE_TAB_DIALER = 2;
+    private static final int PREF_DEFAULT_PHONE_TAB_CALL_LOG = 3;
+    private static final int PREF_DEFAULT_PHONE_TAB_CONTACTS = 4;
+    private static final int PREF_DEFAULT_PHONE_TAB_FAVORITES = 5;
+    private static final String PREF_DEFAULT_PHONE_TAB_DEFAULT= "0";
+
     private TabHost mTabHost;
     private String mFilterText;
     private Uri mDialUri;
@@ -221,9 +231,39 @@ public class DialtactsActivity extends TabActivity implements TabHost.OnTabChang
                 // After a call, show the call log
                 mTabHost.setCurrentTab(TAB_INDEX_CALL_LOG);
             } else {
-                // Load the last tab used to make a phone call. default to the dialer in
-                // first launch
-                mTabHost.setCurrentTab(StickyTabs.loadTab(this, TAB_INDEX_DIALER));
+                int defaultPhoneTab = Integer.parseInt(ePrefs.getString(PREF_DEFAULT_PHONE_TAB, PREF_DEFAULT_PHONE_TAB_DEFAULT));
+                switch (defaultPhoneTab) {
+                    case PREF_DEFAULT_PHONE_TAB_LAST_USED:
+                        // Load the last tab used to make a phone call. default to the dialer in
+                        // first launch
+                        mTabHost.setCurrentTab(StickyTabs.loadTab(this, TAB_INDEX_DIALER));
+                        break;
+
+                    case PREF_DEFAULT_PHONE_TAB_LAST_VIEWED:
+                        // Load the last tab viewed
+                        // TODO: persist this
+                        break;
+
+                    case PREF_DEFAULT_PHONE_TAB_DIALER:
+                        // Load the dialer
+                        mTabHost.setCurrentTab(TAB_INDEX_DIALER);
+                        break;
+
+                    case PREF_DEFAULT_PHONE_TAB_CALL_LOG:
+                        // Load the call log
+                        mTabHost.setCurrentTab(TAB_INDEX_CALL_LOG);
+                        break;
+
+                    case PREF_DEFAULT_PHONE_TAB_CONTACTS:
+                        // Load contacts
+                        mTabHost.setCurrentTab(TAB_INDEX_CONTACTS);
+                        break;
+
+                    case PREF_DEFAULT_PHONE_TAB_FAVORITES:
+                        // Load favorites
+                        mTabHost.setCurrentTab(TAB_INDEX_FAVORITES);
+                        break;
+              }
             }
         } else if (FAVORITES_ENTRY_COMPONENT.equals(componentName)) {
             mTabHost.setCurrentTab(TAB_INDEX_FAVORITES);

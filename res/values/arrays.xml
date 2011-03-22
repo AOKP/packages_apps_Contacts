@@ -67,4 +67,14 @@
         <item>22</item>
         <item>26</item>
     </string-array>
+
+    <string-array name="view_default_phone_tabs" translatable="false">
+        <item>@string/default_phone_tab_last_used</item>
+        <item>@string/default_phone_tab_last_viewed</item>
+        <item>@string/default_phone_tab_phone</item>
+        <item>@string/default_phone_tab_call_log</item>
+        <item>@string/default_phone_tab_contacts</item>
+        <item>@string/default_phone_tab_favorites</item>
+    </string-array>
+
 </resources>

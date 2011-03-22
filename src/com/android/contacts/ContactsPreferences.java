@@ -41,9 +41,11 @@ public class ContactsPreferences extends PreferenceActivity implements Preferenc
     private static final String PRESSED_DIGIT_COLOR = "pressed_digits_color";
     private static final String FOCUSED_DIGIT_COLOR = "focused_digits_color";
     private static final String UNSELECTED_DIGIT_COLOR = "unselected_digits_color";
+    private static final String DEFAULT_PHONE_TAB = "misc_default_phone_tab";
 
     private ListPreference mVMButton;
     private ListPreference mVMHandler;
+    private ListPreference mDefaultPhoneTab;
     private Preference colorFocused, colorPressed, colorUnselected;
 
     @Override
@@ -55,16 +57,19 @@ public class ContactsPreferences extends PreferenceActivity implements Preferenc
 
         mVMButton = (ListPreference) findPreference(VM_BUTTON);
         mVMHandler = (ListPreference) findPreference(VM_HANDLER);
+        mDefaultPhoneTab = (ListPreference) findPreference(DEFAULT_PHONE_TAB);
         colorPressed = (Preference) findPreference(PRESSED_DIGIT_COLOR);
         colorFocused = (Preference) findPreference(FOCUSED_DIGIT_COLOR);
         colorUnselected = (Preference) findPreference(UNSELECTED_DIGIT_COLOR);
 
         mVMButton.setOnPreferenceChangeListener(this);
         mVMHandler.setOnPreferenceChangeListener(this);
+        mDefaultPhoneTab.setOnPreferenceChangeListener(this);
         loadHandlers();
 
         updatePrefs(mVMButton, mVMButton.getValue());
         updatePrefs(mVMHandler, mVMHandler.getValue());
+        updatePrefs(mDefaultPhoneTab, mDefaultPhoneTab.getValue());
     }    
     
     public boolean onPreferenceChange (Preference preference, Object newValue) {
@@ -78,7 +83,7 @@ public class ContactsPreferences extends PreferenceActivity implements Preferenc
         try {       
             p.setSummary(p.getEntries()[p.findIndexOfValue((String) newValue)]);
         } catch (ArrayIndexOutOfBoundsException e) {
-            if (p.getKey().equals(VM_BUTTON) || p.getKey().equals(VM_HANDLER)) {
+            if (p.getKey().equals(VM_BUTTON) || p.getKey().equals(VM_HANDLER) || p.getKey().equals(DEFAULT_PHONE_TAB)) {
                 p.setValue("0");
             }
             updatePrefs(p, p.getValue());

@@ -176,6 +176,14 @@
             android:entries="@array/view_data_font_sizes"
             android:entryValues="@array/view_data_font_sizes_values"
             android:defaultValue="14" />
+        <ListPreference
+            android:key="misc_default_phone_tab"
+            android:title="@string/title_default_phone_tab"
+            android:dialogTitle="@string/title_default_phone_tab"
+            android:summary="@string/summary_default_phone_tab"
+            android:entries="@array/view_default_phone_tabs"
+            android:entryValues="@array/entryvalues_numbers"
+            android:defaultValue="0" />
         <PreferenceScreen
             android:key="misc_about"
             android:title="@string/title_about"> 
