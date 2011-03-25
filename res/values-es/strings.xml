@@ -462,6 +462,17 @@
     <string name="summary_sensor_rotation">Si está activado, girará basado en la configuración del sistema"</string>
     <string name="title_data_font_size">Tamaño de fuente de información de contacto</string>
     <string name="summary_data_font_size">Le permite elegir el tamaño de la fuente utilizada para mostrar información de contacto detallada (número de teléfono, correo electrónico, dirección, etc)</string>
+    <string name="title_default_phone_tab">Tab por defecto</string>
+    <string name="summary_default_phone_tab">Define que tab se abre cuando se inicia la aplicación del teléfono</string>
+
+    <!-- Default Phone Tab strings -->
+    <string name="default_phone_tab_last_used">Ultimo tab usado para llamar (Defecto)</string>
+    <string name="default_phone_tab_last_viewed">Ultimos vistos</string>
+    <string name="default_phone_tab_phone">Teléfono</string>
+    <string name="default_phone_tab_call_log">Llamadas</string>
+    <string name="default_phone_tab_contacts">Contactos</string>
+    <string name="default_phone_tab_favorites">Favoritos</string>
+
     <string name="title_about">Acerca de</string>
     <string name="title_about_name">Nombre Mod</string>
     <string name="summary_about_name">WyContacts Froyo</string>
