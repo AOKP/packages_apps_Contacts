@@ -489,6 +489,16 @@
     <string name="summary_sensor_rotation">Se abilitato la rotazione sarà basata sulle impostazioni di sistema</string>
     <string name="title_data_font_size">Dimensione testo info contatto</string>
     <string name="summary_data_font_size">Seleziona la dimensione del testo dei dettagli di un contatto (numero di telefono, email, indirizzo, etc.)</string>
+    <string name="title_default_phone_tab">Tab di default</string>
+    <string name="summary_default_phone_tab">Tab da visualizzare all\'avvio dell\'applicazione Telefono</string>
+
+    <!-- Default Phone Tab strings -->
+    <string name="default_phone_tab_last_used">Ultima usata per effettuare una chiamata (Default)</string>
+    <string name="default_phone_tab_last_viewed">Ultima visualizzata</string>
+    <string name="default_phone_tab_phone">Telefono</string>
+    <string name="default_phone_tab_call_log">Registro chiamate</string>
+    <string name="default_phone_tab_contacts">Contatti</string>
+    <string name="default_phone_tab_favorites">Preferiti</string>
 
     <!-- Wysie: About strings -->
     <string name="title_about">Informazioni</string>
