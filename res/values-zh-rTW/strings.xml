@@ -1246,6 +1246,16 @@
     <string name="summary_sensor_rotation">跟隨系統的自動旋轉螢幕設定</string>
     <string name="title_data_font_size">聯絡人資料字型大小</string>
     <string name="summary_data_font_size">讓您選擇顯示聯絡人資料（如電話號碼、電子郵件、地址等）時所使用的字型大小</string>
+    <string name="title_default_phone_tab">預設頁面</string>
+    <string name="summary_default_phone_tab">電話應用程式啟動時的預設顯示頁面</string>
+
+    <!-- Default Phone Tab strings -->
+    <string name="default_phone_tab_last_used">上一次撥號（預設）</string>
+    <string name="default_phone_tab_last_viewed">上一次檢視</string>
+    <string name="default_phone_tab_phone">電話</string>
+    <string name="default_phone_tab_call_log">通話記錄</string>
+    <string name="default_phone_tab_contacts">聯絡人</string>
+    <string name="default_phone_tab_favorites">我的最愛</string>
 
     <!-- Wysie: About strings -->
     <string name="title_about">關於</string>
