@@ -480,6 +480,16 @@
     <string name="summary_sensor_rotation">Roterar baserat på systeminställningar, om aktiverad.</string>
     <string name="title_data_font_size">Fontstorlek för kontaktinformation</string>
     <string name="summary_data_font_size">Låter dig välja fontstorlek som används för att visa detaljerad kontaktinformation (telefonnummer, e-postadress, adress, osv.)</string>
+    <string name="title_default_phone_tab">Standardflik</string>
+    <string name="summary_default_phone_tab">Standardflik att öppna när Telefon-appen startar</string>
+
+    <!-- Default Phone Tab strings -->
+    <string name="default_phone_tab_last_used">Senast använda för att ringa (Standard)</string>
+    <string name="default_phone_tab_last_viewed">Senast visade</string>
+    <string name="default_phone_tab_phone">Telefon</string>
+    <string name="default_phone_tab_call_log">Samtalshistorik</string>
+    <string name="default_phone_tab_contacts">Kontakter</string>
+    <string name="default_phone_tab_favorites">Favoriter</string>
 
     <!-- Wysie: About strings -->
     <string name="title_about">Om</string>
