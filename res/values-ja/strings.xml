@@ -487,4 +487,20 @@
     <string name="clearConfirmation_title">発信履歴を消去</string>
     <string name="clearLogConfirmation">すべての発信履歴は削除されます。</string>
     <string name="quickcontact_no_data">データなし</string>
+
+    <!-- CyanogenMod -->
+    <string name="menu_shareNumber">番号を共有</string>
+    <string name="menu_shareEmail">メールを共有</string>
+    <string name="menu_shareAddress">住所を共有</string>
+    <string name="title_default_phone_tab">デフォルトタブ</string>
+    <string name="summary_default_phone_tab">電話アプリを起動したときにデフォルトで開くタブ</string>
+
+    <!-- Default Phone Tab strings -->
+    <string name="default_phone_tab_last_used">最後に電話をかけるために使用したタブ(デフォルト)</string>
+    <string name="default_phone_tab_last_viewed">最後に表示したタブ</string>
+    <string name="default_phone_tab_phone">電話</string>
+    <string name="default_phone_tab_call_log">履歴</string>
+    <string name="default_phone_tab_contacts">連絡先</string>
+    <string name="default_phone_tab_favorites">お気に入り</string>
+
 </resources>
