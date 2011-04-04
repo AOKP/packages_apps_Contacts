@@ -490,6 +490,16 @@
     <string name="summary_sensor_rotation">Wenn eingeschaltet, werden Systemeinstellungen verwendet."</string>
     <string name="title_data_font_size">Schriftgröße Kontaktinfo</string>
     <string name="summary_data_font_size">Die Schriftgröße für die detaillierten Kontaktinformationen einstellen. (Nummer, Email, Adresse, etc.)</string>
+    <string name="title_default_phone_tab">Standard-Tab</string>
+    <string name="summary_default_phone_tab">Dieser Tab wird angezeigt, wenn die Telefonanwendng geöffnet wird.</string>
+
+    <!-- Default Phone Tab strings -->
+    <string name="default_phone_tab_last_used">Zuletzt für Anruf benutzt (Standard)</string>
+    <string name="default_phone_tab_last_viewed">Zuletzt angesehen</string>
+    <string name="default_phone_tab_phone">Telefon</string>
+    <string name="default_phone_tab_call_log">Anrufliste</string>
+    <string name="default_phone_tab_contacts">Kontakte</string>
+    <string name="default_phone_tab_favorites">Favoriten</string>
 
     <!-- Wysie: About strings -->
     <string name="title_about">Über</string>
