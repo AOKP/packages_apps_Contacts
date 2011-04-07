@@ -389,4 +389,31 @@
     <string name="upgrade_out_of_memory_retry" msgid="8431289830472724609">"Prøv å oppgradere på nytt"</string>
     <string name="search_results_for" msgid="8705490885073188513">"Søkeresultater for <xliff:g id="QUERY">%s</xliff:g>"</string>
     <string name="search_results_searching" msgid="7755623475227227314">"Søker ..."</string>
+
+    <!-- Preferences: Misc -->
+    <string name="title_misc_category">Diverse</string>
+    <string name="title_sensor_rotation">Aktiver sensor-rotering</string>
+    <string name="summary_sensor_rotation">Hvis aktivert vil autorotasjon forekomme basert på systeminnstillinger"</string>
+    <string name="title_data_font_size">Skriftstørrelse for kontaktinformasjon</string>
+    <string name="summary_data_font_size">Skriftstørrelse brukt for å vise detaljert kontaktinformasjon (telefonnummer, epost, adresse, osv)</string>
+    <string name="title_default_phone_tab">Standard fane</string>
+    <string name="summary_default_phone_tab">Fane som åpnes når telefonapplikasjonen startes</string>
+
+    <!-- Default Phone Tab strings -->
+    <string name="default_phone_tab_last_used">Sist brukt for å foreta et anrop (Standard)</string>
+    <string name="default_phone_tab_last_viewed">Sist vist</string>
+    <string name="default_phone_tab_phone">Telefon</string>
+    <string name="default_phone_tab_call_log">Anropslogg</string>
+    <string name="default_phone_tab_contacts">Kontakter</string>
+    <string name="default_phone_tab_favorites">Favoritter</string>
+
+    <!-- Wysie: About strings -->
+    <string name="title_about">Om</string>
+    <string name="title_about_name">Modnavn</string>
+    <string name="summary_about_name">WyContacts Froyo</string>
+    <string name="title_about_version">Versjon</string>
+    <string name="summary_about_version">1.2</string>
+    <string name="title_about_credits">Takk til</string>
+    <string name="summary_about_credits">Wysie, ChainsDD, geesun, niuchl, rac2030, sileht og resten av XDA! :)</string>
+
 </resources>
