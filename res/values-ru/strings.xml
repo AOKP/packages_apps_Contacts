@@ -456,6 +456,18 @@
     <string name="summary_sensor_rotation">Если включено,он будет вращаться как настроено в системе</string>   
     <string name="title_data_font_size">Размер шрифта информации о контакте</string>
     <string name="summary_data_font_size">Выбор размера шрифта в подробной информации о контакте (телефонный номер, эл. почта, адрес и т.д.)</string>
+
+    <string name="title_default_phone_tab">Вкладка по умолчанию</string>
+    <string name="summary_default_phone_tab">Вкладка по умочанию при запуске приложения \"Телефон\"</string>
+
+    <!-- Default Phone Tab strings -->
+    <string name="default_phone_tab_last_used">Последняя используемая (По умолчанию)</string>
+    <string name="default_phone_tab_last_viewed">Последняя просмотренная</string>
+    <string name="default_phone_tab_phone">Кнопки</string>
+    <string name="default_phone_tab_call_log">Вызов</string>
+    <string name="default_phone_tab_contacts">Контакты</string>
+    <string name="default_phone_tab_favorites">Избранное</string>
+
     <string name="title_about">О программе</string>
     <string name="title_about_name">Имя модификации</string>
     <string name="summary_about_name">WyContacts Froyo</string>
