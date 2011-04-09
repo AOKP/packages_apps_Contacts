@@ -390,6 +390,73 @@
     <string name="search_results_for" msgid="8705490885073188513">"Søkeresultater for <xliff:g id="QUERY">%s</xliff:g>"</string>
     <string name="search_results_searching" msgid="7755623475227227314">"Søker ..."</string>
 
+    <!-- Wysie: Menu strings -->
+    <string name="menu_preferences">Innstillinger</string>
+
+    <!-- Wysie: Dialer strings -->
+    <string name="dialer_menu_sms">SMS/MMS</string>
+
+    <!-- Wysie: Call log strings -->
+    <string name="recent_calls_clear_call_log">Slette anropslogg</string>
+    <string name="recent_calls_clear_what">Hva skal slettes?</string>
+    <string name="recent_calls_clear_all">Alt</string>
+    <string name="recent_calls_clear_incoming">Innkommende</string>
+    <string name="recent_calls_clear_outgoing">Utgående</string>
+    <string name="recent_calls_clear_missed">Tapte</string>
+    <string name="alert_clear_call_log_title">Slette anropslogg</string>
+    <string name="alert_clear_call_log_message">Er du sikker du vil slette alle anrop?</string>
+    <string name="alert_clear_cl_all_incoming">Er du sikker du vil slette alle innkommende anrop?</string>
+    <string name="alert_clear_cl_all_outgoing">Er du sikker du vil slette alle utgående anrop?</string>
+    <string name="alert_clear_cl_all_missed">Er du sikker du vil slette alle tapte anrop?</string>
+
+    <!-- Wysie: Favourites strings -->
+    <string name="fav_clear_freq">Slette ofte ringte anrop</string>
+    <string name="alert_clear_freq_called_msg">Er du sikker du vil slette alle ofte ringte anrop?</string>
+
+    <!-- Wysie: Preferences strings -->
+
+    <!-- Preferences: Dialer -->
+    <string name="title_last_dialled">Ringeknappen henter det sist ringte nummer</string>
+    <string name="summary_last_dialled">Sist ringte nummer vil bli hentet hvis ikke noe annet nummer er spesifisert</string>
+    <string name="title_return_to_dialer">Returner til telefonen etter sluttført anrop</string>
+    <string name="title_vm_button">Venstre action-knapp (LAB)</string>
+    <string name="title_vm_handler">Telefonsvarhåndtering</string>
+    <string name="title_use_1_for_reg_vm">Bruk 1 for vanlig telefonsvar</string>
+    <string name="summaryon_use_1_for_reg_vm">1-tasten vil bli brukt for vanlig telefonsvar</string>
+    <string name="summaryoff_use_1_for_reg_vm">1-tasten vil bruke telefonsvarbehandleren</string>
+    <string name="title_disable_num_check">Deaktiver nummersjekk</string>
+    <string name="summaryon_disable_num_check">Venstre action-knapp (LAB) vil alltid bli være aktivert</string>
+    <string name="summaryoff_disable_num_check">LAB og menyen vil være aktivert kun hvis minst et siffer er tastet inn (med unntak av telefonsvar)</string>
+    <string name="title_enable_haptic_feedback">Aktiver haptisk tilbakemelding</string>
+    <string name="summary_enable_haptic_feedback">Bruker keypad tastemønster - sjekk CyanogenMod-instillingene for å justere</string>
+    <string name="title_change_digits_color">Endre farger på tastene</string>
+    <string name="title_digits_color_pressed">Tastefarge (trykket)</string>
+    <string name="title_digits_color_focused">Tastefarge (fokus)</string>
+    <string name="title_digits_color_unselected">Tastefarge (ikke valgt)</string>
+    <string name="title_choose_color">Velg en farge</string>
+    <string name="instructions_choose_color">Trykk på midten for å bekrefte.\nTrykk tilbake for å avbryte</string>
+    <string name="entry_no_vm_handler">Ingen (Tast inn telefonsvarnummer manuelt)</string>
+
+    <!-- Preferences: Call log -->
+    <string name="title_cl_exact_time">Nøyaktig tid</string>
+    <string name="summaryon_cl_exact_time">Bruk nøyaktig tid i anropslogg</string>
+    <string name="summaryoff_cl_exact_time">Bruk relativ tid i anropslogg</string>
+    <string name="title_cl_show_seconds">Vis sekunder</string>
+    <string name="summary_cl_show_seconds">Vis sekunder ved bruk av nøyaktig tid</string>
+    <string name="title_cl_ask_before_clear">Bekreft før sletting av anropslogg</string>
+    <string name="summaryon_cl_ask_before_clear">Bekreft før sletting av anropslogg</string>
+    <string name="summaryoff_cl_ask_before_clear">Anropsloggen vil bli slettet uten å spørre om bekreftelse</string>
+
+    <!-- Preferences: Contacts -->
+    <string name="title_contacts_show_pic">Vis kontaktbilder</string>
+    <string name="title_contacts_show_dial_button">Vis anropsknapp</string>
+    <string name="summary_contacts_show_dial_button">Vis en ring-knapp for kontakter med nummer</string>
+    <string name="title_contacts_show_count">Vis antall kontakter</string>
+    <string name="summary_contacts_show_count">Antall kontakter vil bli vist på toppen av kontaktlisten</string>
+    <string name="title_contacts_show_separators">Vis alfabetisk skille</string>
+    <string name="summaryon_contacts_show_separators">Alfabetiske skiller vil vises i kontaktlisten</string>
+    <string name="summaryoff_contacts_show_separators">Alfabetiske skiller vil være skjult i kontaktlisten</string>
+
     <!-- Preferences: Misc -->
     <string name="title_misc_category">Diverse</string>
     <string name="title_sensor_rotation">Aktiver sensor-rotering</string>
