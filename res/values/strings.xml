@@ -1210,8 +1210,8 @@
     <!-- Wysie: Preferences strings -->
     
     <!-- Preferences: Dialer -->
-    <string name="title_last_dialled">Call button retrieves last dialled number</string>
-    <string name="summary_last_dialled">Last dialled number will be retrieved if digits are empty</string>
+    <string name="title_last_dialled">Call button retrieves last dialed number</string>
+    <string name="summary_last_dialled">Last dialed number will be retrieved if digits are empty</string>
     <string name="title_return_to_dialer">Return to dialer after call</string>
     <string name="title_vm_button">Left action button (LAB)</string>
     <string name="title_vm_handler">Voicemail handler</string>
