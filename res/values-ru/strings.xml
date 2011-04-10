@@ -142,6 +142,7 @@
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"Отправить SMS"</string>
     <string name="recentCalls_callNumber" msgid="1756372533999226126">"Вызов: <xliff:g id="NAME">%s</xliff:g>"</string>
     <string name="recentCalls_editNumberBeforeCall" msgid="7756171675833267857">"Изменить номер и вызвать"</string>
+    <string name="recentCalls_addToBlacklist">Добавить в чёрный список</string>
     <string name="recentCalls_addToContact" msgid="1429899535546487008">"Добавить в контакты"</string>
     <string name="recentCalls_removeFromRecentList" msgid="401662244636511330">"Удалить из списка вызовов"</string>
     <string name="recentCalls_deleteAll" msgid="6352364392762163704">"Очистить список вызовов"</string>
