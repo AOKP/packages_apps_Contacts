@@ -140,6 +140,9 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
     private SharedPreferences ePrefs;
     private boolean prefVibrateOn, retrieveLastDialled, returnToDialer;
     
+    // stores the return value of the last call to hasVoicemail()
+    private boolean mHasVoicemail;
+
     private static final int MENU_SMS = 4;
     private static final int MENU_PREFERENCES = 5;
 
@@ -241,7 +244,7 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
         // Check for the presence of the keypad
         View view = findViewById(R.id.one);
         if (view != null) {
-            setupKeypad();
+            setupKeypad(true);
         }
 
         mVoicemailDialAndDeleteRow = findViewById(R.id.voicemailAndDialAndDelete);
@@ -406,37 +409,41 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
         mDigits.addTextChangedListener(this);
     }
 
-    private void setupKeypad() {
+    private void setupKeypad(boolean setupAllDigits) {
         // Setup the listeners for the buttons
         
         //YC: Changed type from View to ImageButton
         ImageButton digitOne = (ImageButton)findViewById(R.id.one);
         digitOne.setOnClickListener(this);
         digitOne.setOnLongClickListener(this);
-        
+
+        mHasVoicemail = hasVoicemail();
+
         //YC: Set image accordingly        
-        if (hasVoicemail()) {
+        if (mHasVoicemail) {
         	digitOne.setImageResource(R.drawable.dial_num_1_with_vm);
         }
         else {
         	digitOne.setImageResource(R.drawable.dial_num_1_no_vm);
         }
 
-        findViewById(R.id.two).setOnClickListener(this);
-        findViewById(R.id.three).setOnClickListener(this);
-        findViewById(R.id.four).setOnClickListener(this);
-        findViewById(R.id.five).setOnClickListener(this);
-        findViewById(R.id.six).setOnClickListener(this);
-        findViewById(R.id.seven).setOnClickListener(this);
-        findViewById(R.id.eight).setOnClickListener(this);
-        findViewById(R.id.nine).setOnClickListener(this);
-        findViewById(R.id.star).setOnClickListener(this);
+        if (setupAllDigits) {
+            findViewById(R.id.two).setOnClickListener(this);
+            findViewById(R.id.three).setOnClickListener(this);
+            findViewById(R.id.four).setOnClickListener(this);
+            findViewById(R.id.five).setOnClickListener(this);
+            findViewById(R.id.six).setOnClickListener(this);
+            findViewById(R.id.seven).setOnClickListener(this);
+            findViewById(R.id.eight).setOnClickListener(this);
+            findViewById(R.id.nine).setOnClickListener(this);
+            findViewById(R.id.star).setOnClickListener(this);
 
-        View view = findViewById(R.id.zero);
-        view.setOnClickListener(this);
-        view.setOnLongClickListener(this);
+            View view = findViewById(R.id.zero);
+            view.setOnClickListener(this);
+            view.setOnLongClickListener(this);
 
-        findViewById(R.id.pound).setOnClickListener(this);
+            findViewById(R.id.pound).setOnClickListener(this);
+        }
     }
 
     @Override
@@ -1434,6 +1441,11 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
     	initVoicemailButton();
     	checkForNumber();
     	setDigitsColor();
+
+        // The voicemail number might have been set after the app was started
+        if (mHasVoicemail != hasVoicemail()) {
+            setupKeypad(false);
+        }
     }    
     
     //Wysie: Method to check if there's any number entered
