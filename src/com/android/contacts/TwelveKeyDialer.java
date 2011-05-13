@@ -241,11 +241,7 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
 
         maybeAddNumberFormatting();
 
-        // Check for the presence of the keypad
-        View view = findViewById(R.id.one);
-        if (view != null) {
-            setupKeypad(true);
-        }
+        setupKeypad(true);
 
         mVoicemailDialAndDeleteRow = findViewById(R.id.voicemailAndDialAndDelete);
 
@@ -261,7 +257,7 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
             mDialButton = null;
         }
 
-        view = mVoicemailDialAndDeleteRow.findViewById(R.id.deleteButton);
+        View view = mVoicemailDialAndDeleteRow.findViewById(R.id.deleteButton);
         view.setOnClickListener(this);
         view.setOnLongClickListener(this);
         mDelete = view;
@@ -414,6 +410,11 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
         
         //YC: Changed type from View to ImageButton
         ImageButton digitOne = (ImageButton)findViewById(R.id.one);
+
+        // Check for the presence of the keypad
+        if (digitOne == null)
+            return;
+
         digitOne.setOnClickListener(this);
         digitOne.setOnLongClickListener(this);
 
