@@ -47,6 +47,14 @@
     <string name="menu_viewAddress" msgid="1814744325763202024">"Adres op kaart weergeven"</string>
     <string name="menu_makeDefaultNumber" msgid="4838759253316649534">"Als standaardnummer instellen"</string>
     <string name="menu_makeDefaultEmail" msgid="2599044610375789994">"Instellen als standaard e-mailadres"</string>
+	
+    <!-- Menu item used to share the plain-text representation of a specific phone number -->
+    <string name="menu_shareNumber">Nummer delen</string>
+    <!-- Menu item used to share the plain-text representation of a specific email address -->
+    <string name="menu_shareEmail">E-mail delen</string>
+    <!-- Menu item used to share the plain-text representation of a specific address -->
+    <string name="menu_shareAddress">Adres delen</string>
+	
     <string name="menu_splitAggregate" msgid="8368636463748691868">"Scheiden"</string>
     <string name="contactsSplitMessage" msgid="5253490235863170269">"Contacten gescheiden"</string>
     <string name="splitConfirmation_title" msgid="6716467920283502570">"Contacten scheiden"</string>
@@ -142,6 +150,10 @@
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"Sms verzenden"</string>
     <string name="recentCalls_callNumber" msgid="1756372533999226126">"<xliff:g id="NAME">%s</xliff:g> bellen"</string>
     <string name="recentCalls_editNumberBeforeCall" msgid="7756171675833267857">"Nummer bewerken voor bellen"</string>
+	
+    <!--Menu item used to add a number from the call log to Blacklist  -->
+    <string name="recentCalls_addToBlacklist">Aan blacklist toevoegen</string>
+	
     <string name="recentCalls_addToContact" msgid="1429899535546487008">"Toevoegen aan contacten"</string>
     <string name="recentCalls_removeFromRecentList" msgid="401662244636511330">"Verwijderen uit Gesprekken"</string>
     <string name="recentCalls_deleteAll" msgid="6352364392762163704">"Gesprekken wissen"</string>
@@ -264,6 +276,10 @@
     <string name="quickcontact_missing_app" msgid="4600366393134289038">"Er is geen app gevonden om deze actie uit te voeren"</string>
     <string name="quickcontact_remember_choice" msgid="5964536411579749424">"Deze keuze onthouden"</string>
     <string name="quickcontact_missing_name" msgid="5590266114306996632">"Onbekend"</string>
+	
+    <!-- Text that is shown in the Badge, when there is no data to display -->
+    <string name="quickcontact_no_data">Geen data</string>
+	
     <string name="menu_accounts" msgid="8499114602017077970">"Accounts"</string>
     <string name="menu_import_export" msgid="3765725645491577190">"Importeren/exporteren"</string>
     <string name="dialog_import_export" msgid="4771877268244096596">"Contacten importeren/exporteren"</string>
@@ -389,4 +405,108 @@
     <string name="upgrade_out_of_memory_retry" msgid="8431289830472724609">"Upgrade opnieuw proberen"</string>
     <string name="search_results_for" msgid="8705490885073188513">"Zoekresultaten voor: <xliff:g id="QUERY">%s</xliff:g>"</string>
     <string name="search_results_searching" msgid="7755623475227227314">"Zoeken..."</string>
+	
+
+    <!-- Wysie: Menu strings -->
+    <string name="menu_preferences">Instellingen</string>
+
+    <!-- Wysie: Dialer strings -->
+    <string name="dialer_menu_sms">SMS/MMS</string>
+
+    <!-- Wysie: Call log strings -->
+    <string name="recent_calls_clear_call_log">Leeg gesprekkenlijst</string>
+    <string name="recent_calls_clear_what">Welke oproepen?</string>
+    <string name="recent_calls_clear_all">Alles</string>
+    <string name="recent_calls_clear_incoming">Inkomend</string>
+    <string name="recent_calls_clear_outgoing">Uitgaand</string>
+    <string name="recent_calls_clear_missed">Gemist</string>
+    <string name="alert_clear_call_log_title">Leeg gesprekkenlijst</string>
+    <string name="alert_clear_call_log_message">Weet je zeker dat je de gesprekkenlijst wilt legen?</string>
+    <string name="alert_clear_cl_all_incoming">Weet je zeker dat je alle info betreffende inkomende gesprekken wilt verwijderen?</string>
+    <string name="alert_clear_cl_all_outgoing">Weet je zeker dat je alle info betreffende uitgaande gesprekken wilt verwijderen?</string>
+    <string name="alert_clear_cl_all_missed">Weet je zeker dat je alle info betreffende gemiste oproepen wilt verwijderen?</string>
+
+    <!-- Wysie: Favourites strings -->
+    <string name="fav_clear_freq">Verwijder frequent gemelde nummers</string>
+    <string name="alert_clear_freq_called_msg">Weet je zeker dat je alle info betreffende frequent gebelde nummers wilt verwijderen?</string>
+
+    <!-- Preferences: Dialer -->
+    <string name="title_last_dialled">Bel knop geeft laatst gekozen nummer weer</string>
+    <string name="summary_last_dialled">Laats gekozen nummer weergeven, zolang er geen ingave is.</string>
+    <string name="title_return_to_dialer">Terug naar telefoon na ophangen</string>
+    <string name="title_vm_button">Linker Actie Knop (LAK)</string>
+    <string name="title_vm_handler">Voicemail management</string>
+    <string name="title_use_1_for_reg_vm">Kies 1 voor voicemail</string>
+    <string name="summaryon_use_1_for_reg_vm">Toets 1 wordt gebruikt voor de standaard voicemail</string>
+    <string name="summaryoff_use_1_for_reg_vm">Toets 1 volgt voicemail management instelling</string>
+    <string name="title_disable_num_check">Nummer controleren uitschakelen</string>
+    <string name="summaryon_disable_num_check">Linker Actie Knop (LAK) en menu zijn altijd ingeschakeld</string>
+    <string name="summaryoff_disable_num_check">LAK en menu zijn alleen ingeschakeld als er minimaal 1 nummer is ingegeven (behalve voicemail)</string>
+    <string name="title_enable_haptic_feedback">Haptische feedback ingeschakelen</string>
+    <string name="summary_enable_haptic_feedback">Gebruik toetsenbord patroon - Zie CyanogenMod instellingen om instelling aan te passen</string>
+    <string name="title_change_digits_color">Verander kleur cijfers</string>
+    <string name="title_digits_color_pressed">Cijfer kleur (ingedrukt)</string>
+    <string name="title_digits_color_focused">Cijfer kleur (gefocust)</string>
+    <string name="title_digits_color_unselected">Cijfer kleur (niet geselecteerd)</string>
+    <string name="title_choose_color">Kies een kleur</string>
+    <string name="instructions_choose_color">Druk in het midden van de kleur om te bevestigen.\nDruk terug om te annuleren.</string>
+    <string name="entry_no_vm_handler">Geen (Kies voicemail nummer)</string>
+    
+    <!-- Preferences: Call log -->
+    <string name="title_cl_exact_time">Exacte tijden</string>
+    <string name="summaryon_cl_exact_time">Gebruik exacte tijden in gesprekkenlijst</string>
+    <string name="summaryoff_cl_exact_time">Gebruik relatieve tijden in gesprekkenlijst</string>
+    <string name="title_cl_show_seconds">Seconden weergeven</string>
+    <string name="summary_cl_show_seconds">Geef seconden weer bij exacte tijden</string>          
+    <string name="title_cl_ask_before_clear">Vraag voor leeg maken</string>
+    <string name="summaryon_cl_ask_before_clear">Vraag bevestiging voor het legen van de gesprekkenlijst</string>
+    <string name="summaryoff_cl_ask_before_clear">Gesprekkenlijst wordt geleegd zonder bevestiging</string>
+    
+    <!-- Preferences: Contacts -->
+    <string name="title_contacts_show_pic">Geef contact foto weer</string>
+    <string name="title_contacts_show_dial_button">Geef bel knop weer</string>
+    <string name="summary_contacts_show_dial_button">Geef een bel knop weer bij contacten met een telefoonnummer</string>
+    <string name="title_contacts_show_count">Geef contacten teller weer</string>
+    <string name="summary_contacts_show_count">Contacten teller wordt bovenaan de contactenlijst weergegeven</string>
+    <string name="title_contacts_show_separators">Alfabetische scheidingen</string>
+    <string name="summaryon_contacts_show_separators">Alfabetische scheidingen worden weergeven in de contactenlijst</string>
+    <string name="summaryoff_contacts_show_separators">Alfabetische scheidingen worden verborgen in de contactenlijst</string>
+    
+    <!-- Preferences: Contacts - View Contact -->
+    <string name="title_view_contact">Contact weergave</string>
+    <string name="summary_view_contact">Contact weergave instellingen</string>
+    <string name="title_show_text_mobile_only">SMS</string>
+    <string name="summaryon_show_text_mobile_only">Alleen mobiele nummers hebben een SMS actie</string>
+    <string name="summaryoff_show_text_mobile_only">Alle nummers hebben een SMS actie</string>
+    
+    <!-- Preferences: Favourites -->
+    <string name="title_favourites_hide_freq_call">Verberg frequent gebeld</string>
+    <string name="summary_favourites_hide_freq_call">De data is niet verwijderd, maar verborgen</string>
+    <string name="title_favs_ask_before_clear">Vraag voor verwijderen</string>
+    <string name="summaryon_favs_ask_before_clear">Vraag om bevestiging voor het verwijderen van frequent gebelde nummers</string>
+    <string name="summaryoff_favs_ask_before_clear">Frequent gebele nummers worden verwijderd zonder bevestiging</string>
+    
+    <!-- Preferences: Misc -->
+    <string name="title_misc_category">Diversen</string>
+    <string name="title_sensor_rotation">Sensor rotatie aan</string>
+    <string name="summary_sensor_rotation">Wanneer ingeschakeld, roteerd het scherm volgens systeem instellingen</string>
+    <string name="title_data_font_size">Contact infor lettergrootte</string>
+    <string name="summary_data_font_size">Kies lettergrootte voor contact informatie (telefoon nummer, email, adres, etc.)</string>
+    <string name="title_default_phone_tab">Standaard tab</string>
+    <string name="summary_default_phone_tab">Standaard tab bij het openen van de telefoon app</string>
+
+    <!-- Default Phone Tab strings -->
+    <string name="default_phone_tab_last_used">Laatst gebruikt bij een telefoon gesprek (standaard)</string>
+    <string name="default_phone_tab_last_viewed">Laatst bekeken</string>
+    <string name="default_phone_tab_phone">Telefoon</string>
+    <string name="default_phone_tab_call_log">Gesprekkenlijst</string>
+    <string name="default_phone_tab_contacts">Contacten</string>
+    <string name="default_phone_tab_favorites">Favorieten</string>
+    
+    <!-- Wysie: About strings -->    
+    <string name="title_about">Over</string>
+    <string name="title_about_name">Mod Naam</string>
+    <string name="title_about_version">Versie</string>
+    <string name="title_about_credits">Credits</string>
+    <string name="summary_about_credits">Wysie, ChainsDD, geesun, niuchl, rac2030, sileht en de rest van XDA! :)</string>
 </resources>
