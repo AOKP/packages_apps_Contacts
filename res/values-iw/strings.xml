@@ -51,7 +51,7 @@
     <string name="contactsSplitMessage" msgid="5253490235863170269">"אנשי קשר נפרדים"</string>
     <string name="splitConfirmation_title" msgid="6716467920283502570">"הפרדת איש קשר"</string>
     <string name="splitConfirmation" msgid="1150797297503944823">"האם אתה בטוח שברצונך להפריד איש קשר יחיד זה לאנשי קשר מרובים: אחד לכל קבוצת פרטי קשר שצורפה אליו?"</string>
-    <string name="menu_joinAggregate" msgid="5027981918265667970">"הצטרף"</string>
+    <string name="menu_joinAggregate" msgid="5027981918265667970">"שלב"</string>
     <string name="titleJoinContactDataWith" msgid="7684875775798635354">"שלב אנשי קשר"</string>
     <string name="blurbJoinContactDataWith" msgid="995870557595050304">"בחר את איש הקשר שברצונך לשלב עם <xliff:g id="NAME">%s</xliff:g>."</string>
     <string name="showAllContactsJoinItem" msgid="2189695051430392383">"הצג את כל אנשי הקשר"</string>
@@ -91,8 +91,8 @@
     <string name="photoPickerNotFoundText" msgid="431331662154342581">"אין תמונות זמינות בטלפון."</string>
     <string name="attachToContact" msgid="8820530304406066714">"סמל של איש קשר"</string>
     <string name="customLabelPickerTitle" msgid="1081475101983255212">"שם תווית מותאם אישית"</string>
-    <string name="menu_displayGroup" msgid="5655505437727616553">"הצג אפשרויות"</string>
-    <string name="displayGroups" msgid="2278964020773993336">"הצג אפשרויות"</string>
+    <string name="menu_displayGroup" msgid="5655505437727616553">"אפשרויות תצוגה"</string>
+    <string name="displayGroups" msgid="2278964020773993336">"אפשרויות תצוגה"</string>
     <string name="send_to_voicemail_checkbox" msgid="9001686764070676353">"שלח שיחות ישירות לדואר הקולי"</string>
     <string name="default_ringtone" msgid="9099988849649827972">"ברירת מחדל"</string>
     <string name="changePicture" msgid="2943329047610967714">"שנה סמל"</string>
@@ -452,7 +452,7 @@
   <string name="summaryoff_favs_ask_before_clear">מספרים שחויגו לאחרונה ימחקו ללא אישור</string>
   <string name="title_misc_category">שונות</string>
   <string name="title_sensor_rotation">אפשר חיישן סיבוב</string>
-  <string name="summary_sensor_rotation">אם מאופשר, הסיבוב התבסס על הגדרות מערכת"</string>
+  <string name="summary_sensor_rotation">אם מאופשר, הסיבוב יתבסס על הגדרות מערכת"</string>
   <string name="title_data_font_size">גודל טקסט של מידע אנשי הקשר</string>
   <string name="summary_data_font_size">מאפשר לך לבחור את גודל הטקסט המשמש להצגת מידע של אנשי קשר (מספר טלפון, דואר אלקטרוני, כתובת, ועוד)</string>
   <string name="title_about">אודות</string>
