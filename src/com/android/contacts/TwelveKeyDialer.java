@@ -794,13 +794,10 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
             case R.id.dialButton: {
                 // Vibrate here too, just like we do for the regular keys
                 vibrate();
-                if (mDigits.length() == 0) {
-                    mDigits.setText(getLastDialedNumber());
-                    mDigits.setSelection(mDigits.length());
-                }
-                else {                  
-                    dialButtonPressed();
-                }
+                // Call dialButtonPressed() regardless if there is something
+                // entered or not.
+                // dialButtonPressed() will handle all combinations
+                dialButtonPressed();
                 break;
             }
             /*
@@ -922,10 +919,12 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
                 intent.setData(Uri.fromParts("tel", EMPTY_NUMBER, null));
                 intent.putExtra(EXTRA_SEND_EMPTY_FLASH, true);
                 sendEmptyFlash = true;
-            } else if (!TextUtils.isEmpty(mLastNumberDialed)) {
+            } else if (retrieveLastDialled && !TextUtils.isEmpty(mLastNumberDialed)) {
                 // Otherwise, pressing the Dial button without entering
                 // any digits means "recall the last number dialed".
+                // Only if set in options.
                 mDigits.setText(mLastNumberDialed);
+                mDigits.setSelection(mDigits.length());
                 return;
             } else {
                 // Rare case: there's no "last number dialed".  There's
