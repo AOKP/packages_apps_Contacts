@@ -47,6 +47,9 @@
     <string name="menu_viewAddress" msgid="1814744325763202024">"Адрес на карте"</string>
     <string name="menu_makeDefaultNumber" msgid="4838759253316649534">"Сделать номером по умолчанию"</string>
     <string name="menu_makeDefaultEmail" msgid="2599044610375789994">"Установить этот адрес по умолчанию"</string>
+    <string name="menu_shareNumber">Отправить номер</string>
+    <string name="menu_shareEmail">Отправить адрес эл. почты</string>
+    <string name="menu_shareAddress">Отправить адрес</string>
     <string name="menu_splitAggregate" msgid="8368636463748691868">"Отделить"</string>
     <string name="contactsSplitMessage" msgid="5253490235863170269">"Контакты разделены."</string>
     <string name="splitConfirmation_title" msgid="6716467920283502570">"Разделить контакты"</string>
