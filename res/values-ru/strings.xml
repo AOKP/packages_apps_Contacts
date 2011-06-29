@@ -399,8 +399,8 @@
     <string name="recent_calls_clear_call_log">Очистить</string>
     <string name="recent_calls_clear_what">Что очистить?</string>
     <string name="recent_calls_clear_all">Все</string>
-    <string name="recent_calls_clear_incoming">Исходящие</string>
-    <string name="recent_calls_clear_outgoing">Входящие</string>
+    <string name="recent_calls_clear_incoming">Входящие</string>
+    <string name="recent_calls_clear_outgoing">Исходящие</string>
     <string name="recent_calls_clear_missed">Пропущенные</string>
     <string name="alert_clear_call_log_title">Очистка истории звонков</string>
     <string name="alert_clear_call_log_message">Вы уверены что хотите очистить всю историю звонков?</string>
