@@ -799,7 +799,7 @@ public class RecentCallsListActivity extends ListActivity
 
             if (!TextUtils.isEmpty(name)) {
                 views.line1View.setText(name);
-                views.labelView.setVisibility(View.VISIBLE);
+                views.line1View.setVisibility(View.VISIBLE);
 
                 // "type" and "label" are currently unused for SIP addresses.
                 CharSequence numberLabel = null;
