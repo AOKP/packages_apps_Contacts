@@ -52,7 +52,6 @@
         android:layout_marginLeft="4dip"
     />
 
-
     <TextView android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,19 +64,32 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:singleLine="true"
     />
+    
+    <ImageView
+        android:id="@+id/groupIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/photo"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_marginLeft="2dip"
+
+        android:layout_centerVertical="true"
+        android:src="@*android:drawable/expander_ic_minimized"
+        android:gravity="center_vertical"
+    />
 
     <TextView android:id="@+id/label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/photo"
+        android:layout_toRightOf="@id/groupIndicator"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="8dip"
         android:layout_marginTop="-10dip"
-        android:layout_marginLeft="10dip"
+        android:layout_marginLeft="2dip"
+        android:layout_marginRight="8dip"
         android:layout_alignWithParentIfMissing="true"
 
         android:singleLine="true"
-        android:ellipsize="marquee"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textStyle="bold"
     />
@@ -118,22 +130,6 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"            
         style="@*android:style/Widget.QuickContactBadge.WindowMedium"
-    />
-
-    <ImageView
-        android:id="@+id/groupIndicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@id/photo"
-        android:layout_above="@id/date"
-        android:layout_alignWithParentIfMissing="true"
-        android:layout_marginBottom="-10dip"
-        android:layout_marginLeft="2dip"
-
-        android:layout_centerVertical="true"
-        android:src="@*android:drawable/expander_ic_minimized"
-        android:gravity="center_vertical"
     />
 
     <TextView android:id="@+id/line1"
