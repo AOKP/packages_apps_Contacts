@@ -500,4 +500,5 @@
     <string name="title_default_phone_tab">Aba padrão</string>
     <string name="summary_default_phone_tab">Aba padrão a abrir quando inicializando aplicação do Telefone</string>
     <string name="default_phone_tab_favorites">Favoritos</string>
+    <string name="label_date">Data</string>
 </resources>
