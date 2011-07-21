@@ -221,7 +221,7 @@ public class GenericEditorView extends RelativeLayout implements Editor, View.On
         mFields.removeAllViews();
         boolean hidePossible = false;
         int n = 0;
-        for (EditField field : kind.fieldList) {
+        for (final EditField field : kind.fieldList) {
             // Inflate field from definition
             EditText fieldView = (EditText)mInflater.inflate(RES_FIELD, mFields, false);
             fieldView.setId(vig.getId(state, kind, entry, n++));
@@ -235,16 +235,24 @@ public class GenericEditorView extends RelativeLayout implements Editor, View.On
             }
             fieldView.setMinLines(field.minLines);
 
+            if (field.getOnClickListener() != null) {
+                fieldView.setFocusable(false);
+                fieldView.setOnClickListener(field.getOnClickListener());
+            }
+
             // Read current value from state
             final String column = field.column;
             final String value = entry.getAsString(column);
-            fieldView.setText(value);
+            fieldView.setText(field.fromValue(getContext(), value));
 
             // Prepare listener for writing changes
             fieldView.addTextChangedListener(new TextWatcher() {
                 public void afterTextChanged(Editable s) {
                     // Trigger event for newly changed value
-                    onFieldChanged(column, s.toString());
+                    CharSequence value = field.toValue(getContext(), s);
+                    if (value != null) {
+                        onFieldChanged(column, value.toString());
+                    }
                 }
 
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {

@@ -83,6 +83,7 @@
     <string name="label_notes" msgid="8337354953278341042">"Notizen"</string>
     <string name="label_sip_address" msgid="124073911714324974">"Internetanruf"</string>
     <string name="label_ringtone" msgid="8833166825330686244">"Klingelton"</string>
+    <string name="label_date">Datum</string>
     <string name="ghostData_name" msgid="6490954238641157585">"Vor- und Nachname"</string>
     <string name="ghostData_phonetic_name" msgid="7852749081984070902">"Phonetischer Name"</string>
     <string name="ghostData_company" msgid="5414421120553765775">"Unternehmen"</string>

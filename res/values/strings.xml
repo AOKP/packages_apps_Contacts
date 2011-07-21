@@ -1116,6 +1116,9 @@
     <!-- Field title for the phonetic family name of a contact -->
     <string name="name_phonetic_family">Phonetic family name</string>
 
+    <!-- Field title for the date for an event -->
+    <string name="label_date">Date</string>
+
     <!-- String describing which account type a contact came from when editing it -->
     <string name="account_type_format"><xliff:g id="source" example="Gmail">%1$s</xliff:g> contact</string>
 

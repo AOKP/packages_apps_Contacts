@@ -30,6 +30,7 @@ import android.provider.ContactsContract.Data;
 import android.provider.ContactsContract.RawContacts;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.CommonDataKinds.StructuredPostal;
+import android.view.View;
 import android.widget.EditText;
 
 import java.util.ArrayList;
@@ -311,6 +312,18 @@ public abstract class ContactsSource {
         public EditField setOptional(boolean optional) {
             this.optional = optional;
             return this;
+        }
+
+        public CharSequence fromValue(Context context, CharSequence value) {
+            return value;
+        }
+
+        public CharSequence toValue(Context context, CharSequence text) {
+            return text;
+        }
+
+        public View.OnClickListener getOnClickListener() {
+            return null;
         }
     }
 

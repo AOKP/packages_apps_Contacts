@@ -19,6 +19,7 @@ package com.android.contacts.model;
 import com.android.contacts.R;
 import com.google.android.collect.Lists;
 
+import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.res.Resources;
@@ -36,8 +37,16 @@ import android.provider.ContactsContract.CommonDataKinds.SipAddress;
 import android.provider.ContactsContract.CommonDataKinds.StructuredName;
 import android.provider.ContactsContract.CommonDataKinds.StructuredPostal;
 import android.provider.ContactsContract.CommonDataKinds.Website;
+import android.text.format.DateFormat;
 import android.view.inputmethod.EditorInfo;
+import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class FallbackSource extends ContactsSource {
@@ -60,6 +69,8 @@ public class FallbackSource extends ContactsSource {
     protected static final int FLAGS_SIP_ADDRESS = EditorInfo.TYPE_CLASS_TEXT
             | EditorInfo.TYPE_TEXT_VARIATION_EMAIL_ADDRESS;  // since SIP addresses have the same
                                                              // basic format as email addresses
+    protected static final int FLAGS_DATE = EditorInfo.TYPE_CLASS_DATETIME
+            | EditorInfo.TYPE_DATETIME_VARIATION_DATE;
 
     public FallbackSource() {
         this.accountType = null;
@@ -105,6 +116,10 @@ public class FallbackSource extends ContactsSource {
 
     protected EditType buildOrgType(int type) {
         return new EditType(type, Organization.getTypeLabelResource(type));
+    }
+
+    protected EditType buildEventType(int type) {
+        return new EditType(type, Event.getTypeResource(type));
     }
 
     protected DataKind inflateStructuredName(Context context, int inflateLevel) {
@@ -432,14 +447,25 @@ public class FallbackSource extends ContactsSource {
         return kind;
     }
 
-    protected DataKind inflateEvent(Context context, int inflateLevel) {
+    protected DataKind inflateEvent(final Context context, int inflateLevel) {
         DataKind kind = getKindForMimetype(Event.CONTENT_ITEM_TYPE);
         if (kind == null) {
             kind = addKind(new DataKind(Event.CONTENT_ITEM_TYPE,
-                    R.string.eventLabelsGroup, -1, 150, false));
+                    R.string.eventLabelsGroup, R.drawable.sym_action_event, 150, true));
             kind.secondary = true;
             kind.actionHeader = new EventActionInflater();
-            kind.actionBody = new SimpleInflater(Event.START_DATE);
+            kind.actionBody = new EventDateInflater();
+        }
+
+        if (inflateLevel >= ContactsSource.LEVEL_CONSTRAINTS) {
+            kind.typeColumn = Event.TYPE;
+            kind.typeList = Lists.newArrayList();
+            kind.typeList.add(buildEventType(Event.TYPE_BIRTHDAY));
+            kind.typeList.add(buildEventType(Event.TYPE_ANNIVERSARY));
+            kind.typeList.add(buildEventType(Event.TYPE_OTHER));
+
+            kind.fieldList = Lists.newArrayList();
+            kind.fieldList.add(new EventDateEditField());
         }
 
         return kind;
@@ -481,7 +507,7 @@ public class FallbackSource extends ContactsSource {
      */
     public static class SimpleInflater implements StringInflater {
         private final int mStringRes;
-        private final String mColumnName;
+        protected final String mColumnName;
 
         public SimpleInflater(int stringRes) {
             this(stringRes, null);
@@ -705,6 +731,124 @@ public class FallbackSource extends ContactsSource {
             }
         }
     }
+
+    public static class EventDateInflater extends SimpleInflater {
+        private static SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        public EventDateInflater() {
+            super(Event.START_DATE);
+        }
+
+        private CharSequence parseDate(Context context, CharSequence value) {
+            Date date = EventDateConverter.parseDateFromDb(value);
+            if (date != null) {
+                return DateFormat.getLongDateFormat(context).format(date);
+            }
+            return value;
+        }
+
+        public CharSequence inflateUsing(Context context, Cursor cursor) {
+            final int index = mColumnName != null ? cursor.getColumnIndex(mColumnName) : -1;
+            final CharSequence columnValue = index != -1 ? cursor.getString(index) : null;
+
+            return parseDate(context, columnValue);
+        }
+
+        public CharSequence inflateUsing(Context context, ContentValues values) {
+            final boolean validColumn = values.containsKey(mColumnName);
+            final CharSequence columnValue = validColumn ? values.getAsString(mColumnName) : null;
+
+            return parseDate(context, columnValue);
+        }
+    }
+
+    private static class EventDateConverter {
+        private static SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        public static Date parseDateFromDb(CharSequence value) {
+            if (value != null) {
+                try {
+                    return sDateFormat.parse(value.toString());
+                } catch (ParseException e) {
+                }
+            }
+            return null;
+        }
+
+        public static CharSequence formatDateForDb(Date date) {
+            return sDateFormat.format(date);
+        }
+    }
+
+    private static class EventDateEditField extends EditField {
+        private View.OnClickListener mListener;
+
+        public EventDateEditField() {
+            super(Event.START_DATE, R.string.label_date, FLAGS_DATE);
+
+            mListener = new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final EditText edit = (EditText) v;
+                    openDatePicker(edit);
+                }
+            };
+        }
+
+        private void openDatePicker(final EditText edit) {
+            final Context context = edit.getContext();
+            String value = edit.getText().toString();
+            final Calendar cal = Calendar.getInstance();
+
+            try {
+                Date date = DateFormat.getDateFormat(context).parse(value);
+                cal.setTime(date);
+            } catch (ParseException e) {
+                /* use today in that case */
+            }
+
+            final DatePickerDialog.OnDateSetListener dateListener =
+                    new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int month, int day) {
+                    final Context c = view.getContext();
+                    cal.set(year, month, day);
+                    edit.setText(DateFormat.getDateFormat(c).format(cal.getTime()));
+                }
+            };
+
+            DatePickerDialog dp = new DatePickerDialog(context, dateListener,
+                                                       cal.get(Calendar.YEAR),
+                                                       cal.get(Calendar.MONTH),
+                                                       cal.get(Calendar.DAY_OF_MONTH));
+            dp.show();
+        }
+
+        @Override
+        public CharSequence fromValue(Context context, CharSequence value) {
+            Date date = EventDateConverter.parseDateFromDb(value);
+            if (date != null) {
+                return DateFormat.getDateFormat(context).format(date);
+            }
+            return null;
+        }
+
+        @Override
+        public CharSequence toValue(Context context, CharSequence value) {
+            try {
+                Date date = DateFormat.getDateFormat(context).parse(value.toString());
+                return EventDateConverter.formatDateForDb(date);
+            } catch (ParseException e) {
+            }
+            return null;
+        }
+
+        @Override
+        public View.OnClickListener getOnClickListener() {
+            return mListener;
+        }
+    }
+
 
     @Override
     public int getHeaderColor(Context context) {
