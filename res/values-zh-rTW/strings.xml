@@ -1093,6 +1093,9 @@
     <!-- Field title for the phonetic family name of a contact -->
     <string name="name_phonetic_family" msgid="462095502140180305">"姓氏 (拼音)"</string>
 
+    <!-- Field title for the date for an event -->
+    <string name="label_date">日期</string>
+
     <!-- String describing which account type a contact came from when editing it -->
     <string name="account_type_format" msgid="718948015590343010">"<xliff:g id="SOURCE">%1$s</xliff:g> 聯絡人"</string>
 
