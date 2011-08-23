@@ -22,6 +22,7 @@ import com.google.android.collect.Lists;
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.provider.ContactsContract.CommonDataKinds.BaseTypes;
@@ -48,6 +49,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
 
 public class FallbackSource extends ContactsSource {
     protected static final int FLAGS_PHONE = EditorInfo.TYPE_CLASS_PHONE;
@@ -465,7 +467,7 @@ public class FallbackSource extends ContactsSource {
             kind.typeList.add(buildEventType(Event.TYPE_OTHER));
 
             kind.fieldList = Lists.newArrayList();
-            kind.fieldList.add(new EventDateEditField());
+            kind.fieldList.add(new EventDateEditField(false));
         }
 
         return kind;
@@ -733,8 +735,6 @@ public class FallbackSource extends ContactsSource {
     }
 
     public static class EventDateInflater extends SimpleInflater {
-        private static SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
         public EventDateInflater() {
             super(Event.START_DATE);
         }
@@ -763,14 +763,39 @@ public class FallbackSource extends ContactsSource {
     }
 
     private static class EventDateConverter {
-        private static SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        private static SimpleDateFormat sDateFormat =
+                new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        private static SimpleDateFormat sFullDateFormat =
+                new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.US);
 
         public static Date parseDateFromDb(CharSequence value) {
-            if (value != null) {
-                try {
-                    return sDateFormat.parse(value.toString());
-                } catch (ParseException e) {
-                }
+            if (value == null) {
+                return null;
+            }
+
+            String valueString = value.toString();
+
+            /*
+             * Try the most comprehensive format first.
+             * Some servers (e.g. Exchange) use 'Z' as timezone, indicating
+             * that the time is in UTC. The SimpleDateFormat routines don't
+             * support that format, so replace 'Z' by 'GMT'.
+             * Also make sure to reset the format time zone back to default
+             * in case it was changed by a previous run.
+             */
+            sFullDateFormat.setTimeZone(TimeZone.getDefault());
+            Date date = parseDate(valueString.replace("Z", "GMT"), sFullDateFormat);
+            if (date != null) {
+                return date;
+            }
+
+            return parseDate(valueString, sDateFormat);
+        }
+
+        private static Date parseDate(String value, SimpleDateFormat format) {
+            try {
+                return format.parse(value);
+            } catch (ParseException e) {
             }
             return null;
         }
@@ -780,12 +805,14 @@ public class FallbackSource extends ContactsSource {
         }
     }
 
-    private static class EventDateEditField extends EditField {
+    protected static class EventDateEditField extends EditField {
         private View.OnClickListener mListener;
+        private boolean mAllowClear;
 
-        public EventDateEditField() {
+        public EventDateEditField(boolean allowClear) {
             super(Event.START_DATE, R.string.label_date, FLAGS_DATE);
 
+            mAllowClear = allowClear;
             mListener = new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -821,6 +848,17 @@ public class FallbackSource extends ContactsSource {
                                                        cal.get(Calendar.YEAR),
                                                        cal.get(Calendar.MONTH),
                                                        cal.get(Calendar.DAY_OF_MONTH));
+
+            if (mAllowClear) {
+                dp.setButton3(context.getString(R.string.button_clear_date),
+                        new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        edit.setText(null);
+                    }
+                });
+            }
+
             dp.show();
         }
 

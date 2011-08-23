@@ -22,6 +22,7 @@ import com.google.android.collect.Lists;
 import android.content.ContentValues;
 import android.content.Context;
 import android.provider.ContactsContract.CommonDataKinds.Email;
+import android.provider.ContactsContract.CommonDataKinds.Event;
 import android.provider.ContactsContract.CommonDataKinds.Im;
 import android.provider.ContactsContract.CommonDataKinds.Nickname;
 import android.provider.ContactsContract.CommonDataKinds.Note;
@@ -57,6 +58,7 @@ public class ExchangeSource extends FallbackSource {
         inflatePhoto(context, inflateLevel);
         inflateNote(context, inflateLevel);
         inflateWebsite(context, inflateLevel);
+        inflateEvent(context, inflateLevel);
 
         setInflatedLevel(inflateLevel);
     }
@@ -299,6 +301,30 @@ public class ExchangeSource extends FallbackSource {
 
             kind.fieldList = Lists.newArrayList();
             kind.fieldList.add(new EditField(Website.URL, R.string.websiteLabelsGroup, FLAGS_WEBSITE));
+        }
+
+        return kind;
+    }
+
+    @Override
+    protected DataKind inflateEvent(Context context, int inflateLevel) {
+        final DataKind kind = super.inflateEvent(context, ContactsSource.LEVEL_MIMETYPES);
+
+        if (inflateLevel >= ContactsSource.LEVEL_CONSTRAINTS) {
+            kind.isList = false;
+
+            kind.defaultValues = new ContentValues();
+            kind.defaultValues.put(Event.TYPE, Event.TYPE_BIRTHDAY);
+
+            /*
+             * The normal title is 'Event', but the Exchange sync adapter
+             * only supports birthdays, so make that clear from the
+             * title.
+             */
+            kind.titleRes = com.android.internal.R.string.eventTypeBirthday;
+
+            kind.fieldList = Lists.newArrayList();
+            kind.fieldList.add(new EventDateEditField(true));
         }
 
         return kind;
