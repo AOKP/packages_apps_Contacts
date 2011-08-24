@@ -1096,6 +1096,9 @@
     <!-- Field title for the date for an event -->
     <string name="label_date">日期</string>
 
+    <!-- Title of clear button in date picker -->
+    <string name="button_clear_date">清除</string>
+
     <!-- String describing which account type a contact came from when editing it -->
     <string name="account_type_format" msgid="718948015590343010">"<xliff:g id="SOURCE">%1$s</xliff:g> 聯絡人"</string>
 
