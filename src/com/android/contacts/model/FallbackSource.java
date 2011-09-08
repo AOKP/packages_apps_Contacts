@@ -780,10 +780,7 @@ public class FallbackSource extends ContactsSource {
              * Some servers (e.g. Exchange) use 'Z' as timezone, indicating
              * that the time is in UTC. The SimpleDateFormat routines don't
              * support that format, so replace 'Z' by 'GMT'.
-             * Also make sure to reset the format time zone back to default
-             * in case it was changed by a previous run.
              */
-            sFullDateFormat.setTimeZone(TimeZone.getDefault());
             Date date = parseDate(valueString.replace("Z", "GMT"), sFullDateFormat);
             if (date != null) {
                 return date;
@@ -794,6 +791,8 @@ public class FallbackSource extends ContactsSource {
 
         private static Date parseDate(String value, SimpleDateFormat format) {
             try {
+                /* Reset format time zone in case it was changed by a previous run */
+                format.setTimeZone(TimeZone.getDefault());
                 return format.parse(value);
             } catch (ParseException e) {
             }
