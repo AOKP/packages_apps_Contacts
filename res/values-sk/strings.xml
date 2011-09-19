@@ -389,4 +389,75 @@
     <string name="upgrade_out_of_memory_retry" msgid="8431289830472724609">"Skúsiť inovovať znova"</string>
     <string name="search_results_for" msgid="8705490885073188513">"Výsledky hľadania pre: <xliff:g id="QUERY">%s</xliff:g>"</string>
     <string name="search_results_searching" msgid="7755623475227227314">"Prebieha vyhľadávanie..."</string>
+<string name="menu_preferences">Nastavenia</string>
+    <!-- Wysie: Dialer strings -->
+    <string name="dialer_menu_sms">SMS/MMS</string>
+    <!-- Wysie: Call log strings -->
+    <string name="recent_calls_clear_call_log">Vymazať záznamy hovorov</string>
+    <string name="recent_calls_clear_what">Vymazať čo?</string>
+    <string name="recent_calls_clear_all">Všetko</string>
+    <string name="recent_calls_clear_incoming">Prichádzajúce</string>
+    <string name="recent_calls_clear_outgoing">Odchádzajúce</string>
+    <string name="recent_calls_clear_missed">Zmeškané</string>
+    <string name="alert_clear_call_log_title">Vymazať záznamy</string>
+    <string name="alert_clear_call_log_message">Naozaj si prajete vymazať všetky záznamy hovorov?</string>
+    <string name="alert_clear_cl_all_incoming">Naozaj si prajete vymazať všetky záznamy prichádzajúcich hovorov?</string>
+    <string name="alert_clear_cl_all_outgoing">Naozaj si prajete vymazať všetky záznamy odchádzajúcich hovorov?</string>
+    <string name="alert_clear_cl_all_missed">Naozaj si prajete vymazať všetky záznamy zmeškaných hovorov?</string>
+    <string name="fav_clear_freq">Vymazať často volané</string>
+    <string name="alert_clear_freq_called_msg">Naozaj si prajete vymazať všetky záznamy často volaných kontaktov?</string>
+    <string name="title_last_dialled">Zobrazenie posledného volaného čísla</string>
+    <string name="summary_last_dialled">Posledné volané číslo bude zobrazené pri stlačení zeleného sluchadla</string>
+    <string name="title_return_to_dialer">Späť na číselník po hovore</string>
+    <string name="title_vm_button">Ľavé akčné tlačidlo</string>
+    <string name="title_vm_handler">Obsluha hlasovej schránky</string>
+    <string name="title_use_1_for_reg_vm">Kláv. "1" pre hlasovú schránku</string>
+    <string name="summaryon_use_1_for_reg_vm">Klávesa "1" sa používá pre klasickú hlasovú schránku</string>
+    <string name="summaryoff_use_1_for_reg_vm">Klávesa "1" sa používá pre obsluhu hlasovej schránky</string>
+    <string name="title_disable_num_check">Vypnúť kontrolu čísel</string>
+    <string name="summaryon_disable_num_check">Ľavé tlačidlo a menu bude vždy aktivné</string>
+    <string name="summaryoff_disable_num_check">Ľavé tlačidlo a menu bude aktivné pokiaľ bude zadané aspoň jedno číslo</string>
+    <string name="title_enable_haptic_feedback">Zapnúť odozvu dotykov</string>
+    <string name="title_change_digits_color">Zmenit farbu číslic</string>
+    <string name="title_digits_color_pressed">Farba číslic (stlačené)</string>
+    <string name="title_digits_color_focused">Farba číslic (vybrané)</string>
+    <string name="title_digits_color_unselected">Farba číslic (nevybrané)</string>
+    <string name="title_choose_color">Vyberte farbu</string>
+    <!-- Preferences: Call log -->
+    <string name="title_cl_exact_time">Presný čas</string>
+    <string name="summaryon_cl_exact_time">Používajú sa presné hodiny pre záznamy hovorov</string>
+    <string name="summaryoff_cl_exact_time">Používajú sa relatívne časy pre záznamy hovorov</string>
+    <string name="title_cl_show_seconds">Zobraziť sekundy</string>
+    <string name="summary_cl_show_seconds">Zobraziť sekundy pri použití presných časov</string>
+    <string name="title_cl_ask_before_clear">Spýtať sa pred vymazaním</string>
+    <string name="summaryon_cl_ask_before_clear">Spýtať sa pred vymazaním záznamov hovorov</string>
+    <string name="summaryoff_cl_ask_before_clear">Záznamy hovorov sa vymažú bez otázky</string>
+    <!-- Preferences: Contacts -->
+    <string name="title_contacts_show_pic">Zobraziť obrázok kontaktu</string>
+    <string name="title_contacts_show_dial_button">Zobraziť vytáčanie</string>
+    <string name="summary_contacts_show_dial_button">Zobraziť tlačidlo pre volanie u kontaktu s číslom</string>
+    <string name="title_contacts_show_count">Zobraziť počet kontaktov</string>
+    <string name="summary_contacts_show_count">Celkový počet kontaktov bude zobrazený na začiatku zoznamu kontaktov</string>
+    <string name="title_contacts_show_separators">Oddeliť kontaky abecedne</string>
+    <string name="summaryon_contacts_show_separators">Abecedné oddeľovače budú zobrazené v zozname kontaktov</string>
+    <string name="summaryoff_contacts_show_separators">Abecedné oddeľovače nebudú zobrazené v zozname kontaktov</string>
+    <!-- Preferences: Contacts - View Contact -->
+    <string name="title_view_contact">Zobraziť kontakt</string>
+    <string name="summary_view_contact">Nastavenie zobrazenia individuálných kontaktov</string>
+    <string name="title_show_text_mobile_only">Tlačidlo SMS pre mobilné čísla</string>
+    <string name="summaryon_show_text_mobile_only">Len mobilné čísla budú mať tlačidlo pre odoslanie SMS</string>
+    <string name="summaryoff_show_text_mobile_only">Všetky čísla budú mať tlačidlo pre odoslanie SMS</string>
+    <!-- Preferences: Favourites -->
+    <string name="title_favourites_hide_freq_call">Skryť často volané</string>
+    <string name="summary_favourites_hide_freq_call">Dáta nebudú zmazané, len skryté.</string>
+    <string name="title_favs_ask_before_clear">Spýtať sa pred zmazaním</string>
+    <string name="summaryon_favs_ask_before_clear">Spýtať sa pred vymazaním záznamov často volaných kontaktov</string>
+    <string name="summaryoff_favs_ask_before_clear">Záznamy často volaných hovorov sa vymažú bez otázky</string>
+    <!-- Preferences: Misc -->
+    <string name="title_misc_category">Rôzne</string>
+    <string name="title_sensor_rotation">Použiť polohový senzor</string>
+    <string name="summary_sensor_rotation">Povoliť otáčanie obrazovky podľa sytémového nastavenia</string>
+    <!-- Wysie: About strings -->
+    <string name="title_about">O aplikácii</string>
 </resources>
+
