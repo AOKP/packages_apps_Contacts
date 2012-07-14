@@ -18,6 +18,16 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="launcherDialer" msgid="8636288196618486553">"拨号"</string>
     <string name="people" msgid="1048457247435785074">"联系人"</string>
+    <string name="t9_loading">载入中\u2026</string>
+    <string name="t9_sort_title">T9 排序模式</string>
+    <string name="t9_sort_summary">选择如何过滤 T9 结果</string>
+    <string name="t9_sort_name">姓名匹配优先</string>
+    <string name="t9_sort_number">号码匹配优先</string>
+    <string name="t9_state_title">开启 T9 拨号</string>
+    <string name="t9_state_summary">在拨号界面开启 T9 搜索</string>
+    <string name="t9_dial_click_title">拨打选中的联系人</string>
+    <string name="t9_dial_click_summary">在 T9 中拨打选中的联系人</string>
+    <string name="t9_add_to_contacts">"添加到“联系人”"</string>
     <string name="contactsList" msgid="8661624236494819731">"联系人"</string>
     <string name="shortcutContact" msgid="749243779392912958">"联系人"</string>
     <string name="shortcutDialContact" msgid="746622101599186779">"直接拨打电话"</string>
@@ -138,6 +148,9 @@
     <string name="contactsGroupsLabel" msgid="2841971472518003524">"群组"</string>
     <string name="contactsFavoritesLabel" msgid="8417039765586853670">"收藏"</string>
     <string name="dialerIconLabel" msgid="6500826552823403796">"拨号"</string>
+    <string name="dialer_ui_title">拨号器设置</string>
+    <string name="dialer_ui_orientation_title">开启传感器定向</string>
+    <string name="dialer_ui_orientation_summary">根据传感器旋转拨号器</string>
     <string name="recentCallsIconLabel" msgid="1419116422359067949">"通话记录"</string>
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"发送短信"</string>
     <string name="recentCalls_callNumber" msgid="1756372533999226126">"呼叫<xliff:g id="NAME">%s</xliff:g>"</string>

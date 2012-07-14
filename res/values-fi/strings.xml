@@ -568,4 +568,16 @@
     <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"Poista lentokonetila käytöstä ennen vastaajaan soittamista."</string>
     <string name="menu_export_database" msgid="2659719297530170820">"Vie tietokantatiedostot"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"Lisää vaihtoehtoja"</string>
+    <string name="dialer_ui_title">Numerovalitsimen asetukset</string>
+    <string name="dialer_ui_orientation_title">Näytön asento tunnistimen mukaan</string>
+    <string name="dialer_ui_orientation_summary">Käännä numerovalitsinta tunnistimen mukaan</string>
+    <string name="t9_state_title">Ota T9-numerovalitsin käyttöön</string>
+    <string name="t9_state_summary">Ota T9-haku numerovalitsimessa käyttöön</string>
+    <string name="t9_dial_click_title">Soita valitulle yhteystiedolle</string>
+    <string name="t9_dial_click_summary">Soittaa valitulle yhteystiedolle T9-tilassa</string>
+    <string name="t9_add_to_contacts">Lisää yhteystietoihin</string>
+    <string name="t9_sort_title">Lajittelu</string>
+    <string name="t9_sort_summary">Valitse kuinka T9-tulokset lajitellaan</string>
+    <string name="t9_sort_name">Nimen mukaan</string>
+    <string name="t9_sort_number">Numeron mukaan</string>
 </resources>

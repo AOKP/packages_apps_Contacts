@@ -568,4 +568,24 @@
     <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"כדי להתקשר לדואר קולי, ראשית כבה את מצב הטיסה."</string>
     <string name="menu_export_database" msgid="2659719297530170820">"ייצוא קובצי מסד נתונים"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"אפשרויות נוספות"</string>
+    <string name="t9_map_row_2">2abcדהו</string>
+    <string name="t9_map_row_3">3defאבג</string>
+    <string name="t9_map_row_4">4ghiמםנן</string>
+    <string name="t9_map_row_5">5jklיכךל</string>
+    <string name="t9_map_row_6">6mnoזחט</string>
+    <string name="t9_map_row_7">7pqrsרשת</string>
+    <string name="t9_map_row_8">8tuvצץק</string>
+    <string name="t9_map_row_9">9wxyzסעפף</string>
+    <string name="t9_sort_title">"מצב סידור T9"</string>
+    <string name="t9_sort_summary">"בחר כיצד לסנן תוצאות T9"</string>
+    <string name="dialer_ui_orientation_summary">"סובב את החייגן על-פי החיישן"</string>
+    <string name="dialer_ui_orientation_title">"אפשר סיבוב מסך"</string>
+    <string name="dialer_ui_title">"הגדרות חייגן"</string>
+    <string name="t9_add_to_contacts">"הוסף לאנשי הקשר"</string>
+    <string name="t9_dial_click_summary">"חייג לאיש הקשר שנבחר ב-T9"</string>
+    <string name="t9_dial_click_title">"חייג לאיש קשר נבחר"</string>
+    <string name="t9_sort_name">"סדר לפי שם מתאים"</string>
+    <string name="t9_sort_number">"סדר לפי מספר מתאים"</string>
+    <string name="t9_state_summary">"אפשר חיפוש T9 בחייגן"</string>
+    <string name="t9_state_title">"אפשר חייגן T9"</string>
 </resources>

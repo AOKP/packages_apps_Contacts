@@ -22,6 +22,26 @@
          used in the Launcher icon. -->
     <string name="people">People</string>
 
+    <string name="t9_loading">Loading\u2026</string>
+    <string name="t9_default_sort">1</string>
+    <string name="t9_sort_title">T9 sorting mode</string>
+    <string name="t9_sort_summary">Choose how to filter T9 results</string>
+    <string name="t9_sort_name">Name matches first</string>
+    <string name="t9_sort_number">Number matches first</string>
+    <string name="t9_state_title">Enable T9 dialer</string>
+    <string name="t9_state_summary">Enable T9 searching in dialer</string>
+    <string name="t9_dial_click_title">Dial selected contact</string>
+    <string name="t9_dial_click_summary">Dial the selected contact for T9</string>
+    <string name="t9_add_to_contacts">Add to contacts</string>
+    <string name="t9_map_row_2">2abcàáâäåɑæçǽćčá</string>
+    <string name="t9_map_row_3">3defďéèêëě</string>
+    <string name="t9_map_row_4">4ghiíìïîǵ</string>
+    <string name="t9_map_row_5">5jklḱḱĺ</string>
+    <string name="t9_map_row_6">6mnoòóöôøñŋǿḿńňő</string>
+    <string name="t9_map_row_7">7pqrsßɾṕŕśřš</string>
+    <string name="t9_map_row_8">8tuvťúùüûűů</string>
+    <string name="t9_map_row_9">9wxyzýẃźž</string>
+
     <!-- Directory partition name -->
     <string name="contactsList">Contacts</string>
 
@@ -391,6 +411,11 @@
 
          [CHAR LIMIT=NONE] -->
     <string name="dialerIconLabel">Phone</string>
+
+    <!-- Dialer UI Settings -->
+    <string name="dialer_ui_title">Dialer settings</string>
+    <string name="dialer_ui_orientation_title">Enable sensor orientation</string>
+    <string name="dialer_ui_orientation_summary">Rotate dialer based on sensor</string>
 
     <!-- The description text for the call log tab.
 

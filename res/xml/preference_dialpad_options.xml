@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+        android:key="misc_sensor_rotation"
+        android:title="@string/dialer_ui_orientation_title"
+        android:persistent="true"
+        android:summary="@string/dialer_ui_orientation_summary" />
+    <CheckBoxPreference
+        android:key="t9_state"
+        android:defaultValue="true"
+        android:title="@string/t9_state_title"
+        android:persistent="true"
+        android:summary="@string/t9_state_summary" />
+    <CheckBoxPreference
+        android:key="t9_dial_onclick"
+        android:title="@string/t9_dial_click_title"
+        android:persistent="true"
+        android:dependency="t9_state"
+        android:summary="@string/t9_dial_click_summary" />
+    <ListPreference
+        android:key="t9_sort"
+        android:defaultValue="@string/t9_default_sort"
+        android:title="@string/t9_sort_title"
+        android:dependency="t9_state"
+        android:summary="@string/t9_sort_summary"
+        android:entries="@array/t9_sort_entries"
+        android:entryValues="@array/t9_sort_values"
+        android:dialogTitle="@string/t9_sort_title" />
+</PreferenceScreen>

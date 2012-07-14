@@ -24,40 +24,6 @@
         android:layout_height="match_parent"
         android:layout_weight="3"
         android:orientation="vertical" >
-
-        <LinearLayout
-            android:id="@+id/digits_container"
-            android:layout_width="match_parent"
-            android:layout_height="0px"
-            android:layout_weight="@integer/dialpad_layout_weight_digits"
-            android:layout_marginTop="@dimen/dialpad_vertical_margin"
-            android:background="@drawable/dialpad_background"
-            android:gravity="center">
-
-            <com.android.contacts.dialpad.DigitsEditText
-                android:id="@+id/digits"
-                android:layout_width="0dip"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:textAppearance="@style/DialtactsDigitsTextAppearance"
-                android:textColor="?android:attr/textColorPrimary"
-                android:nextFocusRight="@+id/overflow_menu"
-                android:background="@android:color/transparent" />
-
-            <ImageButton
-                android:id="@+id/deleteButton"
-                android:layout_width="56dip"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:gravity="center"
-                android:state_enabled="false"
-                android:background="?android:attr/selectableItemBackground"
-                android:contentDescription="@string/description_delete_button"
-                android:src="@drawable/ic_dial_action_delete" />
-
-
-        </LinearLayout>
         <!-- "Dialpad chooser" UI, shown only when the user brings up the
          Dialer while a call is already in progress.
          When this UI is visible, the other Dialer elements
@@ -74,24 +40,109 @@
        android:layout_width="@dimen/dialpad_center_margin"
        android:layout_height="match_parent"
        android:background="#66000000"/>
-    <RelativeLayout
-        android:id="@+id/dialButtonContainer"
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="2"
+        android:orientation="vertical"
         android:background="@drawable/dialpad_background">
-        <View
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dialpad_button_margin"
-            android:layout_above="@id/dialButton"
-            android:background="#33000000" />
-        <ImageButton android:id="@+id/dialButton"
+            android:layout_height="0px"
+            android:id="@+id/t9topbar"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="0.3">
+            <ListView
+                android:id="@+id/t9listtop"
+                android:visibility="invisible"
+                android:divider="@null"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp" />
+            <ToggleButton
+                android:id="@+id/t9toggle"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:visibility="invisible"
+                android:scaleType="centerInside"
+                android:textOn=""
+                android:textOff=""
+                android:background="@drawable/t9toggle_state"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+        <ViewSwitcher
+            android:id="@+id/t9flipper"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/call_button_height"
-            android:layout_alignParentBottom="true"
-            android:state_enabled="false"
-            android:background="@drawable/btn_call"
-            android:contentDescription="@string/description_dial_button"
-            android:src="@drawable/ic_dial_action_call" />
-    </RelativeLayout>
+            android:layout_height="0dp"
+            android:layout_weight="0.7">
+            <!-- Keypad section -->
+            <com.android.contacts.dialpad.DigitsEditText
+                android:id="@+id/digits"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:textAppearance="@style/DialtactsDigitsTextAppearance"
+                android:textColor="?android:attr/textColorPrimary"
+                android:nextFocusRight="@+id/overflow_menu"
+                android:background="@android:color/transparent" />
+
+            <ListView
+                android:layout_width="match_parent"
+                android:id="@+id/t9list"
+                android:visibility="gone"
+                android:scrollingCache="true"
+                android:layout_height="match_parent" />
+        </ViewSwitcher>
+
+        <LinearLayout
+                android:id="@+id/dialButtonContainer"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="0.3"
+                android:orientation="horizontal" >
+
+                <!--
+                 Onscreen "Dial" button, diused on all platforms by
+                    default. Its usage can be disabled using resources (see
+                    config.xml.)
+                -->
+
+                <ImageButton
+                    android:id="@+id/dialButton"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.40"
+                    android:background="@drawable/btn_call"
+                    android:contentDescription="@string/description_dial_button"
+                    android:src="@drawable/ic_dial_action_call"
+                    android:state_enabled="false" />
+
+                <View
+                    android:layout_width="1dip"
+                    android:layout_height="24dip"
+                    android:layout_gravity="center_vertical"
+                    android:background="?android:attr/dividerVertical" />
+
+                <!-- Onscreen "Backspace/Delete" button -->
+
+                <ImageButton
+                    android:id="@+id/deleteButton"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.30"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:contentDescription="@string/description_delete_button"
+                    android:src="@drawable/ic_dial_action_delete"
+                    android:state_enabled="false" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

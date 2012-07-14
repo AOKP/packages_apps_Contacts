@@ -28,7 +28,7 @@
         android:id="@+id/digits_container"
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="@integer/dialpad_layout_weight_digits"
+        android:layout_weight="0.1"
         android:layout_marginTop="@dimen/dialpad_vertical_margin"
         android:gravity="center"
         android:background="@drawable/dialpad_background" >
@@ -56,8 +56,50 @@
             android:src="@drawable/ic_dial_action_delete" />
     </LinearLayout>
 
-    <!-- Keypad section -->
-    <include layout="@layout/dialpad" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:id="@+id/t9topbar"
+        android:background="@drawable/dialpad_background"
+        android:gravity="center_vertical"
+        android:layout_weight="0.1">
+        <ListView
+            android:id="@+id/t9listtop"
+            android:visibility="invisible"
+            android:divider="@null"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:overScrollMode="never"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="40dp" />
+        <ToggleButton
+            android:id="@+id/t9toggle"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:visibility="invisible"
+            android:scaleType="centerInside"
+            android:textOn=""
+            android:textOff=""
+            android:background="@drawable/t9toggle_state"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <ViewSwitcher
+        android:id="@+id/t9flipper"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.65">
+        <!-- Keypad section -->
+        <include  layout="@layout/dialpad" />
+        <ListView
+            android:layout_width="match_parent"
+            android:id="@+id/t9list"
+            android:visibility="gone"
+            android:background="@drawable/dialpad_background"
+            android:scrollingCache="true"
+            android:layout_height="match_parent" />
+    </ViewSwitcher>
 
     <View
        android:layout_width="match_parent"
@@ -69,15 +111,16 @@
         android:id="@+id/dialButtonContainer"
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="@integer/dialpad_layout_weight_additional_buttons"
+        android:layout_weight="0.150"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/dialpad_background">
+        android:background="@drawable/dialpad_background"
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/dialButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
+            android:layout_gravity="center_vertical"
             android:state_enabled="false"
             android:background="@drawable/btn_call"
             android:contentDescription="@string/description_dial_button"

@@ -568,4 +568,16 @@
     <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"Para chamar o correio de voz, primeiro desative o modo avião."</string>
     <string name="menu_export_database" msgid="2659719297530170820">"Exportar arquivos do banco de dados"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"Mais opções"</string>
+    <string name="dialer_ui_title">Configurações do teclado</string>
+    <string name="dialer_ui_orientation_title">Habilitar sensor de orientação</string>
+    <string name="dialer_ui_orientation_summary">Girar teclado baseado no sensor</string>
+    <string name="t9_sort_title">Modo de ordenação T9</string>
+    <string name="t9_sort_summary">Selecione como filtrar resultados T9</string>
+    <string name="t9_sort_name">Nome corresponde primeiro</string>
+    <string name="t9_sort_number">Número corresponde primeiro</string>
+    <string name="t9_state_title">Habilitar teclado T9</string>
+    <string name="t9_state_summary">Habilitar busca T9 no teclado</string>
+    <string name="t9_dial_click_title">Discar contato selecionado</string>
+    <string name="t9_dial_click_summary">Discar os contatos selecionados pelo T9</string>
+    <string name="t9_add_to_contacts">Adicionar aos contatos</string>
 </resources>

@@ -568,4 +568,27 @@
     <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"음성사서함에 메시지를 남기려면 먼저 비행기 모드를 해제하세요."</string>
     <string name="menu_export_database" msgid="2659719297530170820">"데이터베이스 파일 내보내기"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"옵션 더보기"</string>
+
+    <!-- Dialer UI Settings -->
+    <string name="dialer_ui_title">"다이얼 설정"</string>
+    <string name="dialer_ui_orientation_title">"화면방향 전환"</string>
+    <string name="dialer_ui_orientation_summary">"다이얼 화면의 방향을 센서에 따라 바꾸기"</string>
+
+    <string name="t9_sort_title">"T9 정렬순서"</string>
+    <string name="t9_sort_summary">"T9 검색결과를 어떤순서로 정렬할지 선택하세요."</string>
+    <string name="t9_sort_name">"이름부터 먼저 찾기"</string>
+    <string name="t9_sort_number">"번호부터 먼저 찾기"</string>
+    <string name="t9_state_title">"T9 다이얼 검색"</string>
+    <string name="t9_state_summary">"T9 검색기능을 사용합니다."</string>
+    <string name="t9_dial_click_title">"검색결과에서 바로 전화걸기"</string>
+    <string name="t9_dial_click_summary">"검색결과에서 선택시 바로 전화를 겁니다."</string>
+    <string name="t9_add_to_contacts">"연락처에 추가하기"</string>
+    <string name="t9_map_row_2">2abcàáâäåɑæçǽćčáㅇㅁ</string>
+    <string name="t9_map_row_3">3deféèêë</string>
+    <string name="t9_map_row_4">4ghiíìïîǵㄱㅋㄲ</string>
+    <string name="t9_map_row_5">5jklḱḱĺㄴㄹ</string>
+    <string name="t9_map_row_6">6mnoòóöôøñŋǿḿńőㄷㅌㄸ</string>
+    <string name="t9_map_row_7">7pqrsßɾṕŕśřšㅂㅍㅃ</string>
+    <string name="t9_map_row_8">8tuvúùüûűㅅㅎㅆ</string>
+    <string name="t9_map_row_9">9wxyzýẃźㅈㅊㅉ</string>
 </resources>

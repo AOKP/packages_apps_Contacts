@@ -16,6 +16,8 @@
 
 package com.android.contacts.dialpad;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -24,6 +26,8 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -32,9 +36,11 @@ import android.media.AudioManager;
 import android.media.ToneGenerator;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
+import android.preference.PreferenceManager;
 import android.provider.Contacts.Intents.Insert;
 import android.provider.Contacts.People;
 import android.provider.Contacts.Phones;
@@ -59,18 +65,29 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.ToggleButton;
+import android.widget.ViewSwitcher;
 
+import com.android.contacts.ContactPhotoManager;
 import com.android.contacts.ContactsUtils;
 import com.android.contacts.R;
 import com.android.contacts.SpecialCharSequenceMgr;
 import com.android.contacts.activities.DialtactsActivity;
+import com.android.contacts.dialpad.T9SearchCache.ContactItem;
+import com.android.contacts.dialpad.T9SearchCache.T9Adapter;
+import com.android.contacts.dialpad.T9SearchCache.T9SearchResult;
 import com.android.contacts.util.Constants;
 import com.android.contacts.util.PhoneNumberFormatter;
 import com.android.contacts.util.StopWatch;
@@ -129,6 +146,22 @@ public class DialpadFragment extends Fragment
     private View mDialButton;
     private ListView mDialpadChooser;
     private DialpadChooserAdapter mDialpadChooserAdapter;
+
+    private T9SearchCache mT9Search;
+    private T9SearchCache.Callback mT9Callback = new T9SearchCache.Callback() {
+        @Override
+        public void onLoadFinished() {
+            searchContacts();
+        }
+    };
+
+    private ToggleButton mT9Toggle;
+    private ListView mT9List;
+    private ListView mT9ListTop;
+    private T9Adapter mT9Adapter;
+    private T9Adapter mT9AdapterTop;
+    private ViewSwitcher mT9Flipper;
+    private LinearLayout mT9Top;
 
     /**
      * Regular expression prohibiting manual phone call. Can be empty, which means "no rule".
@@ -241,6 +274,9 @@ public class DialpadFragment extends Fragment
     public void onCreate(Bundle state) {
         super.onCreate(state);
 
+        ContactPhotoManager photoLoader = ContactPhotoManager.getInstance(getActivity());
+        photoLoader.preloadPhotosInBackground();
+
         mCurrentCountryIso = ContactsUtils.getCurrentCountryIso(getActivity());
 
         try {
@@ -275,8 +311,23 @@ public class DialpadFragment extends Fragment
         mDigits.setOnLongClickListener(this);
         mDigits.addTextChangedListener(this);
 
+        mT9Search = T9SearchCache.getInstance(getActivity());
+        mT9List = (ListView) fragmentView.findViewById(R.id.t9list);
+        if (mT9List != null) {
+            mT9List.setOnItemClickListener(this);
+        }
+        mT9ListTop = (ListView) fragmentView.findViewById(R.id.t9listtop);
+        if (mT9ListTop != null) {
+            mT9ListTop.setOnItemClickListener(this);
+            mT9ListTop.setTag(new ContactItem());
+        }
+        mT9Toggle = (ToggleButton) fragmentView.findViewById(R.id.t9toggle);
+        if (mT9Toggle != null) {
+            mT9Toggle.setOnClickListener(this);
+        }
+        mT9Flipper = (ViewSwitcher) fragmentView.findViewById(R.id.t9flipper);
+        mT9Top = (LinearLayout) fragmentView.findViewById(R.id.t9topbar);
         PhoneNumberFormatter.setPhoneNumberFormattingTextWatcher(getActivity(), mDigits);
-
         // Check for the presence of the keypad
         View oneButton = fragmentView.findViewById(R.id.one);
         if (oneButton != null) {
@@ -495,6 +546,8 @@ public class DialpadFragment extends Fragment
 
         final StopWatch stopWatch = StopWatch.start("Dialpad.onResume");
 
+        hideT9();
+
         // Query the last dialed number. Do it first because hitting
         // the DB is 'slow'. This call is asynchronous.
         queryLastOutgoingCall();
@@ -601,13 +654,22 @@ public class DialpadFragment extends Fragment
         // TODO: I wonder if we should not check if the AsyncTask that
         // lookup the last dialed number has completed.
         mLastNumberDialed = EMPTY_NUMBER;  // Since we are going to query again, free stale number.
-
         SpecialCharSequenceMgr.cleanup();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        if (isT9On()) {
+            mT9Search.refresh(mT9Callback);
+        }
     }
 
     @Override
     public void onStop() {
         super.onStop();
+        mT9Search.cancelRefresh(mT9Callback);
         if (mClearDigitsOnStop) {
             mClearDigitsOnStop = false;
             mDigits.getText().clear();
@@ -721,6 +783,149 @@ public class DialpadFragment extends Fragment
         return intent;
     }
 
+    /**
+     * Hides the topresult layout
+     * Needed to reclaim the space when T9 is off.
+     */
+    private void hideT9 () {
+        if (mDigitsContainer == null) {
+            if (!isT9On()) {
+                toggleT9();
+                mT9Top.setVisibility(View.GONE);
+            }else{
+                mT9Top.setVisibility(View.VISIBLE);
+            }
+        } else {
+            LinearLayout.LayoutParams digitsLayout = (LayoutParams) mDigitsContainer.getLayoutParams();
+            if (!isT9On()) {
+                toggleT9();
+                digitsLayout.weight = 0.2f;
+                mT9Top.setVisibility(View.GONE);
+            } else {
+                digitsLayout.weight = 0.1f;
+                mT9Top.setVisibility(View.VISIBLE);
+            }
+            mDigitsContainer.setLayoutParams(digitsLayout);
+        }
+        return;
+    }
+
+    /**
+     * Toggles between expanded list and dialpad
+     */
+    private void toggleT9() {
+        if (mT9Flipper.getCurrentView() == mT9List) {
+            mT9Toggle.setChecked(false);
+            animateT9();
+        }
+    }
+
+    /**
+     * Initiates a search for the dialed digits
+     * Toggles view visibility based on results
+     */
+    private void searchContacts() {
+        if (!isT9On()) {
+            return;
+        }
+
+        final int length = mDigits.length();
+        if (length > 0) {
+            T9SearchResult result = mT9Search.search(mDigits.getText().toString());
+            if (mT9AdapterTop == null) {
+                mT9AdapterTop = mT9Search.createT9Adapter(getActivity(), new ArrayList<ContactItem>());
+                mT9AdapterTop.setNotifyOnChange(true);
+            } else {
+                mT9AdapterTop.clear();
+            }
+
+            if (result != null) {
+                if (mT9Adapter == null) {
+                    mT9Adapter = mT9Search.createT9Adapter(getActivity(), result.getResults());
+                    mT9Adapter.setNotifyOnChange(true);
+                } else {
+                    mT9Adapter.clear();
+                    mT9Adapter.addAll(result.getResults());
+                }
+                if (mT9List.getAdapter() == null) {
+                    mT9List.setAdapter(mT9Adapter);
+                }
+                mT9AdapterTop.add(result.getTopContact());
+                if (result.getNumResults() > 1) {
+                    mT9Toggle.setVisibility(View.VISIBLE);
+                } else {
+                    mT9Toggle.setVisibility(View.GONE);
+                    toggleT9();
+                }
+                mT9Toggle.setTag(null);
+            } else {
+                ContactItem contact = (ContactItem) mT9ListTop.getTag();
+                contact.number = mDigits.getText().toString();
+                mT9AdapterTop.add(contact);
+                mT9Toggle.setTag(new Boolean(true));
+                mT9Toggle.setVisibility(View.GONE);
+                toggleT9();
+            }
+            mT9ListTop.setVisibility(View.VISIBLE);
+            if (mT9ListTop.getAdapter() == null) {
+                mT9ListTop.setAdapter(mT9AdapterTop);
+            }
+        } else {
+            mT9ListTop.setVisibility(View.INVISIBLE);
+            mT9Toggle.setVisibility(View.INVISIBLE);
+            toggleT9();
+        }
+    }
+
+    /**
+     * Returns preference value for T9Dialer
+     */
+    private boolean isT9On() {
+        return PreferenceManager.getDefaultSharedPreferences(getActivity()).getBoolean("t9_state", true);
+    }
+
+    /**
+     * Returns preference for whether to dial
+     * upon clicking contact in listview/topbar
+     */
+    private boolean dialOnTap() {
+        return PreferenceManager.getDefaultSharedPreferences(getActivity()).getBoolean("t9_dial_onclick", false);
+    }
+
+    /**
+     * Animates the dialpad/listview
+     */
+    private void animateT9() {
+        TranslateAnimation slidedown1 = new TranslateAnimation(
+                Animation.RELATIVE_TO_PARENT, 0.0f, Animation.RELATIVE_TO_PARENT, 0.0f,
+                Animation.RELATIVE_TO_PARENT, 0.0f, Animation.RELATIVE_TO_PARENT, 1.0f);
+        TranslateAnimation slidedown2 = new TranslateAnimation(
+                Animation.RELATIVE_TO_PARENT, 0.0f, Animation.RELATIVE_TO_PARENT, 0.0f,
+                Animation.RELATIVE_TO_PARENT, -1.0f, Animation.RELATIVE_TO_PARENT, 0.0f);
+        TranslateAnimation slideup1 = new TranslateAnimation(
+                Animation.RELATIVE_TO_PARENT, 0.0f, Animation.RELATIVE_TO_PARENT, 0.0f,
+                Animation.RELATIVE_TO_PARENT, 0.0f, Animation.RELATIVE_TO_PARENT, -1.0f);
+        TranslateAnimation slideup2 = new TranslateAnimation(
+                Animation.RELATIVE_TO_PARENT, 0.0f, Animation.RELATIVE_TO_PARENT, 0.0f,
+                Animation.RELATIVE_TO_PARENT, 1.0f, Animation.RELATIVE_TO_PARENT, 0.0f);
+        slidedown2.setDuration(500);
+        slidedown2.setInterpolator(new DecelerateInterpolator());
+        slidedown1.setDuration(500);
+        slidedown1.setInterpolator(new DecelerateInterpolator());
+        slideup1.setDuration(500);
+        slideup1.setInterpolator(new DecelerateInterpolator());
+        slideup2.setDuration(500);
+        slideup2.setInterpolator(new DecelerateInterpolator());
+        if (mT9Toggle.isChecked()) {
+            mT9Flipper.setOutAnimation(slidedown1);
+            mT9Flipper.setInAnimation(slidedown2);
+        } else {
+            mT9Flipper.setOutAnimation(slideup1);
+            mT9Flipper.setInAnimation(slideup2);
+        }
+        mT9Flipper.showNext();
+    }
+
     private void keyPressed(int keyCode) {
         switch (keyCode) {
             case KeyEvent.KEYCODE_1:
@@ -769,6 +974,7 @@ public class DialpadFragment extends Fragment
 
         // If the cursor is at the end of the text we hide it.
         final int length = mDigits.length();
+        searchContacts();
         if (length == mDigits.getSelectionStart() && length == mDigits.getSelectionEnd()) {
             mDigits.setCursorVisible(false);
         }
@@ -782,6 +988,7 @@ public class DialpadFragment extends Fragment
                     dialButtonPressed();
                     return true;
                 }
+                searchContacts();
                 break;
         }
         return false;
@@ -888,6 +1095,10 @@ public class DialpadFragment extends Fragment
                 }
                 return;
             }
+            case R.id.t9toggle: {
+                animateT9();
+                return;
+            }
             default: {
                 Log.wtf(TAG, "Unexpected onClick() event from: " + view);
                 return;
@@ -915,6 +1126,7 @@ public class DialpadFragment extends Fragment
         switch (id) {
             case R.id.deleteButton: {
                 digits.clear();
+                searchContacts();
                 // TODO: The framework forgets to clear the pressed
                 // status of disabled button. Until this is fixed,
                 // clear manually the pressed status. b/2133127
@@ -1245,6 +1457,14 @@ public class DialpadFragment extends Fragment
             }
             mDialpadChooser.setAdapter(mDialpadChooserAdapter);
         } else {
+            if (isT9On()) {
+                if (mT9Flipper.getCurrentView() != mT9List) {
+                    mT9Toggle.setChecked(false);
+                    searchContacts();
+                } else {
+                    return;
+                }
+            }
             // Log.i(TAG, "Displaying normal Dialer UI.");
             if (mDigitsContainer != null) {
                 mDigitsContainer.setVisibility(View.VISIBLE);
@@ -1368,6 +1588,22 @@ public class DialpadFragment extends Fragment
      */
     @Override
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+        if (parent == mT9List || parent == mT9ListTop) {
+            if (parent == mT9List) {
+                setFormattedDigits(mT9Adapter.getItem(position).number,null);
+            } else {
+                if (mT9Toggle.getTag() == null) {
+                    setFormattedDigits(mT9AdapterTop.getItem(position).number,null);
+                } else {
+                    startActivity(getAddToContactIntent(mDigits.getText()));
+                    return;
+                }
+            }
+            if (dialOnTap()) {
+                dialButtonPressed();
+            }
+            return;
+        }
         DialpadChooserAdapter.ChoiceItem item =
                 (DialpadChooserAdapter.ChoiceItem) parent.getItemAtPosition(position);
         int itemId = item.id;

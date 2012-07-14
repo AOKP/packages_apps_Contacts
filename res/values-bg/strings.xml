@@ -568,4 +568,12 @@
     <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"За да чуете гласовата си поща, първо изключете самолетния режим."</string>
     <string name="menu_export_database" msgid="2659719297530170820">"Експортиране на файловете на базата от данни"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"Още опции"</string>
+    <string name="t9_map_row_2">2abcàáâäåɑæçǽćčáабвг</string>
+    <string name="t9_map_row_3">3deféèêëдежз</string>
+    <string name="t9_map_row_4">4ghiíìïîǵийкл</string>
+    <string name="t9_map_row_5">5jklḱḱĺмноп</string>
+    <string name="t9_map_row_6">6mnoòóöôøñŋǿḿńőрсту</string>
+    <string name="t9_map_row_7">7pqrsßɾṕŕśřšфхцч</string>
+    <string name="t9_map_row_8">8tuvúùüûűшщъ</string>
+    <string name="t9_map_row_9">9wxyzýẃźьюя</string>
 </resources>

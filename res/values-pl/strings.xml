@@ -568,4 +568,29 @@
     <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"Aby połączyć się z pocztą głosową, najpierw wyłącz tryb samolotowy."</string>
     <string name="menu_export_database" msgid="2659719297530170820">"Eksportuj pliki bazy danych"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"Więcej opcji"</string>
+
+    <!-- **** CYANOGENMOD EDITS START **** -->
+    <string name="t9_sort_title">Tryb sortowania T9</string>
+    <string name="t9_sort_summary">Wybierz, jak filtrować wyniki</string>
+    <string name="t9_sort_name">Najpierw nazwa</string>
+    <string name="t9_sort_number">Najpierw numer</string>
+    <string name="t9_state_title">Wybieranie T9</string>
+    <string name="t9_state_summary">Włącz wyszukiwanie T9 w wybieraniu numeru</string>
+    <string name="t9_dial_click_title">Połącz z wybranym</string>
+    <string name="t9_dial_click_summary">Wybierz numer kontaktu wybranego z wyników</string>
+    <string name="t9_add_to_contacts">Dodaj do kontaktów</string>
+    <string name="t9_map_row_2">2abcąàáâäåɑæçǽćčá</string>
+    <string name="t9_map_row_3">3defęéèêë</string>
+    <string name="t9_map_row_4">4ghiíìïîǵ</string>
+    <string name="t9_map_row_5">5jklłḱḱĺ</string>
+    <string name="t9_map_row_6">6mnoòóöôøñŋǿḿńő</string>
+    <string name="t9_map_row_7">7pqrsßɾṕŕśřš</string>
+    <string name="t9_map_row_8">8tuvúùüûű</string>
+    <string name="t9_map_row_9">9wxyzýẃźż</string>
+
+    <!-- Dialer UI Settings -->
+    <string name="dialer_ui_title">Wybieranie numeru</string>
+    <string name="dialer_ui_orientation_title">Autoobracanie ekranu</string>
+    <string name="dialer_ui_orientation_summary">Pozwól na automatyczny obrót ekranu</string>
+    <!-- **** CYANOGENMOD EDITS END **** -->
 </resources>

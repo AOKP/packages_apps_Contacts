@@ -356,6 +356,19 @@
             android:label="@string/activity_title_settings"
             android:theme="@style/ContactsPreferencesTheme" />
 
+        <!-- Used to set options -->
+        <activity
+            android:name=".preference.DialpadPreferenceActivity"
+            android:label="@string/dialer_ui_title"
+            android:icon="@mipmap/ic_launcher_phone"
+            android:theme="@android:style/Theme.Holo.DialogWhenLarge">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <!-- Used to filter contacts list by account -->
         <activity
             android:name=".list.AccountFilterActivity"

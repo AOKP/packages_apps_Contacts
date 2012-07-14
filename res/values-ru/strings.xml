@@ -568,4 +568,24 @@
     <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"Сначала отключите режим полета."</string>
     <string name="menu_export_database" msgid="2659719297530170820">"Экспорт файлов базы данных"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"Ещё"</string>
+    <string name="t9_sort_title">Режим сортировки T9</string>
+    <string name="t9_sort_summary">Выберите способ отображения результатов</string>
+    <string name="t9_sort_name">Совпадения по имени первыми</string>
+    <string name="t9_sort_number">Совпадения по номеру первыми</string>
+    <string name="t9_state_title">Включить поиск T9</string>
+    <string name="t9_state_summary">Включить поиск T9 при наборе номера</string>
+    <string name="t9_dial_click_title">Звонок при выборе контакта</string>
+    <string name="t9_dial_click_summary">Набрать номер при нажатии на контакт</string>
+    <string name="t9_add_to_contacts">Добавить в контакты</string>
+    <string name="t9_map_row_2">2abcàáâäåɑæçǽćčáабвг</string>
+    <string name="t9_map_row_3">3deféèêëдежз</string>
+    <string name="t9_map_row_4">4ghiíìïîǵийкл</string>
+    <string name="t9_map_row_5">5jklḱḱĺмноп</string>
+    <string name="t9_map_row_6">6mnoòóöôøñŋǿḿńőрсту</string>
+    <string name="t9_map_row_7">7pqrsßɾṕŕśřšфхцч</string>
+    <string name="t9_map_row_8">8tuvúùüûűшщъы</string>
+    <string name="t9_map_row_9">9wxyzýẃźьэюя</string>
+    <string name="dialer_ui_title">Настройки набора номера</string>
+    <string name="dialer_ui_orientation_title">Автоповорот экрана</string>
+    <string name="dialer_ui_orientation_summary">Включить автоповорот экрана</string>
 </resources>

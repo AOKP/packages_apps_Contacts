@@ -16,6 +16,14 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="t9_map_row_2">2αάβγabc</string>
+    <string name="t9_map_row_3">3δεέζdef</string>
+    <string name="t9_map_row_4">4ηήθιίϊΐghi</string>
+    <string name="t9_map_row_5">5κλμjkl</string>
+    <string name="t9_map_row_6">6νξοόmno</string>
+    <string name="t9_map_row_7">7πρσςpqrs</string>
+    <string name="t9_map_row_8">8τυύϋΰφtuv</string>
+    <string name="t9_map_row_9">9χψωώwxyz</string>
     <string name="launcherDialer" msgid="8636288196618486553">"Τηλέφωνο"</string>
     <string name="people" msgid="1048457247435785074">"Άτομα"</string>
     <string name="contactsList" msgid="8661624236494819731">"Επαφές"</string>

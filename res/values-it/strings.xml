@@ -18,6 +18,16 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="launcherDialer" msgid="8636288196618486553">"Telefono"</string>
     <string name="people" msgid="1048457247435785074">"Persone"</string>
+    <string name="t9_loading">Caricamento\u2026</string>
+    <string name="t9_sort_title">"Modalità di ricerca T9"</string>
+    <string name="t9_sort_summary">"Scegli come filtrare i risultati"</string>
+    <string name="t9_sort_name">"Priorità ai nomi"</string>
+    <string name="t9_sort_number">"Priorità al numero"</string>
+    <string name="t9_state_title">"Attiva T9 sul dialer"</string>
+    <string name="t9_state_summary">"Attiva la ricerca con T9 nel dialer"</string>
+    <string name="t9_dial_click_title">"Chiama contatto selezionato"</string>
+    <string name="t9_dial_click_summary">"Chiama il contatto selezionato con il T9"</string>
+    <string name="t9_add_to_contacts">Aggiungi ai contatti</string>
     <string name="contactsList" msgid="8661624236494819731">"Contatti"</string>
     <string name="shortcutContact" msgid="749243779392912958">"Contatto"</string>
     <string name="shortcutDialContact" msgid="746622101599186779">"Composizione diretta"</string>
@@ -138,6 +148,9 @@
     <string name="contactsGroupsLabel" msgid="2841971472518003524">"Gruppi"</string>
     <string name="contactsFavoritesLabel" msgid="8417039765586853670">"Preferiti"</string>
     <string name="dialerIconLabel" msgid="6500826552823403796">"Telefono"</string>
+    <string name="dialer_ui_title">"Impostazioni dialer"</string>
+    <string name="dialer_ui_orientation_title">"Sensore d\'orientamento"</string>
+    <string name="dialer_ui_orientation_summary">"Ruota il dialer in base al sensore"</string>
     <string name="recentCallsIconLabel" msgid="1419116422359067949">"Chiamate"</string>
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"Invia messaggio di testo"</string>
     <string name="recentCalls_callNumber" msgid="1756372533999226126">"Chiama <xliff:g id="NAME">%s</xliff:g>"</string>
