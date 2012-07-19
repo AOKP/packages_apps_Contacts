@@ -14,44 +14,127 @@
      limitations under the License.
 -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/top"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
->
+    android:background="@drawable/dialpad_background"
+    android:orientation="horizontal">
+    <!-- Keypad section -->
+    <include
+        layout="@layout/dialpad" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
 
-    <!-- Text field above the keypad where the digits are displayed.
-         It's type is set to PHONE (to put the keyboard in the right
-         config) in the java code.
-    -->
-    <!-- TODO: Use a textAppearance to control the display of the number -->
-    <EditText android:id="@+id/digits"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dialpad_digits_height"
-        android:layout_marginBottom="@dimen/dialpad_digits_margin_bottom"
-        android:layout_marginTop="1dip"
+        android:layout_height="0px"
+        android:id="@+id/t9topbar"
+        android:layout_gravity="center"
         android:gravity="center"
-        android:maxLines="1"
-        android:scrollHorizontally="true"
-        android:textSize="@dimen/dialpad_digits_text_size"
-        android:freezesText="true"
-        android:background="@drawable/dialpad_background"
-        android:textColor="@color/dialer_button_text"
-        android:hint="@string/dialerKeyboardHintText"
-     />
+        android:layout_weight="0.3">
+        <ListView
+            android:id="@+id/t9listtop"
+            android:visibility="invisible"
+            android:divider="@null"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="40dp" />
+        <ToggleButton
+            android:id="@+id/t9toggle"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:visibility="invisible"
+            android:scaleType="centerInside"
+            android:textOn=""
+            android:textOff=""
+            android:background="@drawable/t9toggle_state"
+            android:layout_gravity="center"/>
+    </LinearLayout>
 
-    <!-- Horizontal row of buttons (Voicemail + DialButton + Delete.) -->
-    <include layout="@layout/dialpad_additional_buttons" />
-
-    <!-- "Dialpad chooser" UI, shown only when the user brings up the
-         Dialer while a call is already in progress.
-         When this UI is visible, the other Dialer elements
-         (the textfield and button) are hidden. -->
-    <ListView android:id="@+id/dialpadChooser"
+    <ViewSwitcher
+        android:id="@+id/t9flipper"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:footerDividersEnabled="true"
-    />
+        android:layout_height="0dp"
+        android:layout_weight="0.7">
+        <!-- Keypad section -->
+        <com.android.contacts.dialpad.DigitsEditText
+            android:id="@+id/digits"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:textAppearance="@style/DialtactsDigitsTextAppearance"
+            android:textColor="?android:attr/textColorPrimary"
+            android:nextFocusRight="@+id/overflow_menu"
+            android:background="@android:color/transparent" />
 
+        <ListView
+            android:layout_width="match_parent"
+            android:id="@+id/t9list"
+            android:visibility="gone"
+            android:scrollingCache="true"
+            android:layout_height="match_parent" />
+    </ViewSwitcher>
+
+    <LinearLayout
+            android:id="@+id/dialButtonContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="0.3"
+            android:orientation="horizontal" >
+
+            <!--
+             Onscreen "Dial" button, diused on all platforms by
+                default. Its usage can be disabled using resources (see
+                config.xml.)
+            -->
+
+            <ImageButton
+                android:id="@+id/dialButton"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.40"
+                android:background="@drawable/btn_call"
+                android:contentDescription="@string/description_dial_button"
+                android:src="@drawable/ic_dial_action_call"
+                android:state_enabled="false" />
+
+            <View
+                android:layout_width="1dip"
+                android:layout_height="24dip"
+                android:layout_gravity="center_vertical"
+                android:background="?android:attr/dividerVertical" />
+
+            <!-- Onscreen "Backspace/Delete" button -->
+
+            <ImageButton
+                android:id="@+id/deleteButton"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.30"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="@string/description_delete_button"
+                android:src="@drawable/ic_dial_action_delete"
+                android:state_enabled="false" />
+    </LinearLayout>
+
+        <!-- "Dialpad chooser" UI, shown only when the user brings up the Dialer
+            while a call is already in progress. When this UI is visible, the other Dialer
+            elements (the textfield and button) are hidden. -->
+        <ListView
+            android:id="@+id/dialpadChooser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:footerDividersEnabled="true" />
+    </LinearLayout>
 </LinearLayout>

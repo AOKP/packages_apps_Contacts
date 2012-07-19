@@ -16,6 +16,22 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- CM Changes are put first to prevent problems on merge -->
+
+    <string name="dialer_ui_title">Paramètres du clavier</string>
+    <string name="dialer_ui_orientation_title">Auto-rotation</string>
+    <string name="dialer_ui_orientation_summary">Utiliser le capteur pour passer du mode portrait au mode paysage</string>
+
+    <string name="t9_sort_title">Mode de tri T9</string>
+    <string name="t9_sort_summary">Méthode de tri des résultats issus du mode T9</string>
+    <string name="t9_sort_name">Noms en priorité</string>
+    <string name="t9_sort_number">Numéros en priorité</string>
+    <string name="t9_state_title">Activer le mode T9</string>
+    <string name="t9_state_summary">Activer la recherche des contacts par les lettres du clavier</string>
+    <string name="t9_dial_click_title">Sélection contact T9</string>
+    <string name="t9_dial_click_summary">Appeler de préférence le contact sélectionné par le mode T9</string>
+
     <string name="launcherDialer" msgid="8636288196618486553">"Téléphone"</string>
     <string name="people" msgid="1048457247435785074">"Contacts"</string>
     <string name="contactsList" msgid="8661624236494819731">"Contacts"</string>
