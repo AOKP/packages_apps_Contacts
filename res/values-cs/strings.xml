@@ -560,4 +560,18 @@
     <string name="dialog_voicemail_not_ready_message" msgid="4384716252789515378">"Chcete-li nastavit hlasovou schránku, přejděte do části Menu &gt; Nastavení."</string>
     <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"Chcete-li volat hlasovou schránku, nejdříve vypněte režim V letadle."</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"Více možností"</string>
+
+    <string name="t9_default_sort">1</string>
+    <string name="t9_sort_title">Metoda řazení T9</string>
+    <string name="t9_sort_summary">Jak filtrovat výsledky hledání</string>
+    <string name="t9_sort_name">Nejdříve podle jména</string>
+    <string name="t9_sort_number">Nejdříve podle čísla</string>
+    <string name="t9_state_title">Zapnout T9 číselník</string>
+    <string name="t9_state_summary">Zapnout hledání v číselníku pomocí T9</string>
+    <string name="t9_dial_click_title">Volat zvolenému kontaktu</string>
+    <string name="t9_dial_click_summary">Volat zvolenému kontaktu z T9 hledání</string>
+    <string name="t9_add_to_contacts">Přidat do kontaktů</string>
+    <string name="dialer_ui_title">Nastavení volání</string>
+    <string name="dialer_ui_orientation_title">Zapnout ottáčení obrazovky</string>
+    <string name="dialer_ui_orientation_summary">Otáčet obrazovku podle senzoru</string>
 </resources>
