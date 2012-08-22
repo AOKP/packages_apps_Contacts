@@ -28,6 +28,13 @@
 		android:persistent="true"
 		android:summary="@string/t9_state_summary" />
 	<CheckBoxPreference
+		android:key="t9_state_advanced"
+		android:defaultValue="false"
+		android:title="@string/t9_state_advanced_title"
+		android:dependency="t9_state"
+		android:persistent="true"
+		android:summary="@string/t9_state_advanced_summary" />
+	<CheckBoxPreference
 		android:key="t9_dial_onclick"
 		android:title="@string/t9_dial_click_title"
 		android:persistent="true"

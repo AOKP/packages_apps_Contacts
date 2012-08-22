@@ -18,11 +18,15 @@
     translatable="false">
     <item>@string/t9_sort_name</item>
     <item>@string/t9_sort_number</item>
+    <item>@string/t9_sort_nickname</item>
+    <item>@string/t9_sort_company</item>
   </string-array>
   <string-array name="t9_sort_values"
     translatable="false">
     <item>1</item>
     <item>2</item>
+    <item>3</item>
+    <item>4</item>
   </string-array>
   <string-array name="t9_map"
     translatable="false">

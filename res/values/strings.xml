@@ -27,8 +27,12 @@
     <string name="t9_sort_summary">Choose how to filter T9 results</string>
     <string name="t9_sort_name">Name matches first</string>
     <string name="t9_sort_number">Number matches first</string>
+    <string name="t9_sort_nickname">Nickname matches first</string>
+    <string name="t9_sort_company">Company matches first</string>
     <string name="t9_state_title">Enable T9 dialer</string>
     <string name="t9_state_summary">Enable T9 searching in dialer</string>
+    <string name="t9_state_advanced_title">Enable advanced T9 searching</string>
+    <string name="t9_state_advanced_summary">Enable T9 searching in dialer for nickname and company (can be slow, needs restart of Dialpad)</string>
     <string name="t9_dial_click_title">Dial selected contact</string>
     <string name="t9_dial_click_summary">Dial the selected contact for T9</string>
     <string name="t9_add_to_contacts">Add to contacts</string>

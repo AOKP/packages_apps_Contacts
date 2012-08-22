@@ -21,6 +21,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.HashMap;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -28,6 +29,9 @@ import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.Contacts;
+import android.provider.ContactsContract.Data;
+import android.provider.ContactsContract.CommonDataKinds.Organization;
+import android.provider.ContactsContract.CommonDataKinds.Nickname;
 import android.telephony.PhoneNumberUtils;
 import android.text.Spannable;
 import android.text.style.ForegroundColorSpan;
@@ -49,6 +53,8 @@ class T9Search {
     // List sort modes
     private static final int NAME_FIRST = 1;
     private static final int NUMBER_FIRST = 2;
+    private static final int NICKNAME_FIRST = 3;
+    private static final int COMPANY_FIRST = 4;
 
     // Phone number queries
     private static final String[] PHONE_PROJECTION = new String[] {Phone.NUMBER, Phone.CONTACT_ID, Phone.IS_SUPER_PRIMARY, Phone.TYPE, Phone.LABEL};
@@ -59,11 +65,21 @@ class T9Search {
     private static final String CONTACT_QUERY = Contacts.HAS_PHONE_NUMBER + " > 0";
     private static final String CONTACT_SORT = Contacts._ID + " ASC";
 
+    // Nickname and company queries
+    private static final String[] NICKNAME_PROJECTION = new String[] {Data.CONTACT_ID, Nickname.NAME};
+    private static final String[] COMPANY_PROJECTION = new String[] {Data.CONTACT_ID, Organization.COMPANY};
+    private static final String CONTACT_DATA_SELECTION = Data.MIMETYPE + " = ? ";
+    private HashMap<Long, String> contactNicknames = new HashMap<Long, String>();
+    private HashMap<Long, String> contactCompany = new HashMap<Long, String>();
+
+
     // Local variables
     private Context mContext;
     private int mSortMode;
     private ArrayList<ContactItem> mNameResults = new ArrayList<ContactItem>();
     private ArrayList<ContactItem> mNumberResults = new ArrayList<ContactItem>();
+    private ArrayList<ContactItem> mNicknameResults = new ArrayList<ContactItem>();
+    private ArrayList<ContactItem> mCompanyResults = new ArrayList<ContactItem>();
     private Set<ContactItem> mAllResults = new LinkedHashSet<ContactItem>();
     private ArrayList<ContactItem> mContacts = new ArrayList<ContactItem>();
     private String mPrevInput;
@@ -80,7 +96,39 @@ class T9Search {
 
         Cursor contact = mContext.getContentResolver().query(Contacts.CONTENT_URI, CONTACT_PROJECTION, CONTACT_QUERY, null, CONTACT_SORT);
         Cursor phone = mContext.getContentResolver().query(Phone.CONTENT_URI, PHONE_PROJECTION, PHONE_ID_SELECTION, PHONE_ID_SELECTION_ARGS, PHONE_SORT);
+        Cursor nickname = mContext.getContentResolver().query(
+                Data.CONTENT_URI,
+                NICKNAME_PROJECTION,
+                CONTACT_DATA_SELECTION,
+                new String[] {Nickname.CONTENT_ITEM_TYPE},
+                null
+                );
+        Cursor company = mContext.getContentResolver().query(
+                Data.CONTENT_URI,
+                COMPANY_PROJECTION,
+                CONTACT_DATA_SELECTION,
+                new String[] {Organization.CONTENT_ITEM_TYPE},
+                null
+                );
         phone.moveToFirst();
+        nickname.moveToFirst();
+        company.moveToFirst();
+
+        while (nickname.moveToNext()) {
+            long contactId = nickname.getLong(0);
+            if (!contactNicknames.containsKey(contactId)) {
+                contactNicknames.put(contactId, nickname.getString(1));
+            }
+        }
+
+        while (company.moveToNext()) {
+            long contactId = company.getLong(0);
+            if (!contactCompany.containsKey(contactId)) {
+                contactCompany.put(contactId, company.getString(1));
+            }
+        }
+        nickname.close();
+        company.close();
 
         while (contact.moveToNext()) {
             long contactId = contact.getLong(0);
@@ -101,6 +149,19 @@ class T9Search {
                 if (!contact.isNull(3)) {
                     contactInfo.photo = Uri.parse(contact.getString(3));
                 }
+
+                if (isT9Advanced()) {
+                    if (contactNicknames.containsKey(contactId) && contactNicknames.get(contactId) != null) {
+                        contactInfo.nickname = nameToNumber(contactNicknames.get(contactId));
+                        contactInfo.normalNickname = contactNicknames.get(contactId);
+                    }
+
+                    if (contactCompany.containsKey(contactId) && contactCompany.get(contactId) != null) {
+                        contactInfo.company = nameToNumber(contactCompany.get(contactId));
+                        contactInfo.normalCompany = contactCompany.get(contactId);
+                    }
+                }
+
                 mContacts.add(contactInfo);
                 if (!phone.moveToNext()) {
                     break;
@@ -109,6 +170,10 @@ class T9Search {
         }
         contact.close();
         phone.close();
+    }
+
+    private boolean isT9Advanced() {
+        return PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean("t9_state_advanced", false);
     }
 
     public static class T9SearchResult {
@@ -141,9 +206,15 @@ class T9Search {
         String number;
         String normalNumber;
         String normalName;
+        String nickname;
+        String normalNickname;
+        String company;
+        String normalCompany;
         int timesContacted;
         int nameMatchId;
         int numberMatchId;
+        int nicknameMatchId;
+        int companyMatchId;
         CharSequence groupType;
         long id;
         boolean isSuperPrimary;
@@ -152,6 +223,8 @@ class T9Search {
     public T9SearchResult search(String number) {
         mNameResults.clear();
         mNumberResults.clear();
+        mNicknameResults.clear();
+        mCompanyResults.clear();
         number = removeNonDigits(number);
         int pos = 0;
         mSortMode = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(mContext).getString("t9_sort", "1"));
@@ -160,6 +233,8 @@ class T9Search {
         for (ContactItem item : (newQuery ? mContacts : mAllResults)) {
             item.numberMatchId = -1;
             item.nameMatchId = -1;
+            item.nicknameMatchId = -1;
+            item.companyMatchId = -1;
             pos = item.normalNumber.indexOf(number);
             if (pos != -1) {
                 item.numberMatchId = pos;
@@ -174,20 +249,69 @@ class T9Search {
                 item.nameMatchId = pos - last_space;
                 mNameResults.add(item);
             }
+
+            if (isT9Advanced()) {
+                if (item.nickname != null) {
+                    pos = item.nickname.indexOf(number);
+                    if (pos != -1) {
+                        int last_space = item.nickname.lastIndexOf("0", pos);
+                        if (last_space == -1) {
+                            last_space = 0;
+                        }
+                        item.nicknameMatchId = pos - last_space;
+                        mNicknameResults.add(item);
+                    }
+                }
+
+                if (item.company != null) {
+                    pos = item.company.indexOf(number);
+                    if (pos != -1) {
+                        int last_space = item.company.lastIndexOf("0", pos);
+                        if (last_space == -1) {
+                            last_space = 0;
+                        }
+                        item.companyMatchId = pos - last_space;
+                        mCompanyResults.add(item);
+                    }
+                }
+            }
         }
         mAllResults.clear();
         mPrevInput = number;
         Collections.sort(mNumberResults, new NumberComparator());
         Collections.sort(mNameResults, new NameComparator());
-        if (mNameResults.size() > 0 || mNumberResults.size() > 0) {
+        Collections.sort(mNicknameResults, new NameComparator());
+        Collections.sort(mCompanyResults, new NameComparator());
+        if (
+                mNameResults.size() > 0 ||
+                mNumberResults.size() > 0 ||
+                mNicknameResults.size() > 0 ||
+                mCompanyResults.size() > 0
+            ) {
             switch (mSortMode) {
             case NAME_FIRST:
                 mAllResults.addAll(mNameResults);
+                mAllResults.addAll(mNicknameResults);
                 mAllResults.addAll(mNumberResults);
+                mAllResults.addAll(mCompanyResults);
                 break;
             case NUMBER_FIRST:
                 mAllResults.addAll(mNumberResults);
                 mAllResults.addAll(mNameResults);
+                mAllResults.addAll(mNicknameResults);
+                mAllResults.addAll(mCompanyResults);
+                break;
+            case NICKNAME_FIRST:
+                mAllResults.addAll(mNicknameResults);
+                mAllResults.addAll(mNameResults);
+                mAllResults.addAll(mNumberResults);
+                mAllResults.addAll(mCompanyResults);
+                break;
+            case COMPANY_FIRST:
+                mAllResults.addAll(mCompanyResults);
+                mAllResults.addAll(mNameResults);
+                mAllResults.addAll(mNicknameResults);
+                mAllResults.addAll(mNumberResults);
             }
             return new T9SearchResult(new ArrayList<ContactItem>(mAllResults), mContext);
         }
@@ -315,6 +439,28 @@ class T9Search {
                     s.setSpan(new ForegroundColorSpan(mContext.getResources().getColor(android.R.color.holo_blue_dark)),
                             numberStart, numberStart + mPrevInput.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
                     holder.number.setText(s);
+                }
+                if (o.nicknameMatchId != -1) {
+                    int offset = holder.name.getText().toString().length() + 2;
+                    holder.name.append(" (" + o.normalNickname + ")");
+                    Spannable s = (Spannable) holder.name.getText();
+                    int nicknameStart = o.nicknameMatchId + offset;
+                    if (nicknameStart != -1) {
+                        s.setSpan(new ForegroundColorSpan(mContext.getResources().getColor(android.R.color.holo_blue_dark)),
+                                nicknameStart, nicknameStart + mPrevInput.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+                        holder.name.setText(s);
+                    }
+                }
+                if (o.companyMatchId != -1) {
+                    int offset = holder.name.getText().toString().length() + 2;
+                    holder.name.append(" (" + o.normalCompany + ")");
+                    Spannable s = (Spannable) holder.name.getText();
+                    int companyStart = o.companyMatchId + offset;
+                    if (companyStart != -1) {
+                        s.setSpan(new ForegroundColorSpan(mContext.getResources().getColor(android.R.color.holo_blue_dark)),
+                                companyStart, companyStart + mPrevInput.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+                        holder.name.setText(s);
+                    }
                 }
                 if (o.photo != null)
                     mPhotoLoader.loadDirectoryPhoto(holder.icon, o.photo, true);
