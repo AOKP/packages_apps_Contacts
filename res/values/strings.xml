@@ -606,6 +606,9 @@
     <!-- Description for incoming calls going to voice mail vs. not -->
     <string name="actionIncomingCall">Incoming calls</string>
 
+    <!-- Description for unknown call types -->
+    <string name="type_unknown">Unknown call</string>
+
     <!-- Action string for calling back a number in the call log -->
     <string name="callBack">Call back</string>
 

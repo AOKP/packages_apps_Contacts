@@ -86,7 +86,7 @@ public class CallTypeIconsView extends View {
             case Calls.VOICEMAIL_TYPE:
                 return mResources.voicemail;
             default:
-                throw new IllegalArgumentException("invalid call type: " + callType);
+                return mResources.unknown;
         }
     }
 
@@ -112,6 +112,7 @@ public class CallTypeIconsView extends View {
         public final Drawable outgoing;
         public final Drawable missed;
         public final Drawable voicemail;
+        public final Drawable unknown;
         public final int iconMargin;
 
         public Resources(Context context) {
@@ -120,6 +121,7 @@ public class CallTypeIconsView extends View {
             outgoing = r.getDrawable(R.drawable.ic_call_outgoing_holo_dark);
             missed = r.getDrawable(R.drawable.ic_call_missed_holo_dark);
             voicemail = r.getDrawable(R.drawable.ic_call_voicemail_holo_dark);
+            unknown = r.getDrawable(R.drawable.ic_call_unknown_holo_dark);
             iconMargin = r.getDimensionPixelSize(R.dimen.call_log_icon_margin);
         }
     }

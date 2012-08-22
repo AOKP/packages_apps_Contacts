@@ -33,6 +33,8 @@ public class CallTypeHelper {
     private final CharSequence mMissedName;
     /** Name used to identify voicemail calls. */
     private final CharSequence mVoicemailName;
+    /** Name used to identify unknown call types */
+    private final CharSequence mUnknownName;
     /** Color used to identify new missed calls. */
     private final int mNewMissedColor;
     /** Color used to identify new voicemail calls. */
@@ -44,6 +46,7 @@ public class CallTypeHelper {
         mOutgoingName = resources.getString(R.string.type_outgoing);
         mMissedName = resources.getString(R.string.type_missed);
         mVoicemailName = resources.getString(R.string.type_voicemail);
+        mUnknownName = resources.getString(R.string.type_unknown);
         mNewMissedColor = resources.getColor(R.color.call_log_missed_call_highlight_color);
         mNewVoicemailColor = resources.getColor(R.color.call_log_voicemail_highlight_color);
     }
@@ -64,7 +67,7 @@ public class CallTypeHelper {
                 return mVoicemailName;
 
             default:
-                throw new IllegalArgumentException("invalid call type: " + callType);
+                return mUnknownName;
         }
     }
 
@@ -86,7 +89,7 @@ public class CallTypeHelper {
                 return mNewVoicemailColor;
 
             default:
-                throw new IllegalArgumentException("invalid call type: " + callType);
+                return mNewMissedColor;
         }
     }
 }
