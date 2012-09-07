@@ -46,7 +46,7 @@
             android:layout_height="@dimen/detail_tab_carousel_tab_label_height"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
-            android:background="#7F000000" />
+            android:background="@color/detail_tab_carousel_tab_label_Background_color" />
 
         <View
             android:id="@+id/alpha_overlay"

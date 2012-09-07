@@ -18,7 +18,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00000000">
+    android:background="@color/social_widget_bg">
     <LinearLayout
         android:id="@+id/widget_container"
         android:orientation="horizontal"
@@ -56,14 +56,14 @@
                 android:layout_alignParentTop="true"
                 android:maxLines="3"
                 android:lineSpacingExtra="2sp"
-                android:textColor="#FFFFFFFF"
+                android:textColor="@color/white_text"
                 android:textSize="@dimen/widget_text_size_snippet" />
             <TextView
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:textColor="#FFFFFFFF"
+                android:textColor="@color/white_text"
                 android:textSize="@dimen/widget_text_size_name" />
         </RelativeLayout>
     </LinearLayout>
