@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dip"
             android:layout_alignParentTop="true"
-            android:background="#4CFFFFFF" />
+            android:background="@color/photo_container" />
         <View
             android:id="@+id/photo_text_bar"
             android:layout_width="0dip"
@@ -37,7 +37,7 @@
             android:layout_alignBottom="@id/photo"
             android:layout_alignLeft="@id/photo"
             android:layout_alignRight="@id/photo"
-            android:background="#7F000000" />
+            android:background="@color/call_detail_photo_bg" />
         <ImageButton
             android:id="@+id/open_details_button"
             android:src="@drawable/ic_contacts_holo_dark"
@@ -59,7 +59,7 @@
             android:paddingLeft="8dip"
             android:singleLine="true"
             android:ellipsize="end"
-            android:textColor="@android:color/white"
+            android:textColor="@color/white_text"
             android:textAppearance="?android:attr/textAppearanceMedium" />
         <ImageButton
             android:id="@+id/open_details_push_layer"
