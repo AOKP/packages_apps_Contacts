@@ -566,12 +566,17 @@
     <string name="t9_sort_summary">Jak filtrovat výsledky hledání</string>
     <string name="t9_sort_name">Nejdříve podle jména</string>
     <string name="t9_sort_number">Nejdříve podle čísla</string>
+    <string name="t9_sort_nickname">Nejdříve podle přezdívky</string>
+    <string name="t9_sort_company">Nejdříve podle společnosti</string>
     <string name="t9_state_title">Zapnout T9 číselník</string>
     <string name="t9_state_summary">Zapnout hledání v číselníku pomocí T9</string>
+    <string name="t9_state_advanced_title">Zapnout pokročíle vyhledávání T9</string>
+    <string name="t9_state_advanced_summary">Zapnout T9 vyhledávání pro přezdívku a společnost (může být pomalé, vyžaduje restart DialPadu)</string>
     <string name="t9_dial_click_title">Volat zvolenému kontaktu</string>
     <string name="t9_dial_click_summary">Volat zvolenému kontaktu z T9 hledání</string>
     <string name="t9_add_to_contacts">Přidat do kontaktů</string>
     <string name="dialer_ui_title">Nastavení volání</string>
     <string name="dialer_ui_orientation_title">Zapnout ottáčení obrazovky</string>
     <string name="dialer_ui_orientation_summary">Otáčet obrazovku podle senzoru</string>
+    <string name="menu_set_vib_ration">Nastavit vibrační vzor</string>
 </resources>
