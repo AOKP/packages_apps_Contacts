@@ -22,8 +22,12 @@
     <string name="t9_sort_summary">选择如何过滤T9结果</string>
     <string name="t9_sort_name">姓名匹配优先</string>
     <string name="t9_sort_number">号码匹配优先</string>
+    <string name="t9_sort_nickname">昵称匹配优先</string>
+    <string name="t9_sort_company">公司匹配优先</string>
     <string name="t9_state_title">开启T9拨号</string>
     <string name="t9_state_summary">在拨号界面开启T9搜索</string>
+    <string name="t9_state_advanced_title">启用高级T9搜索 </string>
+    <string name="t9_state_advanced_summary">启用对昵称和公司的T9搜索（可能会慢，需重启拨号程序）</string>
     <string name="t9_dial_click_title">拨打选中的联系人</string>
     <string name="t9_dial_click_summary">在T9中拨打选中的联系人</string>
     <string name="t9_add_to_contacts">添加到联系人</string>
@@ -74,6 +78,7 @@
     <string name="separatorJoinAggregateAll" msgid="7939932265026181043">"所有联系人"</string>
     <string name="contactsJoinedMessage" msgid="7208148163607047389">"已合并联系人"</string>
     <string name="menu_set_ring_tone" msgid="8728345772068064946">"设置铃声"</string>
+    <string name="menu_set_vib_ration">设置振动效果</string>
     <string name="menu_redirect_calls_to_vm" msgid="4181789196416396656">"所有来电转至语音信箱"</string>
     <string name="readOnlyContactWarning" msgid="7808825687289848259">"您无法删除只读帐户中的联系人，但可以在联系人列表中将他们隐藏。"</string>
     <string name="readOnlyContactDeleteConfirmation" msgid="2137170726670196909">"该联系人的信息中包含来自多个帐户的信息。来自只读帐户的信息将在您的联系人列表中隐藏，但不会删除。"</string>
@@ -197,6 +202,7 @@
     <string name="type_missed" msgid="2720502601640509542">"未接电话"</string>
     <string name="type_voicemail" msgid="5153139450668549908">"语音信箱"</string>
     <string name="actionIncomingCall" msgid="6028930669817038600">"来电"</string>
+    <string name="type_unknown">未知来电</string>
     <string name="callBack" msgid="5498224409038809224">"回电"</string>
     <string name="callAgain" msgid="3197312117049874778">"重拨"</string>
     <string name="returnCall" msgid="8171961914203617813">"回拨"</string>
@@ -421,6 +427,9 @@
     <string name="display_options_view_names_as" msgid="18022868169627979">"联系人姓名的显示方式"</string>
     <string name="display_options_view_given_name_first" msgid="6968288511197363292">"名字在前"</string>
     <string name="display_options_view_family_name_first" msgid="1447288164951453714">"姓氏在前"</string>
+    <string name="display_options_view_mode">列表显示模式</string>
+    <string name="display_options_view_mode_standard">标准视图</string>
+    <string name="display_options_view_mode_compact">简洁视图</string>
     <string name="take_photo" msgid="7496128293167402354">"拍照"</string>
     <string name="take_new_photo" msgid="7341354729436576304">"拍摄新照片"</string>
     <string name="pick_photo" msgid="3746334626214970837">"从图库中选择照片"</string>
