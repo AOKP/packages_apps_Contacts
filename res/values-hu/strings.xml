@@ -571,7 +571,11 @@
     <string name="t9_sort_number">Először a telefonszámok</string>
     <string name="t9_state_title">T9 tárcsázó engedélyezése</string>
     <string name="t9_state_summary">T9 tárcsázó általi keresés engedélyezése</string>
+    <string name="t9_state_advanced_title">Haladó T9 keresés engedélyezése</string>
+    <string name="t9_state_advanced_summary">Haladó T9 engedélyezése a tárcsázóban becenév és vállalat alapján (lassabb lehet, tárcsázó újraindítása szükséges)</string>
     <string name="t9_dial_click_title">Kijelölt személy tárcsázása</string>
     <string name="t9_dial_click_summary">Tárcsázza a T9 tárcsázó által megtalált személyt</string>
     <string name="t9_add_to_contacts">Hozzáadás a névjegyekhez</string>
+    <string name="menu_set_vib_ration">Rezgés</string>
+
 </resources>
