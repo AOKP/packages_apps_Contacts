@@ -211,7 +211,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@color/call_detail_background"
+        android:background="@color/call_detail_blank_background"
         android:visibility="gone"
         android:clickable="true"
     />
