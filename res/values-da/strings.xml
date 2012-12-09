@@ -568,4 +568,15 @@
     <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"Hvis du vil ringe til telefonsvareren, skal du først slå Flytilstand fra."</string>
     <string name="menu_export_database" msgid="2659719297530170820">"Eksportér databasefiler"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"Flere valgmuligheder"</string>
+
+    <string name="t9_loading">Indlæser\u2026</string>
+    <string name="t9_sort_title">T9 sortering tilstand</string>
+    <string name="t9_sort_summary">Vælg filtrering af T9 resultater</string>
+    <string name="t9_sort_name">Navne match først</string>
+    <string name="t9_sort_number">Nummer match først</string>
+    <string name="t9_state_title">Aktiver T9 nummerblok</string>
+    <string name="t9_state_summary">Aktiver T9 søgning i nummerblok</string>
+    <string name="t9_dial_click_title">Ring til valgte kontakt</string>
+    <string name="t9_dial_click_summary">Ring til den valgte kontakt for T9</string>
+    <string name="t9_add_to_contacts">Tilføj til kontakter</string>
 </resources>
