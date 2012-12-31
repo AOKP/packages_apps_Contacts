@@ -75,6 +75,7 @@
     <string name="separatorJoinAggregateAll" msgid="7939932265026181043">"所有联系人"</string>
     <string name="contactsJoinedMessage" msgid="7208148163607047389">"已合并联系人"</string>
     <string name="menu_set_ring_tone" msgid="8728345772068064946">"设置铃声"</string>
+    <string name="menu_set_vib_ration">设置振动效果</string>
     <string name="menu_redirect_calls_to_vm" msgid="4181789196416396656">"所有来电转至语音信箱"</string>
     <string name="readOnlyContactWarning" msgid="7808825687289848259">"您无法删除只读帐户中的联系人，但可以在联系人列表中将他们隐藏。"</string>
     <string name="readOnlyContactDeleteConfirmation" msgid="2137170726670196909">"该联系人的信息中包含来自多个帐户的信息。来自只读帐户的信息将在您的联系人列表中隐藏，但不会删除。"</string>
