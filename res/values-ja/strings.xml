@@ -18,6 +18,18 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="launcherDialer" msgid="8636288196618486553">"電話"</string>
     <string name="people" msgid="1048457247435785074">"連絡帳"</string>
+
+    <string name="t9_loading">読み込み中\u2026</string>
+    <string name="t9_sort_title">T9表示順</string>
+    <string name="t9_sort_summary">T9検索結果の表示順を設定する</string>
+    <string name="t9_sort_name">名前順</string>
+    <string name="t9_sort_number">通話回数順</string>
+    <string name="t9_state_title">T9検索を有効</string>
+    <string name="t9_state_summary">T9検索を有効にする</string>
+    <string name="t9_dial_click_title">T9検索結果タップで発信</string>
+    <string name="t9_dial_click_summary">T9検索結果をタップするだけで発信する</string>
+    <string name="t9_add_to_contacts">連絡先に追加</string>
+
     <string name="contactsList" msgid="8661624236494819731">"連絡先"</string>
     <string name="shortcutContact" msgid="749243779392912958">"連絡先"</string>
     <string name="shortcutDialContact" msgid="746622101599186779">"直接発信"</string>
@@ -138,6 +150,11 @@
     <string name="contactsGroupsLabel" msgid="2841971472518003524">"グループ"</string>
     <string name="contactsFavoritesLabel" msgid="8417039765586853670">"お気入り"</string>
     <string name="dialerIconLabel" msgid="6500826552823403796">"電話"</string>
+
+    <string name="dialer_ui_title">ダイヤルパッド設定</string>
+    <string name="dialer_ui_orientation_title">画面回転</string>
+    <string name="dialer_ui_orientation_summary">ダイヤルパッド画面の自動回転を有効にする</string>
+
     <string name="recentCallsIconLabel" msgid="1419116422359067949">"通話履歴"</string>
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"SMSを送信"</string>
     <string name="recentCalls_callNumber" msgid="1756372533999226126">"<xliff:g id="NAME">%s</xliff:g>に発信"</string>
