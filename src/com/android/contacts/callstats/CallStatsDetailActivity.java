@@ -77,8 +77,7 @@ public class CallStatsDetailActivity extends Activity {
         }
 
         protected void onPostExecute(ContactInfo info) {
-            mData.contactUri = info.lookupUri;
-            mData.photoUri = info.photoUri;
+            mData.updateFromInfo(info);
             updateData();
         }
     }
@@ -127,7 +126,7 @@ public class CallStatsDetailActivity extends Activity {
     @Override
     public void onResume() {
         super.onResume();
-        new UpdateContactTask().execute((String) mData.number, mData.countryIso);
+        new UpdateContactTask().execute(mData.number.toString(), mData.countryIso);
     }
 
     @Override
@@ -145,9 +144,8 @@ public class CallStatsDetailActivity extends Activity {
         // Set the details header, based on the first phone call.
         mCallStatsDetailHelper.setCallStatsDetailHeader(mHeaderTextView, mData);
         mCallDetailHeader.updateViews(mNumber, mData);
-
-        invalidateOptionsMenu();
         mCallDetailHeader.loadContactPhotos(mData.photoUri);
+        invalidateOptionsMenu();
 
         mPieChart.setOriginAngle(240);
         mPieChart.removeAllSlices();

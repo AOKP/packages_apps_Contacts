@@ -1900,6 +1900,15 @@ connection to the voicemail server is lost. [CHAR LIMIT=64] -->
     <string name="call_stats_filter_to">End date</string>
     <string name="call_stats_filter_picker_title">Filter range</string>
 
+    <string name="date_quick_selection">Quick selection</string>
+    <string name="date_qs_currentmonth">Current month</string>
+    <string name="date_qs_currentquarter">Current quarter</string>
+    <string name="date_qs_currentyear">Current year</string>
+    <string name="date_qs_lastweek">Last week</string>
+    <string name="date_qs_lastmonth">Last month</string>
+    <string name="date_qs_lastquarter">Last quarter</string>
+    <string name="date_qs_lastyear">Last year</string>
+
     <string name="call_stats_date_filter">Adjust time range</string>
     <string name="call_stats_reset_filter">Reset time range</string>
     <string name="call_stats_sort_by_duration">Sort by call duration</string>

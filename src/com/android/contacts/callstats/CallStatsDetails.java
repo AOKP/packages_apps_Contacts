@@ -49,7 +49,7 @@ public class CallStatsDetails implements CallDetailHeader.Data, Parcelable {
 
     public CallStatsDetails(CharSequence number, ContactInfo info,
             String countryIso, String geocode, long date) {
-        this.number = number.toString();
+        this.number = number != null ? number.toString() : null;
         this.countryIso = countryIso;
         this.geocode = geocode;
         this.date = date;
@@ -57,7 +57,9 @@ public class CallStatsDetails implements CallDetailHeader.Data, Parcelable {
         this.inDuration = this.outDuration = 0;
         this.incomingCount = this.outgoingCount = this.missedCount = 0;
 
-        updateFromInfo(info);
+        if (info != null) {
+            updateFromInfo(info);
+        }
     }
 
     @Override

@@ -602,6 +602,16 @@
     <string name="call_stats_reset_filter">Datumsbereich zurücksetzen</string>
     <string name="call_stats_sort_by_duration">Nach Anrufdauer sortieren</string>
     <string name="call_stats_sort_by_count">Nach Anrufanzahl sortieren</string>
+
+    <string name="date_quick_selection">Schnellauswahl</string>
+    <string name="date_qs_currentmonth">Aktueller Monat</string>
+    <string name="date_qs_currentquarter">Aktuelles Quartal</string>
+    <string name="date_qs_currentyear">Aktuelles Jahr</string>
+    <string name="date_qs_lastweek">Letzte Woche</string>
+    <string name="date_qs_lastmonth">Letzter Monat</string>
+    <string name="date_qs_lastquarter">Letztes Quartal</string>
+    <string name="date_qs_lastyear">Letztes Jahr</string>
+
     <plurals name="call">
         <item quantity="one">1 Anruf</item>
         <item quantity="other">%d Anrufe</item>

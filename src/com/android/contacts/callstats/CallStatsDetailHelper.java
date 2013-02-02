@@ -18,7 +18,6 @@
 package com.android.contacts.callstats;
 
 import android.content.res.Resources;
-import android.content.Context;
 import android.provider.CallLog.Calls;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.telephony.PhoneNumberUtils;
@@ -43,8 +42,8 @@ public class CallStatsDetailHelper {
     }
 
     public void setCallStatsDetails(CallStatsDetailViews views,
-            CallStatsDetails details, int type, boolean byDuration,
-            float percent, float ratio) {
+            CallStatsDetails details, CallStatsDetails first, CallStatsDetails total,
+            int type, boolean byDuration) {
 
         CharSequence numberFormattedLabel = null;
         // Only show a label if the number is shown and it is not a SIP address.
@@ -76,23 +75,20 @@ public class CallStatsDetailHelper {
         }
 
         float in = 0, out = 0, missed = 0;
-        float full = byDuration ? details.getFullDuration() : details.getTotalCount();
+        float ratio = getDetailValue(details, type, byDuration) /
+                      getDetailValue(first, type, byDuration);
 
         if (type == CallStatsQueryHandler.CALL_TYPE_ALL) {
-            in = byDuration
-                    ? details.getRequestedDuration(Calls.INCOMING_TYPE) * ratio / full
-                    : details.getRequestedCount(Calls.INCOMING_TYPE) * ratio / full;
-            out = byDuration
-                    ? details.getRequestedDuration(Calls.OUTGOING_TYPE) * ratio / full
-                    : details.getRequestedCount(Calls.OUTGOING_TYPE) * ratio / full;
+            float full = getDetailValue(details, type, byDuration);
+            in = getDetailValue(details, Calls.INCOMING_TYPE, byDuration) * ratio / full;
+            out = getDetailValue(details, Calls.OUTGOING_TYPE, byDuration) * ratio / full;
+            if (!byDuration) {
+                missed = getDetailValue(details, Calls.MISSED_TYPE, byDuration) * ratio / full;
+            }
         } else if (type == Calls.INCOMING_TYPE) {
             in = ratio;
         } else if (type == Calls.OUTGOING_TYPE) {
             out = ratio;
-        }
-
-        if (!byDuration) {
-            missed = details.getRequestedCount(Calls.MISSED_TYPE) * ratio / full;
         } else if (type == Calls.MISSED_TYPE) {
             missed = ratio;
         }
@@ -101,21 +97,30 @@ public class CallStatsDetailHelper {
         views.nameView.setText(nameText);
         views.numberView.setText(numberText);
         views.labelView.setText(labelText);
-        views.labelView.setVisibility(
-                TextUtils.isEmpty(labelText) ? View.GONE : View.VISIBLE);
+        views.labelView.setVisibility(TextUtils.isEmpty(labelText) ? View.GONE : View.VISIBLE);
 
         if (byDuration && type == Calls.MISSED_TYPE) {
             views.percentView.setText(getCallCountString(mResources, details.missedCount));
         } else {
+            float percent = getDetailValue(details, type, byDuration) * 100F /
+                            getDetailValue(total, type, byDuration);
             views.percentView.setText(String.format("%.1f%%", percent));
+        }
+    }
+
+    private float getDetailValue(CallStatsDetails details, int type, boolean byDuration) {
+        if (byDuration) {
+            return (float) details.getRequestedDuration(type);
+        } else {
+            return (float) details.getRequestedCount(type);
         }
     }
 
     public void setCallStatsDetailHeader(TextView nameView, CallStatsDetails details) {
         final CharSequence nameText;
         final CharSequence displayNumber = mPhoneNumberHelper.getDisplayNumber(
-                details.number,
-                mResources.getString(R.string.recentCalls_addToContact));
+                details.number, mResources.getString(R.string.recentCalls_addToContact));
+
         if (TextUtils.isEmpty(details.name)) {
             nameText = displayNumber;
         } else {
