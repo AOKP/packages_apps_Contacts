@@ -77,6 +77,7 @@
     <string name="separatorJoinAggregateAll" msgid="7939932265026181043">"すべての連絡先"</string>
     <string name="contactsJoinedMessage" msgid="7208148163607047389">"連絡先を結合しました"</string>
     <string name="menu_set_ring_tone" msgid="8728345772068064946">"着信音を設定"</string>
+    <string name="menu_set_vib_ration">バイブを設定</string>
     <string name="menu_redirect_calls_to_vm" msgid="4181789196416396656">"すべての通話をボイスメールへ"</string>
     <string name="readOnlyContactWarning" msgid="7808825687289848259">"読み取り専用アカウントの連絡先は削除できません。ただし、連絡先リストで非表示にすることができます。"</string>
     <string name="readOnlyContactDeleteConfirmation" msgid="2137170726670196909">"この連絡先には、複数のアカウント情報が含まれています。読み取り専用アカウントの情報を連絡先リストで非表示にすることはできますが、削除はできません。"</string>
@@ -196,6 +197,7 @@
     <string name="dialer_returnToInCallScreen" msgid="3719386377550913067">"保留中の通話に戻る"</string>
     <string name="dialer_addAnotherCall" msgid="4205688819890074468">"別の通話を追加"</string>
     <string name="callDetailTitle" msgid="5340227785196217938">"通話詳細"</string>
+    <string name="callStatsDetailTitle">通話統計詳細</string>
     <string name="toast_call_detail_error" msgid="7200975244804730096">"通話要求の詳細が読み込めませんでした。"</string>
     <string name="type_incoming" msgid="6502076603836088532">"通話着信"</string>
     <string name="type_outgoing" msgid="343108709599392641">"発信履歴"</string>
@@ -297,6 +299,10 @@
     <string name="add_wait" msgid="3360818652790319634">"待機を追加"</string>
     <string name="call_disambig_title" msgid="4392886850104795739">"番号を選択"</string>
     <string name="call_settings" msgid="7666474782093693667">"設定"</string>
+
+    <string name="call_stats">通話統計</string>
+    <string name="call_stats_refresh">更新</string>
+
     <string name="sms_disambig_title" msgid="5846266399240630846">"番号を選択"</string>
     <string name="make_primary" msgid="5829291915305113983">"この選択を保存"</string>
     <string name="quickcontact_missing_app" msgid="358168575340921552">"この操作を行うアプリが見つかりませんでした。"</string>
@@ -472,6 +478,7 @@
     <string name="custom_list_filter" msgid="7836035257402013957">"カスタム表示の設定"</string>
     <string name="contact_list_loading" msgid="5488620820563977329">"読み込んでいます..."</string>
     <string name="activity_title_settings" msgid="5464130076132770781">"設定"</string>
+    <string name="activity_title_call_stats">通話統計</string>
     <string name="activity_title_contacts_filter" msgid="8275542497615516969">"表示する連絡先"</string>
     <string name="menu_settings" msgid="377929915873428211">"設定"</string>
     <string name="menu_help" msgid="5123887102216637725">"ヘルプ"</string>
@@ -585,4 +592,18 @@
     <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"機内モードをOFFにしてからボイスメールを呼び出してください。"</string>
     <string name="menu_export_database" msgid="2659719297530170820">"データベースファイルをエクスポート"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"その他のオプション"</string>
+
+    <string name="call_stats_nav_all">全て</string>
+    <string name="call_stats_nav_incoming">着信</string>
+    <string name="call_stats_nav_outgoing">発信</string>
+    <string name="call_stats_nav_missed">不在着信</string>
+    <string name="call_stats_header_total">合計:</string>
+    <string name="call_stats_filter_from">開始日</string>
+    <string name="call_stats_filter_to">終了日</string>
+    <string name="call_stats_date_filter">日付フィルタ</string>
+    <string name="call_stats_filter_picker_title">フィルタ範囲</string>
+    <string name="call_stats_filter_picker_done">適用</string>
+    <string name="call_stats_filter_picker_reset">リセット</string>
+    <string name="call_stats_filter_error">開始日が終了日より後のためフィルタを無視します</string>
+
 </resources>
