@@ -16,6 +16,7 @@
 -->
 
 <view xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ex="http://schemas.android.com/apk/res/com.android.contacts"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     class="com.android.contacts.callstats.CallStatsListItemView"
@@ -61,7 +62,7 @@
             android:textColor="@color/call_log_secondary_text_color"
             android:textSize="14sp" />
 
-        <view
+        <com.android.contacts.callstats.LinearColorBar
             android:id="@+id/percent_bar"
             android:layout_height="10dp"
             android:layout_columnSpan="2"
@@ -69,11 +70,13 @@
             android:layout_marginBottom="@dimen/call_log_icon_margin"
             android:layout_marginLeft="@dimen/call_log_inner_margin"
             android:layout_marginTop="@dimen/call_log_icon_margin"
-            class="com.android.contacts.callstats.LinearColorBar"
             android:orientation="horizontal"
             android:paddingEnd="4dp"
-            android:paddingStart="4dp" >
-        </view>
+            android:paddingStart="4dp"
+            ex:backgroundColor="@color/call_stats_bar_background"
+            ex:blueColor="@color/call_stats_incoming"
+            ex:greenColor="@color/call_stats_outgoing"
+            ex:redColor="@color/call_stats_missed" />
 
         <LinearLayout
             android:layout_width="wrap_content"

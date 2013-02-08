@@ -18,6 +18,8 @@
 package com.android.contacts.callstats;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -26,6 +28,7 @@ import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.DatePicker.OnDateChangedListener;
 
@@ -47,6 +50,43 @@ public class DoubleDatePickerDialog extends AlertDialog
         void onDateSet(long from, long to);
     }
 
+    public static class Fragment extends DialogFragment implements OnDateSetListener {
+        private DoubleDatePickerDialog mDialog;
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            mDialog = new DoubleDatePickerDialog(getActivity(), this);
+            return mDialog;
+        }
+
+        @Override
+        public void onStart() {
+            final Bundle args = getArguments();
+            final long from = args.getLong("from", -1);
+            final long to = args.getLong("to", -1);
+
+            if (from != -1) {
+                mDialog.setValues(from, to);
+            } else {
+                mDialog.resetPickers();
+            }
+            super.onStart();
+        }
+
+        @Override
+        public void onDateSet(long from, long to) {
+            ((DoubleDatePickerDialog.OnDateSetListener) getActivity()).onDateSet(from, to);
+        }
+
+        public static Bundle createArguments(long from, long to) {
+            final Bundle args = new Bundle();
+            args.putLong("from", from);
+            args.putLong("to", to);
+            return args;
+        }
+    }
+
+
     private static final String YEAR = "year";
     private static final String MONTH = "month";
     private static final String DAY = "day";
@@ -54,42 +94,34 @@ public class DoubleDatePickerDialog extends AlertDialog
     private final DatePicker mDatePickerFrom;
     private final DatePicker mDatePickerTo;
     private final OnDateSetListener mCallBack;
-    private final Calendar mCalendar;
-    private Calendar fromCalendar;
-    private Calendar toCalendar;
+    private Button mOkButton;
 
     public DoubleDatePickerDialog(Context context,
             OnDateSetListener callBack) {
-        super(context, 2);
+        super(context);
 
         mCallBack = callBack;
 
-        mCalendar = Calendar.getInstance();
-        fromCalendar = Calendar.getInstance();
-        toCalendar = Calendar.getInstance();
-
-        int year = mCalendar.get(Calendar.YEAR);
-        int month = mCalendar.get(Calendar.MONTH);
-        int day = mCalendar.get(Calendar.DAY_OF_MONTH);
-
         setTitle(R.string.call_stats_filter_picker_title);
-        setButton(BUTTON_NEGATIVE,
-                context.getResources().getString(R.string.call_stats_filter_picker_reset),
-                this);
-        setButton(BUTTON_POSITIVE,
-                context.getResources().getString(R.string.call_stats_filter_picker_done),
-                this);
+        setButton(BUTTON_NEGATIVE, context.getString(android.R.string.cancel), this);
+        setButton(BUTTON_POSITIVE, context.getString(android.R.string.ok), this);
         setIcon(0);
 
         LayoutInflater inflater =
                 (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.double_date_picker_dialog, null);
         setView(view);
-        mDatePickerFrom = (DatePicker) view.findViewById(R.id.datePickerFrom);
-        mDatePickerFrom.init(year, month, day, this);
 
+        mDatePickerFrom = (DatePicker) view.findViewById(R.id.datePickerFrom);
         mDatePickerTo = (DatePicker) view.findViewById(R.id.datePickerTo);
-        mDatePickerTo.init(year, month, day, this);
+        resetPickers();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mOkButton = getButton(DialogInterface.BUTTON_POSITIVE);
+        updateOkButtonState();
     }
 
     @Override
@@ -99,8 +131,6 @@ public class DoubleDatePickerDialog extends AlertDialog
                 tryNotifyDateSet();
                 break;
             case BUTTON_NEGATIVE:
-                resetPickers();
-                mCallBack.onDateSet(-1, -1);
                 break;
         }
     }
@@ -108,40 +138,68 @@ public class DoubleDatePickerDialog extends AlertDialog
     public void onDateChanged(DatePicker view, int year,
             int month, int day) {
         view.init(year, month, day, this);
+        updateOkButtonState();
+    }
+
+    public void setValues(long millisFrom, long millisTo) {
+        setPicker(mDatePickerFrom, millisFrom);
+        setPicker(mDatePickerTo, millisTo);
+        updateOkButtonState();
     }
 
     public void resetPickers() {
-        mCalendar.setTimeInMillis(System.currentTimeMillis());
-        int year = mCalendar.get(Calendar.YEAR);
-        int month = mCalendar.get(Calendar.MONTH);
-        int day = mCalendar.get(Calendar.DAY_OF_MONTH);
-        mDatePickerTo.init(year, month, day, this);
-        mDatePickerFrom.init(year, month, day, this);
+        long millis = System.currentTimeMillis();
+        setPicker(mDatePickerFrom, millis);
+        setPicker(mDatePickerTo, millis);
+        updateOkButtonState();
+    }
+
+    private void setPicker(DatePicker picker, long millis) {
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis(millis);
+
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+
+        picker.init(year, month, day, this);
+    }
+
+    private long getMillisForPicker(DatePicker picker, boolean endOfDay) {
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.YEAR, picker.getYear());
+        c.set(Calendar.MONTH, picker.getMonth());
+        c.set(Calendar.DAY_OF_MONTH, picker.getDayOfMonth());
+        c.set(Calendar.HOUR_OF_DAY, 0);
+        c.set(Calendar.MINUTE, 0);
+        c.set(Calendar.SECOND, 0);
+
+        long millis = c.getTimeInMillis();
+        if (endOfDay) {
+            millis += 24L * 60L * 60L * 1000L - 1L;
+        }
+
+        return millis;
+    }
+
+    private void updateOkButtonState() {
+        if (mOkButton != null) {
+            long millisFrom = getMillisForPicker(mDatePickerFrom, false);
+            long millisTo = getMillisForPicker(mDatePickerTo, true);
+            mOkButton.setEnabled(millisFrom < millisTo);
+        }
     }
 
     private void tryNotifyDateSet() {
         if (mCallBack != null) {
             mDatePickerFrom.clearFocus();
             mDatePickerTo.clearFocus();
-            fromCalendar.set(Calendar.YEAR, mDatePickerFrom.getYear());
-            fromCalendar.set(Calendar.MONTH, mDatePickerFrom.getMonth());
-            fromCalendar.set(Calendar.DAY_OF_MONTH, mDatePickerFrom.getDayOfMonth());
-            toCalendar.set(Calendar.YEAR, mDatePickerTo.getYear());
-            toCalendar.set(Calendar.MONTH, mDatePickerTo.getMonth());
-            toCalendar.set(Calendar.DAY_OF_MONTH, mDatePickerTo.getDayOfMonth());
-            setTimes();
-            mCallBack.onDateSet(fromCalendar.getTimeInMillis(), toCalendar.getTimeInMillis());
-        }
-    }
 
-    // to avoid ignoring calls for a simple day
-    private void setTimes() {
-        fromCalendar.set(Calendar.HOUR_OF_DAY, 0);
-        fromCalendar.set(Calendar.MINUTE, 0);
-        fromCalendar.set(Calendar.SECOND, 0);
-        toCalendar.set(Calendar.HOUR_OF_DAY, 23);
-        toCalendar.set(Calendar.MINUTE, 59);
-        toCalendar.set(Calendar.SECOND, 59);
+            long millisFrom = getMillisForPicker(mDatePickerFrom, false);
+            long millisTo = getMillisForPicker(mDatePickerTo, true);
+
+            mCallBack.onDateSet(millisFrom, millisTo);
+        }
     }
 
     // users like to play with it, so save the state and don't reset each time

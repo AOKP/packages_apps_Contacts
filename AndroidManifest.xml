@@ -670,7 +670,7 @@
                 android:icon="@mipmap/ic_launcher_phone"
                 android:label="@string/activity_title_call_stats"
                 android:configChanges="orientation|screenSize|keyboardHidden"
-                android:theme="@android:style/Theme.Holo.DialogWhenLarge">
+                android:theme="@style/CallStatsActivityTheme">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />

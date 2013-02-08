@@ -18,6 +18,7 @@
 package com.android.contacts.callstats;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
@@ -28,18 +29,17 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.widget.LinearLayout;
 
-public class LinearColorBar extends LinearLayout {
-    static int BLUE_COLOR = 0xff33b5e5;
-    static int GREEN_COLOR = 0xff99cc00;
-    static int BG_COLOR = 0x88888888;
-    static int RED_COLOR = 0xffff4444;
+import com.android.contacts.R;
 
+public class LinearColorBar extends LinearLayout {
     private float mFirstRatio;
     private float mSecondRatio;
     private float mThirdRatio;
 
-    private boolean mShowingThird;
-    private boolean mUseRed;
+    private int mBackgroundColor;
+    private int mBlueColor;
+    private int mGreenColor;
+    private int mRedColor;
 
     final Rect mRect = new Rect();
     final Paint mPaint = new Paint();
@@ -55,6 +55,32 @@ public class LinearColorBar extends LinearLayout {
     public LinearColorBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         setWillNotDraw(false);
+
+        TypedArray a = context.obtainStyledAttributes(
+                attrs, R.styleable.LinearColorBar, 0, 0);
+        int n = a.getIndexCount();
+
+        for (int i = 0; i < n; i++) {
+            int attr = a.getIndex(i);
+
+            switch (attr) {
+                case R.styleable.LinearColorBar_backgroundColor:
+                    mBackgroundColor = a.getInt(attr, 0);
+                    break;
+                case R.styleable.LinearColorBar_redColor:
+                    mRedColor = a.getInt(attr, 0);
+                    break;
+                case R.styleable.LinearColorBar_greenColor:
+                    mGreenColor = a.getInt(attr, 0);
+                    break;
+                case R.styleable.LinearColorBar_blueColor:
+                    mBlueColor = a.getInt(attr, 0);
+                    break;
+            }
+        }
+
+        a.recycle();
+
         mPaint.setStyle(Paint.Style.FILL);
         mColorGradientPaint.setStyle(Paint.Style.FILL);
         mColorGradientPaint.setAntiAlias(true);
@@ -65,23 +91,11 @@ public class LinearColorBar extends LinearLayout {
         mEdgeGradientPaint.setAntiAlias(true);
     }
 
-    public void redIsTheNewBlue(boolean use) {
-        mUseRed = use;
-    }
-
-    public void setRatios(float red, float yellow, float green) {
-        mFirstRatio = red;
-        mSecondRatio = yellow;
-        mThirdRatio = green;
+    public void setRatios(float blue, float green, float red) {
+        mFirstRatio = blue;
+        mSecondRatio = green;
+        mThirdRatio = red;
         invalidate();
-    }
-
-    public void setShowingThird(boolean showingThird) {
-        if (mShowingThird != showingThird) {
-            mShowingThird = showingThird;
-            updateIndicator();
-            invalidate();
-        }
     }
 
     private void updateIndicator() {
@@ -90,13 +104,10 @@ public class LinearColorBar extends LinearLayout {
             off = 0;
         mRect.top = off;
         mRect.bottom = getHeight();
-        if (mShowingThird) {
-            mColorGradientPaint.setShader(new LinearGradient(
-                    0, 0, 0, off - 2, BG_COLOR & 0xffffff, BG_COLOR, Shader.TileMode.CLAMP));
-        } else {
-            mColorGradientPaint.setShader(new LinearGradient(
-                    0, 0, 0, off - 2, GREEN_COLOR & 0xffffff, GREEN_COLOR, Shader.TileMode.CLAMP));
-        }
+
+        mColorGradientPaint.setShader(new LinearGradient(
+                0, 0, 0, off - 2, mBackgroundColor & 0xffffff,
+                mBackgroundColor, Shader.TileMode.CLAMP));
         mEdgeGradientPaint.setShader(new LinearGradient(
                 0, 0, 0, off / 2, 0x00a0a0a0, 0xffa0a0a0, Shader.TileMode.CLAMP));
     }
@@ -119,14 +130,8 @@ public class LinearColorBar extends LinearLayout {
         int right2 = right + (int) (width * mSecondRatio);
         int right3 = right2 + (int) (width * mThirdRatio);
 
-        int indicatorLeft, indicatorRight;
-        if (mShowingThird) {
-            indicatorLeft = right2;
-            indicatorRight = right3;
-        } else {
-            indicatorLeft = right;
-            indicatorRight = right2;
-        }
+        int indicatorLeft = right3;
+        int indicatorRight = width;
 
         if (mLastInterestingLeft != indicatorLeft || mLastInterestingRight != indicatorRight) {
             mColorPath.reset();
@@ -166,7 +171,7 @@ public class LinearColorBar extends LinearLayout {
         if (left < right) {
             mRect.left = left;
             mRect.right = right;
-            mPaint.setColor(mUseRed ? RED_COLOR : BLUE_COLOR);
+            mPaint.setColor(mBlueColor);
             canvas.drawRect(mRect, mPaint);
             width -= (right - left);
             left = right;
@@ -177,7 +182,18 @@ public class LinearColorBar extends LinearLayout {
         if (left < right) {
             mRect.left = left;
             mRect.right = right;
-            mPaint.setColor(GREEN_COLOR);
+            mPaint.setColor(mGreenColor);
+            canvas.drawRect(mRect, mPaint);
+            width -= (right - left);
+            left = right;
+        }
+
+        right = right3;
+
+        if (left < right) {
+            mRect.left = left;
+            mRect.right = right;
+            mPaint.setColor(mRedColor);
             canvas.drawRect(mRect, mPaint);
             width -= (right - left);
             left = right;
@@ -187,7 +203,7 @@ public class LinearColorBar extends LinearLayout {
         if (left < right) {
             mRect.left = left;
             mRect.right = right;
-            mPaint.setColor(BG_COLOR);
+            mPaint.setColor(mBackgroundColor);
             canvas.drawRect(mRect, mPaint);
         }
     }

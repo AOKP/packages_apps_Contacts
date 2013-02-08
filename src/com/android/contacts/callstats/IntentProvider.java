@@ -38,13 +38,15 @@ public abstract class IntentProvider {
     }
 
     public static IntentProvider getCallStatsDetailIntentProvider(final CallStatsDetails item,
-            final long from, final long to) {
+            final long from, final long to, final boolean byDuration) {
         return new IntentProvider() {
             @Override
             public Intent getIntent(Context context) {
-                Intent intent = item.getIntentWithExtras(context);
-                intent.putExtra("from", from);
-                intent.putExtra("to", to);
+                Intent intent = new Intent(context, CallStatsDetailActivity.class);
+                intent.putExtra(CallStatsDetailActivity.EXTRA_DETAILS, item);
+                intent.putExtra(CallStatsDetailActivity.EXTRA_FROM, from);
+                intent.putExtra(CallStatsDetailActivity.EXTRA_TO, to);
+                intent.putExtra(CallStatsDetailActivity.EXTRA_BY_DURATION, byDuration);
                 return intent;
             }
         };
