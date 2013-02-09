@@ -257,7 +257,7 @@
     <string name="callBack" msgid="5498224409038809224">"Zavolat zpět"</string>
     <string name="callAgain" msgid="3197312117049874778">"Zavolat znovu"</string>
     <string name="returnCall" msgid="8171961914203617813">"Zpětné volání"</string>
-    <string name="callDetailsDurationFormat" msgid="8157706382818184268">"<xliff:g id="hours" example="5">%s</xliff:g> hod <xliff:g id="MINUTES">%s</xliff:g> min <xliff:g id="SECONDS">%s</xliff:g> s"</string>
+    <string name="callDetailsDurationFormat">"<xliff:g id="minutes">%s</xliff:g> min <xliff:g id="seconds">%s</xliff:g> s"</string>
     <string name="favoritesFrequentContacted" msgid="6184232487472425690">"Často používané kontakty"</string>
     <string name="favoritesFrequentCalled" msgid="6128306889600696124">"Často volané"</string>
     <string name="add_contact_dlg_message_fmt" msgid="7986472669444326576">"Chcete přidat \u201e<xliff:g id="EMAIL">%s</xliff:g>\u201c do kontaktů?"</string>
@@ -709,16 +709,50 @@
     <string name="call_stats_nav_incoming">Příchozí</string>
     <string name="call_stats_nav_outgoing">Odchozí</string>
     <string name="call_stats_nav_missed">Zmeškané</string>
-    <string name="call_stats_header_total">Celkem:</string>
+    <string name="call_stats_incoming">Příchozí: <xliff:g id="percent">%d</xliff:g>%%</string>
+    <string name="call_stats_outgoing">Odchozí: <xliff:g id="percent">%d</xliff:g>%%</string>
+    <string name="call_stats_missed">Zmeškané</string>
+    <string name="call_stats_missed_percent">Zmeškané: <xliff:g id="percent">%d</xliff:g>%%</string>
+    <string name="call_stats_header_total">Celkem: <xliff:g id="call_count">%s</xliff:g>, <xliff:g id="duration">%s</xliff:g></string>
     <string name="call_stats_filter_from">Počáteční datum</string>
     <string name="call_stats_filter_to">Konečné datum</string>
-    <string name="call_stats_date_filter">Filtr data</string>
     <string name="call_stats_filter_picker_title">Rozsah filtru</string>
-    <string name="call_stats_filter_picker_done">Použít filtr</string>
-    <string name="call_stats_filter_picker_reset">Nulovat filtr</string>
-    <string name="call_stats_filter_error">Počáteční datum je větší než konečné, filtr bude ignorován.</string>
+    <string name="date_quick_selection">Rychlý výběr</string>
+    <string name="date_qs_currentmonth">Tento měsíc</string>
+    <string name="date_qs_currentquarter">Toto čtvrtletí</string>
+    <string name="date_qs_currentyear">Tento rok</string>
+    <string name="date_qs_lastweek">Minulý týden</string>
+    <string name="date_qs_lastmonth">Minulý měsíc</string>
+    <string name="date_qs_lastquarter">Minulé čtvrtletí</string>
+    <string name="date_qs_lastyear">Minulý rok</string>
+    <string name="call_stats_date_filter">Přizpůsobit časový rozsah</string>
+    <string name="call_stats_reset_filter">Nulovat časový rozsah</string>
+    <string name="call_stats_sort_by_duration">Řadit dle délky hovoru</string>
+    <string name="call_stats_sort_by_count">Řadit dle počtu hovorů</string>
+    <string-array name="call_stats_duration">
+        <item><xliff:g id="seconds" example="2 secs">%3$s</xliff:g></item>
+        <item><xliff:g id="minutes" example="2 mins">%2$s</xliff:g></item>
+        <item><xliff:g id="minutes" example="2 mins">%2$s</xliff:g> <xliff:g id="seconds" example="2 secs">%3$s</xliff:g></item>
+        <item><xliff:g id="hours" example="2 hrs">%1$s</xliff:g></item>
+        <item><xliff:g id="hours" example="2 hrs">%1$s</xliff:g> <xliff:g id="seconds" example="2 secs">%3$s</xliff:g></item>
+        <item><xliff:g id="hours" example="2 hrs">%1$s</xliff:g> <xliff:g id="minutes" example="2 mins">%2$s</xliff:g></item>
+        <item><xliff:g id="hours" example="2 hrs">%1$s</xliff:g> <xliff:g id="minutes" example="2 mins">%2$s</xliff:g> <xliff:g id="seconds" example="2 secs">%3$s</xliff:g></item>
+    </string-array>
+    <plurals name="hour">
+        <item quantity="one">1 h</item>
+        <item quantity="other">%d h</item>
+    </plurals>
+    <plurals name="minute">
+        <item quantity="one">1 m</item>
+        <item quantity="other">%d m</item>
+    </plurals>
+    <plurals name="second">
+        <item quantity="one">1 s</item>
+        <item quantity="other">%d s</item>
+    </plurals>
     <plurals name="call">
         <item quantity="one">1 hovor</item>
+        <item quantity="few">%d hovory</item>
         <item quantity="other">%d hovorů</item>
     </plurals>
 </resources>
