@@ -455,6 +455,8 @@
     <string name="custom_list_filter" msgid="7836035257402013957">"Egyéni nézet megadása"</string>
     <string name="contact_list_loading" msgid="5488620820563977329">"Betöltés..."</string>
     <string name="activity_title_settings" msgid="5464130076132770781">"Beállítások"</string>
+
+    <string name="activity_title_call_stats">Hívás statisztikák</string>
     <string name="activity_title_contacts_filter" msgid="8275542497615516969">"Megjelenítendő névjegyek"</string>
     <string name="menu_settings" msgid="377929915873428211">"Beállítások"</string>
     <string name="menu_help" msgid="5123887102216637725">"Súgó"</string>
@@ -583,4 +585,75 @@
     <string name="t9_dial_click_summary">Tárcsázza a T9 tárcsázó által megtalált személyt</string>
     <string name="t9_add_to_contacts">Hozzáadás a névjegyekhez</string>
     <string name="t9_loading">Betöltés\u2026</string>
+
+    <!-- Menu item that opens the Options activity for a given contact [CHAR LIMIT=15] -->
+    <string name="menu_set_vib_ration">Rezgés beállítás</string>
+
+    <string name="call_stats">Hívás statisztika</string>
+    <string name="call_stats_refresh">Frissítés</string>
+
+    <string name="call_stats_nav_all">Összes</string>
+    <string name="call_stats_nav_incoming">Bejövő</string>
+    <string name="call_stats_nav_outgoing">Kimenő</string>
+    <string name="call_stats_nav_missed">Sikertelen</string>
+    <string name="call_stats_incoming">Bejövő: <xliff:g id="percent">%d</xliff:g>%%</string>
+    <string name="call_stats_outgoing">Kimenő: <xliff:g id="percent">%d</xliff:g>%%</string>
+    <string name="call_stats_missed">Sikertelen</string>
+    <string name="call_stats_missed_percent">Sikertelen: <xliff:g id="percent">%d</xliff:g>%%</string>
+    <string name="call_stats_header_total">Összes: <xliff:g id="call_count">%s</xliff:g>, <xliff:g id="duration">%s</xliff:g></string>
+    <string name="call_stats_header_total_callsonly">Összes: <xliff:g id="call_count">%s</xliff:g></string>
+    <string name="call_stats_filter_from">Kezdés dátum</string>
+    <string name="call_stats_filter_to">Vége dátum</string>
+    <string name="call_stats_filter_picker_title">Szűrési sáv</string>
+
+    <string name="date_quick_selection">Gyors választó</string>
+    <string name="date_qs_currentmonth">Aktuális hónap</string>
+    <string name="date_qs_currentquarter">Aktuális negyedév</string>
+    <string name="date_qs_currentyear">Aktuális év</string>
+    <string name="date_qs_lastweek">Elmúlt hét</string>
+    <string name="date_qs_lastmonth">Elmúlt hónap</string>
+    <string name="date_qs_lastquarter">Elmúlt negyedév</string>
+    <string name="date_qs_lastyear">Elmúlt év</string>
+
+    <string name="call_stats_date_filter">Beállított idősáv</string>
+    <string name="call_stats_reset_filter">Idősáv alaphelyzetbe</string>
+    <string name="call_stats_sort_by_duration">Időtartam szerinti rendezés</string>
+    <string name="call_stats_sort_by_count">Hívások száma szerint</string>
+
+    <!-- 0:           sec
+         1:      min
+         2:      min  sec
+         3: hour
+         4: hour      sec
+         5: hour min
+         6: hour min  sec -->
+
+    <string-array name="call_stats_duration">
+        <item><xliff:g id="seconds" example="2 secs">%3$s</xliff:g></item>
+        <item><xliff:g id="minutes" example="2 mins">%2$s</xliff:g></item>
+        <item><xliff:g id="minutes" example="2 mins">%2$s</xliff:g> <xliff:g id="seconds" example="2 secs">%3$s</xliff:g></item>
+        <item><xliff:g id="hours" example="2 hrs">%1$s</xliff:g></item>
+        <item><xliff:g id="hours" example="2 hrs">%1$s</xliff:g> <xliff:g id="seconds" example="2 secs">%3$s</xliff:g></item>
+        <item><xliff:g id="hours" example="2 hrs">%1$s</xliff:g> <xliff:g id="minutes" example="2 mins">%2$s</xliff:g></item>
+         <item><xliff:g id="hours" example="2 hrs">%1$s</xliff:g> <xliff:g id="minutes" example="2 mins">%2$s</xliff:g> <xliff:g id="seconds" example="2 secs">%3$s</xliff:g></item>
+    </string-array>
+
+    <plurals name="hour">
+        <item quantity="one">1 óra</item>
+        <item quantity="other">%d órák</item>
+    </plurals>
+    <plurals name="minute">
+        <item quantity="one">1 perc</item>
+        <item quantity="other">%d percek</item>
+    </plurals>
+    <plurals name="second">
+        <item quantity="one">1 mp</item>
+        <item quantity="other">%d mp-k</item>
+    </plurals>
+
+    <plurals name="call">
+        <item quantity="one">1 hívás</item>
+        <item quantity="other">%d hívások</item>
+    </plurals>
+
 </resources>
