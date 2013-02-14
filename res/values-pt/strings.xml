@@ -53,8 +53,8 @@
     <string name="menu_splitAggregate" msgid="8368636463748691868">"Separar"</string>
     <string name="menu_editGroup" msgid="5062005185370983720">"Editar"</string>
     <string name="menu_deleteGroup" msgid="3486380004411482874">"Excluir"</string>
-    <string name="menu_new_contact_action_bar" msgid="8887818026717394343">"Novo"</string>
-    <string name="menu_new_group_action_bar" msgid="5055346725617932394">"Novo"</string>
+    <string name="menu_new_contact_action_bar" msgid="7263362129442119188">"Adicionar contato"</string>
+    <string name="menu_new_group_action_bar" msgid="3520232877587377175">"Adicionar grupo"</string>
     <string name="splitConfirmation_title" msgid="633640935430370530">"Dividir contato?"</string>
     <string name="splitConfirmation" msgid="740190210499587175">"Este contato será separado em vários contatos."</string>
     <string name="menu_joinAggregate" msgid="5027981918265667970">"Unir"</string>
@@ -137,6 +137,7 @@
     <string name="contactsAllLabel" msgid="6479708629170672169">"Todos os contatos"</string>
     <string name="contactsGroupsLabel" msgid="2841971472518003524">"Grupos"</string>
     <string name="contactsFavoritesLabel" msgid="8417039765586853670">"Favoritos"</string>
+    <string name="dialerAllContactsLabel" msgid="1025920923112988336">"Favoritos e todos os contatos"</string>
     <string name="dialerIconLabel" msgid="6500826552823403796">"Telefone"</string>
     <string name="recentCallsIconLabel" msgid="1419116422359067949">"Chamadas"</string>
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"Enviar SMS/MMS"</string>
@@ -580,4 +581,5 @@
     <string name="t9_dial_click_title">Discar contato selecionado</string>
     <string name="t9_dial_click_summary">Discar os contatos selecionados pelo T9</string>
     <string name="t9_add_to_contacts">Adicionar aos contatos</string>
+    <string name="expand_collapse_name_fields_description" msgid="8682630859539604311">"Expandir ou recolher campos de nome"</string>
 </resources>

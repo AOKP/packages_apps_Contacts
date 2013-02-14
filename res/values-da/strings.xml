@@ -53,8 +53,8 @@
     <string name="menu_splitAggregate" msgid="8368636463748691868">"Opdel"</string>
     <string name="menu_editGroup" msgid="5062005185370983720">"Rediger"</string>
     <string name="menu_deleteGroup" msgid="3486380004411482874">"Slet"</string>
-    <string name="menu_new_contact_action_bar" msgid="8887818026717394343">"Ny"</string>
-    <string name="menu_new_group_action_bar" msgid="5055346725617932394">"Ny"</string>
+    <string name="menu_new_contact_action_bar" msgid="7263362129442119188">"Tilføj kontaktperson"</string>
+    <string name="menu_new_group_action_bar" msgid="3520232877587377175">"Tilføj gruppe"</string>
     <string name="splitConfirmation_title" msgid="633640935430370530">"Opdel kontaktperson?"</string>
     <string name="splitConfirmation" msgid="740190210499587175">"Denne kontaktperson opdeles i flere kontaktpersoner."</string>
     <string name="menu_joinAggregate" msgid="5027981918265667970">"Føj til"</string>
@@ -137,6 +137,7 @@
     <string name="contactsAllLabel" msgid="6479708629170672169">"Alle kontaktpersoner"</string>
     <string name="contactsGroupsLabel" msgid="2841971472518003524">"Grupper"</string>
     <string name="contactsFavoritesLabel" msgid="8417039765586853670">"Favorit"</string>
+    <string name="dialerAllContactsLabel" msgid="1025920923112988336">"Foretrukne og alle kontakter"</string>
     <string name="dialerIconLabel" msgid="6500826552823403796">"Telefon"</string>
     <string name="recentCallsIconLabel" msgid="1419116422359067949">"Opk.liste"</string>
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"Send sms"</string>
@@ -568,7 +569,6 @@
     <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"Hvis du vil ringe til telefonsvareren, skal du først slå Flytilstand fra."</string>
     <string name="menu_export_database" msgid="2659719297530170820">"Eksportér databasefiler"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"Flere valgmuligheder"</string>
-
     <string name="t9_loading">Indlæser\u2026</string>
     <string name="t9_sort_title">T9 sortering tilstand</string>
     <string name="t9_sort_summary">Vælg filtrering af T9 resultater</string>
@@ -579,4 +579,5 @@
     <string name="t9_dial_click_title">Ring til valgte kontakt</string>
     <string name="t9_dial_click_summary">Ring til den valgte kontakt for T9</string>
     <string name="t9_add_to_contacts">Tilføj til kontakter</string>
+    <string name="expand_collapse_name_fields_description" msgid="8682630859539604311">"Udvid eller skjul navnefelter"</string>
 </resources>

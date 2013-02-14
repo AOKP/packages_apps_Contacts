@@ -53,8 +53,8 @@
     <string name="menu_splitAggregate" msgid="8368636463748691868">"Podziel"</string>
     <string name="menu_editGroup" msgid="5062005185370983720">"Edytuj"</string>
     <string name="menu_deleteGroup" msgid="3486380004411482874">"Usuń"</string>
-    <string name="menu_new_contact_action_bar" msgid="8887818026717394343">"Nowy"</string>
-    <string name="menu_new_group_action_bar" msgid="5055346725617932394">"Nowa"</string>
+    <string name="menu_new_contact_action_bar" msgid="7263362129442119188">"Dodaj kontakt"</string>
+    <string name="menu_new_group_action_bar" msgid="3520232877587377175">"Dodaj grupę"</string>
     <string name="splitConfirmation_title" msgid="633640935430370530">"Podzielić kontakt?"</string>
     <string name="splitConfirmation" msgid="740190210499587175">"Ten kontakt zostanie podzielony na wiele wpisów."</string>
     <string name="menu_joinAggregate" msgid="5027981918265667970">"Połącz"</string>
@@ -137,6 +137,7 @@
     <string name="contactsAllLabel" msgid="6479708629170672169">"Wszystkie kontakty"</string>
     <string name="contactsGroupsLabel" msgid="2841971472518003524">"Grupy"</string>
     <string name="contactsFavoritesLabel" msgid="8417039765586853670">"Ulubione"</string>
+    <string name="dialerAllContactsLabel" msgid="1025920923112988336">"Ulubione i wszystkie kontakty"</string>
     <string name="dialerIconLabel" msgid="6500826552823403796">"Telefon"</string>
     <string name="recentCallsIconLabel" msgid="1419116422359067949">"Rejestr"</string>
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"Wyślij wiadomość tekstową"</string>
@@ -568,7 +569,6 @@
     <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"Aby połączyć się z pocztą głosową, najpierw wyłącz tryb samolotowy."</string>
     <string name="menu_export_database" msgid="2659719297530170820">"Eksportuj pliki bazy danych"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"Więcej opcji"</string>
-
     <!-- **** CYANOGENMOD EDITS START **** -->
     <string name="t9_sort_title">Tryb sortowania T9</string>
     <string name="t9_sort_summary">Wybierz, jak filtrować wyniki</string>
@@ -593,4 +593,5 @@
     <string name="dialer_ui_orientation_title">Autoobracanie ekranu</string>
     <string name="dialer_ui_orientation_summary">Pozwól na automatyczny obrót ekranu</string>
     <!-- **** CYANOGENMOD EDITS END **** -->
+    <string name="expand_collapse_name_fields_description" msgid="8682630859539604311">"Rozwiń lub zwiń pola imion i nazwisk"</string>
 </resources>

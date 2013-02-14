@@ -53,8 +53,8 @@
     <string name="menu_splitAggregate" msgid="8368636463748691868">"Scheiden"</string>
     <string name="menu_editGroup" msgid="5062005185370983720">"Bewerken"</string>
     <string name="menu_deleteGroup" msgid="3486380004411482874">"Verwijderen"</string>
-    <string name="menu_new_contact_action_bar" msgid="8887818026717394343">"Nieuw"</string>
-    <string name="menu_new_group_action_bar" msgid="5055346725617932394">"Nieuw"</string>
+    <string name="menu_new_contact_action_bar" msgid="7263362129442119188">"Contact toevoegen"</string>
+    <string name="menu_new_group_action_bar" msgid="3520232877587377175">"Groep toevoegen"</string>
     <string name="splitConfirmation_title" msgid="633640935430370530">"Contact opsplitsen?"</string>
     <string name="splitConfirmation" msgid="740190210499587175">"Dit contact wordt gesplitst in meerdere contacten."</string>
     <string name="menu_joinAggregate" msgid="5027981918265667970">"Samenvoegen"</string>
@@ -137,6 +137,7 @@
     <string name="contactsAllLabel" msgid="6479708629170672169">"Alle contacten"</string>
     <string name="contactsGroupsLabel" msgid="2841971472518003524">"Groepen"</string>
     <string name="contactsFavoritesLabel" msgid="8417039765586853670">"Favoriet"</string>
+    <string name="dialerAllContactsLabel" msgid="1025920923112988336">"Favorieten en alle contacten"</string>
     <string name="dialerIconLabel" msgid="6500826552823403796">"Telefoon"</string>
     <string name="recentCallsIconLabel" msgid="1419116422359067949">"Gesprek"</string>
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"Sms verzenden"</string>
@@ -568,4 +569,5 @@
     <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"Als u uw voicemail wilt bellen, moet u eerst de Vliegmodus uitschakelen."</string>
     <string name="menu_export_database" msgid="2659719297530170820">"Databasebestanden exporteren"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"Meer opties"</string>
+    <string name="expand_collapse_name_fields_description" msgid="8682630859539604311">"Naamvelden uitvouwen of samenvouwen"</string>
 </resources>

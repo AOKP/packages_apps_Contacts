@@ -53,8 +53,8 @@
     <string name="menu_splitAggregate" msgid="8368636463748691868">"Trennen"</string>
     <string name="menu_editGroup" msgid="5062005185370983720">"Bearbeiten"</string>
     <string name="menu_deleteGroup" msgid="3486380004411482874">"Löschen"</string>
-    <string name="menu_new_contact_action_bar" msgid="8887818026717394343">"Neu"</string>
-    <string name="menu_new_group_action_bar" msgid="5055346725617932394">"Neu"</string>
+    <string name="menu_new_contact_action_bar" msgid="7263362129442119188">"Kontakt hinzufügen"</string>
+    <string name="menu_new_group_action_bar" msgid="3520232877587377175">"Gruppe hinzufügen"</string>
     <string name="splitConfirmation_title" msgid="633640935430370530">"Kontakt aufteilen?"</string>
     <string name="splitConfirmation" msgid="740190210499587175">"Dieser Kontakt wird in mehrere Kontakte aufgeteilt."</string>
     <string name="menu_joinAggregate" msgid="5027981918265667970">"Zusammenführen"</string>
@@ -137,6 +137,7 @@
     <string name="contactsAllLabel" msgid="6479708629170672169">"Alle Kontakte"</string>
     <string name="contactsGroupsLabel" msgid="2841971472518003524">"Gruppen"</string>
     <string name="contactsFavoritesLabel" msgid="8417039765586853670">"Favoriten"</string>
+    <string name="dialerAllContactsLabel" msgid="1025920923112988336">"Favoriten und alle Kontakte"</string>
     <string name="dialerIconLabel" msgid="6500826552823403796">"Telefon"</string>
     <string name="recentCallsIconLabel" msgid="1419116422359067949">"Anrufe"</string>
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"SMS/MMS senden"</string>
@@ -314,12 +315,12 @@
     <string name="call_home" msgid="1990519474420545392">"Anruf (privat)"</string>
     <string name="call_mobile" msgid="7502236805487609178">"Anruf (mobil)"</string>
     <string name="call_work" msgid="5328785911463744028">"Anruf (geschäftl.)"</string>
-    <string name="call_fax_work" msgid="7467763592359059243">"Anruf (Fax, geschäftl.)"</string>
-    <string name="call_fax_home" msgid="8342175628887571876">"Anruf Fax (privat)"</string>
+    <string name="call_fax_work" msgid="7467763592359059243">"Fax (geschäftlich) anrufen"</string>
+    <string name="call_fax_home" msgid="8342175628887571876">"Fax (privat) anrufen"</string>
     <string name="call_pager" msgid="9003902812293983281">"Anruf (Pager)"</string>
     <string name="call_other" msgid="8563753966926932052">"Anruf"</string>
     <string name="call_callback" msgid="1910165691349426858">"Rückrufnummer anrufen"</string>
-    <string name="call_car" msgid="3280537320306436445">"Anruf (Auto)"</string>
+    <string name="call_car" msgid="3280537320306436445">"Auto anrufen"</string>
     <string name="call_company_main" msgid="6105120947138711257">"Anruf (Firmenhauptnummer)"</string>
     <string name="call_isdn" msgid="1541590690193403411">"ISDN-Nummer anrufen"</string>
     <string name="call_main" msgid="6082900571803441339">"Hauptnummer anrufen"</string>
@@ -363,14 +364,14 @@
     <string name="map_work" msgid="1360474076921878088">"Geschäftsadresse anzeigen"</string>
     <string name="map_other" msgid="3817820803587012641">"Adresse anzeigen"</string>
     <string name="map_custom" msgid="6184363799976265281">"<xliff:g id="CUSTOM">%s</xliff:g>-Adresse anzeigen"</string>
-    <string name="chat_aim" msgid="2588492205291249142">"Chat über AIM"</string>
-    <string name="chat_msn" msgid="8041633440091073484">"Chat über Windows Live"</string>
-    <string name="chat_yahoo" msgid="6629211142719943666">"Chat über Yahoo!"</string>
-    <string name="chat_skype" msgid="1210045020427480566">"Chat über Skype"</string>
-    <string name="chat_qq" msgid="4294637812847719693">"Chat über QQ"</string>
-    <string name="chat_gtalk" msgid="981575737258117697">"Chat über Google Talk"</string>
-    <string name="chat_icq" msgid="8438405386153745775">"Chat über ICQ"</string>
-    <string name="chat_jabber" msgid="7561444230307829609">"Chat über Jabber"</string>
+    <string name="chat_aim" msgid="2588492205291249142">"Über AIM chatten"</string>
+    <string name="chat_msn" msgid="8041633440091073484">"Über Windows Live chatten"</string>
+    <string name="chat_yahoo" msgid="6629211142719943666">"Über Yahoo! chatten"</string>
+    <string name="chat_skype" msgid="1210045020427480566">"Über Skype chatten"</string>
+    <string name="chat_qq" msgid="4294637812847719693">"Über QQ chatten"</string>
+    <string name="chat_gtalk" msgid="981575737258117697">"Über Google Talk chatten"</string>
+    <string name="chat_icq" msgid="8438405386153745775">"Über ICQ chatten"</string>
+    <string name="chat_jabber" msgid="7561444230307829609">"Über Jabber chatten"</string>
     <string name="chat" msgid="9025361898797412245">"Chat"</string>
     <string name="audio_chat" msgid="2535716629358298691">"Sprach-Chat"</string>
     <string name="video_chat" msgid="1872255818640336072">"Video-Chat"</string>
@@ -639,4 +640,5 @@
         <item quantity="one">1 Sekunde</item>
         <item quantity="other">%d Sekunden</item>
     </plurals>
+    <string name="expand_collapse_name_fields_description" msgid="8682630859539604311">"Namensfelder maximieren oder minimieren"</string>
 </resources>

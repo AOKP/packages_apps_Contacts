@@ -17,7 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="launcherDialer" msgid="8636288196618486553">"휴대전화"</string>
-    <string name="people" msgid="1048457247435785074">"피플"</string>
+    <string name="people" msgid="1048457247435785074">"주소록"</string>
     <string name="contactsList" msgid="8661624236494819731">"주소록"</string>
     <string name="shortcutContact" msgid="749243779392912958">"연락처"</string>
     <string name="shortcutDialContact" msgid="746622101599186779">"바로 전화 걸기"</string>
@@ -53,8 +53,8 @@
     <string name="menu_splitAggregate" msgid="8368636463748691868">"분리"</string>
     <string name="menu_editGroup" msgid="5062005185370983720">"수정"</string>
     <string name="menu_deleteGroup" msgid="3486380004411482874">"삭제"</string>
-    <string name="menu_new_contact_action_bar" msgid="8887818026717394343">"새 연락처"</string>
-    <string name="menu_new_group_action_bar" msgid="5055346725617932394">"새 그룹"</string>
+    <string name="menu_new_contact_action_bar" msgid="7263362129442119188">"연락처 추가"</string>
+    <string name="menu_new_group_action_bar" msgid="3520232877587377175">"그룹 추가"</string>
     <string name="splitConfirmation_title" msgid="633640935430370530">"주소록을 분리하시겠습니까?"</string>
     <string name="splitConfirmation" msgid="740190210499587175">"연락처가 여러 주소록으로 분리됩니다."</string>
     <string name="menu_joinAggregate" msgid="5027981918265667970">"통합"</string>
@@ -137,6 +137,7 @@
     <string name="contactsAllLabel" msgid="6479708629170672169">"모든 연락처"</string>
     <string name="contactsGroupsLabel" msgid="2841971472518003524">"그룹"</string>
     <string name="contactsFavoritesLabel" msgid="8417039765586853670">"즐겨찾기"</string>
+    <string name="dialerAllContactsLabel" msgid="1025920923112988336">"즐겨찾기 및 모든 연락처"</string>
     <string name="dialerIconLabel" msgid="6500826552823403796">"휴대전화"</string>
     <string name="recentCallsIconLabel" msgid="1419116422359067949">"통화기록"</string>
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"문자 메시지 보내기"</string>
@@ -152,7 +153,7 @@
     <string name="clearCallLogConfirmation" msgid="5043563133171583152">"모든 통화 기록을 삭제합니다."</string>
     <string name="clearCallLogProgress_title" msgid="8365943000154295771">"통화기록을 지우는 중..."</string>
     <string name="clearFrequentsConfirmation_title" msgid="766292372438450432">"자주 연락하는 사람들 목록을 삭제하시겠습니까?"</string>
-    <string name="clearFrequentsConfirmation" msgid="3254215748990281318">"피플 및 휴대전화 앱에서 자주 연락하는 사람들 목록을 삭제하고 이메일 앱이 주소록 환경설정을 처음부터 다시 반영하도록 합니다."</string>
+    <string name="clearFrequentsConfirmation" msgid="3254215748990281318">"주소록 및 휴대전화 앱에서 자주 연락하는 사람들 목록을 삭제하고 이메일 앱이 주소록 환경설정을 처음부터 다시 반영하도록 합니다."</string>
     <string name="clearFrequentsProgress_title" msgid="5157001637482794212">"자주 연락하는 사람들 목록을 삭제하는 중…"</string>
     <string name="imei" msgid="3045126336951684285">"IMEI"</string>
     <string name="meid" msgid="6210568493746275750">"MEID"</string>
@@ -410,7 +411,7 @@
     <string name="display_options_view_given_name_first" msgid="6968288511197363292">"이름 먼저 표시"</string>
     <string name="display_options_view_family_name_first" msgid="1447288164951453714">"성 먼저 표시"</string>
     <string name="take_photo" msgid="7496128293167402354">"사진 찍기"</string>
-    <string name="take_new_photo" msgid="7341354729436576304">"새 사진 가져오기"</string>
+    <string name="take_new_photo" msgid="7341354729436576304">"새 사진 찍기"</string>
     <string name="pick_photo" msgid="3746334626214970837">"갤러리에서 사진 선택"</string>
     <string name="pick_new_photo" msgid="7962368009197147617">"갤러리에서 새 사진 선택"</string>
     <string name="locale_change_in_progress" msgid="7583992153091537467">"변경된 언어를 반영하도록 주소록을 업데이트하는 중입니다. 잠시 기다려 주세요."</string>
@@ -568,7 +569,6 @@
     <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"음성사서함에 메시지를 남기려면 먼저 비행기 모드를 해제하세요."</string>
     <string name="menu_export_database" msgid="2659719297530170820">"데이터베이스 파일 내보내기"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"옵션 더보기"</string>
-
     <!-- Dialer UI Settings -->
     <string name="dialer_ui_title">"다이얼 설정"</string>
     <string name="dialer_ui_orientation_title">"화면방향 전환"</string>
@@ -591,4 +591,5 @@
     <string name="t9_map_row_7">7pqrsßɾṕŕśřšㅂㅍㅃ</string>
     <string name="t9_map_row_8">8tuvúùüûűㅅㅎㅆ</string>
     <string name="t9_map_row_9">9wxyzýẃźㅈㅊㅉ</string>
+    <string name="expand_collapse_name_fields_description" msgid="8682630859539604311">"이름 입력란 펼치기/접기"</string>
 </resources>

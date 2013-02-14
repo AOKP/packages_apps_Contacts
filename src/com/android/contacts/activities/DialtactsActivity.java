@@ -761,7 +761,7 @@ public class DialtactsActivity extends TransactionSafeActivity
 
     private void setupFavorites() {
         final Tab tab = getActionBar().newTab();
-        tab.setContentDescription(R.string.contactsFavoritesLabel);
+        tab.setContentDescription(R.string.dialerAllContactsLabel);
         tab.setIcon(R.drawable.ic_tab_all);
         tab.setTabListener(mTabListener);
         getActionBar().addTab(tab);
@@ -850,7 +850,7 @@ public class DialtactsActivity extends TransactionSafeActivity
 
         if (mViewPager.getCurrentItem() == TAB_INDEX_DIALER) {
             if (mDialpadFragment != null) {
-                mDialpadFragment.configureScreenFromIntent(newIntent);
+                mDialpadFragment.setStartedFromNewIntent(true);
             } else {
                 Log.e(TAG, "DialpadFragment isn't ready yet when the tab is already selected.");
             }

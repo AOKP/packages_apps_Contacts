@@ -66,9 +66,9 @@
     <skip />
     <!-- no translation found for menu_deleteGroup (3486380004411482874) -->
     <skip />
-    <!-- no translation found for menu_new_contact_action_bar (8887818026717394343) -->
+    <!-- no translation found for menu_new_contact_action_bar (7263362129442119188) -->
     <skip />
-    <!-- no translation found for menu_new_group_action_bar (5055346725617932394) -->
+    <!-- no translation found for menu_new_group_action_bar (3520232877587377175) -->
     <skip />
     <!-- no translation found for splitConfirmation_title (633640935430370530) -->
     <skip />
@@ -183,6 +183,8 @@
     <!-- no translation found for contactsGroupsLabel (2841971472518003524) -->
     <skip />
     <string name="contactsFavoritesLabel" msgid="8417039765586853670">"Favurits"</string>
+    <!-- no translation found for dialerAllContactsLabel (1025920923112988336) -->
+    <skip />
     <string name="dialerIconLabel" msgid="6500826552823403796">"Telefon"</string>
     <string name="recentCallsIconLabel" msgid="1419116422359067949">"Cloms"</string>
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"Trametter in SMS"</string>
@@ -840,5 +842,7 @@
     <skip />
     <!-- no translation found for action_menu_overflow_description (2303272250613084574) -->
     <!-- no translation found for action_menu_overflow_description (2295659037509008453) -->
+    <skip />
+    <!-- no translation found for expand_collapse_name_fields_description (8682630859539604311) -->
     <skip />
 </resources>

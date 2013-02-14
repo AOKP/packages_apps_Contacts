@@ -156,11 +156,11 @@
     <!-- Menu item that deletes the currently selected group [CHAR LIMIT=30] -->
     <string name="menu_deleteGroup">Delete</string>
 
-    <!-- Menu item (in the action bar) that creates a new contacts [CHAR LIMIT=12] -->
-    <string name="menu_new_contact_action_bar">New</string>
+    <!-- Menu item (in the action bar) that creates a new contact [CHAR LIMIT=30] -->
+    <string name="menu_new_contact_action_bar">Add Contact</string>
 
-    <!-- Menu item (in the action bar) that creates a new group [CHAR LIMIT=12] -->
-    <string name="menu_new_group_action_bar">New</string>
+    <!-- Menu item (in the action bar) that creates a new group [CHAR LIMIT=30] -->
+    <string name="menu_new_group_action_bar">Add Group</string>
 
     <!-- Title of the confirmation dialog for separating contacts into multiple instances [CHAR LIMIT=26] -->
     <string name="splitConfirmation_title">Separate contact?</string>
@@ -403,6 +403,10 @@
 
          [CHAR LIMIT=NONE] -->
     <string name="contactsFavoritesLabel">Favorites</string>
+
+    <!-- The description text for the favorites and all contacts tab in the phone app.
+         [CHAR LIMIT=NONE] -->
+    <string name="dialerAllContactsLabel">Favorites and all contacts</string>
 
     <!-- The description text for the dialer tab.
 
@@ -1950,4 +1954,11 @@ connection to the voicemail server is lost. [CHAR LIMIT=64] -->
         <item quantity="other">%d calls</item>
     </plurals>
 
+    <!-- Content description for the expand or collapse name fields button.
+         Clicking this button causes the name editor to toggle between showing
+         a single field where the entire name is edited at once, or multiple
+         fields corresponding to each part of the name (Name Prefix, First Name,
+         Middle Name, Last Name, Name Suffix).
+         [CHAR LIMIT=NONE] -->
+    <string name="expand_collapse_name_fields_description">Expand or collapse name fields</string>
 </resources>

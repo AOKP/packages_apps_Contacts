@@ -63,8 +63,8 @@
     <string name="menu_splitAggregate" msgid="8368636463748691868">"Separa"</string>
     <string name="menu_editGroup" msgid="5062005185370983720">"Modifica"</string>
     <string name="menu_deleteGroup" msgid="3486380004411482874">"Elimina"</string>
-    <string name="menu_new_contact_action_bar" msgid="8887818026717394343">"Nuovo"</string>
-    <string name="menu_new_group_action_bar" msgid="5055346725617932394">"Nuovo"</string>
+    <string name="menu_new_contact_action_bar" msgid="7263362129442119188">"Aggiungi contatto"</string>
+    <string name="menu_new_group_action_bar" msgid="3520232877587377175">"Aggiungi gruppo"</string>
     <string name="splitConfirmation_title" msgid="633640935430370530">"Separare contatto?"</string>
     <string name="splitConfirmation" msgid="740190210499587175">"Questo contatto verrà diviso in più contatti."</string>
     <string name="menu_joinAggregate" msgid="5027981918265667970">"Unisci"</string>
@@ -147,6 +147,7 @@
     <string name="contactsAllLabel" msgid="6479708629170672169">"Tutti i contatti"</string>
     <string name="contactsGroupsLabel" msgid="2841971472518003524">"Gruppi"</string>
     <string name="contactsFavoritesLabel" msgid="8417039765586853670">"Preferiti"</string>
+    <string name="dialerAllContactsLabel" msgid="1025920923112988336">"Preferiti e tutti i contatti"</string>
     <string name="dialerIconLabel" msgid="6500826552823403796">"Telefono"</string>
     <string name="dialer_ui_title">"Impostazioni dialer"</string>
     <string name="dialer_ui_orientation_title">"Sensore d\'orientamento"</string>
@@ -581,4 +582,5 @@
     <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"Per chiamare la segreteria, disattiva la modalità aereo."</string>
     <string name="menu_export_database" msgid="2659719297530170820">"Esporta file database"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"Altre opzioni"</string>
+    <string name="expand_collapse_name_fields_description" msgid="8682630859539604311">"Espandi o comprimi i campi dei nomi"</string>
 </resources>

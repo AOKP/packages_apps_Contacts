@@ -53,8 +53,8 @@
     <string name="menu_splitAggregate" msgid="8368636463748691868">"Erota"</string>
     <string name="menu_editGroup" msgid="5062005185370983720">"Muokkaa"</string>
     <string name="menu_deleteGroup" msgid="3486380004411482874">"Poista"</string>
-    <string name="menu_new_contact_action_bar" msgid="8887818026717394343">"Uusi"</string>
-    <string name="menu_new_group_action_bar" msgid="5055346725617932394">"Uusi"</string>
+    <string name="menu_new_contact_action_bar" msgid="7263362129442119188">"Lisää yhteystieto"</string>
+    <string name="menu_new_group_action_bar" msgid="3520232877587377175">"Lisää ryhmä"</string>
     <string name="splitConfirmation_title" msgid="633640935430370530">"Erota yhteystieto?"</string>
     <string name="splitConfirmation" msgid="740190210499587175">"Tämä yhteystieto erotetaan useisiin yhteystietoihin."</string>
     <string name="menu_joinAggregate" msgid="5027981918265667970">"Yhdistä"</string>
@@ -137,6 +137,7 @@
     <string name="contactsAllLabel" msgid="6479708629170672169">"Kaikki kontaktit"</string>
     <string name="contactsGroupsLabel" msgid="2841971472518003524">"Ryhmät"</string>
     <string name="contactsFavoritesLabel" msgid="8417039765586853670">"Suosikit"</string>
+    <string name="dialerAllContactsLabel" msgid="1025920923112988336">"Suosikit ja kaikki yhteystiedot"</string>
     <string name="dialerIconLabel" msgid="6500826552823403796">"Puhelin"</string>
     <string name="recentCallsIconLabel" msgid="1419116422359067949">"Puheluloki"</string>
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"Lähetä tekstiviesti"</string>
@@ -580,4 +581,5 @@
     <string name="t9_sort_summary">Valitse kuinka T9-tulokset lajitellaan</string>
     <string name="t9_sort_name">Nimen mukaan</string>
     <string name="t9_sort_number">Numeron mukaan</string>
+    <string name="expand_collapse_name_fields_description" msgid="8682630859539604311">"Laajenna tai tiivistä nimikentät"</string>
 </resources>

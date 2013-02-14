@@ -109,7 +109,7 @@ public class QuickContactActivity extends Activity {
     private View mSelectedTabRectangle;
     private View mLineAfterTrack;
 
-    private ImageButton mOpenDetailsButton;
+    private ImageView mOpenDetailsImage;
     private ImageButton mOpenDetailsPushLayerButton;
     private ViewPager mListPager;
 
@@ -196,7 +196,7 @@ public class QuickContactActivity extends Activity {
         mFloatingLayout = (FloatingChildLayout) findViewById(R.id.floating_layout);
         mTrack = (ViewGroup) findViewById(R.id.track);
         mTrackScroller = (HorizontalScrollView) findViewById(R.id.track_scroller);
-        mOpenDetailsButton = (ImageButton) findViewById(R.id.open_details_button);
+        mOpenDetailsImage = (ImageView) findViewById(R.id.contact_details_image);
         mOpenDetailsPushLayerButton = (ImageButton) findViewById(R.id.open_details_push_layer);
         mListPager = (ViewPager) findViewById(R.id.item_list_pager);
         mSelectedTabRectangle = findViewById(R.id.selected_tab_rectangle);
@@ -220,7 +220,6 @@ public class QuickContactActivity extends Activity {
                 close(false);
             }
         };
-        mOpenDetailsButton.setOnClickListener(openDetailsClickHandler);
         mOpenDetailsPushLayerButton.setOnClickListener(openDetailsClickHandler);
         mListPager.setAdapter(new ViewPagerAdapter(getFragmentManager()));
         mListPager.setOnPageChangeListener(new PageChangeListener());
@@ -333,7 +332,7 @@ public class QuickContactActivity extends Activity {
         final ResolveCache cache = ResolveCache.getInstance(this);
         final Context context = this;
 
-        mOpenDetailsButton.setVisibility(isMimeExcluded(Contacts.CONTENT_ITEM_TYPE) ? View.GONE
+        mOpenDetailsImage.setVisibility(isMimeExcluded(Contacts.CONTENT_ITEM_TYPE) ? View.GONE
                 : View.VISIBLE);
 
         mDefaultsMap.clear();
@@ -547,7 +546,10 @@ public class QuickContactActivity extends Activity {
             if (mLookupUri == null) {
                 Log.wtf(TAG, "Lookup uri wasn't initialized. Loader was started too early");
             }
-            return new ContactLoader(getApplicationContext(), mLookupUri, false);
+            return new ContactLoader(getApplicationContext(), mLookupUri,
+                    false /*loadGroupMetaData*/, false /*loadStreamItems*/,
+                    false /*loadInvitableAccountTypes*/, false /*postViewNotification*/,
+                    true /*computeFormattedPhoneNumber*/);
         }
     };
 
@@ -588,13 +590,18 @@ public class QuickContactActivity extends Activity {
             final CheckableImageView actionView = getActionViewAt(position);
             mTrackScroller.requestChildRectangleOnScreen(actionView,
                     new Rect(0, 0, actionView.getWidth(), actionView.getHeight()), false);
+            renderSelectedRectangle(position, 0);
         }
 
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            renderSelectedRectangle(position, positionOffset);
+        }
+
+        private void renderSelectedRectangle(int position, float positionOffset) {
             final RelativeLayout.LayoutParams layoutParams =
                     (RelativeLayout.LayoutParams) mSelectedTabRectangle.getLayoutParams();
-            final int width = mSelectedTabRectangle.getWidth();
+            final int width = layoutParams.width;
             layoutParams.leftMargin = (int) ((position + positionOffset) * width);
             mSelectedTabRectangle.setLayoutParams(layoutParams);
         }

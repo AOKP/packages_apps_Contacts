@@ -53,8 +53,8 @@
     <string name="menu_splitAggregate" msgid="8368636463748691868">"แยก"</string>
     <string name="menu_editGroup" msgid="5062005185370983720">"แก้ไข"</string>
     <string name="menu_deleteGroup" msgid="3486380004411482874">"ลบ"</string>
-    <string name="menu_new_contact_action_bar" msgid="8887818026717394343">"ใหม่"</string>
-    <string name="menu_new_group_action_bar" msgid="5055346725617932394">"ใหม่"</string>
+    <string name="menu_new_contact_action_bar" msgid="7263362129442119188">"เพิ่มรายชื่อผู้ติดต่อ"</string>
+    <string name="menu_new_group_action_bar" msgid="3520232877587377175">"เพิ่มกลุ่ม"</string>
     <string name="splitConfirmation_title" msgid="633640935430370530">"แยกรายชื่อหรือไม่"</string>
     <string name="splitConfirmation" msgid="740190210499587175">"รายชื่อติดต่อนี้จะถูกแยกออกเป็นหลายรายชื่อ"</string>
     <string name="menu_joinAggregate" msgid="5027981918265667970">"เข้าร่วม"</string>
@@ -137,6 +137,7 @@
     <string name="contactsAllLabel" msgid="6479708629170672169">"ที่อยู่ติดต่อทั้งหมด"</string>
     <string name="contactsGroupsLabel" msgid="2841971472518003524">"กลุ่ม"</string>
     <string name="contactsFavoritesLabel" msgid="8417039765586853670">"รายการโปรด"</string>
+    <string name="dialerAllContactsLabel" msgid="1025920923112988336">"รายการโปรดและผู้ติดต่อทั้งหมด"</string>
     <string name="dialerIconLabel" msgid="6500826552823403796">"โทรศัพท์"</string>
     <string name="recentCallsIconLabel" msgid="1419116422359067949">"บันทึกการโทร"</string>
     <string name="menu_sendTextMessage" msgid="6937343460284499306">"ส่งข้อความตัวอักษร"</string>
@@ -568,4 +569,5 @@
     <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"หากต้องการฟังข้อความเสียง ให้ปิดโหมดใช้งานบนเครื่องบินก่อน"</string>
     <string name="menu_export_database" msgid="2659719297530170820">"ส่งออกไฟล์ฐานข้อมูล"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"ตัวเลือกเพิ่มเติม"</string>
+    <string name="expand_collapse_name_fields_description" msgid="8682630859539604311">"ขยายหรือยุบฟิลด์ชื่อ"</string>
 </resources>

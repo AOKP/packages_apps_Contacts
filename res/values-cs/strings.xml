@@ -65,8 +65,8 @@
     <string name="menu_splitAggregate" msgid="8368636463748691868">"Oddělit"</string>
     <string name="menu_editGroup" msgid="5062005185370983720">"Upravit"</string>
     <string name="menu_deleteGroup" msgid="3486380004411482874">"Smazat"</string>
-    <string name="menu_new_contact_action_bar" msgid="8887818026717394343">"Nový"</string>
-    <string name="menu_new_group_action_bar" msgid="5055346725617932394">"Nová"</string>
+    <string name="menu_new_contact_action_bar" msgid="7263362129442119188">"Přidat kontakt"</string>
+    <string name="menu_new_group_action_bar" msgid="3520232877587377175">"Přidat skupinu"</string>
     <string name="splitConfirmation_title" msgid="633640935430370530">"Rozdělit kontakt?"</string>
     <string name="splitConfirmation" msgid="740190210499587175">"Tento kontakt bude rozdělen do několika kontaktů."</string>
     <string name="menu_joinAggregate" msgid="5027981918265667970">"Spojit"</string>
@@ -163,6 +163,7 @@
     <string name="contactsGroupsLabel" msgid="2841971472518003524">"Skupiny"</string>
     <string name="contactsFavoritesLabel" msgid="8417039765586853670">"Oblíbené"</string>
 
+    <string name="dialerAllContactsLabel" msgid="1025920923112988336">"Oblíbené kontakty a všechny kontakty"</string>
     <string name="dialerIconLabel" msgid="6500826552823403796">"Telefon"</string>
 
     <string name="dialer_ui_title">Nastavení číselníku</string>
@@ -755,4 +756,5 @@
         <item quantity="few">%d hovory</item>
         <item quantity="other">%d hovorů</item>
     </plurals>
+    <string name="expand_collapse_name_fields_description" msgid="8682630859539604311">"Rozbalit nebo sbalit pole jména"</string>
 </resources>
