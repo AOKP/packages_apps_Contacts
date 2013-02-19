@@ -123,7 +123,7 @@ public class CallStatsQueryHandler extends AsyncQueryHandler {
 
         startQuery(QUERY_CALLS_TOKEN, null, Calls.CONTENT_URI, CallStatsQuery._PROJECTION,
                 selection.toString(), selectionArgs.toArray(EMPTY_STRING_ARRAY),
-                Calls.NUMBER + " DESC");
+                Calls.NUMBER + " ASC");
     }
 
     @Override
@@ -194,14 +194,9 @@ public class CallStatsQueryHandler extends AsyncQueryHandler {
         final ArrayList<CallStatsDetails> callsToRemove = new ArrayList<CallStatsDetails>();
         final ArrayList<ContactInfo> infosToRemove = new ArrayList<ContactInfo>();
 
-        // numbers in non-international format will be the first
         for (int i = 0; i < calls.size(); i++) {
             final CallStatsDetails outerItem = calls.get(i);
             final String currentFormattedNumber = outerItem.number.toString();
-
-            if (currentFormattedNumber.startsWith("+")) {
-                continue; // we don't check numbers starting with +, only removing from this point
-            }
 
             for (int j = calls.size() - 1; j > i; j--) {
                 final CallStatsDetails innerItem = calls.get(j);
@@ -209,9 +204,11 @@ public class CallStatsQueryHandler extends AsyncQueryHandler {
 
                 if (ContactsUtils.phoneNumbersEqual(currentFormattedNumber, innerNumber)) {
                     outerItem.mergeWith(innerItem);
+                    //make sure we're not counting twice in case we're dealing with
+                    //multiple different formats
+                    innerItem.reset();
                     callsToRemove.add(innerItem);
                     infosToRemove.add(infos.get(j));
-                    break; // we don't have multiple items with the same number, stop
                 }
             }
         }

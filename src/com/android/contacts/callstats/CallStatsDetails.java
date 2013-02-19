@@ -54,8 +54,7 @@ public class CallStatsDetails implements CallDetailHeader.Data, Parcelable {
         this.geocode = geocode;
         this.date = date;
 
-        this.inDuration = this.outDuration = 0;
-        this.incomingCount = this.outgoingCount = this.missedCount = 0;
+        reset();
 
         if (info != null) {
             updateFromInfo(info);
@@ -165,6 +164,11 @@ public class CallStatsDetails implements CallDetailHeader.Data, Parcelable {
         this.incomingCount += other.incomingCount;
         this.outgoingCount += other.outgoingCount;
         this.missedCount += other.missedCount;
+    }
+
+    public void reset() {
+        this.inDuration = this.outDuration = 0;
+        this.incomingCount = this.outgoingCount = this.missedCount = 0;
     }
 
     /* Parcelable interface */
