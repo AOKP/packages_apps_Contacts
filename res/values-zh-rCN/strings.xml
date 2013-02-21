@@ -204,7 +204,7 @@
     <string name="callBack" msgid="5498224409038809224">"回电"</string>
     <string name="callAgain" msgid="3197312117049874778">"重拨"</string>
     <string name="returnCall" msgid="8171961914203617813">"回拨"</string>
-    <string name="callDetailsDurationFormat" msgid="8157706382818184268">"<xliff:g id="hours" example="5">%s</xliff:g> 时 <xliff:g id="minutes">%s</xliff:g> 分 <xliff:g id="seconds">%s</xliff:g> 秒"</string>
+    <string name="callDetailsDurationFormat" msgid="8157706382818184268">"<xliff:g id="minutes">%s</xliff:g> 分 <xliff:g id="seconds">%s</xliff:g> 秒"</string>
     <string name="favoritesFrequentContacted" msgid="6184232487472425690">"经常联系的人"</string>
     <string name="favoritesFrequentCalled" msgid="6128306889600696124">"经常呼叫的联系人"</string>
     <string name="add_contact_dlg_message_fmt" msgid="7986472669444326576">"将“<xliff:g id="EMAIL">%s</xliff:g>”添加到联系人？"</string>
@@ -591,14 +591,43 @@
     <string name="call_stats_nav_incoming">来电</string>
     <string name="call_stats_nav_outgoing">外拨</string>
     <string name="call_stats_nav_missed">未接</string>
-    <string name="call_stats_header_total">总数：</string>
+    <string name="call_stats_incoming">来电： <xliff:g id="percent">%d</xliff:g>%%</string>
+    <string name="call_stats_outgoing">外拨： <xliff:g id="percent">%d</xliff:g>%%</string>
+    <string name="call_stats_missed">未接</string>
+    <string name="call_stats_missed_percent">未接： <xliff:g id="percent">%d</xliff:g>%%</string>
+    <string name="call_stats_header_total">总数： <xliff:g id="call_count">%s</xliff:g>, <xliff:g id="duration">%s</xliff:g></string>
+    <string name="call_stats_header_total_callsonly">总数： <xliff:g id="call_count">%s</xliff:g></string>
     <string name="call_stats_filter_from">开始日期</string>
     <string name="call_stats_filter_to">结束日期</string>
-    <string name="call_stats_date_filter">日期过滤器</string>
     <string name="call_stats_filter_picker_title">过滤范围</string>
-    <string name="call_stats_filter_picker_done">应用过滤器</string>
-    <string name="call_stats_filter_picker_reset">重置过滤器</string>
-    <string name="call_stats_filter_error">开始日期大于结束日期，错误的过滤器。</string>
+
+    <string name="date_quick_selection">快速选择</string>
+    <string name="date_qs_currentmonth">本月</string>
+    <string name="date_qs_currentquarter">本季度</string>
+    <string name="date_qs_currentyear">本年</string>
+    <string name="date_qs_lastweek">上一周</string>
+    <string name="date_qs_lastmonth">上一月</string>
+    <string name="date_qs_lastquarter">上一季度</string>
+    <string name="date_qs_lastyear">上一年</string>
+
+    <string name="call_stats_date_filter">调节时间范围</string>
+    <string name="call_stats_reset_filter">重置时间范围</string>
+    <string name="call_stats_sort_by_duration">按通话时间排序</string>
+    <string name="call_stats_sort_by_count">按通话次数排序</string>
+
+    <plurals name="hour">
+        <item quantity="one">1 小时</item>
+        <item quantity="other">%d 小时</item>
+    </plurals>
+    <plurals name="minute">
+        <item quantity="one">1 分钟</item>
+        <item quantity="other">%d 分钟</item>
+    </plurals>
+    <plurals name="second">
+        <item quantity="one">1 秒</item>
+        <item quantity="other">%d 秒</item>
+    </plurals>
+
     <plurals name="call">
         <item quantity="one">1 通话</item>
         <item quantity="other">%d 通话</item>
