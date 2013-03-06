@@ -17,6 +17,7 @@
 package com.android.contacts.calllog;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.provider.CallLog.Calls;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
@@ -160,23 +161,29 @@ public class CallDetailHistoryAdapter extends BaseAdapter {
         return result;
     }
 
-    private String formatDuration(long elapsedSeconds) {
-        long hours = 0;
-        long minutes = 0;
-        long seconds = 0;
+    private String formatDuration(long duration) {
+        int hours, minutes, seconds;
+        Resources res = mContext.getResources();
 
-        if (elapsedSeconds >= 3600) {
-            hours = elapsedSeconds / 3600;
-            elapsedSeconds -= hours * 3600;
-            }
+        hours = (int) (duration / 3600);
+        duration -= (long) hours * 3600;
+        minutes = (int) (duration / 60);
+        duration -= (long) minutes * 60;
+        seconds = (int) duration;
 
-        if (elapsedSeconds >= 60) {
-            minutes = elapsedSeconds / 60;
-            elapsedSeconds -= minutes * 60;
-            }
-        seconds = elapsedSeconds;
+        boolean dispHours = hours > 0;
+        boolean dispMinutes = minutes > 0;
+        boolean dispSeconds = (seconds > 0 || (hours == 0 && minutes == 0));
 
-        return mContext.getString(R.string.callDetailsDurationFormat, hours,
-                minutes, seconds);
+        final String hourString = dispHours ?
+            res.getQuantityString(R.plurals.hour, hours, hours) : null;
+        final String minuteString = dispMinutes ?
+            res.getQuantityString(R.plurals.minute, minutes, minutes) : null;
+        final String secondString = dispSeconds ?
+            res.getQuantityString(R.plurals.second, seconds, seconds) : null;
+
+        int index = ((dispHours ? 4 : 0) | (dispMinutes ? 2 : 0) | (dispSeconds ? 1 : 0)) - 1;
+        String[] formats = res.getStringArray(R.array.call_stats_duration);
+        return String.format(formats[index], hourString, minuteString, secondString);
     }
 }
