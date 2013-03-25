@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 <resources>
-    <style name="PeopleTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+    <style name="PeopleTheme1" parent="@android:style/Theme.Holo.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/ContactsActionBarStyle</item>
         <item name="android:actionBarWidgetTheme">@style/ContactsActionBarTheme</item>
         <item name="android:actionBarItemBackground">@drawable/action_bar_item_background</item>
@@ -23,6 +23,8 @@
         <item name="android:textColorPrimary">@color/primary_text_color</item>
         <item name="android:textColorSecondary">@color/secondary_text_color</item>
         <item name="android:listViewStyle">@style/ListViewStyle</item>
+    </style>
+    <style name="PeopleTheme" parent="@style/PeopleTheme1">
         <item name="list_item_height">?android:attr/listPreferredItemHeight</item>
         <item name="activated_background">@drawable/list_item_activated_background</item>
         <item name="section_header_background">@drawable/list_title_holo</item>
