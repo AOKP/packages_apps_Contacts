@@ -590,4 +590,37 @@
     <string name="dialer_ui_orientation_title">Автоповорот экрана</string>
     <string name="dialer_ui_orientation_summary">Включить автоповорот экрана</string>
     <string name="expand_collapse_name_fields_description" msgid="8682630859539604311">"Показать/скрыть дополнительные поля"</string>
+    <string name="t9_loading">Загрузка…</string>
+    <string name="t9_default_sort">1</string>
+    <string name="menu_set_vib_ration">Установить вибрацию</string>
+    <string name="callStatsDetailTitle">Детали статистики вызовов</string>
+    <string name="call_stats">Статистика вызовов</string>
+    <string name="call_stats_refresh">Обновить</string>
+    <string name="from_account_format"><xliff:g id="source" example="user@gmail.com">%1$s</xliff:g></string>
+    <string name="activity_title_call_stats">Статистика вызовов</string>
+    <string name="call_stats_nav_all">Все</string>
+    <string name="call_stats_nav_incoming">Входящие</string>
+    <string name="call_stats_nav_outgoing">Исходящие</string>
+    <string name="call_stats_nav_missed">Пропущенные</string>
+    <string name="call_stats_incoming">Входящие: <xliff:g id="percent"> %d </xliff:g> %%</string>
+    <string name="call_stats_outgoing">Исходящие: <xliff:g id="percent"> %d </xliff:g> %%</string>
+    <string name="call_stats_missed">Пропущенные</string>
+    <string name="call_stats_missed_percent">Пропущенные: <xliff:g id="percent">%d</xliff:g>%%</string>
+    <string name="call_stats_header_total">Всего: <xliff:g id="call_count"> %s </xliff:g>, <xliff:g id="duration"> %s </xliff:g></string>
+    <string name="call_stats_header_total_callsonly">Всего: <xliff:g id="call_count"> %s </xliff:g></string>
+    <string name="call_stats_filter_from">Дата начала</string>
+    <string name="call_stats_filter_to">Дата окончания</string>
+    <string name="call_stats_filter_picker_title">Фильтр диапазона</string>
+    <string name="date_quick_selection">Быстрый выбор</string>
+    <string name="date_qs_currentmonth">Текущий месяц</string>
+    <string name="date_qs_currentquarter">Текущий квартал</string>
+    <string name="date_qs_currentyear">Текущий год</string>
+    <string name="date_qs_lastweek">Последняя неделя</string>
+    <string name="date_qs_lastmonth">Последний месяц</string>
+    <string name="date_qs_lastquarter">Последний квартал</string>
+    <string name="date_qs_lastyear">Прошлый год</string>
+    <string name="call_stats_date_filter">Настроить диапазон времени</string>
+    <string name="call_stats_reset_filter">Сброс диапазона времени</string>
+    <string name="call_stats_sort_by_duration">Сортировка по продолжительности вызова</string>
+    <string name="call_stats_sort_by_count">Сортировка по количеству вызовов</string>
 </resources>
