@@ -126,8 +126,7 @@ public class T9SearchCache implements ComponentCallbacks2 {
     private ArrayList<ContactItem> mContacts = new ArrayList<ContactItem>();
     private String mPrevInput;
 
-    private String mT9Chars;
-    private String mT9Digits;
+    private NameToNumber mNormalizer;
 
     private BroadcastReceiver mLocaleChangedReceiver = new BroadcastReceiver() {
         @Override
@@ -136,12 +135,23 @@ public class T9SearchCache implements ComponentCallbacks2 {
                 return;
             }
 
-            NameToNumber normalizer = NameToNumberFactory.create(mContext, mT9Chars, mT9Digits);
+            initNormalizer();
+
             for (ContactItem contact : mContacts) {
                 for (NameMatchEntry entry : contact.nameEntries.values()) {
-                    entry.normalValue = normalizer.convert(entry.value);
+                    if (entry.value != null) {
+                        entry.normalValue = mNormalizer.convert(entry.value);
+                    }
+                }
+
+                contact.formattedNumber = PhoneNumberUtils.formatNumber(contact.number);
+                contact.normalNumber = removeNonDigits(contact.formattedNumber);
+                if (contact.numberType >= 0) {
+                    final int labelId = Phone.getTypeLabelResource(contact.numberType);
+                    contact.groupType = context.getResources().getString(labelId);
                 }
             }
+
             notifyLoadFinished();
         }
     };
@@ -149,8 +159,14 @@ public class T9SearchCache implements ComponentCallbacks2 {
     private ContentObserver mContactObserver = new ContentObserver(new Handler()) {
         @Override
         public void onChange(boolean selfChange) {
-            mLoaded = false;
-            cancelLoad();
+            if (mCallbacks.isEmpty()) {
+                /* we have no listeners, just invalidate cache */
+                mLoaded = false;
+                cancelLoad();
+            } else {
+                /* transparently reload cache */
+                triggerLoad();
+            }
         }
     };
 
@@ -178,16 +194,11 @@ public class T9SearchCache implements ComponentCallbacks2 {
     }
 
     public void refresh(Callback cb) {
+        mCallbacks.add(cb);
         if (mLoaded) {
             cb.onLoadFinished();
-            return;
-        }
-
-        mCallbacks.add(cb);
-
-        if (mLoadTask == null || mLoadTask.getStatus() == AsyncTask.Status.FINISHED) {
-            mLoadTask = new LoadTask();
-            mLoadTask.execute();
+        } else {
+            triggerLoad();
         }
     }
 
@@ -195,6 +206,13 @@ public class T9SearchCache implements ComponentCallbacks2 {
         mCallbacks.remove(cb);
         if (mCallbacks.isEmpty()) {
             cancelLoad();
+        }
+    }
+
+    private void triggerLoad() {
+        if (mLoadTask == null || mLoadTask.getStatus() == AsyncTask.Status.FINISHED) {
+            mLoadTask = new LoadTask();
+            mLoadTask.execute();
         }
     }
 
@@ -210,9 +228,7 @@ public class T9SearchCache implements ComponentCallbacks2 {
 
         @Override
         protected Void doInBackground(Void... args) {
-            initT9Map();
-
-            NameToNumber normalizer = NameToNumberFactory.create(mContext, mT9Chars, mT9Digits);
+            initNormalizer();
 
             Cursor contact = mContext.getContentResolver().query(
                     Contacts.CONTENT_URI, CONTACT_PROJECTION, CONTACT_QUERY,
@@ -242,16 +258,21 @@ public class T9SearchCache implements ComponentCallbacks2 {
                 while (!data.isAfterLast() && data.getLong(DATA_COLUMN_CONTACT) == contactId) {
                     final String mimeType = data.getString(DATA_COLUMN_MIMETYPE);
                     if (TextUtils.equals(mimeType, Phone.CONTENT_ITEM_TYPE)) {
-                        String num = data.getString(DATA_COLUMN_PHONENUMBER);
                         ContactItem contactInfo = new ContactItem();
+                        String numberTypeLabel = data.getString(DATA_COLUMN_PHONELABEL);
 
                         contactInfo.id = contactId;
-                        contactInfo.number = PhoneNumberUtils.formatNumber(num);
-                        contactInfo.normalNumber = removeNonDigits(num);
+                        contactInfo.number = data.getString(DATA_COLUMN_PHONENUMBER);
+                        contactInfo.formattedNumber = PhoneNumberUtils.formatNumber(contactInfo.number);
+                        contactInfo.normalNumber = removeNonDigits(contactInfo.formattedNumber);
                         contactInfo.timesContacted = contactContactedCount;
                         contactInfo.isSuperPrimary = data.getInt(DATA_COLUMN_PRIMARY) > 0;
+                        contactInfo.numberType = data.getInt(DATA_COLUMN_PHONETYPE);
                         contactInfo.groupType = Phone.getTypeLabel(mContext.getResources(),
-                                data.getInt(DATA_COLUMN_PHONETYPE), data.getString(DATA_COLUMN_PHONELABEL));
+                                contactInfo.numberType, numberTypeLabel);
+                        if (TextUtils.equals(contactInfo.groupType, numberTypeLabel)) {
+                            contactInfo.numberType = -1;
+                        }
                         contactInfo.photo = photo;
                         contactItems.add(contactInfo);
                     } else if (TextUtils.equals(mimeType, Organization.CONTENT_ITEM_TYPE)) {
@@ -263,9 +284,9 @@ public class T9SearchCache implements ComponentCallbacks2 {
                 }
 
                 for (ContactItem item : contactItems) {
-                    item.addNameEntry(ENTRY_NAME, contact.getString(CONTACT_COLUMN_NAME), normalizer);
-                    item.addNameEntry(ENTRY_NICKNAME, nickName, normalizer);
-                    item.addNameEntry(ENTRY_ORGANIZATION, organization, normalizer);
+                    item.addNameEntry(ENTRY_NAME, contact.getString(CONTACT_COLUMN_NAME), mNormalizer);
+                    item.addNameEntry(ENTRY_NICKNAME, nickName, mNormalizer);
+                    item.addNameEntry(ENTRY_ORGANIZATION, organization, mNormalizer);
                     contacts.add(item);
                 }
             }
@@ -352,7 +373,9 @@ public class T9SearchCache implements ComponentCallbacks2 {
     public static class ContactItem {
         Uri photo;
         String number;
+        String formattedNumber;
         String normalNumber;
+        int numberType;
         int numberMatchId;
         Map<Integer, NameMatchEntry> nameEntries;
         int timesContacted;
@@ -407,11 +430,7 @@ public class T9SearchCache implements ComponentCallbacks2 {
             for (NameMatchEntry entry : item.nameEntries.values()) {
                 pos = entry.normalValue != null ? entry.normalValue.indexOf(number) : -1;
                 if (pos != -1) {
-                    int lastSpace = entry.normalValue.lastIndexOf("0", pos);
-                    if (lastSpace == -1) {
-                        lastSpace = 0;
-                    }
-                    entry.matchId = pos - lastSpace;
+                    entry.matchId = pos;
                     hasNameMatch = true;
                 } else {
                     entry.matchId = -1;
@@ -455,45 +474,57 @@ public class T9SearchCache implements ComponentCallbacks2 {
     private static final Comparator<ContactItem> sNameComparator = new Comparator<ContactItem>() {
         @Override
         public int compare(ContactItem lhs, ContactItem rhs) {
-            int ret;
-            for (int i = 0; i < MATCH_ENTRY_COUNT; i++) {
-                ret = Integer.compare(lhs.nameEntries.get(i).matchId, rhs.nameEntries.get(i).matchId);
-                if (ret != 0) {
-                    return ret;
-                }
-            }
-            ret = Integer.compare(rhs.timesContacted, lhs.timesContacted);
-            if (ret != 0) {
-                return ret;
+            // sort by contact frequency first - higher contact frequency first
+            if (lhs.timesContacted != rhs.timesContacted) {
+                return -Integer.compare(lhs.timesContacted, rhs.timesContacted);
             }
 
-            return Boolean.compare(rhs.isSuperPrimary, lhs.isSuperPrimary);
+            // then by primary state - primary first
+            if (lhs.isSuperPrimary != rhs.isSuperPrimary) {
+                return lhs.isSuperPrimary ? -1 : 1;
+            }
+
+            // and finally by match position in the entries - leftmost match first
+            int lowestMatchLeft = Integer.MAX_VALUE, lowestMatchRight = Integer.MAX_VALUE;
+            for (int i = 0; i < MATCH_ENTRY_COUNT; i++) {
+                NameMatchEntry l = lhs.nameEntries.get(i);
+                NameMatchEntry r = rhs.nameEntries.get(i);
+                if (l.matchId >= 0 && l.matchId < lowestMatchLeft) {
+                    lowestMatchLeft = l.matchId;
+                }
+                if (r.matchId >= 0 && r.matchId < lowestMatchRight) {
+                    lowestMatchRight = r.matchId;
+                }
+            }
+
+            return Integer.compare(lowestMatchLeft, lowestMatchRight);
         }
     };
 
     private static final Comparator<ContactItem> sNumberComparator = new Comparator<ContactItem>() {
         @Override
         public int compare(ContactItem lhs, ContactItem rhs) {
-            int ret = Integer.compare(lhs.numberMatchId, rhs.numberMatchId);
-            if (ret == 0) ret = Integer.compare(rhs.timesContacted, lhs.timesContacted);
+            // as above: contact frequency first, then primary state, then position
+            int ret = -Integer.compare(rhs.timesContacted, lhs.timesContacted);
             if (ret == 0) ret = Boolean.compare(rhs.isSuperPrimary, lhs.isSuperPrimary);
+            if (ret == 0) ret = Integer.compare(lhs.numberMatchId, rhs.numberMatchId);
             return ret;
         }
     };
 
-    private void initT9Map() {
-        StringBuilder bT9Chars = new StringBuilder();
-        StringBuilder bT9Digits = new StringBuilder();
+    private void initNormalizer() {
+        StringBuilder t9Chars = new StringBuilder();
+        StringBuilder t9Digits = new StringBuilder();
 
         for (String item : mContext.getResources().getStringArray(R.array.t9_map)) {
-            bT9Chars.append(item);
+            t9Chars.append(item);
             for (int i = 0; i < item.length(); i++) {
-                bT9Digits.append(item.charAt(0));
+                t9Digits.append(item.charAt(0));
             }
         }
 
-        mT9Chars = bT9Chars.toString();
-        mT9Digits = bT9Digits.toString();
+        mNormalizer = NameToNumberFactory.create(mContext,
+                t9Chars.toString(), t9Digits.toString());
     }
 
     private String removeNonDigits(String number) {
@@ -565,33 +596,62 @@ public class T9SearchCache implements ComponentCallbacks2 {
                         nameBuilder.append(entry.prefix);
                     }
 
-                    int start = nameBuilder.length() + entry.matchId;
+                    int firstPos = nameBuilder.length();
                     nameBuilder.append(entry.value);
 
                     if (!TextUtils.isEmpty(entry.postfix)) {
                         nameBuilder.append(entry.postfix);
                     }
 
-                    if (entry.matchId != -1) {
-                        if (start <= entry.value.length()
-                                && start + mPrevInput.length() <= entry.value.length()) {
-                            nameBuilder.setSpan(new ForegroundColorSpan(mHighlightColor),
-                                    start, start + mPrevInput.length(),
-                                    Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-                        }
+                    if (entry.matchId < 0) {
+                        continue;
                     }
+
+                    int start, end;
+
+                    if (entry.matchId > entry.value.length()
+                            || entry.matchId + mPrevInput.length() > entry.value.length()) {
+                        start = firstPos;
+                        end = firstPos + entry.value.length();
+                    } else {
+                        start = firstPos + entry.matchId;
+                        end = start + mPrevInput.length();
+                    }
+
+                    nameBuilder.setSpan(new ForegroundColorSpan(mHighlightColor),
+                            start, end, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
                 }
 
                 SpannableStringBuilder numberBuilder = new SpannableStringBuilder();
-                numberBuilder.append(o.normalNumber);
+                numberBuilder.append(o.formattedNumber);
                 numberBuilder.append(" (");
                 numberBuilder.append(o.groupType);
                 numberBuilder.append(")");
                 if (o.numberMatchId != -1) {
-                    int numberStart = o.numberMatchId;
-                    numberBuilder.setSpan(new ForegroundColorSpan(mHighlightColor),
-                            numberStart, numberStart + mPrevInput.length(),
-                            Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+                    final int formattedLength = o.formattedNumber.length();
+                    final int normalLength = o.normalNumber.length();
+                    final int inputLength = mPrevInput.length();
+                    int numberStart = -1, numberEnd = formattedLength;
+
+                    for (int i = 0, normalIndex = 0; i < formattedLength && normalIndex < normalLength; i++) {
+                        if (o.formattedNumber.charAt(i) != o.normalNumber.charAt(normalIndex)) {
+                            continue;
+                        }
+
+                        if (normalIndex == o.numberMatchId) {
+                            numberStart = i;
+                        }
+                        if (normalIndex == o.numberMatchId + inputLength - 1) {
+                            numberEnd = i + 1;
+                            break;
+                        }
+
+                        normalIndex++;
+                    }
+                    if (numberStart >= 0) {
+                        numberBuilder.setSpan(new ForegroundColorSpan(mHighlightColor),
+                                numberStart, numberEnd, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+                    }
                 }
 
                 holder.name.setText(nameBuilder);

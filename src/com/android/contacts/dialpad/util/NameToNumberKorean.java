@@ -17,7 +17,6 @@ public class NameToNumberKorean extends NameToNumber {
 
     public NameToNumberKorean(String t9Chars, String t9Digits) {
         super(t9Chars, t9Digits);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
