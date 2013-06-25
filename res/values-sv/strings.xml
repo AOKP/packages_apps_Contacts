@@ -570,4 +570,60 @@
     <string name="menu_export_database" msgid="2659719297530170820">"Exportera databasfiler"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"Fler alternativ"</string>
     <string name="expand_collapse_name_fields_description" msgid="8682630859539604311">"Expandera eller komprimera namnfält"</string>
+
+    <!-- AOKP additional -->
+
+    <string name="t9_loading">Laddar\u2026</string>
+    <string name="t9_sort_title">T9 sorterings läge</string>
+    <string name="t9_sort_summary">Välj hur du vill filtrera T9 resultat</string>
+    <string name="t9_sort_name">Matcha namn först</string>
+    <string name="t9_sort_number">Matcha nummer först</string>
+    <string name="t9_state_title">Aktivera T9 telefon</string>
+    <string name="t9_state_summary">aktivera T9 sökning i telefonen</string>
+    <string name="t9_dial_click_title">Ring vald kontakt</string>
+    <string name="t9_dial_click_summary">Ring vald kontakt för T9</string>
+    <string name="t9_add_to_contacts">Lägg till i kontakter</string>
+
+    <string name="call_stats">Samtals statistik</string>
+
+    <string name="call_stats_nav_all">Alla</string>
+    <string name="call_stats_nav_incoming">Inkommande</string>
+    <string name="call_stats_nav_outgoing">Utgående</string>
+    <string name="call_stats_nav_missed">Missade</string>
+    <string name="call_stats_incoming">Inkommande: <xliff:g id="percent">%d</xliff:g>%%</string>
+    <string name="call_stats_outgoing">Utgående: <xliff:g id="percent">%d</xliff:g>%%</string>
+    <string name="call_stats_missed">Missade</string>
+    <string name="call_stats_missed_percent">Missade: <xliff:g id="percent">%d</xliff:g>%%</string>
+    <string name="call_stats_header_total">Totalt: <xliff:g id="call_count">%s</xliff:g>, <xliff:g id="duration">%s</xliff:g></string>
+    <string name="call_stats_header_total_callsonly">Totalt: <xliff:g id="call_count">%s</xliff:g></string>
+    <string name="call_stats_filter_from">Start datum</string>
+    <string name="call_stats_filter_to">Slut datum</string>
+    <string name="call_stats_filter_picker_title">Filter intervall</string>
+
+    <string name="date_quick_selection">Snabbval</string>
+    <string name="date_qs_currentmonth">Aktuell månad</string>
+    <string name="date_qs_currentquarter">Aktuellt kvartal</string>
+    <string name="date_qs_currentyear">Aktuellt år</string>
+    <string name="date_qs_lastweek">Föregående vecka</string>
+    <string name="date_qs_lastmonth">Föregående månad</string>
+    <string name="date_qs_lastquarter">Föregående kvartal</string>
+    <string name="date_qs_lastyear">Föregående år</string>
+
+    <string name="call_stats_date_filter">Justera tidsintervall</string>
+    <string name="call_stats_reset_filter">Återställ tidsintervall</string>
+    <string name="call_stats_sort_by_duration">Sortera efter samtalstider</string>
+    <string name="call_stats_sort_by_count">Sortera efter samtal räkning</string>
+
+    <string-array name="call_stats_duration">
+        <item><xliff:g id="sekunder" example="2 sek">%3$s</xliff:g></item>
+        <item><xliff:g id="minuter" example="2 min">%2$s</xliff:g></item>
+        <item><xliff:g id="minuter" example="2 min">%2$s</xliff:g> <xliff:g id="sekunder" example="2 sek">%3$s</xliff:g></item>
+        <item><xliff:g id="timmar" example="2 tim">%1$s</xliff:g></item>
+        <item><xliff:g id="timmar" example="2 tim">%1$s</xliff:g> <xliff:g id="sekunder" example="2 sek">%3$s</xliff:g></item>
+        <item><xliff:g id="timmar" example="2 tim">%1$s</xliff:g> <xliff:g id="minutes" example="2 min">%2$s</xliff:g></item>
+        <item><xliff:g id="timmar" example="2 tim">%1$s</xliff:g> <xliff:g id="minutes" example="2 min">%2$s</xliff:g> <xliff:g id="sekunder" example="2 sek">%3$s</xliff:g></item>
+    </string-array>
+
+    <!-- Menu item that opens the Options activity for a given contact [CHAR LIMIT=15] -->
+    <string name="menu_set_vib_ration">Ställ vibrationer</string>
 </resources>
