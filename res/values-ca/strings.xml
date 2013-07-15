@@ -570,4 +570,69 @@
     <string name="menu_export_database" msgid="2659719297530170820">"Exporta els fitxers de la base de dades"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"Més opcions"</string>
     <string name="expand_collapse_name_fields_description" msgid="8682630859539604311">"Amplia o redueix els camps de nom"</string>
+    <string name="t9_loading">S\'està carregant\u2026</string>
+    <string name="t9_default_sort">1</string>
+    <string name="t9_sort_title">Mode d\'ordenat T9</string>
+    <string name="t9_sort_summary">Trieu com filtrar els resultats T9</string>
+    <string name="t9_sort_name">Primer coincideix amb el nom</string>
+    <string name="t9_sort_number">Primer coincideix amb el número</string>
+    <string name="t9_state_title">Habilita el marcador T9</string>
+    <string name="t9_state_summary">Habilita la cerca T9 al marcador</string>
+    <string name="t9_dial_click_title">Marca el contacte seleccionat</string>
+    <string name="t9_dial_click_summary">Marca el contacte seleccionat en T9</string>
+    <string name="t9_add_to_contacts">Afegeix als contactes</string>
+    <string name="t9_map_row_2">2abcàáâäåɑæçǽćčá</string>
+    <string name="t9_map_row_3">3defďéèêëě</string>
+    <string name="t9_map_row_4">4ghiíìïîǵ</string>
+    <string name="t9_map_row_5">5jklḱḱĺ</string>
+    <string name="t9_map_row_6">6mnoòóöôøñŋǿḿńňő</string>
+    <string name="t9_map_row_7">7pqrsßɾṕŕśřš</string>
+    <string name="t9_map_row_8">8tuvťúùüûűů</string>
+    <string name="t9_map_row_9">9wxyzýẃźž</string>
+    <string name="menu_set_vib_ration">Estableix la vibració</string>
+    <string name="dialer_ui_title">Configuració del marcador</string>
+    <string name="dialer_ui_orientation_title">Habilita el sensor d\'orientació</string>
+    <string name="dialer_ui_orientation_summary">Rotació del marcador segons el sensor</string>
+    <string name="callStatsDetailTitle">Detalls de l\'estadística de trucades</string>
+    <string name="call_stats">Estadístiques de trucades</string>
+    <string name="call_stats_refresh">Refresca</string>
+    <string name="from_account_format"><xliff:g id="source" example="usuari@gmail.com">%1$s</xliff:g></string>
+    <string name="activity_title_call_stats">Estadístiques de trucades</string>
+    <string name="call_stats_nav_all">Totes</string>
+    <string name="call_stats_nav_incoming">Entrants</string>
+    <string name="call_stats_nav_outgoing">Sortints</string>
+    <string name="call_stats_nav_missed">Perdudes</string>
+    <string name="call_stats_incoming">Entrants: <xliff:g id="percent">%d</xliff:g>%%</string>
+    <string name="call_stats_outgoing">Sortints: <xliff:g id="percent">%d</xliff:g>%%</string>
+    <string name="call_stats_missed">Perdudes</string>
+    <string name="call_stats_missed_percent">Perdudes: <xliff:g id="percent">%d</xliff:g>%%</string>
+    <string name="call_stats_header_total">Total: <xliff:g id="call_count">%s</xliff:g>, <xliff:g id="duration">%s</xliff:g></string>
+    <string name="call_stats_header_total_callsonly">Total: <xliff:g id="call_count">%s</xliff:g></string>
+    <string name="call_stats_filter_from">Data d\'inici</string>
+    <string name="call_stats_filter_to">Data final</string>
+    <string name="call_stats_filter_picker_title">Interval del filtre</string>
+    <string name="date_quick_selection">Selecció ràpida</string>
+    <string name="date_qs_currentmonth">Mes actual</string>
+    <string name="date_qs_currentquarter">Trimestre actual</string>
+    <string name="date_qs_currentyear">Any actual</string>
+    <string name="date_qs_lastweek">Darrera setmana</string>
+    <string name="date_qs_lastmonth">Darrer mes</string>
+    <string name="date_qs_lastquarter">Darrer trimestre</string>
+    <string name="date_qs_lastyear">Darrer any</string>
+    <string name="call_stats_date_filter">Ajusta l\'interval de temps</string>
+    <string name="call_stats_reset_filter">Restableix l\'interval de temps</string>
+    <string name="call_stats_sort_by_duration">Ordena per durada de la trucada</string>
+    <string name="call_stats_sort_by_count">Ordena per recompte de trucades</string>
+    <plurals name="hour">
+        <item quantity="other">%d h</item>
+    </plurals>
+    <plurals name="minute">
+        <item quantity="other">%d mins</item>
+    </plurals>
+    <plurals name="second">
+        <item quantity="other">%d s</item>
+    </plurals>
+    <plurals name="call">
+        <item quantity="other">%d trucades</item>
+    </plurals>
 </resources>
