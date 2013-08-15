@@ -350,6 +350,7 @@
         <activity
             android:name=".activities.ContactEditorActivity"
             android:theme="@style/EditorActivityTheme"
+            android:configChanges="orientation|screenSize|keyboardHidden|locale"
             android:windowSoftInputMode="adjustResize">
 
             <intent-filter android:label="@string/editContactDescription">
