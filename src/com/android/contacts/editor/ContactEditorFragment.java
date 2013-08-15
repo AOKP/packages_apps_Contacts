@@ -507,6 +507,15 @@ public class ContactEditorFragment extends Fragment implements
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (Intent.ACTION_EDIT.equals(mAction)) {
+            mHasNewContact = false;
+        }
+    }
+
     public void setData(Contact contact) {
 
         // If we have already loaded data, we do not want to change it here to not confuse the user
