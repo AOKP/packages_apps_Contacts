@@ -39,4 +39,13 @@
     <!--  Color of the vertical stripe that goes on the left of a block quote inside a stream item -->
     <color name="stream_item_stripe_color">#CCCCCC</color>
 
+    <!-- New Colors for Theme Chooser to be compatible -->
+    <color name="account_container">#eeeeee</color>
+    <color name="call_detail_photo_bg">#7f000000</color>
+    <color name="call_log_divider">#55ffffff</color>
+    <color name="detail_tab_carousel_tab_label_background_color">#7f000000</color>
+    <color name="photo_backdrop">#000000</color>
+    <color name="photo_container">#4cffffff</color>
+    <color name="social_widget_bg">#00000000</color>
+    <color name="white_text">#ffffffff</color>
 </resources>

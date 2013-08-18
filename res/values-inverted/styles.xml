@@ -43,7 +43,7 @@
         <item name="android:windowAnimationStyle">@null</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
     </style>
-    <style name="PeopleTheme" parent="@*android:style/Theme.Holo">
+    <style name="PeopleTheme1" parent="@*android:style/Theme.Holo">
         <item name="android:textColorPrimary">@color/primary_text_color</item>
         <item name="android:textColorSecondary">@color/secondary_text_color</item>
         <item name="android:listViewStyle">@style/ListViewStyle</item>

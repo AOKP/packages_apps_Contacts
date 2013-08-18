@@ -21,7 +21,7 @@
         android:id="@+id/backdrop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#000000" />
+        android:background="@color/photo_backdrop" />
     <view
         android:id="@+id/photo"
         class="com.android.contacts.detail.TransformableImageView"
