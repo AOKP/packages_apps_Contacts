@@ -30,6 +30,7 @@ import com.android.contacts.common.list.ContactListAdapter;
 import com.android.contacts.common.list.ContactListFilter;
 import com.android.contacts.common.list.DefaultContactListAdapter;
 import com.android.contacts.common.list.DirectoryListLoader;
+import com.android.contacts.common.list.DirectoryPartition;
 import com.android.contacts.common.list.ShortcutIntentBuilder;
 import com.android.contacts.common.list.ShortcutIntentBuilder.OnShortcutIntentCreatedListener;
 
@@ -43,6 +44,7 @@ public class ContactPickerFragment extends ContactEntryListFragment<ContactEntry
     private static final String KEY_EDIT_MODE = "editMode";
     private static final String KEY_CREATE_CONTACT_ENABLED = "createContactEnabled";
     private static final String KEY_SHORTCUT_REQUESTED = "shortcutRequested";
+    private static final String DIRECTORY_ID_ARG_KEY = "directoryId";
 
     private OnContactPickerActionListener mListener;
     private boolean mCreateContactEnabled;
@@ -190,5 +192,17 @@ public class ContactPickerFragment extends ContactEntryListFragment<ContactEntry
     @Override
     public void onPickerResult(Intent data) {
         mListener.onPickContactAction(data.getData());
+    }
+
+    /**
+     * Loads the directory partition.
+     */
+    protected void loadDirectoryPartition(int partitionIndex, DirectoryPartition partition) {
+        Bundle args = new Bundle();
+        args.putLong(DIRECTORY_ID_ARG_KEY, partition.getDirectoryId());
+        if (getLoaderManager().getLoader(partitionIndex) != null) {
+            getLoaderManager().destroyLoader(partitionIndex);
+        }
+        getLoaderManager().restartLoader(partitionIndex, args, this);
     }
 }
