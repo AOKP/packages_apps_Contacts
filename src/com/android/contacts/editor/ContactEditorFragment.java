@@ -854,6 +854,11 @@ public class ContactEditorFragment extends Fragment implements
                     }
 
                     @Override
+                    public void onDismissPopup() {
+                        // Nothing to do.
+                    }
+
+                    @Override
                     public void onDeleteRequested(Editor removedEditor) {
                     }
                 };
@@ -1913,6 +1918,12 @@ public class ContactEditorFragment extends Fragment implements
                 if (request == EditorListener.REQUEST_PICK_PHOTO) {
                     onClick(mEditor.getPhotoEditor());
                 }
+            }
+
+            @Override
+            public void onDismissPopup() {
+                // Dismiss the popup menu.
+                destroy();
             }
 
             @Override
