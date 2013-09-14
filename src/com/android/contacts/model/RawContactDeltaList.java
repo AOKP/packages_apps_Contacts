@@ -157,8 +157,11 @@ public class RawContactDeltaList extends ArrayList<RawContactDelta> implements P
                 for (Long joinedRawContactId : mJoinWithRawContactIds) {
                     final Builder builder = beginKeepTogether();
                     builder.withValue(AggregationExceptions.RAW_CONTACT_ID1, joinedRawContactId);
-                    if (rawContactId != -1) {
-                        builder.withValue(AggregationExceptions.RAW_CONTACT_ID2, rawContactId);
+                    // we should use each delta's raw contact id, so we can update all the
+                    // aggregation exceptions for each pair of raw contacts.
+                    if (delta.getRawContactId() != -1) {
+                        builder.withValue(AggregationExceptions.RAW_CONTACT_ID2,
+                                delta.getRawContactId());
                     } else {
                         builder.withValueBackReference(
                                 AggregationExceptions.RAW_CONTACT_ID2, firstBatch);
