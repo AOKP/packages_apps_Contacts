@@ -94,8 +94,12 @@
 
     <style name="ContactsActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@drawable/ab_solid_custom_blue_inverse_holo</item>
+        <item name="android:displayOptions">none</item>
+        <item name="android:subtitleTextStyle">@style/slim.TextAppearance.Holo.Widget.ActionBar.Subtitle.Inverse</item>
         <item name="android:backgroundStacked">@drawable/ab_solid_custom_blue_inverse_holo</item>
-        <item name="android:displayOptions"></item>
+    </style>
+    <style name="slim.TextAppearance.Holo.Widget.ActionBar.Subtitle.Inverse" parent="@*android:style/TextAppearance.Holo.Widget.ActionBar.Title.Inverse">
+        <item name="android:textSize">14.0dip</item>
     </style>
 
     <style name="ContactsActionBarDropDownStyle" parent="@android:style/Widget.Holo.Light.Spinner">
