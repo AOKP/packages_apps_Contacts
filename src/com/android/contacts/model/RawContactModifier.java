@@ -465,6 +465,9 @@ public class RawContactModifier {
     private static boolean hasChanges(RawContactDelta state, AccountType accountType) {
         for (DataKind kind : accountType.getSortedDataKinds()) {
             final String mimeType = kind.mimeType;
+            if (mimeType == null || mimeType.isEmpty()) {
+                continue;
+            }
             final ArrayList<ValuesDelta> entries = state.getMimeEntries(mimeType);
             if (entries == null) continue;
 
