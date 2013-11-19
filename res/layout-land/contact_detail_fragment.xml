@@ -60,7 +60,7 @@
 
     <ScrollView android:id="@android:id/empty"
         android:layout_width="match_parent"
-        android:layout_height="0px"
+        android:layout_height="wrap_content"
         android:fadingEdge="none"
         android:visibility="gone">
         <TextView android:id="@+id/emptyText"
