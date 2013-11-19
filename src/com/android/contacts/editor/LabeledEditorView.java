@@ -562,7 +562,7 @@ public abstract class LabeledEditorView extends LinearLayout implements Editor, 
                 textView.setGravity(Gravity.END | Gravity.CENTER_VERTICAL);
                 textView.setTextAppearance(mContext, android.R.style.TextAppearance_Small);
                 textView.setTextColor(mTextColor);
-                textView.setEllipsize(TruncateAt.MIDDLE);
+                textView.setEllipsize(TruncateAt.END);
             } else {
                 textView = (TextView) convertView;
             }
