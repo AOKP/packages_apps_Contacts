@@ -17,6 +17,7 @@
 package com.android.contacts.editor;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.provider.ContactsContract.CommonDataKinds.Photo;
@@ -200,5 +201,14 @@ public class PhotoEditorView extends LinearLayout implements Editor {
     @Override
     public void clearAllFields() {
         resetDefault();
+    }
+
+    @Override
+    protected void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        // When rotate the screen dissmiss the popup menu.
+        if (mListener != null) {
+            mListener.onDismissPopup();
+        }
     }
 }

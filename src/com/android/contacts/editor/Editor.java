@@ -40,6 +40,11 @@ public interface Editor {
          */
         public void onRequest(int request);
 
+        /**
+         * Called when requested to be dismiss.
+         */
+        public void onDismissPopup();
+
         public static final int REQUEST_PICK_PHOTO = 1;
         public static final int FIELD_CHANGED = 2;
         public static final int FIELD_TURNED_EMPTY = 3;
