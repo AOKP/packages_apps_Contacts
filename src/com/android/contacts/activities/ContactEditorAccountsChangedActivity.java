@@ -88,9 +88,9 @@ public class ContactEditorAccountsChangedActivity extends Activity {
         }
 
         final View view;
-        if (numAccounts >= 2) {
-            // When the user has 2+ writable accounts, show a list of accounts so the user can pick
-            // which account to create a contact in.
+        if (numAccounts > 0) {
+            // When the user has writable accounts, show a list of accounts so the user can pick
+            // which account to create a contact in (add also the phone-local storage account).
             view = View.inflate(this,
                     R.layout.contact_editor_accounts_changed_activity_with_picker, null);
 
@@ -106,34 +106,6 @@ public class ContactEditorAccountsChangedActivity extends Activity {
                     AccountListFilter.ACCOUNTS_CONTACT_WRITABLE);
             accountListView.setAdapter(mAccountListAdapter);
             accountListView.setOnItemClickListener(mAccountListItemClickListener);
-        } else if (numAccounts == 1) {
-            // If the user has 1 writable account we will just show the user a message with 2
-            // possible action buttons.
-            view = View.inflate(this,
-                    R.layout.contact_editor_accounts_changed_activity_with_text, null);
-
-            final TextView textView = (TextView) view.findViewById(R.id.text);
-            final Button leftButton = (Button) view.findViewById(R.id.left_button);
-            final Button rightButton = (Button) view.findViewById(R.id.right_button);
-
-            final AccountWithDataSet account = accounts.get(0);
-            textView.setText(getString(R.string.contact_editor_prompt_one_account,
-                    account.name));
-
-            // This button allows the user to add a new account to the device and return to
-            // this app afterwards.
-            leftButton.setText(getString(R.string.add_new_account));
-            leftButton.setOnClickListener(mAddAccountClickListener);
-
-            // This button allows the user to continue creating the contact in the specified
-            // account.
-            rightButton.setText(getString(android.R.string.ok));
-            rightButton.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    saveAccountAndReturnResult(account);
-                }
-            });
         } else {
             // If the user has 0 writable accounts, we will just show the user a message with 2
             // possible action buttons.
