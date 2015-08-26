@@ -1254,7 +1254,7 @@ public class MultiPickContactActivity extends ListActivity implements
                 if (photoId == 0) {
                     request = new DefaultImageRequest(cache.name, cache.lookupKey, true);
                 }
-                mContactPhotoManager.loadThumbnail(photo, photoId, false, true, request);
+                mContactPhotoManager.loadThumbnail(photo, photoId, account, false, true, request);
             } else if (isPickPhone()) {
                 cache.id = cursor.getLong(PHONE_COLUMN_ID);
                 cache.name = cursor.getString(PHONE_COLUMN_DISPLAY_NAME);

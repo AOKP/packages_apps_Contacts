@@ -15,6 +15,7 @@
  */
 package com.android.contacts.list;
 
+import android.accounts.Account;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.CursorLoader;
@@ -24,6 +25,7 @@ import android.net.Uri.Builder;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Email;
 import android.provider.ContactsContract.Data;
+import android.provider.ContactsContract.RawContacts;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +49,8 @@ public class EmailAddressListAdapter extends ContactEntryListAdapter {
             Email.PHOTO_ID,                  // 4
             Email.LOOKUP_KEY,                // 5
             Email.DISPLAY_NAME_PRIMARY,      // 6
+            RawContacts.ACCOUNT_TYPE,        // 7
+            RawContacts.ACCOUNT_NAME         // 8
         };
 
         private static final String[] PROJECTION_ALTERNATIVE = new String[] {
@@ -57,6 +61,8 @@ public class EmailAddressListAdapter extends ContactEntryListAdapter {
             Email.PHOTO_ID,                  // 4
             Email.LOOKUP_KEY,                // 5
             Email.DISPLAY_NAME_ALTERNATIVE,  // 6
+            RawContacts.ACCOUNT_TYPE,        // 7
+            RawContacts.ACCOUNT_NAME         // 8
         };
 
         public static final int EMAIL_ID           = 0;
@@ -66,6 +72,8 @@ public class EmailAddressListAdapter extends ContactEntryListAdapter {
         public static final int EMAIL_PHOTO_ID     = 4;
         public static final int EMAIL_LOOKUP_KEY   = 5;
         public static final int EMAIL_DISPLAY_NAME = 6;
+        public static final int EMAIL_ACCOUNT_TYPE = 7;
+        public static final int EMAIL_ACCOUNT_NAME = 8;
     }
 
     private final CharSequence mUnknownNameText;
@@ -173,13 +181,22 @@ public class EmailAddressListAdapter extends ContactEntryListAdapter {
         if (!cursor.isNull(EmailQuery.EMAIL_PHOTO_ID)) {
             photoId = cursor.getLong(EmailQuery.EMAIL_PHOTO_ID);
         }
+
+        Account account = null;
+        if (!cursor.isNull(EmailQuery.EMAIL_ACCOUNT_TYPE)
+                && !cursor.isNull(EmailQuery.EMAIL_ACCOUNT_NAME)) {
+            final String accountType = cursor.getString(EmailQuery.EMAIL_ACCOUNT_TYPE);
+            final String accountName = cursor.getString(EmailQuery.EMAIL_ACCOUNT_NAME);
+            account = new Account(accountName, accountType);
+        }
+
         DefaultImageRequest request = null;
         if (photoId == 0) {
              request = getDefaultImageRequestFromCursor(cursor, EmailQuery.EMAIL_DISPLAY_NAME,
                     EmailQuery.EMAIL_LOOKUP_KEY);
         }
-        getPhotoLoader().loadThumbnail(view.getPhotoView(), photoId, false, getCircularPhotos(),
-                request);
+        getPhotoLoader().loadThumbnail(view.getPhotoView(), photoId, account,
+                false, getCircularPhotos(), request);
     }
 //
 //    protected void bindSearchSnippet(final ContactListItemView view, Cursor cursor) {
