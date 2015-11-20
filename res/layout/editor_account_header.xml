@@ -20,7 +20,7 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:minHeight="48dip"
-    android:background="#EEEEEE"
+    android:background="@color/editor_account_header_bg"
     android:orientation="horizontal"
     android:paddingTop="8dip"
     android:paddingBottom="8dip"
