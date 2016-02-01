@@ -1508,7 +1508,7 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
 
     private void showGroupSelectionList(String accountType, long srcGroupId) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(getString(R.string.label_groups));
+        builder.setTitle(getString(R.string.groupsLabel));
         ContentResolver resolver = getContentResolver();
         String selection = Groups.ACCOUNT_TYPE + " =? AND " + Groups.DELETED + " != ? AND ("
                 + Groups.SOURCE_ID + "!='RCS'" + " OR " + Groups.SOURCE_ID + " IS NULL)";

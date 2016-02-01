@@ -326,6 +326,8 @@
     <string name="message_add_members">"添加成员..."</string>
     <string name="message_move_members">"移动成员..."</string>
     <string name="cancel_operation">"操作取消"</string>
+    <!-- Menu item used to refresh a specific contact -->
+    <string name="menu_refresh">刷新</string>
     <string name="message_can_not_move_members">"不能移动成员"</string>
     <string name="message_from_you_prefix" msgid="7180706529908434482">"您：<xliff:g id="SMS_BODY">%s</xliff:g>"</string>
     <string name="contact_editor_hangouts_im_alert" msgid="114855385615225735">"请将联系人的环聊帐号信息输入到电子邮件地址字段或电话号码字段，以便获得更佳的环聊使用体验。"</string>
