@@ -2881,7 +2881,7 @@ public class QuickContactActivity extends ContactsActivity
             }
 
             final MenuItem refreshMenuItem = menu.findItem(R.id.menu_refresh);
-            refreshMenuItem.setVisible(isContactEditable());
+            refreshMenuItem.setVisible(false);
 
             final MenuItem deleteMenuItem = menu.findItem(R.id.menu_delete);
             deleteMenuItem.setVisible(isContactEditable() && !mContactData.isUserProfile());
