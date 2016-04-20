@@ -20,8 +20,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.provider.ContactsContract.CommonDataKinds.Email;
 import android.provider.ContactsContract.CommonDataKinds.GroupMembership;
 import android.provider.ContactsContract.CommonDataKinds.Nickname;
+import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.CommonDataKinds.Photo;
 import android.provider.ContactsContract.CommonDataKinds.StructuredName;
 import android.provider.ContactsContract.Contacts;
@@ -37,12 +39,14 @@ import android.widget.TextView;
 
 import com.android.contacts.GroupMetaDataLoader;
 import com.android.contacts.R;
+import com.android.contacts.common.MoreContactUtils;
 import com.android.contacts.common.model.account.AccountType;
 import com.android.contacts.common.model.account.AccountType.EditType;
 import com.android.contacts.common.model.dataitem.DataKind;
 import com.android.contacts.common.model.RawContactDelta;
 import com.android.contacts.common.model.ValuesDelta;
 import com.android.contacts.common.model.RawContactModifier;
+import com.android.contacts.common.SimContactsConstants;
 
 import com.google.common.base.Objects;
 
@@ -262,23 +266,34 @@ public class RawContactEditorView extends BaseRawContactEditorView {
                 mName.setValues(
                         type.getKindForMimetype(DataKind.PSEUDO_MIME_TYPE_DISPLAY_NAME),
                         primary, state, false, vig);
-                mPhoneticName.setValues(
-                        type.getKindForMimetype(DataKind.PSEUDO_MIME_TYPE_PHONETIC_NAME),
-                        primary, state, false, vig);
-                // It is useful to use Nickname outside of a KindSectionView so that we can treat it
-                // as a part of StructuredName's fake KindSectionView, even though it uses a
-                // different CP2 mime-type. We do a bit of extra work below to make this possible.
-                final DataKind nickNameKind = type.getKindForMimetype(Nickname.CONTENT_ITEM_TYPE);
-                if (nickNameKind != null) {
-                    ValuesDelta primaryNickNameEntry = state.getPrimaryEntry(nickNameKind.mimeType);
-                    if (primaryNickNameEntry == null) {
-                        primaryNickNameEntry = RawContactModifier.insertChild(state, nickNameKind);
+                if (!(SimContactsConstants.ACCOUNT_TYPE_SIM).equals(type.accountType)) {
+                    mPhoneticName.setValues(
+                            type.getKindForMimetype(DataKind.PSEUDO_MIME_TYPE_PHONETIC_NAME),
+                            primary, state, false, vig);
+                    // It is useful to use Nickname outside of a KindSectionView so that we can
+                    // treat it as a part of StructuredName's fake KindSectionView, even though
+                    // it uses adifferent CP2 mime-type. We do a bit of extra work below to make
+                    // this possible.
+                    final DataKind nickNameKind = type
+                            .getKindForMimetype(Nickname.CONTENT_ITEM_TYPE);
+                    if (nickNameKind != null) {
+                        ValuesDelta primaryNickNameEntry = state
+                                .getPrimaryEntry(nickNameKind.mimeType);
+                        if (primaryNickNameEntry == null) {
+                            primaryNickNameEntry = RawContactModifier
+                                    .insertChild(state, nickNameKind);
+                        }
+                        mNickName.setValues(nickNameKind, primaryNickNameEntry, state, false, vig);
+                        mNickName.setDeletable(false);
+                    } else {
+                        mPhoneticName.setPadding(0, 0, 0, (int) getResources().getDimension(
+                                R.dimen.editor_padding_between_editor_views));
+                        mNickName.setVisibility(View.GONE);
                     }
-                    mNickName.setValues(nickNameKind, primaryNickNameEntry, state, false, vig);
-                    mNickName.setDeletable(false);
                 } else {
-                    mPhoneticName.setPadding(0, 0, 0, (int) getResources().getDimension(
-                            R.dimen.editor_padding_between_editor_views));
+                  //sim card can't store expand fields,so set it disabled.
+                    mName.setExpansionViewContainerDisabled();
+                    mPhoneticName.setVisibility(View.GONE);
                     mNickName.setVisibility(View.GONE);
                 }
             } else if (Photo.CONTENT_ITEM_TYPE.equals(mimeType)) {
@@ -297,6 +312,46 @@ public class RawContactEditorView extends BaseRawContactEditorView {
                 continue;
             } else {
                 // Otherwise use generic section-based editors
+                if (Phone.CONTENT_ITEM_TYPE.equals(mimeType)) {
+                    if (SimContactsConstants.ACCOUNT_TYPE_SIM.equals(type.accountType)) {
+                        int sub = SimContactsConstants.SLOT1;
+                        if (SimContactsConstants.SIM_NAME_2.equals(state.getAccountName())) {
+                            sub = SimContactsConstants.SLOT2;
+                        }
+                        EditType typeHome = new EditType(Phone.TYPE_HOME,
+                                Phone.getTypeLabelResource(Phone.TYPE_HOME));
+                        if (!MoreContactUtils.canSaveAnr(sub)) {
+                            kind.typeOverallMax = 1;
+                            if (null != kind.typeList) {
+                                // When the sim card is not 3g the interface should
+                                // remove the TYPE_HOME number view.
+                                kind.typeList.remove(typeHome);
+                            }
+                        } else {
+                            kind.typeOverallMax = MoreContactUtils.getOneSimAnrCount(sub) + 1;
+                            if (null != kind.typeList && !kind.typeList.contains(
+                                    typeHome)) {
+                                // When the sim card is 3g the interface should
+                                // add the TYPE_HOME number view.
+                                kind.typeList.add(typeHome);
+                            }
+                        }
+                    }
+                } else if (Email.CONTENT_ITEM_TYPE.equals(mimeType)) {
+                    if (SimContactsConstants.ACCOUNT_TYPE_SIM.equals(
+                            type.accountType)) {
+                        int sub = SimContactsConstants.SLOT1;
+                        if (SimContactsConstants.SIM_NAME_2.equals(state.getAccountName())) {
+                            sub = SimContactsConstants.SLOT2;
+                        }
+                        if (!MoreContactUtils.canSaveEmail(sub)) {
+                            continue;
+                        } else {
+                            kind.typeOverallMax = MoreContactUtils.getOneSimEmailCount(sub);
+                        }
+                    }
+                }
+
                 if (kind.fieldList == null) continue;
                 final KindSectionView section = (KindSectionView)mInflater.inflate(
                         R.layout.item_kind_section, mFields, false);

@@ -24,6 +24,7 @@ import android.provider.ContactsContract;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.Contacts.AggregationSuggestions;
 import android.provider.ContactsContract.Directory;
+import android.provider.ContactsContract.RawContacts;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +35,7 @@ import com.android.contacts.R;
 import com.android.contacts.common.list.ContactListAdapter;
 import com.android.contacts.common.list.ContactListItemView;
 import com.android.contacts.common.list.DirectoryListLoader;
+import com.android.contacts.common.SimContactsConstants;
 import com.android.contacts.common.preference.ContactsPreferences;
 
 public class JoinContactListAdapter extends ContactListAdapter {
@@ -81,7 +83,10 @@ public class JoinContactListAdapter extends ContactListAdapter {
         }
 
         builder.appendQueryParameter("limit", String.valueOf(MAX_SUGGESTIONS));
-
+        builder.appendQueryParameter(RawContacts.ACCOUNT_TYPE,
+                SimContactsConstants.ACCOUNT_TYPE_SIM);
+        builder.appendQueryParameter(SimContactsConstants.WITHOUT_SIM_FLAG,
+                "true");
         loader.setSuggestionUri(builder.build());
 
         // TODO simplify projection
@@ -92,11 +97,19 @@ public class JoinContactListAdapter extends ContactListAdapter {
                 .appendEncodedPath(Uri.encode(filter))
                 .appendQueryParameter(
                         ContactsContract.DIRECTORY_PARAM_KEY, String.valueOf(Directory.DEFAULT))
+                    .appendQueryParameter(RawContacts.ACCOUNT_TYPE,
+                            SimContactsConstants.ACCOUNT_TYPE_SIM)
+                    .appendQueryParameter(
+                            SimContactsConstants.WITHOUT_SIM_FLAG, "true")
                 .build();
         } else {
             allContactsUri = buildSectionIndexerUri(Contacts.CONTENT_URI).buildUpon()
                 .appendQueryParameter(
                         ContactsContract.DIRECTORY_PARAM_KEY, String.valueOf(Directory.DEFAULT))
+                    .appendQueryParameter(RawContacts.ACCOUNT_TYPE,
+                            SimContactsConstants.ACCOUNT_TYPE_SIM)
+                    .appendQueryParameter(
+                            SimContactsConstants.WITHOUT_SIM_FLAG, "true")
                 .build();
         }
         loader.setUri(allContactsUri);

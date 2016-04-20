@@ -21,10 +21,15 @@ import com.android.contacts.common.model.RawContactDelta;
 import com.android.contacts.common.model.RawContactModifier;
 import com.android.contacts.common.model.ValuesDelta;
 import com.android.contacts.common.model.account.AccountType;
+import com.android.contacts.common.model.account.AccountType.EditType;
 import com.android.contacts.common.model.dataitem.DataKind;
+import com.android.contacts.common.SimContactsConstants;
+import com.android.contacts.common.MoreContactUtils;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.provider.ContactsContract.CommonDataKinds.Phone;
+import android.provider.ContactsContract.CommonDataKinds.Email;
 import android.provider.ContactsContract.CommonDataKinds.Event;
 import android.provider.ContactsContract.CommonDataKinds.GroupMembership;
 import android.provider.ContactsContract.CommonDataKinds.Nickname;
@@ -376,11 +381,19 @@ public class CompactKindSectionView extends LinearLayout {
         nameView.setValues(
                 accountType.getKindForMimetype(DataKind.PSEUDO_MIME_TYPE_DISPLAY_NAME),
                 valuesDelta, rawContactDelta, /* readOnly =*/ false, mViewIdGenerator);
-
+        if (rawContactDelta.getAccountType() != null
+                && rawContactDelta.getAccountType().equals(
+                        SimContactsConstants.ACCOUNT_TYPE_SIM)) {
+            nameView.setExpansionViewContainerDisabled();
+        }
         // Correct start margin since there is a second icon in the structured name layout
         nameView.findViewById(R.id.kind_icon).setVisibility(View.GONE);
         mEditors.addView(nameView);
-
+        if (rawContactDelta.getAccountType() != null
+                && rawContactDelta.getAccountType().equals(
+                        SimContactsConstants.ACCOUNT_TYPE_SIM)) {
+            return;
+        }
         // Phonetic name
         final PhoneticNameEditorView phoneticNameView = (PhoneticNameEditorView) mLayoutInflater
                 .inflate(R.layout.phonetic_name_editor_view, mEditors, /* attachToRoot =*/ false);
@@ -395,6 +408,7 @@ public class CompactKindSectionView extends LinearLayout {
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         layoutParams.setMargins(0, 0, 0, 0);
         phoneticNameView.setLayoutParams(layoutParams);
+
         mEditors.addView(phoneticNameView);
     }
 
@@ -421,9 +435,43 @@ public class CompactKindSectionView extends LinearLayout {
             final Editor editor = (Editor) view;
             editor.setDeletable(true);
             editor.setEditorListener(editorListener);
+            if (rawContactDelta.getAccountType() != null
+                    && SimContactsConstants.ACCOUNT_TYPE_SIM
+                            .equals(rawContactDelta.getAccountType())) {
+                int sub = SimContactsConstants.SLOT1;
+                if (SimContactsConstants.SIM_NAME_2.equals(rawContactDelta
+                        .getAccountName())) {
+                    sub = SimContactsConstants.SLOT2;
+                }
+                if(Phone.CONTENT_ITEM_TYPE.equals(dataKind.mimeType)) {
+                    EditType typeHome = new EditType(Phone.TYPE_HOME,
+                        Phone.getTypeLabelResource(Phone.TYPE_HOME));
+                    if (!MoreContactUtils.canSaveAnr(sub)) {
+                        dataKind.typeOverallMax = 1;
+                        if (null != dataKind.typeList) {
+                            // When the sim card is not 3g the interface should
+                            // remove the TYPE_HOME number view.
+                            dataKind.typeList.remove(typeHome);
+                        }
+                    } else {
+                        dataKind.typeOverallMax = MoreContactUtils.getOneSimAnrCount(sub) + 1;
+                        if (null != dataKind.typeList && !dataKind.typeList.contains(
+                                typeHome)) {
+                            // When the sim card is 3g the interface should
+                            // add the TYPE_HOME number view.
+                            dataKind.typeList.add(typeHome);
+                        }
+                    }
+                } else if (Email.CONTENT_ITEM_TYPE.equals(dataKind.mimeType)) {
+                    if (MoreContactUtils.canSaveEmail(sub)) {
+                        dataKind.typeOverallMax = MoreContactUtils.getOneSimEmailCount(sub);
+                    }
+                }
+            }
             editor.setValues(dataKind, valuesDelta, rawContactDelta, !dataKind.editable,
                     mViewIdGenerator);
         }
+
         mEditors.addView(view);
 
         return view;

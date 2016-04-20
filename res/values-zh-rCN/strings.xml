@@ -119,6 +119,16 @@
     <string name="contactJoinErrorToast" msgid="3977932531264809035">"无法关联该联系人。"</string>
     <string name="contactGenericErrorToast" msgid="7774911165341591714">"保存此联系人时出错。"</string>
     <string name="contactPhotoSavedErrorToast" msgid="4079032272022979114">"无法保存联系人照片更改。"</string>
+    <string name="contactSavedToSimCardError">"发生错误，保存至SIM卡失败。"</string>
+    <string name="number_anr_too_long">"发生错误，电话号码过长。"</string>
+    <string name="email_address_too_long">"发生错误，邮箱地址过长。"</string>
+    <string name="sim_card_full">"发生错误，SIM卡已满。"</string>
+    <string name="tag_too_long">"发生错误，联系人姓名过长。"</string>
+    <string name="no_phone_number">请输入手机号码。</string>
+    <string name="invalid_phone_number">"发生错误，电话号码不合法。"</string>
+    <string name="invalid_number_type">"发生错误，号码类型不合法。"</string>
+    <string name="no_phone_number_or_email">请输入手机号码或者邮箱地址。</string>
+    <string name="importConfirmation_title" msgid="1418215926447642260">"要导入联系人吗？"</string>
     <string name="groupSavedToast" msgid="1168756874239833756">"群组已保存。"</string>
     <string name="groupSavedErrorToast" msgid="7984466936615304740">"无法保存所做的群组更改。"</string>
     <plurals name="listTotalPhoneContacts" formatted="false" msgid="3692277679143308755">

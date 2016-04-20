@@ -329,7 +329,18 @@
 
     <!-- Toast displayed when saving a contact photo failed. [CHAR LIMIT=NONE] -->
     <string name="contactPhotoSavedErrorToast">Couldn\'t save contact photo changes.</string>
-
+    <!-- Toast displayed when saving a contact to sim card failed -->
+    <string name="contactSavedToSimCardError">Error, Save to SIM card fail.</string>
+    <string name="number_anr_too_long">Error, Number is too long.</string>
+    <string name="email_address_too_long">Error, Email Address is too long.</string>
+    <string name="sim_card_full">Error, Sim Card is full.</string>
+    <string name="tag_too_long">Error, Contact name is too long.</string>
+    <string name="no_phone_number">Please insert phone number.</string>
+    <string name="invalid_phone_number">Error, Number is invalid.</string>
+    <string name="invalid_number_type">Error, Number type is invalid.</string>
+    <string name="no_phone_number_or_email">Please insert phone number or email address.</string>
+    <string name="importConfirmation_title">Import contact?</string>
+    <!-- Toast displayed when a group is saved [CHAR LIMIT=NONE] -->
     <!-- Toast displayed when a group is saved [CHAR LIMIT=NONE] -->
     <string name="groupSavedToast">Group saved.</string>
 
