@@ -60,6 +60,7 @@ import com.android.contacts.common.activity.RequestPermissionsActivity;
 import com.android.contacts.common.compat.TelecomManagerUtil;
 import com.android.contacts.common.compat.BlockedNumberContractCompat;
 import com.android.contacts.common.dialog.ClearFrequentsDialog;
+import com.android.contacts.interactions.ContactDeletionInteraction;
 import com.android.contacts.common.interactions.ImportExportDialogFragment;
 import com.android.contacts.common.list.ContactEntryListFragment;
 import com.android.contacts.common.list.ContactListFilter;
@@ -178,6 +179,9 @@ public class PeopleActivity extends ContactsActivity implements
     /** Sequential ID assigned to each instance; used for logging */
     private final int mInstanceId;
     private static final AtomicInteger sNextInstanceId = new AtomicInteger();
+    private ContactMultiDeletionInteraction mContactMultiDeletionInteraction;
+    private ContactMultiDeletionInteraction.DeleteContactsThread
+            mDeleteContactsThread;
 
     public PeopleActivity() {
         mInstanceId = sNextInstanceId.getAndIncrement();
@@ -225,6 +229,21 @@ public class PeopleActivity extends ContactsActivity implements
             Log.d(Constants.PERFORMANCE_TAG, "PeopleActivity.onCreate start");
         }
         super.onCreate(savedState);
+
+        // Get ContactMultiDeletionInteraction fragment from FragmentManager.
+        FragmentManager fm = getFragmentManager();
+        mContactMultiDeletionInteraction = (ContactMultiDeletionInteraction)fm
+                .findFragmentByTag("deleteMultipleContacts");
+
+        // Get the running delete thread.
+        if (mContactMultiDeletionInteraction != null) {
+            mDeleteContactsThread = mContactMultiDeletionInteraction
+                    .getDeleteContactsThread();
+        }
+
+        if (mDeleteContactsThread != null) {
+            mDeleteContactsThread.setActivity(this);
+        }
 
         if (RequestPermissionsActivity.startPermissionActivity(this)) {
             return;

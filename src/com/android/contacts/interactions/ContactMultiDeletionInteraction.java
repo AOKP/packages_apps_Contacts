@@ -20,25 +20,38 @@ import com.google.common.collect.Sets;
 
 import com.android.contacts.ContactSaveService;
 import com.android.contacts.R;
+import com.android.contacts.activities.PeopleActivity;
+import com.android.contacts.common.MoreContactUtils;
 import com.android.contacts.common.model.AccountTypeManager;
 import com.android.contacts.common.model.account.AccountType;
+import com.android.contacts.common.SimContactsOperation;
+import com.android.contacts.common.SimContactsConstants;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.LoaderManager.LoaderCallbacks;
+import android.app.ProgressDialog;
+import android.content.ContentProviderOperation;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
 import android.content.Loader;
+import android.content.OperationApplicationException;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.RemoteException;
+import android.provider.ContactsContract;
 import android.provider.ContactsContract.RawContacts;
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.TreeSet;
 
 /**
@@ -76,6 +89,11 @@ public class ContactMultiDeletionInteraction extends Fragment
     private Context mContext;
     private AlertDialog mDialog;
 
+    private ProgressDialog mProgressDialog;
+    private SimContactsOperation mSimContactsOperation;
+
+    private DeleteContactsThread mDeleteContactsThread;
+
     /**
      * Starts the interaction.
      *
@@ -107,6 +125,14 @@ public class ContactMultiDeletionInteraction extends Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         mContext = activity;
+        mSimContactsOperation = new SimContactsOperation(mContext);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Retain this fragment
+        setRetainInstance(true);
     }
 
     @Override
@@ -162,14 +188,19 @@ public class ContactMultiDeletionInteraction extends Fragment
         final StringBuilder builder = new StringBuilder();
         for (int i = 0; i < contactIds.size(); i++) {
             parameters[i] = String.valueOf(parameterObject[i]);
-            builder.append(RawContacts.CONTACT_ID + " =?");
+            if (builder.length() != 0) {
+                builder.append(",");
+            }
+            builder.append(parameters[i]);
             if (i == contactIds.size() -1) {
                 break;
             }
-            builder.append(" OR ");
         }
-        return new CursorLoader(mContext, RawContacts.CONTENT_URI, RAW_CONTACT_PROJECTION,
-                builder.toString(), parameters, null);
+
+        builder.insert(0, RawContacts.CONTACT_ID + " IN(");
+        builder.append(")");
+        return new CursorLoader(mContext, RawContacts.CONTENT_URI,
+                RAW_CONTACT_PROJECTION, builder.toString(), null, null);
     }
 
     @Override
@@ -252,13 +283,8 @@ public class ContactMultiDeletionInteraction extends Fragment
                 .setIconAttribute(android.R.attr.alertDialogIcon)
                 .setMessage(messageId)
                 .setNegativeButton(android.R.string.cancel, null)
-                .setPositiveButton(positiveButtonId,
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int whichButton) {
-                            doDeleteContact(contactIds);
-                        }
-                    }
+                .setPositiveButton(android.R.string.ok,
+                    new DeleteClickListener()
                 )
                 .create();
 
@@ -298,6 +324,212 @@ public class ContactMultiDeletionInteraction extends Fragment
         if (getActivity() instanceof MultiContactDeleteListener) {
             final MultiContactDeleteListener listener = (MultiContactDeleteListener) getActivity();
             listener.onDeletionFinished();
+        }
+    }
+
+    /**
+     * Delete contacts thread
+     */
+    public class DeleteContactsThread extends Thread
+            implements DialogInterface.OnCancelListener, DialogInterface.OnClickListener {
+
+        // Use to judge whether is cancel delete contacts.
+        boolean mCanceled = false;
+
+        // Use to save the operated contacts.
+        private ArrayList<ContentProviderOperation> mOpsContacts = null;
+
+        public DeleteContactsThread() {
+        }
+
+        @Override
+        public void run() {
+
+            TreeSet<Long> contactsIdSet = (TreeSet<Long>) mContactIds.clone();
+            Iterator<Long> iterator = contactsIdSet.iterator();
+
+            ContentProviderOperation cpo = null;
+            ContentProviderOperation.Builder builder = null;
+
+            // Current contact count we can delete.
+            int count = 0;
+
+            // The contacts we batch delete once.
+            final int BATCH_DELETE_CONTACT_NUMBER = 200;
+
+            mOpsContacts = new ArrayList<ContentProviderOperation>();
+
+            while (!mCanceled & iterator.hasNext()) {
+                // Set the progress of progress dialog.
+                mProgressDialog.setProgress(count);
+                String id = String.valueOf(iterator.next());
+                long longId = Long.parseLong(id);
+                // Get contacts Uri
+                Uri uri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_URI, id);
+
+                // Judge the contacts whether is the SIM card contacts
+                ContentValues values = mSimContactsOperation
+                        .getSimAccountValues(longId);
+                String accountType = values
+                        .getAsString(SimContactsConstants.ACCOUNT_TYPE);
+                String accountName = values
+                        .getAsString(SimContactsConstants.ACCOUNT_NAME);
+                int subscription = MoreContactUtils.getSubscription(
+                        accountType, accountName);
+                if (subscription == SimContactsConstants.SLOT1
+                        || subscription == SimContactsConstants.SLOT2) {
+                    int result = mSimContactsOperation.delete(values,
+                            subscription);
+                    if (result == 0) {
+                        mProgressDialog.incrementProgressBy(1);
+                        continue;
+                    }
+                }
+                builder = ContentProviderOperation.newDelete(uri);
+                cpo = builder.build();
+                mOpsContacts.add(cpo);
+                // If contacts more than 2000, delete all contacts
+                // one by one will cause UI nonresponse.
+                mProgressDialog.incrementProgressBy(1);
+                // We batch delete contacts every 100.
+                if (count % BATCH_DELETE_CONTACT_NUMBER == 0) {
+                    batchDelete();
+                }
+                count++;
+            }
+            batchDelete();
+            mOpsContacts = null;
+            dismissProgressDialog();
+            // Set thread to null when complete delete.
+            setDeleteContactsThread(null);
+        }
+
+        /**
+         * Batch delete contacts more efficient than one by one.
+         */
+        private void batchDelete() {
+            try {
+                mContext.getContentResolver().applyBatch(
+                        android.provider.ContactsContract.AUTHORITY, mOpsContacts);
+                mOpsContacts.clear();
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            } catch (OperationApplicationException e) {
+                e.printStackTrace();
+            }
+        }
+        @Override
+        public void onCancel(DialogInterface dialogInterface) {
+            // Cancel delete operate.
+            mCanceled = true;
+        }
+
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+            if (i == DialogInterface.BUTTON_NEGATIVE) {
+                mCanceled = true;
+                mProgressDialog.dismiss();
+            }
+        }
+
+        /**
+         * Rebuild delete contact's progress dialog when DeleteContactsThread was
+         * running.
+         * @param activity
+         */
+        public void setActivity(PeopleActivity activity) {
+
+            if (activity == null) {
+                mProgressDialog.dismiss();
+                return;
+            }
+
+            mContext = activity;
+            if (mContext != null) {
+                CharSequence title = getString(R.string.delete_contacts_title);
+                CharSequence message = getString(R.string.delete_contacts_message);
+
+                mProgressDialog = new ProgressDialog(mContext);
+                mProgressDialog.setTitle(title);
+                mProgressDialog.setMessage(message);
+                mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                mProgressDialog.setButton(DialogInterface.BUTTON_NEGATIVE,
+                        getString(android.R.string.cancel), getDeleteContactsThread());
+                mProgressDialog.setOnCancelListener(getDeleteContactsThread());
+
+                mProgressDialog.setMax(mContactIds.size());
+
+                // set dialog can not be canceled by touching outside area of
+                // dialog.
+                mProgressDialog.setCanceledOnTouchOutside(false);
+                mProgressDialog.show();
+            }
+        }
+
+    }
+
+    /**
+     * Set thread data.
+     * @param thread
+     */
+    private void setDeleteContactsThread(DeleteContactsThread thread) {
+        mDeleteContactsThread = thread;
+    }
+
+    /**
+     * Use to provide thread data.
+     * @return
+     */
+    public DeleteContactsThread getDeleteContactsThread() {
+        return mDeleteContactsThread;
+    }
+
+
+    /**
+     * Monitor delete contacts operate.
+     */
+    private class DeleteClickListener implements DialogInterface.OnClickListener {
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+
+            CharSequence title = getString(R.string.delete_contacts_title);
+            CharSequence message = getString(R.string.delete_contacts_message);
+
+            if (mProgressDialog != null) {
+                dismissProgressDialog();
+            }
+
+            // Build delete contacts thread
+            Thread mThread = new DeleteContactsThread();
+
+            // Build the ProgressDialog.
+            mProgressDialog = new ProgressDialog(mContext);
+            mProgressDialog.setTitle(title);
+            mProgressDialog.setMessage(message);
+            mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            mProgressDialog.setButton(DialogInterface.BUTTON_NEGATIVE,
+                    getString(android.R.string.cancel), (DialogInterface.OnClickListener) mThread);
+            mProgressDialog.setOnCancelListener((DialogInterface.OnCancelListener) mThread);
+            mProgressDialog.setMax(mContactIds.size());
+
+            // set dialog can not be canceled by touching outside area of
+            // dialog.
+            mProgressDialog.setCanceledOnTouchOutside(false);
+            mProgressDialog.show();
+            notifyListenerActivity();
+            // Set DeleteContactsThread
+            setDeleteContactsThread((DeleteContactsThread)mThread);
+
+            // Start delete contacts thread
+            mThread.start();
+        }
+    }
+
+    private void dismissProgressDialog() {
+        if (getActivity() != null && !getActivity().isDestroyed()
+                && mProgressDialog.isShowing() && isAdded()) {
+            mProgressDialog.dismiss();
+            mProgressDialog = null;
         }
     }
 }
