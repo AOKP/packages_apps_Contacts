@@ -1503,22 +1503,24 @@ public class ContactSaveService extends IntentService {
 
         final StringBuilder queryBuilder = new StringBuilder();
         final String stringContactIds[] = new String[contactIds.length];
+        queryBuilder.append(RawContacts.CONTACT_ID + " in (");
         for (int i = 0; i < contactIds.length; i++) {
-            queryBuilder.append(RawContacts.CONTACT_ID + "=?");
             stringContactIds[i] = String.valueOf(contactIds[i]);
+            queryBuilder.append(stringContactIds[i]);
             if (contactIds[i] == -1) {
                 return null;
             }
             if (i == contactIds.length -1) {
+                queryBuilder.append(")");
                 break;
             }
-            queryBuilder.append(" OR ");
+            queryBuilder.append(", ");
         }
 
         final Cursor c = resolver.query(RawContacts.CONTENT_URI,
                 JoinContactQuery.PROJECTION,
                 queryBuilder.toString(),
-                stringContactIds, null);
+                null, null);
         if (c == null) {
             Log.e(TAG, "Unable to open Contacts DB cursor");
             showToast(R.string.contactSavedErrorToast);

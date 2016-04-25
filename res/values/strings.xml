@@ -973,7 +973,6 @@
     <string name="delete_call_alert">Sure to delete the call logs selected?</string>
     <string name="title_del_call">Delete</string>
     <string name="title_add_members">Add members</string>
-
     <!-- MultiPickActivity -->
     <string name="multi_pick_recent_title">RECENT</string>
     <string name="multi_pick_contacts_title">CONTACTS</string>
@@ -1006,4 +1005,6 @@
     <string name="recent_call_count_or_location_and_date">(<xliff:g id="call_count">%1$d</xliff:g>)
         <xliff:g id="call_location_and_date">%2$s</xliff:g></string>
     <string name="description_list_delimiter">", "</string>
+    <!--Toast msg when user select too many contacts to merge-->
+    <string name="too_many_contacts_to_merge_message">Too many contacts, that should be less than <xliff:g id="count">%d</xliff:g></string>
 </resources>
