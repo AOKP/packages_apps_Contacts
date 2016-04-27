@@ -385,6 +385,9 @@
     <!-- The title of "favorites" tab. [CHAR LIMIT=14] -->
     <string name="favorites_tab_label">Favorites</string>
 
+    <!-- The title of "groups" tab. [CHAR LIMIT=14] -->
+    <string name="contacts_groups_label">Groups</string>
+
     <!-- Action string for calling back a number in the call log -->
     <string name="callBack">Call back</string>
 

@@ -112,8 +112,9 @@ public class ActionBarAdapter implements OnCloseListener {
     public interface TabState {
         public static int FAVORITES = 0;
         public static int ALL = 1;
+        public static int GROUPS = 2;
 
-        public static int COUNT = 2;
+        public static int COUNT = 3;
         public static int DEFAULT = ALL;
     }
 

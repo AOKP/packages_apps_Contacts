@@ -110,6 +110,7 @@ import com.android.contacts.common.Collapser;
 import com.android.contacts.common.ContactPhotoManager;
 import com.android.contacts.common.ContactsUtils;
 import com.android.contacts.common.activity.RequestDesiredPermissionsActivity;
+import com.android.contacts.common.GroupMetaData;
 import com.android.contacts.common.activity.RequestPermissionsActivity;
 import com.android.contacts.common.compat.CompatUtils;
 import com.android.contacts.common.compat.EventCompat;
@@ -131,6 +132,7 @@ import com.android.contacts.common.model.dataitem.DataItem;
 import com.android.contacts.common.model.dataitem.DataKind;
 import com.android.contacts.common.model.dataitem.EmailDataItem;
 import com.android.contacts.common.model.dataitem.EventDataItem;
+import com.android.contacts.common.model.dataitem.GroupMembershipDataItem;
 import com.android.contacts.common.model.dataitem.ImDataItem;
 import com.android.contacts.common.model.dataitem.NicknameDataItem;
 import com.android.contacts.common.model.dataitem.NoteDataItem;
@@ -1523,6 +1525,30 @@ public class QuickContactActivity extends ContactsActivity
     }
 
     /**
+     * Maps group ID to the corresponding group name, collapses all synonymous groups. Ignores
+     * default groups (e.g. My Contacts) and favorites groups.
+     */
+    private static String getGroupName(List<GroupMetaData> groupMetaData, long groupId) {
+        if (groupMetaData == null) {
+            return "";
+        }
+
+        for (GroupMetaData group : groupMetaData) {
+            if (group.getGroupId() == groupId) {
+                if (!group.isDefaultGroup() && !group.isFavorites()) {
+                    String title = group.getTitle();
+                    if (!TextUtils.isEmpty(title)) {
+                        return title;
+                    }
+                }
+                break;
+            }
+        }
+
+        return "";
+    }
+
+    /**
      * Create a card that shows "Add email" and "Add phone number" entries in grey.
      */
     private void initializeNoContactDetailCard() {
@@ -1995,6 +2021,35 @@ public class QuickContactActivity extends ContactsActivity
                     aboutCardName.value = res.getString(R.string.about_card_title);
                 }
             }
+        } else if (dataItem instanceof GroupMembershipDataItem) {
+            GroupMembershipDataItem groupMembership =
+                    (GroupMembershipDataItem) dataItem;
+            Long groupId = groupMembership.getGroupRowId();
+            if (groupId != null) {
+                return new Entry(/* viewId = */-1,
+                        /* icon = */null,
+                        res.getString(R.string.groupsLabel),
+                        getGroupName(contactData.getGroupMetaData(),
+                                groupId),
+                        /* mSubHeaderIcon= */null,
+                        /* text = */null,
+                        /* mTextIcon= */null,
+                        /* primaryContentDescription = */null,
+                        /* intent = */null,
+                        /* alternateIcon = */null,
+                        /* alternateIntent = */null,
+                        /* alternateContentDescription = */null,
+                        /* shouldApplyColor = */false,
+                        /* isEditable = */false,
+                        /* EntryContextMenuInfo = */null,
+                        /* thirdIcon = */null,
+                        /* thirdIntent = */null,
+                        /* thirdContentDescription = */null,
+                        /* thirdAction = */0,
+                        /* thirdExtras = */null,
+                        /* iconResourceId = */0);
+            }
+            return null;
         } else {
             // Custom DataItem
             header = dataItem.buildDataStringForDisplay(context, kind);

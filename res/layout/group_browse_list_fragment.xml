@@ -18,7 +18,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/group_list_background_color">
 
     <!-- See group_browse_list_item.xml for the reason for the transparent android:listSelector -->
     <view
