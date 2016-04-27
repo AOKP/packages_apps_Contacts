@@ -141,6 +141,8 @@
     <!-- Menu item that deletes the currently selected group [CHAR LIMIT=30] -->
     <string name="menu_deleteGroup">Delete</string>
 
+    <string name="menu_moveGroupMembers">Move group members</string>
+
     <!-- Menu item (in the action bar) that creates a new contact [CHAR LIMIT=30] -->
     <string name="menu_new_contact_action_bar">Add Contact</string>
 
@@ -310,10 +312,16 @@
     <string name="savingContact">Saving contact\u2026</string>
 
     <!-- Toast displayed when a contact is saved [CHAR LIMIT=NONE] -->
+
     <string name="contactSavedToast">Contact saved</string>
 
     <!-- Toast displayed when linked contacts get unlinked [CHAR LIMIT=NONE] -->
     <string name="contactUnlinkedToast">Contacts unlinked</string>
+
+    <string name="contactSavedToast">Contact saved.</string>
+    <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
+    <string name="contactDeletedToast">Contact deleted.</string>
+
 
     <!-- Toast displayed when saving a contact failed. [CHAR LIMIT=NONE] -->
     <string name="contactSavedErrorToast">Couldn\'t save contact changes.</string>
@@ -436,6 +444,12 @@
 
     <!-- Title for the disambiguation dialog that requests the user choose an account for the new group to be created under [CHAR LIMIT=NONE] -->
     <string name="dialog_new_group_account">Create group under account</string>
+
+    <string name="title_move_members">Move members</string>
+    <string name="message_add_members">Add members...</string>
+    <string name="message_move_members">Move members...</string>
+    <string name="cancel_operation">Operation is canceled.</string>
+    <string name="message_can_not_move_members">Can not move members</string>
 
     <!-- Generic action string for starting an audio chat. Used by AccessibilityService to announce the purpose of the view. [CHAR LIMIT=NONE] -->
     <string name="audio_chat">Voice chat</string>
@@ -723,6 +737,24 @@
     <!-- Button label to prompt the user to add another account (when there are already existing accounts on the device) [CHAR LIMIT=30] -->
     <string name="add_new_account">Add new account</string>
 
+    <string name="select_all">All</string>
+    <string name="btn_ok">Ok</string>
+    <string name="btn_cancel">Cancel</string>
+    <!-- Gray hint displayed in the search field in Contacts when empty -->
+    <string name="search_bar_hint">Search contacts</string>
+    <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
+    <string name="deleteConfirmation_title">Delete contact?</string>
+    <string name="import_sim_contacts_title">Import sim contacts</string>
+    <string name="import_sim_contacts_message">Importing sim contacts ...</string>
+    <string name="ContactMultiImportConfirmation">These contacts will be imported.</string>
+    <string name="import_finish">"Import finished"</string>
+    <string name="import_stop">"Import stopped"</string>
+    <string name="too_many_contacts_add_to_group">Too many contacts, that should be less than <xliff:g id="count">%d</xliff:g></string>
+    <!-- Multi Delete Contacts related strings -->
+    <string name="ContactMultiDeleteConfirmation">These contacts will be deleted.</string>
+    <string name="delete_contacts_title">Delete Contacts</string>
+    <string name="delete_contacts_message">Deleting Contacts ...</string>
+    <string name="delete_termination">"Delete is termination"</string>
     <!-- Menu item shown only when the special debug mode is enabled, which is used to send all contacts database files via email.  [CHAR LIMI=NONE] -->
     <string name="menu_export_database">Export database files</string>
 
@@ -927,4 +959,16 @@
 
     <!-- The menu item to open blocked numbers activity [CHAR LIMIT=60]-->
     <string name="menu_blocked_numbers">Blocked numbers</string>
+
+    <string name="menu_copyTo">"Copy to "</string>
+    <string name="no_empty_email_in_usim">"Email is full, some record copy failed "</string>
+
+    <string name="voicemail">Voicemail</string>
+    <string name="select_call_title">Select call logs</string>
+    <string name="delete_call_title">Delete call logs</string>
+    <string name="delete_call_message">Deleting call logs ...</string>
+    <string name="delete_call_alert">Sure to delete the call logs selected?</string>
+    <string name="title_del_call">Delete</string>
+    <string name="title_add_members">Add members</string>
+
 </resources>

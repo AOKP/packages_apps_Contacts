@@ -19,7 +19,11 @@
     <item type="id" name="header_phones"/>
     <item type="id" name="dialog_sync_add"/>
 
+    <!-- For ImportSimContactsActivity -->
+    <item type="id" name="dialog_import_sim_contact_confirmation"/>
+
     <!-- For ContactDeletionInteraction -->
+    <item type="id" name="dialog_delete_contact_confirmation"/>
     <item type="id" name="dialog_delete_contact_loader_id" />
 
     <!-- For ContactMultiDeletionInteraction -->
