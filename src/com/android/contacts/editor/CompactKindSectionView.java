@@ -446,7 +446,7 @@ public class CompactKindSectionView extends LinearLayout {
                 if(Phone.CONTENT_ITEM_TYPE.equals(dataKind.mimeType)) {
                     EditType typeHome = new EditType(Phone.TYPE_HOME,
                         Phone.getTypeLabelResource(Phone.TYPE_HOME));
-                    if (!MoreContactUtils.canSaveAnr(sub)) {
+                    if (!MoreContactUtils.canSaveAnr(getContext(), sub)) {
                         dataKind.typeOverallMax = 1;
                         if (null != dataKind.typeList) {
                             // When the sim card is not 3g the interface should
@@ -454,7 +454,8 @@ public class CompactKindSectionView extends LinearLayout {
                             dataKind.typeList.remove(typeHome);
                         }
                     } else {
-                        dataKind.typeOverallMax = MoreContactUtils.getOneSimAnrCount(sub) + 1;
+                        dataKind.typeOverallMax = MoreContactUtils
+                                .getOneSimAnrCount(getContext(), sub) + 1;
                         if (null != dataKind.typeList && !dataKind.typeList.contains(
                                 typeHome)) {
                             // When the sim card is 3g the interface should
@@ -463,8 +464,9 @@ public class CompactKindSectionView extends LinearLayout {
                         }
                     }
                 } else if (Email.CONTENT_ITEM_TYPE.equals(dataKind.mimeType)) {
-                    if (MoreContactUtils.canSaveEmail(sub)) {
-                        dataKind.typeOverallMax = MoreContactUtils.getOneSimEmailCount(sub);
+                    if (MoreContactUtils.canSaveEmail(getContext(), sub)) {
+                        dataKind.typeOverallMax = MoreContactUtils
+                                .getOneSimEmailCount(getContext(), sub);
                     }
                 }
             }

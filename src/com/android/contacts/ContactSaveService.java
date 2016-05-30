@@ -681,7 +681,7 @@ public class ContactSaveService extends IntentService {
                 String[] anrs = anr.split(SimContactsConstants.ANR_SEP);
                 if (anrs != null) {
                     if (anrs.length > MoreContactUtils
-                            .getOneSimAnrCount(subscription)) {
+                            .getOneSimAnrCount(this, subscription)) {
                         return RESULT_NUMBER_TYPE_FAILURE;
                     }
                     for (String mAnr : anrs) {
@@ -747,7 +747,7 @@ public class ContactSaveService extends IntentService {
                     }
                 }
 
-                if (count == MoreContactUtils.getAdnCount(subscription)) {
+                if (count == MoreContactUtils.getAdnCount(this, subscription)) {
                     return RESULT_SIM_FULL_FAILURE;
                 }
             }

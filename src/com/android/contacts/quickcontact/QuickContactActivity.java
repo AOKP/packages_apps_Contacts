@@ -2827,11 +2827,11 @@ public class QuickContactActivity extends ContactsActivity
                     mContactData.isDirectoryEntry(), mContactData.isUserProfile(),
                     mContactData.getStarred());
             if (!simOneLoadComplete) {
-                simOneLoadComplete = (MoreContactUtils.getAdnCount(
+                simOneLoadComplete = (MoreContactUtils.getAdnCount(this,
                         SimContactsConstants.SLOT1) > 0) ? true : false;
             }
             if (!simTwoLoadComplete) {
-                simTwoLoadComplete = (MoreContactUtils.getAdnCount(
+                simTwoLoadComplete = (MoreContactUtils.getAdnCount(this,
                         SimContactsConstants.SLOT2) > 0)? true : false;
             }
             // Configure edit MenuItem
@@ -3201,16 +3201,20 @@ public class QuickContactActivity extends ContactsActivity
                         }
                     }
 
-                    if (MoreContactUtils.canSaveAnr(sub)) {
-                        anrCountInSimContact = MoreContactUtils.getOneSimAnrCount(sub);
+                    if (MoreContactUtils.canSaveAnr(QuickContactActivity.this, sub)) {
+                        anrCountInSimContact = MoreContactUtils.getOneSimAnrCount(
+                                QuickContactActivity.this, sub);
                     }
-                    if (MoreContactUtils.canSaveEmail(sub)) {
-                        emailCountInSimContact = MoreContactUtils.getOneSimEmailCount(sub);
+                    if (MoreContactUtils.canSaveEmail(QuickContactActivity.this, sub)) {
+                        emailCountInSimContact = MoreContactUtils.getOneSimEmailCount(
+                                QuickContactActivity.this, sub);
                     }
                     int totalEmptyAdn = MoreContactUtils.getSimFreeCount(
                             QuickContactActivity.this, sub);
-                    int totalEmptyAnr = MoreContactUtils.getSpareAnrCount(sub);
-                    int totalEmptyEmail = MoreContactUtils.getSpareEmailCount(sub);
+                    int totalEmptyAnr = MoreContactUtils.getSpareAnrCount(
+                            QuickContactActivity.this, sub);
+                    int totalEmptyEmail = MoreContactUtils.getSpareEmailCount(
+                            QuickContactActivity.this, sub);
 
                     Message msg = Message.obtain();
                     if (totalEmptyAdn <= 0) {
@@ -3298,7 +3302,8 @@ public class QuickContactActivity extends ContactsActivity
 
                     ArrayList<String> emptyList = new ArrayList<String>();
                     Uri itemUri = null;
-                    if (totalEmptyEmail < 0 && MoreContactUtils.canSaveEmail(sub)) {
+                    if (totalEmptyEmail < 0 && MoreContactUtils.canSaveEmail(
+                            QuickContactActivity.this, sub)) {
                         Message e_msg = Message.obtain();
                         e_msg.what = MSG_NO_EMPTY_EMAIL;
                         mHandler.sendMessage(e_msg);

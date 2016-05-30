@@ -320,7 +320,7 @@ public class RawContactEditorView extends BaseRawContactEditorView {
                         }
                         EditType typeHome = new EditType(Phone.TYPE_HOME,
                                 Phone.getTypeLabelResource(Phone.TYPE_HOME));
-                        if (!MoreContactUtils.canSaveAnr(sub)) {
+                        if (!MoreContactUtils.canSaveAnr(getContext(), sub)) {
                             kind.typeOverallMax = 1;
                             if (null != kind.typeList) {
                                 // When the sim card is not 3g the interface should
@@ -328,7 +328,8 @@ public class RawContactEditorView extends BaseRawContactEditorView {
                                 kind.typeList.remove(typeHome);
                             }
                         } else {
-                            kind.typeOverallMax = MoreContactUtils.getOneSimAnrCount(sub) + 1;
+                            kind.typeOverallMax = MoreContactUtils
+                                    .getOneSimAnrCount(getContext(), sub) + 1;
                             if (null != kind.typeList && !kind.typeList.contains(
                                     typeHome)) {
                                 // When the sim card is 3g the interface should
@@ -344,10 +345,11 @@ public class RawContactEditorView extends BaseRawContactEditorView {
                         if (SimContactsConstants.SIM_NAME_2.equals(state.getAccountName())) {
                             sub = SimContactsConstants.SLOT2;
                         }
-                        if (!MoreContactUtils.canSaveEmail(sub)) {
+                        if (!MoreContactUtils.canSaveEmail(getContext(), sub)) {
                             continue;
                         } else {
-                            kind.typeOverallMax = MoreContactUtils.getOneSimEmailCount(sub);
+                            kind.typeOverallMax = MoreContactUtils
+                                    .getOneSimEmailCount(getContext(), sub);
                         }
                     }
                 }
