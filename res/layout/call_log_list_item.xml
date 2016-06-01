@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * Copyright (c) 2016, The Linux Foundation. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *     * Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above
+ *       copyright notice, this list of conditions and the following
+ *       disclaimer in the documentation and/or other materials provided
+ *       with the distribution.
+ *     * Neither the name of The Linux Foundation nor the names of its
+ *       contributors may be used to endorse or promote products derived
+ *       from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+ * BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+ * BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+ * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/call_log_list_item"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/multi_pick_contacts_item_height"
+    android:background="@drawable/contact_list_item_selected"
+    android:descendantFocusability="blocksDescendants"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:orientation="horizontal" >
+
+    <view
+        android:id="@+id/photo_view"
+        android:layout_width="@dimen/pick_contact_photo_width"
+        android:layout_height="@dimen/pick_contact_photo_height"
+        android:layout_marginEnd="@dimen/pick_contact_photo_margin_end"
+        android:layout_marginStart="@dimen/pick_contact_photo_margin_start"
+        android:layout_marginTop="@dimen/pick_contact_photo_margin_top"
+        class="com.android.contacts.common.widget.CheckableImageView"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:paddingEnd="16dp"
+            android:singleLine="true"
+            android:textColor="@color/contacts_or_name_text_color"
+            android:textSize="@dimen/contacts_or_name_text_size" />
+
+        <LinearLayout
+            android:id="@+id/call_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/call_type_linear_layout_padding_end" >
+
+            <view
+                android:id="@+id/call_type_icons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                class="com.android.contacts.widget.CallTypeIconsView" />
+
+            <ImageView
+                android:id="@+id/call_account_icon"
+                android:layout_width="@dimen/call_account_small_icon_size"
+                android:layout_height="@dimen/call_account_small_icon_size"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/call_account_small_icon_margin_end"
+                android:scaleType="centerInside"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/call_types_text_color"
+                android:textSize="@dimen/call_types_text_size" />
+
+            <TextView
+                android:id="@+id/call_count_or_location_and_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/call_types_text_color"
+                android:textSize="@dimen/call_types_text_size" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/multi_pick_label_margin_end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/multi_pick_label_text_color"
+        android:textSize="@dimen/multi_pick_label_text_size" />
+
+</LinearLayout>

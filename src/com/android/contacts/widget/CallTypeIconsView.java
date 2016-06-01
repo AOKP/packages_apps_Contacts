@@ -1,4 +1,5 @@
-opyright (C) 2011 The Android Open Source Project
+/*
+ * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +14,7 @@ opyright (C) 2011 The Android Open Source Project
  * limitations under the License.
  */
 
-package com.android.dialer.calllog;
+package com.android.contacts.widget;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -28,22 +29,21 @@ import android.view.View;
 
 import com.android.contacts.common.testing.NeededForTesting;
 import com.android.contacts.common.util.BitmapUtil;
-import com.android.dialer.R;
+import com.android.contacts.R;
 import com.google.common.collect.Lists;
 
 import java.util.List;
 
 /**
- * View that draws one or more symbols for different types of calls (missed calls, outgoing etc).
- * The symbols are set up horizontally. As this view doesn't create subviews, it is better suited
- * for ListView-recycling that a regular LinearLayout using ImageViews.
+ * Combine call type view to one view
  */
 public class CallTypeIconsView extends View {
     private List<Integer> mCallTypes = Lists.newArrayListWithCapacity(3);
     private boolean mShowVideo = false;
-    private Resources mResources;
     private int mWidth;
     private int mHeight;
+
+    private static Resources sResources;
 
     public CallTypeIconsView(Context context) {
         this(context, null);
@@ -51,7 +51,9 @@ public class CallTypeIconsView extends View {
 
     public CallTypeIconsView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        mResources = new Resources(context);
+        if (sResources == null) {
+          sResources = new Resources(context);
+        }
     }
 
     public void clear() {
@@ -65,60 +67,36 @@ public class CallTypeIconsView extends View {
         mCallTypes.add(callType);
 
         final Drawable drawable = getCallTypeDrawable(callType);
-        mWidth += drawable.getIntrinsicWidth() + mResources.iconMargin;
+        mWidth += drawable.getIntrinsicWidth() + sResources.iconMargin;
         mHeight = Math.max(mHeight, drawable.getIntrinsicHeight());
         invalidate();
     }
 
-    /**
-     * Determines whether the video call icon will be shown.
-     *
-     * @param showVideo True where the video icon should be shown.
-     */
     public void setShowVideo(boolean showVideo) {
         mShowVideo = showVideo;
         if (showVideo) {
-            mWidth += mResources.videoCall.getIntrinsicWidth();
-            mHeight = Math.max(mHeight, mResources.videoCall.getIntrinsicHeight());
+            mWidth += sResources.videoCall.getIntrinsicWidth();
+            mHeight = Math.max(mHeight, sResources.videoCall.getIntrinsicHeight());
             invalidate();
         }
     }
 
-    /**
-     * Determines if the video icon should be shown.
-     *
-     * @return True if the video icon should be shown.
-     */
     public boolean isVideoShown() {
         return mShowVideo;
-    }
-
-    @NeededForTesting
-    public int getCount() {
-        return mCallTypes.size();
-    }
-
-    @NeededForTesting
-    public int getCallType(int index) {
-        return mCallTypes.get(index);
     }
 
     private Drawable getCallTypeDrawable(int callType) {
         switch (callType) {
             case Calls.INCOMING_TYPE:
-                return mResources.incoming;
+                return sResources.incoming;
             case Calls.OUTGOING_TYPE:
-                return mResources.outgoing;
+                return sResources.outgoing;
             case Calls.MISSED_TYPE:
-                return mResources.missed;
+                return sResources.missed;
             case Calls.VOICEMAIL_TYPE:
-                return mResources.voicemail;
+                return sResources.voicemail;
             default:
-                // It is possible for users to end up with calls with unknown call types in their
-                // call history, possibly due to 3rd party call log implementations (e.g. to
-                // distinguish between rejected and missed calls). Instead of crashing, just
-                // assume that all unknown call types are missed calls.
-                return mResources.missed;
+                return sResources.missed;
         }
     }
 
@@ -135,85 +113,55 @@ public class CallTypeIconsView extends View {
             final int right = left + drawable.getIntrinsicWidth();
             drawable.setBounds(left, 0, right, drawable.getIntrinsicHeight());
             drawable.draw(canvas);
-            left = right + mResources.iconMargin;
+            left = right + sResources.iconMargin;
         }
 
         // If showing the video call icon, draw it scaled appropriately.
         if (mShowVideo) {
-            final Drawable drawable = mResources.videoCall;
-            final int right = left + mResources.videoCall.getIntrinsicWidth();
-            drawable.setBounds(left, 0, right, mResources.videoCall.getIntrinsicHeight());
+            final Drawable drawable = sResources.videoCall;
+            final int right = left + sResources.videoCall.getIntrinsicWidth();
+            drawable.setBounds(left, 0, right, sResources.videoCall.getIntrinsicHeight());
             drawable.draw(canvas);
         }
     }
 
     private static class Resources {
 
-        /**
-         * Drawable representing an incoming answered call.
-         */
         public final Drawable incoming;
 
-        /**
-         * Drawable respresenting an outgoing call.
-         */
         public final Drawable outgoing;
 
-        /**
-         * Drawable representing an incoming missed call.
-         */
         public final Drawable missed;
 
-        /**
-         * Drawable representing a voicemail.
-         */
         public final Drawable voicemail;
 
-        /**
-         * Drawable repesenting a video call.
-         */
+        public final Drawable blocked;
+
         public final Drawable videoCall;
 
-        /**
-         * The margin to use for icons.
-         */
         public final int iconMargin;
 
-        /**
-         * Configures the call icon drawables.
-         * A single white call arrow which points down and left is used as a basis for all of the
-         * call arrow icons, applying rotation and colors as needed.
-         *
-         * @param context The current context.
-         */
         public Resources(Context context) {
             final android.content.res.Resources r = context.getResources();
 
             incoming = r.getDrawable(R.drawable.ic_call_arrow);
             incoming.setColorFilter(r.getColor(R.color.answered_call), PorterDuff.Mode.MULTIPLY);
 
-            // Create a rotated instance of the call arrow for outgoing calls.
-            outgoing = BitmapUtil.getRotatedDrawable(r, R.drawable.ic_call_arrow, 180f);
-            outgoing.setColorFilter(r.getColor(R.color.answered_call), PorterDuff.Mode.MULTIPLY);
-
-            // Need to make a copy of the arrow drawable, otherwise the same instance colored
-            // above will be recolored here.
+            // mutate, make a copy of the drawablem,
+            // if not, the same instance will recolored here by other instance
             missed = r.getDrawable(R.drawable.ic_call_arrow).mutate();
             missed.setColorFilter(r.getColor(R.color.missed_call), PorterDuff.Mode.MULTIPLY);
 
+            // Create a rotated instance
+            outgoing = BitmapUtil.getRotatedDrawable(r, R.drawable.ic_call_arrow, 180f);
+            outgoing.setColorFilter(r.getColor(R.color.answered_call), PorterDuff.Mode.MULTIPLY);
+
             voicemail = r.getDrawable(R.drawable.ic_call_voicemail_holo_dark);
 
-            // Get the video call icon, scaled to match the height of the call arrows.
-            // We want the video call icon to be the same height as the call arrows, while keeping
-            // the same width aspect ratio.
-            Bitmap videoIcon = BitmapFactory.decodeResource(context.getResources(),
-                    R.drawable.ic_videocam_24dp);
-            int scaledHeight = missed.getIntrinsicHeight();
-            int scaledWidth = (int) ((float) videoIcon.getWidth() *
-                    ((float) missed.getIntrinsicHeight() /
-                            (float) videoIcon.getHeight()));
-            Bitmap scaled = Bitmap.createScaledBitmap(videoIcon, scaledWidth, scaledHeight, false);
-            videoCall = new BitmapDrawable(context.getResources(), scaled);
+            blocked = r.getDrawable(R.drawable.ic_block_24dp);
+            blocked.setColorFilter(r.getColor(R.color.blocked_call), PorterDuff.Mode.MULTIPLY);
+
+            videoCall = r.getDrawable(R.drawable.ic_videocam_24dp);
             videoCall.setColorFilter(r.getColor(R.color.dialtacts_secondary_text_color),
                     PorterDuff.Mode.MULTIPLY);
 

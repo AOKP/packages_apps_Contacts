@@ -974,4 +974,36 @@
     <string name="title_del_call">Delete</string>
     <string name="title_add_members">Add members</string>
 
+    <!-- MultiPickActivity -->
+    <string name="multi_pick_recent_title">RECENT</string>
+    <string name="multi_pick_contacts_title">CONTACTS</string>
+    <string name="multi_pick_group_title">GROUP</string>
+
+    <string name="contacts_selected">%d selected</string>
+
+    <string name="summary_count_numbers">%s numbers</string>
+
+    <string name="contact_info_text_as_name">Name:</string>
+    <string name="contact_info_text_as_phone">Tel:</string>
+    <string name="contact_info_text_as_email">Email:</string>
+
+    <!-- The hint text in search-view.-->
+    <string name="search_menu_search">Search</string>
+
+    <!-- The call-log's clear button text in pick call mode. -->
+    <string name="clear_call_log_button_text">CLEAR</string>
+
+    <!-- String used to display calls from unknown numbers in the call log -->
+    <string name="unknown">Unknown</string>
+
+    <!-- String used to display calls from private numbers in the call log -->
+    <string name="private_num">Private number</string>
+
+    <!-- String used to display calls from pay phone in the call log -->
+    <string name="payphone">Payphone</string>
+
+    <!-- Call-log count in one call-log group. Call location and call date. -->
+    <string name="recent_call_count_or_location_and_date">(<xliff:g id="call_count">%1$d</xliff:g>)
+        <xliff:g id="call_location_and_date">%2$s</xliff:g></string>
+    <string name="description_list_delimiter">", "</string>
 </resources>

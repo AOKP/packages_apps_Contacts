@@ -105,6 +105,15 @@ public class MultiSelectContactsListFragment extends DefaultContactBrowseListFra
         }
     }
 
+    public void setSelectAll(boolean selectAll) {
+        if (selectAll) {
+            fillCheckBoxes();
+        } else {
+            clearCheckBoxes();
+        }
+        getAdapter().notifyDataSetChanged();
+    }
+
     public TreeSet<Long> getSelectedContactIds() {
         final MultiSelectEntryContactListAdapter adapter = getAdapter();
         return adapter.getSelectedContactIds();
@@ -137,6 +146,10 @@ public class MultiSelectContactsListFragment extends DefaultContactBrowseListFra
 
     public void clearCheckBoxes() {
         getAdapter().setSelectedContactIds(new TreeSet<Long>());
+    }
+
+    public void fillCheckBoxes() {
+        getAdapter().setSelectedContactIds(getAdapter().getAllVisibleContactIds());
     }
 
     @Override

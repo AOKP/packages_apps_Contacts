@@ -469,7 +469,7 @@
                   android:theme="@style/BackgroundOnlyTheme" />
 
         <activity
-            android:name=".activities.MultiPickContactActivity"
+            android:name=".activities.MultiPickContactsActivity"
             android:windowSoftInputMode="stateHidden|adjustResize"
             android:screenOrientation="nosensor"
             android:theme="@style/ContactPickerTheme"

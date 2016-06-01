@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * Copyright (c) 2016, The Linux Foundation. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *     * Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above
+ *       copyright notice, this list of conditions and the following
+ *       disclaimer in the documentation and/or other materials provided
+ *       with the distribution.
+ *     * Neither the name of The Linux Foundation nor the names of its
+ *       contributors may be used to endorse or promote products derived
+ *       from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+ * BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+ * BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+ * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fafafa"
+        android:clickable="false"
+        android:focusable="false"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/account_type"
+            android:layout_width="0px"
+            android:layout_height="@dimen/account_view_height"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/group_account_text_color"
+            android:textSize="@dimen/group_account_text_size"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/account_name"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/account_view_height"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:paddingEnd="16dp"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/group_account_text_color"
+            android:textSize="@dimen/group_account_text_size"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/multi_pick_contacts_item_height"
+        android:background="@drawable/contact_list_item_selected"
+        android:descendantFocusability="blocksDescendants"
+        android:minHeight="?android:attr/listPreferredItemHeight"
+        android:orientation="horizontal" >
+
+        <view
+            android:id="@+id/pick_contact_photo"
+            android:layout_width="@dimen/pick_contact_photo_width"
+            android:layout_height="@dimen/pick_contact_photo_height"
+            android:layout_marginEnd="@dimen/pick_contact_photo_margin_end"
+            android:layout_marginStart="@dimen/pick_contact_photo_margin_start"
+            android:layout_marginTop="@dimen/pick_contact_photo_margin_top"
+            class="com.android.contacts.common.widget.CheckableImageView"
+            android:gravity="center_vertical" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/group_name_text_color"
+                android:textSize="@dimen/group_name_text_size" />
+
+            <TextView
+                android:id="@+id/number_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/group_size_text_color"
+                android:textSize="@dimen/group_size_text_size" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/expand_group"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|end"
+            android:layout_weight="0"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:paddingEnd="@dimen/expand_group_padding_end"
+            android:paddingStart="@dimen/expand_group_padding_start" />
+
+    </LinearLayout>
+
+</LinearLayout>
