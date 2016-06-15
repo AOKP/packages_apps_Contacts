@@ -95,6 +95,7 @@ import com.android.contacts.common.list.ViewPagerTabs;
 import com.android.contacts.common.MoreContactUtils;
 import com.android.contacts.common.SimContactsConstants;
 import com.android.contacts.common.SimContactsOperation;
+import com.android.contacts.common.activity.RequestPermissionsActivity;
 import com.android.contacts.multipicker.CallLogFragment;
 import com.android.contacts.multipicker.ContactsFragment;
 import com.android.contacts.multipicker.GroupsFragment;
@@ -291,6 +292,10 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (RequestPermissionsActivity.startPermissionActivity(this)) {
+            return;
+        }
 
         setContentView(R.layout.multi_pick_activity);
 
