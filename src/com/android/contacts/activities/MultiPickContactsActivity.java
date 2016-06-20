@@ -489,16 +489,10 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
                     case TAB_INDEX_RECENT:
                         checkNum = mCallLogFragment.getAllCheckedListSize();
                         num = mCallLogFragment.getListView().getCount() - 1;
-                        if (checkNum == num) {
-                            selectAll = false;
-                        }
                         break;
                     case TAB_INDEX_CONTACTS:
                         checkNum = mContactsFragment.getAllCheckedListSize();
                         num = mContactsFragment.getListView().getCount() - 1;
-                        if (checkNum == num) {
-                            selectAll = false;
-                        }
                         break;
                     case TAB_INDEX_GROUP:
                         checkNum = mGroupFragment.getAllCheckedListSize();
@@ -508,9 +502,6 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
                         } else {
                             num = allContactsInGroups.getCount();
                         }
-                        if (checkNum == num) {
-                            selectAll = false;
-                        }
                         break;
                     default:
                         break;
@@ -518,17 +509,15 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
             } else if (mPickMode.isPickCall()) {
                 checkNum = mChoiceSet.size();
                 num = mDelCallLogFragment.getListView().getCount() - 1;
-                if (checkNum == num) {
-                    selectAll = false;
-                }
             } else {
                 checkNum = mChoiceSet.size();
                 num = mContactsFragment.getListView().getCount() - 1;
-                if (checkNum == num) {
-                    selectAll = false;
-                }
+            }
+            if (checkNum == num && num > 0) {
+                selectAll = false;
             }
         }
+
         mSelectionMenu.getPopupList().addItem(SelectionMenu.SELECT_OR_DESELECT,
                 getString(selectAll ? R.string.menu_select_all : R.string.menu_select_none));
     }
