@@ -1219,12 +1219,14 @@ public class ContactsFragment extends ListFragment {
                                 .getString(SUMMARY_LOOKUP_KEY_COLUMN_INDEX);
                         cache.name = cursor
                                 .getString(SUMMARY_DISPLAY_NAME_PRIMARY_COLUMN_INDEX);
-                        cache.nameRawContactId = cursor.getLong(cursor
-                                .getColumnIndex(Contacts.NAME_RAW_CONTACT_ID));
+                        cache.nameRawContactId = cursor
+                                .getLong(SUMMARY_CONTACT_COLUMN_RAW_CONTACT_ID);
+                        String photoUri = cursor.getString(SUMMARY_CONTACT_COLUMN_PHOTO_URI);
+                        cache.photoUri = UriUtils.parseUriOrNull(photoUri);
                         value = new String[] {
                                 cache.lookupKey,
                                 key, String.valueOf(cache.nameRawContactId),
-                                String.valueOf(cache.photoUri), cache.name
+                                photoUri, cache.name
                         };
                     } else if (mPickMode.isPickPhone()) {
                         cache.name = cursor
