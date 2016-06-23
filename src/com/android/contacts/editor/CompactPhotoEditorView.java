@@ -114,7 +114,10 @@ public class CompactPhotoEditorView extends RelativeLayout implements View.OnCli
         if (mReadOnly) {
             mPhotoIcon.setVisibility(View.GONE);
             mPhotoIconOverlay.setVisibility(View.GONE);
+            mPhotoTouchInterceptOverlay.setOnClickListener(null);
         } else {
+            mPhotoIcon.setVisibility(View.VISIBLE);
+            mPhotoIconOverlay.setVisibility(View.VISIBLE);
             mPhotoTouchInterceptOverlay.setOnClickListener(this);
         }
     }
@@ -143,6 +146,14 @@ public class CompactPhotoEditorView extends RelativeLayout implements View.OnCli
             return;
         }
 
+        setDefaultPhoto(materialPalette);
+        adjustDimensions();
+    }
+
+    /**
+     * Set the default photo, if it is sim account.
+     */
+    public void setSimPhoto(MaterialPalette materialPalette) {
         setDefaultPhoto(materialPalette);
         adjustDimensions();
     }

@@ -981,8 +981,14 @@ abstract public class ContactEditorBaseFragment extends Fragment implements
 
         setEnabled(false);
 
+        removeSimPhoto();
         return doSaveAction(saveMode, /* joinContactId */ null);
     }
+
+    /**
+     * Remove the Sim photo info.
+     */
+    abstract protected void removeSimPhoto();
 
     /**
      * Persist the accumulated editor deltas.

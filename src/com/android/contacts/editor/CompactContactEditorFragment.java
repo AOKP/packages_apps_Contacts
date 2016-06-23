@@ -19,6 +19,7 @@ package com.android.contacts.editor;
 import com.android.contacts.ContactSaveService;
 import com.android.contacts.R;
 import com.android.contacts.activities.CompactContactEditorActivity;
+import com.android.contacts.common.SimContactsConstants;
 import com.android.contacts.common.model.RawContactDelta;
 import com.android.contacts.common.model.ValuesDelta;
 import com.android.contacts.common.model.account.AccountWithDataSet;
@@ -29,6 +30,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -178,6 +180,26 @@ public class CompactContactEditorFragment extends ContactEditorBaseFragment impl
     public void removePhoto() {
         getContent().removePhoto();
         mUpdatedPhotos.remove(String.valueOf(mPhotoRawContactId));
+    }
+
+    /**
+     * Remove the Sim photo info.
+     */
+    @Override
+    protected void removeSimPhoto() {
+        if (mHasNewContact && !mNewLocalProfile) {
+            RawContactDelta rawContactDelta = mState.get(0);
+            if (SimContactsConstants.ACCOUNT_TYPE_SIM.equals(
+                    rawContactDelta.getAccountType())) {
+                // As it is sim account, we should remove the photo info.
+                for (ValuesDelta valuesDelta
+                        : rawContactDelta.getMimeEntries(
+                        ContactsContract.CommonDataKinds.Photo.CONTENT_ITEM_TYPE)) {
+                    valuesDelta.getAfter().remove(ContactsContract.CommonDataKinds.Photo.PHOTO);
+                }
+                mUpdatedPhotos = new Bundle();
+            }
+        }
     }
 
     public void updatePhoto(Uri uri) throws FileNotFoundException {
