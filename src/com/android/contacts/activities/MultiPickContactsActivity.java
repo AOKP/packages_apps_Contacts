@@ -214,7 +214,7 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
     private static final int SIM_COLUMN_ID = 4;
 
     // reduce the value to avoid too large transaction.
-    private int MAX_CONTACTS_NUM_TO_SELECT_ONCE = 1000;
+    private int MAX_CONTACTS_NUM_TO_SELECT_ONCE = 500;
 
     private static final int BUFFER_LENGTH = 400;
 
