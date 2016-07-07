@@ -501,7 +501,9 @@ public class ActionBarAdapter implements OnCloseListener {
         mSelectionMenu.getPopupList().addItem(mSelectionMenu.SELECTED,
                 String.valueOf(mSelectionCount));
         mSelectionMenu.getPopupList().addItem(mSelectionMenu.SELECT_OR_DESELECT,
-                mActivity.getString(R.string.menu_select_all));
+                        mActivity.getString(mPopupListListener
+                                .getHasSelectAll() ? R.string.menu_select_none
+                                : R.string.menu_select_all));
     }
 
     private class PopupListListener
