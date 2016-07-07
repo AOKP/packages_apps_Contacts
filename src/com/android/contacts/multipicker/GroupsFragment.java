@@ -638,7 +638,8 @@ public class GroupsFragment extends ExpandableListFragment implements OnGroupCli
             groupCache.id = cursor.getLong(GROUP_ID);
             if (groupCache.phone_numbers == 0) {
                 String[] dataIds = mAllContactsCurosrMap.get(groupCache.id);
-                groupCache.phone_numbers = dataIds.length;
+                if (dataIds != null)
+                    groupCache.phone_numbers = dataIds.length;
             }
             String summary_count = context.getResources().getString(R.string.summary_count_numbers,
                     String.valueOf(groupCache.phone_numbers));
