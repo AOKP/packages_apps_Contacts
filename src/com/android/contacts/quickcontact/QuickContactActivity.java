@@ -2911,7 +2911,7 @@ public class QuickContactActivity extends ContactsActivity
                         if (hasPhoneOrEmail && simOneLoadComplete) {
                             copyToSim1Menu.setTitle(getString(R.string.menu_copyTo)
                                     + MoreContactUtils.getAcount(
-                                            this, SimContactsConstants.SLOT1));
+                                            this, SimContactsConstants.SLOT1).name);
                             copyToSim1Menu.setVisible(true);
                         }
                         if (hasPhoneOrEmail && simTwoLoadComplete) {
