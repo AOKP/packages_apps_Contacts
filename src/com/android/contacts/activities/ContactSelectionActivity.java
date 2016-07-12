@@ -587,6 +587,9 @@ public class ContactSelectionActivity extends ContactsActivity
 
         final MenuItem searchItem = menu.findItem(R.id.menu_search);
         searchItem.setVisible(!mIsSearchMode && mIsSearchSupported);
+
+        final MenuItem closeItem = menu.findItem(R.id.menu_close);
+        closeItem.setVisible(false);
         return true;
     }
 
