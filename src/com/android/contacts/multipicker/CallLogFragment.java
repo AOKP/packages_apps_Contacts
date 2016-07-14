@@ -328,40 +328,59 @@ public class CallLogFragment extends ListFragment {
             int photoId = cursor.getInt(CACHED_PHOTO_ID);
             Uri photoUri = UriUtils.parseUriOrNull(cursor.getString(CACHED_PHOTO_URI));
 
-            Uri uri = PhoneLookup.ENTERPRISE_CONTENT_FILTER_URI
-                    .buildUpon().appendPath(number).build();
-            Cursor phoneLookupCursor = null;
-            try {
-                phoneLookupCursor = mContext.getContentResolver().query(uri,
-                        PHONE_LOOKUP_PROJECTION, null, null, null);
-                if (phoneLookupCursor == null || !phoneLookupCursor.moveToFirst()) {
-                    name = null;
-                    numberType = 0;
-                    numberLabel = null;
-                    photoId = 0;
-                    photoUri = null;
-                    mCheckListListener.appendStrangeCallLogId(String.valueOf(callId));
-                } else {
-                    dataId = phoneLookupCursor.getLong(PHONE_LOOKUP_DATA_ID);
-                    name = phoneLookupCursor.getString(PHONE_LOOKUP_DISPLAY_NAME);
-                    numberType = phoneLookupCursor.getInt(PHONE_LOOKUP_TYPE);
-                    numberLabel = phoneLookupCursor.getString(PHONE_LOOKUP_LABEL);
-                    photoId = phoneLookupCursor.getInt(PHONE_LOOKUP_PHOTO_ID);
-                    photoUri = UriUtils.parseUriOrNull(
-                            phoneLookupCursor.getString(PHONE_LOOKUP_PHOTO_URI));
-                    String lookupKey = phoneLookupCursor.getString(PHONE_LOOKUP_KEY);
-                    long contact_id = phoneLookupCursor.getLong(PHONE_LOOKUP_CONTACT_ID);
-                    lookupUri = Contacts.getLookupUri(contact_id, lookupKey).toString();
-                }
+            if (TextUtils.isEmpty(number)) {
+                name = null;
+                numberType = 0;
+                numberLabel = null;
+                photoId = 0;
+                photoUri = null;
+                mCheckListListener.appendStrangeCallLogId(String
+                        .valueOf(callId));
+            } else {
+                Uri uri = PhoneLookup.ENTERPRISE_CONTENT_FILTER_URI.buildUpon()
+                        .appendPath(number).build();
+                Cursor phoneLookupCursor = null;
+                try {
+                    phoneLookupCursor = mContext.getContentResolver().query(
+                            uri, PHONE_LOOKUP_PROJECTION, null, null, null);
+                    if (phoneLookupCursor == null
+                            || !phoneLookupCursor.moveToFirst()) {
+                        name = null;
+                        numberType = 0;
+                        numberLabel = null;
+                        photoId = 0;
+                        photoUri = null;
+                        mCheckListListener.appendStrangeCallLogId(String
+                                .valueOf(callId));
+                    } else {
+                        dataId = phoneLookupCursor
+                                .getLong(PHONE_LOOKUP_DATA_ID);
+                        name = phoneLookupCursor
+                                .getString(PHONE_LOOKUP_DISPLAY_NAME);
+                        numberType = phoneLookupCursor
+                                .getInt(PHONE_LOOKUP_TYPE);
+                        numberLabel = phoneLookupCursor
+                                .getString(PHONE_LOOKUP_LABEL);
+                        photoId = phoneLookupCursor
+                                .getInt(PHONE_LOOKUP_PHOTO_ID);
+                        photoUri = UriUtils.parseUriOrNull(phoneLookupCursor
+                                .getString(PHONE_LOOKUP_PHOTO_URI));
+                        String lookupKey = phoneLookupCursor
+                                .getString(PHONE_LOOKUP_KEY);
+                        long contact_id = phoneLookupCursor
+                                .getLong(PHONE_LOOKUP_CONTACT_ID);
+                        lookupUri = Contacts
+                                .getLookupUri(contact_id, lookupKey).toString();
+                    }
 
-            } catch (NullPointerException e) {
-                return;
-            } finally {
-                if (phoneLookupCursor != null) {
-                    phoneLookupCursor.close();
+                } catch (Exception e) {
+                    return;
+                } finally {
+                    if (phoneLookupCursor != null) {
+                        phoneLookupCursor.close();
+                    }
                 }
             }
-
             tabRows[0] = callId;
             tabRows[1] = number;
             tabRows[2] = type;
