@@ -881,6 +881,13 @@
     <!-- Quick contact display name with phonetic name -->
     <string name="quick_contact_display_name_with_phonetic"><xliff:g id="display_name">%s</xliff:g> (<xliff:g id="phonetic_name">%s</xliff:g>)</string>
 
+
+    <!-- Menu item used to refresh a specific contact -->
+    <string name="menu_refresh">Refresh</string>
+
+    <string name="video_call">Video Calling</string>
+
+
     <!-- Button used in quick contact suggestion card to link selected contacts. [CHAR LIMIT=30]-->
     <string name="quickcontact_suggestion_link_button">LINK CONTACTS</string>
 

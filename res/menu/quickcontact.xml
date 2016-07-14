@@ -22,6 +22,10 @@
         android:showAsAction="always" />
 
     <item
+        android:id="@+id/menu_refresh"
+        android:title="@string/menu_refresh" />
+
+    <item
         android:id="@+id/menu_edit"
         android:showAsAction="always" />
 

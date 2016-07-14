@@ -47,6 +47,15 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import android.os.RemoteException;
+
+import org.codeaurora.presenceserv.IPresenceService;
+import org.codeaurora.presenceserv.IPresenceServiceCB;
+
 /**
  * This class contains utility methods to bind high-level contact details
  * (meaning name, phonetic name, job, and attribution) from a
@@ -385,4 +394,107 @@ public class ContactDisplayUtils {
 
         listView.setSelectionFromTop(0, offset);
     }
+
+    public static volatile IPresenceService mService;
+    public static boolean  mIsBound;
+
+    private static ServiceConnection mConnection = new ServiceConnection() {
+
+        public void onServiceConnected(ComponentName className, IBinder service) {
+            Log.d(TAG, "PresenceService connected");
+            mService = IPresenceService.Stub.asInterface(service);
+            try {
+                mService.registerCallback(mCallback);
+            } catch (RemoteException e) {
+                Log.e(TAG, "PresenceService registerCallback error " + e);
+            }
+        }
+        public void onServiceDisconnected(ComponentName className) {
+            Log.d(TAG, "PresenceService disconnected");
+            mService = null;
+        }
+    };
+
+    private static IPresenceServiceCB mCallback = new IPresenceServiceCB.Stub() {
+
+        public void setIMSEnabledCB() {
+            Log.d(TAG, "PresenceService setIMSEnabled callback");
+        }
+
+    };
+
+    public static void bindService(Context context) {
+        if (!callFromQuickContactActivity(context)) {
+            return;
+        }
+        Log.d(TAG, "PresenceService BindService");
+        Intent intent = new Intent(IPresenceService.class.getName());
+        intent.setClassName("com.qualcomm.qti.presenceserv",
+                            "com.qualcomm.qti.presenceserv.PresenceService");
+        mIsBound = context.bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+    }
+
+    public static void unbindService(Context context) {
+        if (!callFromQuickContactActivity(context)) {
+            return;
+        }
+        Log.d(TAG, "PresenceService unbindService");
+        if (mService != null) {
+            try {
+                mService.unregisterCallback(mCallback);
+            } catch (RemoteException e) {
+                Log.e(TAG, "PresenceService unregister error " + e);
+            }
+        }
+        if (mIsBound) {
+            Log.d(TAG, "PresenceService unbind");
+            context.unbindService(mConnection);
+            mIsBound = false;
+        }
+    }
+
+    public static boolean startAvailabilityFetch(String number){
+        Log.d(TAG, "startAvailabilityFetch   number " + number);
+        if (null != mService) {
+            try {
+                boolean vt = false;
+                vt = mService.invokeAvailabilityFetch(number);
+                return vt;
+            } catch (Exception e) {
+                Log.d(TAG, "getVTCapOfContact ERROR " + e);
+            } finally {
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public static boolean getVTCapability(String number) {
+        Log.d(TAG, "getVTCapability   number " + number);
+        if (null != mService) {
+            try {
+                boolean vt = false;
+                vt = mService.hasVTCapability(number);
+                Log.d(TAG,
+                    "getVTCapability success number " + number + " " + vt);
+                return vt;
+            } catch (Exception e) {
+                Log.d(TAG, "getVTCapability ERROR " + e);
+            } finally {
+                return false;
+            }
+        }
+        return false;
+    }
+
+    private static boolean callFromQuickContactActivity(Context context) {
+        String contextString = context.toString();
+        String Caller = contextString.substring(
+            contextString.lastIndexOf(".") + 1, contextString.indexOf("@"));
+        if (Caller.equals("QuickContactActivity")) {
+            return true;
+        }
+        return false;
+    }
+
 }

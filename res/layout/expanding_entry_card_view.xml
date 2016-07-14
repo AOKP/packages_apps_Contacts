@@ -37,6 +37,15 @@
         android:background="@color/divider_line_color_light"
         android:visibility="gone" />
 
+    <Switch
+        android:id="@+id/switch_video_call"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="@dimen/expanding_entry_card_item_image_spacing"
+        android:visibility="gone"
+        android:text="@string/video_call" />
+
     <LinearLayout
         android:id="@+id/content_area_linear_layout"
         android:layout_width="match_parent"

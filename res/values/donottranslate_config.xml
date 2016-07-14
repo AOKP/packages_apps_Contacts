@@ -48,4 +48,8 @@
 
     <!-- File Authority for AOSP Contacts files -->
     <string name="contacts_file_provider_authority">com.android.contacts.files</string>
+
+    <!-- If true , the video calling menu will be shown
+         and the presence service will be enabled -->
+    <bool name="config_regional_presence_enable">false</bool>
 </resources>

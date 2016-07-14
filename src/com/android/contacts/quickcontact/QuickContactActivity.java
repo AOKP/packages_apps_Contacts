@@ -45,6 +45,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.RemoteException;
 import android.os.Trace;
 import android.provider.CalendarContract;
 import android.provider.ContactsContract;
@@ -201,10 +202,12 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 
+import com.android.contacts.quickcontact.ExpandingEntryCardView.VideoCallingCallback;
+
 /**
  * Mostly translucent {@link Activity} that shows QuickContact dialog. It loads
  * data asynchronously, and then shows a popup with details centered around
- * {@link Intent#getSourceBounds()}.
+ * {@link Intent#getSourceBounds()}.ExpandingEntryCardView
  */
 public class QuickContactActivity extends ContactsActivity
         implements AggregationSuggestionEngine.Listener, JoinContactsListener {
@@ -394,6 +397,9 @@ public class QuickContactActivity extends ContactsActivity
     private static final String FRAGMENT_TAG_SELECT_ACCOUNT = "select_account_fragment";
     private boolean simOneLoadComplete = false;
     private boolean simTwoLoadComplete = false;
+
+    private Context mContext;
+    private boolean mEnablePresence = false;
 
     final OnClickListener mEntryClickHandler = new OnClickListener() {
         @Override
@@ -932,7 +938,7 @@ public class QuickContactActivity extends ContactsActivity
     protected void onCreate(Bundle savedInstanceState) {
         Trace.beginSection("onCreate()");
         super.onCreate(savedInstanceState);
-
+        mContext = this;
         if (RequestPermissionsActivity.startPermissionActivity(this) ||
                 RequestDesiredPermissionsActivity.startPermissionActivity(this)) {
             return;
@@ -1020,6 +1026,19 @@ public class QuickContactActivity extends ContactsActivity
         mContactCard.setExpandButtonText(
         getResources().getString(R.string.expanding_entry_card_view_see_all));
         mContactCard.setOnCreateContextMenuListener(mEntryContextMenuListener);
+        mEnablePresence = System.getProperty("persist.presence.enable", "false").equals("true");
+        if (mEnablePresence) {
+            mContactCard.disPlayVideoCallSwitch(mEnablePresence);
+            if (!ContactDisplayUtils.mIsBound) {
+                ContactDisplayUtils.bindService(mContext);
+            }
+            mContactCard.setCallBack(new VideoCallingCallback(){
+                @Override
+                public void updateContact(){
+                    reFreshContact();
+                }
+            });
+        }
 
         mRecentCard.setOnClickListener(mEntryClickHandler);
         mRecentCard.setTitle(getResources().getString(R.string.recent_card_title));
@@ -1264,7 +1283,7 @@ public class QuickContactActivity extends ContactsActivity
                 mScroller.setPhoneticNameGone();
             }
         }
-
+        mContactCard.setEntryContactName(displayName);
         Trace.endSection();
 
         mEntriesAndActionsTask = new AsyncTask<Void, Void, Cp2DataCardModel>() {
@@ -1698,7 +1717,6 @@ public class QuickContactActivity extends ContactsActivity
                 }
             }
         }
-
         Trace.endSection();
 
         final Cp2DataCardModel dataModel = new Cp2DataCardModel();
@@ -2682,6 +2700,9 @@ public class QuickContactActivity extends ContactsActivity
         if (mRecentDataTask != null) {
             mRecentDataTask.cancel(/* mayInterruptIfRunning = */ false);
         }
+        if (mEnablePresence && ContactDisplayUtils.mIsBound) {
+            ContactDisplayUtils.unbindService(mContext);
+        }
     }
 
     @Override
@@ -2689,6 +2710,16 @@ public class QuickContactActivity extends ContactsActivity
         super.onDestroy();
         if (mAggregationSuggestionEngine != null) {
             mAggregationSuggestionEngine.quit();
+        }
+    }
+
+
+    private void reFreshContact(){
+        if (mCachedCp2DataCardModel != null) {
+            populateContactAndAboutCard(mCachedCp2DataCardModel,false);
+        }
+        if(mContactCard!=null){
+            mContactCard.invalidate();
         }
     }
 
@@ -2848,6 +2879,9 @@ public class QuickContactActivity extends ContactsActivity
                 editMenuItem.setVisible(false);
             }
 
+            final MenuItem refreshMenuItem = menu.findItem(R.id.menu_refresh);
+            refreshMenuItem.setVisible(isContactEditable());
+
             final MenuItem deleteMenuItem = menu.findItem(R.id.menu_delete);
             deleteMenuItem.setVisible(isContactEditable() && !mContactData.isUserProfile());
 
@@ -3000,6 +3034,9 @@ public class QuickContactActivity extends ContactsActivity
                 } else if (isContactEditable()) {
                     editContact();
                 }
+                return true;
+            case R.id.menu_refresh:
+                reFreshContact();
                 return true;
             case R.id.menu_delete:
                 if (isContactEditable()) {
