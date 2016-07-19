@@ -22,11 +22,15 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract.Contacts;
+import android.provider.ContactsContract.CommonDataKinds.Email;
+import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.Intents.Insert;
+import android.provider.ContactsContract.Data;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -60,8 +64,11 @@ import com.android.contacts.list.UiIntentActions;
 import com.android.contacts.common.list.OnPhoneNumberPickerActionListener;
 import com.android.contacts.list.OnPostalAddressPickerActionListener;
 import com.android.contacts.common.list.PhoneNumberPickerFragment;
+import com.android.contacts.common.util.ImplicitIntentsUtil;
 import com.android.contacts.list.PostalAddressPickerFragment;
+import com.google.common.collect.Sets;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 /**
@@ -72,6 +79,8 @@ public class ContactSelectionActivity extends ContactsActivity
         implements View.OnCreateContextMenuListener, OnQueryTextListener, OnClickListener,
                 OnCloseListener, OnFocusChangeListener {
     private static final String TAG = "ContactSelectionActivity";
+
+    private static final int SUBACTIVITY_ADD_TO_EXISTING_CONTACT = 0;
 
     private static final String KEY_ACTION_CODE = "actionCode";
     private static final String KEY_SEARCH_MODE = "searchMode";
@@ -402,8 +411,28 @@ public class ContactSelectionActivity extends ContactsActivity
 
         @Override
         public void onEditContactAction(Uri contactLookupUri) {
+            Bundle extras = getIntent().getExtras();
+            if (launchAddToContactDialog(extras)) {
+                // Show a confirmation dialog to add the value(s) to the existing contact.
+                Intent intent = new Intent(ContactSelectionActivity.this,
+                        ConfirmAddDetailActivity.class);
+                intent.setData(contactLookupUri);
+                if (extras != null) {
+                    // First remove name key if present because the dialog does not support name
+                    // editing. This is fine because the user wants to add information to an
+                    // existing contact, who should already have a name and we wouldn't want to
+                    // override the name.
+                    extras.remove(Insert.NAME);
+                    intent.putExtras(extras);
+                }
+
+                // Wait for the activity result because we want to keep the picker open (in case the
+                // user cancels adding the info to a contact and wants to pick someone else).
+                startActivityForResult(intent, SUBACTIVITY_ADD_TO_EXISTING_CONTACT);
+            } else {
             startActivityAndForwardResult(EditorIntents.createEditContactIntent(
                     contactLookupUri, /* materialPalette =*/ null, /* photoId =*/ -1));
+            }
         }
 
         @Override
@@ -415,6 +444,68 @@ public class ContactSelectionActivity extends ContactsActivity
         public void onShortcutIntentCreated(Intent intent) {
             returnPickerResult(intent);
         }
+    }
+        /**
+         * Returns true if is a single email or single phone number provided in the {@link Intent}
+         * extras bundle so that a pop-up confirmation dialog can be used to add the data to
+         * a contact. Otherwise return false if there are other intent extras that require launching
+         * the full contact editor. Ignore extras with the key {@link Insert.NAME} because names
+         * are a special case and we typically don't want to replace the name of an existing
+         * contact.
+         */
+        public boolean launchAddToContactDialog(Bundle extras) {
+            if (extras == null) {
+                return false;
+            }
+
+            // Copy extras because the set may be modified in the next step
+            Set<String> intentExtraKeys = Sets.newHashSet();
+            intentExtraKeys.addAll(extras.keySet());
+
+            // Ignore name key because this is an existing contact.
+            if (intentExtraKeys.contains(Insert.NAME)) {
+                intentExtraKeys.remove(Insert.NAME);
+            }
+
+            int numIntentExtraKeys = intentExtraKeys.size();
+            // We should limit extras strictly. if there only have Insert.PHONE or Insert.EMAIL
+            // or Insert.DATA which size is only one and only includes phone or email type,
+            // there can show the dialog.
+            if (numIntentExtraKeys == 1 && intentExtraKeys.contains(Insert.DATA)) {
+                ArrayList<ContentValues> values = extras.getParcelableArrayList(Insert.DATA);
+                if (values.size() == 1) {
+                    ContentValues cv = values.get(0);
+                    if (Phone.CONTENT_ITEM_TYPE.equals(cv.getAsString(Data.MIMETYPE))) {
+                        extras.putString(Insert.PHONE, cv.getAsString(Phone.NUMBER));
+                        extras.putInt(Insert.PHONE_TYPE, cv.getAsInteger(Phone.TYPE) == 0 ?
+                                Phone.TYPE_MOBILE : cv.getAsInteger(Phone.TYPE));
+                    } else if (Email.CONTENT_ITEM_TYPE.equals(cv.getAsString(Data.MIMETYPE))) {
+                        extras.putString(Insert.EMAIL, cv.getAsString(Email.DATA));
+                        extras.putInt(Insert.EMAIL_TYPE, cv.getAsInteger(Email.TYPE) == 0 ?
+                                Email.TYPE_HOME : cv.getAsInteger(Email.TYPE));
+                    } else {
+                        return false;
+                    }
+
+                    extras.remove(Insert.DATA);
+                    return true;
+                }
+            }
+
+            if (numIntentExtraKeys == 2) {
+                boolean hasPhone = intentExtraKeys.contains(Insert.PHONE) &&
+                        intentExtraKeys.contains(Insert.PHONE_TYPE);
+                boolean hasEmail = intentExtraKeys.contains(Insert.EMAIL) &&
+                        intentExtraKeys.contains(Insert.EMAIL_TYPE);
+                return hasPhone || hasEmail;
+            } else if (numIntentExtraKeys == 1) {
+                return intentExtraKeys.contains(Insert.PHONE) ||
+                        intentExtraKeys.contains(Insert.EMAIL);
+            }
+            // Having 0 or more than 2 intent extra keys means that we should launch
+            // the full contact editor to properly handle the intent extras.
+            return false;
+
     }
 
     private final class PhoneNumberPickerActionListener implements
@@ -574,6 +665,19 @@ public class ContactSelectionActivity extends ContactsActivity
         if (imm != null) {
             if (!imm.showSoftInput(view, 0)) {
                 Log.w(TAG, "Failed to show soft input method.");
+            }
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == SUBACTIVITY_ADD_TO_EXISTING_CONTACT) {
+            if (resultCode == Activity.RESULT_OK) {
+                if (data != null) {
+                    ImplicitIntentsUtil.startActivityInAppIfPossible(this, data);
+                }
+                finish();
             }
         }
     }

@@ -399,4 +399,5 @@
     <dimen name="call_type_icon_size">12dp</dimen>
 
     <dimen name="header_listview_height">12dp</dimen>
+    <dimen name="confirm_replace_margin_top_or_bottom">5dp</dimen>
 </resources>

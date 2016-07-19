@@ -1768,7 +1768,7 @@ abstract public class ContactEditorBaseFragment extends Fragment implements
             return ContentUris.withAppendedId(legacyContentUri, contactId);
         }
         // Otherwise pass back a lookup-style Uri
-        return contactLookupUri;
+        return contactLookupUri == null? requestLookupUri : contactLookupUri;
     }
 
     /**

@@ -24,6 +24,7 @@ import android.content.ContentProviderOperation;
 import android.content.ContentProviderResult;
 import android.content.ContentResolver;
 import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.OperationApplicationException;
@@ -34,6 +35,7 @@ import android.net.Uri;
 import android.net.Uri.Builder;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.os.RemoteException;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Email;
@@ -54,6 +56,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -64,6 +67,7 @@ import com.android.contacts.editor.EditorUiUtils;
 import com.android.contacts.editor.ViewIdGenerator;
 import com.android.contacts.common.ContactPhotoManager;
 import com.android.contacts.common.ContactPhotoManager.DefaultImageRequest;
+import com.android.contacts.common.MoreContactUtils;
 import com.android.contacts.common.model.AccountTypeManager;
 import com.android.contacts.common.model.RawContact;
 import com.android.contacts.common.model.RawContactDelta;
@@ -73,6 +77,8 @@ import com.android.contacts.common.model.RawContactModifier;
 import com.android.contacts.common.model.account.AccountType;
 import com.android.contacts.common.model.account.AccountWithDataSet;
 import com.android.contacts.common.model.dataitem.DataKind;
+import com.android.contacts.common.SimContactsConstants;
+import com.android.contacts.common.SimContactsOperation;
 import com.android.contacts.util.DialogManager;
 import com.android.contacts.common.util.EmptyService;
 
@@ -108,6 +114,12 @@ public class ConfirmAddDetailActivity extends Activity implements
     private static final String TAG = "ConfirmAdd"; // The class name is too long to be a tag.
     private static final boolean VERBOSE_LOGGING = Log.isLoggable(TAG, Log.VERBOSE);
 
+    public static final String RAWCONTACTS_DELTA_LIST = "rawContactsDeltaList";
+    public static final String MIME_TYPE = "mMimetype";
+
+    private static final int SUBACTIVITY_REPLACE_TO_EXISTING_CONTACT = 1;
+    private static final String FLAG_HAS_START_ACTIVITY = "hasStartActivity";
+
     private LayoutInflater mInflater;
     private View mRootView;
     private TextView mDisplayNameView;
@@ -135,6 +147,12 @@ public class ConfirmAddDetailActivity extends Activity implements
     private RawContactDelta mRawContactDelta;
 
     private String mMimetype = Phone.CONTENT_ITEM_TYPE;
+
+    private boolean isSimAccount;
+
+    // This flag is used to avoid always start new activity ConfirmReplaceDetailActivity
+    // after device rotate.
+    private boolean hasStartActivity;
 
     /**
      * DialogManager may be needed if the user wants to apply a "custom" label to the contact detail
@@ -228,7 +246,12 @@ public class ConfirmAddDetailActivity extends Activity implements
 
     @Override
     protected void onCreate(Bundle icicle) {
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(icicle);
+
+        if (icicle != null) {
+            hasStartActivity = icicle.getBoolean(FLAG_HAS_START_ACTIVITY, false);
+        }
 
         mInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mContentResolver = getContentResolver();
@@ -505,7 +528,6 @@ public class ConfirmAddDetailActivity extends Activity implements
                                 // Display the name because there is no
                                 // disambiguation query.
                                 setDisplayName();
-                                showDialogContent();
                             }
                         }
                         break;
@@ -523,7 +545,6 @@ public class ConfirmAddDetailActivity extends Activity implements
                             // If there are no other contacts with this name,
                             // then display the name.
                             setDisplayName();
-                            showDialogContent();
                         }
                         break;
                     }
@@ -565,7 +586,6 @@ public class ConfirmAddDetailActivity extends Activity implements
                                     break;
                                 }
                             }
-                            showDialogContent();
                         }
                         break;
                     }
@@ -609,9 +629,24 @@ public class ConfirmAddDetailActivity extends Activity implements
 
             mEditableAccountType = mRawContactDelta.getRawContactAccountType(this);
 
+            if (mEditableAccountType != null && SimContactsConstants.ACCOUNT_TYPE_SIM.equals(
+                    mEditableAccountType.accountType)) {
+                isSimAccount = true;
+                handleSimAccount(mRawContactDelta);
+                if (hasStartActivity) {
+                    return;
+                }
+            }
+
             // Handle any incoming values that should be inserted
             final Bundle extras = getIntent().getExtras();
             if (extras != null && extras.size() > 0) {
+                if (isSimAccount) {
+                    //As Sim card don't support to save two mobile number,
+                    //so here remove the phone type.
+                    extras.remove(ContactsContract.Intents.Insert.PHONE_TYPE);
+                }
+
                 // If there are any intent extras, add them as additional fields in the
                 // RawContactDelta.
                 RawContactModifier.parseExtras(this, mEditableAccountType, mRawContactDelta,
@@ -619,7 +654,46 @@ public class ConfirmAddDetailActivity extends Activity implements
             }
         }
 
+        // Show the "Add to Contact" view
+        showDialogContent();
+
         bindEditor();
+    }
+
+    private void handleSimAccount(RawContactDelta rawContactDelta) {
+        int slot = MoreContactUtils.getSubscription(rawContactDelta.getAccountType(),
+                            rawContactDelta.getAccountName());
+        int count = mRawContactDelta.getMimeEntriesCount(mMimetype, true);
+        int maxNumber = 0;
+        if (Phone.CONTENT_ITEM_TYPE.equals(mMimetype)) {
+            maxNumber = 1 + MoreContactUtils.getOneSimAnrCount(
+                    ConfirmAddDetailActivity.this, slot);
+        } else {
+            maxNumber = MoreContactUtils.getOneSimEmailCount(
+                    ConfirmAddDetailActivity.this, slot);
+        }
+
+        if (count >= maxNumber && !hasStartActivity) {
+            Intent intent = new Intent(this, ConfirmReplaceDetailActivity.class);
+            intent.putExtras(getIntent().getExtras());
+            intent.putExtra(RAWCONTACTS_DELTA_LIST, (Parcelable) mEntityDeltaList);
+            startActivityForResult(intent, SUBACTIVITY_REPLACE_TO_EXISTING_CONTACT);
+            hasStartActivity = true;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == SUBACTIVITY_REPLACE_TO_EXISTING_CONTACT) {
+            if (resultCode == Activity.RESULT_OK) {
+                mEntityDeltaList = (RawContactDeltaList) data.getParcelableExtra(
+                        RAWCONTACTS_DELTA_LIST);
+                doSaveAction();
+            } else {
+                setResult(RESULT_CANCELED);
+                finish();
+            }
+        }
     }
 
     /**
@@ -684,7 +758,6 @@ public class ConfirmAddDetailActivity extends Activity implements
             mEditorContainerView.setVisibility(View.GONE);
             findViewById(R.id.btn_done).setVisibility(View.GONE);
             // Nothing more to be done, just show the UI
-            showDialogContent();
             return;
         }
 
@@ -767,7 +840,7 @@ public class ConfirmAddDetailActivity extends Activity implements
      * finishes the activity.
      */
     private void doSaveAction() {
-        final PersistTask task = new PersistTask(this, mAccountTypeManager);
+        final PersistTask task = new PersistTask(this, mAccountTypeManager, isSimAccount);
         task.execute(mEntityDeltaList);
     }
 
@@ -790,9 +863,17 @@ public class ConfirmAddDetailActivity extends Activity implements
 
         private AccountTypeManager mAccountTypeManager;
 
+        private boolean isSimAccount;
+
         public PersistTask(ConfirmAddDetailActivity target, AccountTypeManager accountTypeManager) {
+            this(target, accountTypeManager, false);
+        }
+
+        public PersistTask(ConfirmAddDetailActivity target, AccountTypeManager accountTypeManager,
+                    boolean simAccount) {
             activityTarget = target;
             mAccountTypeManager = accountTypeManager;
+            isSimAccount = simAccount;
         }
 
         @Override
@@ -829,6 +910,24 @@ public class ConfirmAddDetailActivity extends Activity implements
                     // Note: In case we've created a new raw_contact because the selected contact
                     // is read-only, buildDiff() will create aggregation exceptions to join
                     // the new one to the existing contact.
+
+                    if (isSimAccount) {
+                        SimContactsOperation mSimContactsOperation =
+                                new SimContactsOperation(context);
+
+                        RawContactDelta rawContactDelta =
+                                state.getFirstWritableRawContact(context);
+                        int slot = MoreContactUtils.getSubscription(
+                                rawContactDelta.getAccountType(),
+                                rawContactDelta.getAccountName());
+
+                        ContentValues cv = rawContactDelta.buildSimDiff();
+                        int updateSimContactResult = mSimContactsOperation.update(cv, slot);
+                        if (updateSimContactResult != 1) {
+                            return result;
+                        }
+                    }
+
                     final ArrayList<ContentProviderOperation> diff = state.buildDiff();
                     ContentProviderResult[] results = null;
                     if (!diff.isEmpty()) {
@@ -905,5 +1004,11 @@ public class ConfirmAddDetailActivity extends Activity implements
             setResult(RESULT_CANCELED);
         }
         finish();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(FLAG_HAS_START_ACTIVITY, hasStartActivity);
     }
 }

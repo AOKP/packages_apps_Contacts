@@ -336,12 +336,18 @@
 
         </activity-alias>
 
+        <activity
+            android:name=".activities.ConfirmReplaceDetailActivity"
+            android:theme="@style/ConfirmAddDetailDialogTheme"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            android:exported="false"/>
+
         <!-- Confirm that a single detail will be added to an existing contact -->
         <activity
             android:name=".activities.ConfirmAddDetailActivity"
-            android:label="@string/activity_title_confirm_add_detail"
             android:theme="@style/ConfirmAddDetailDialogTheme"
-            android:windowSoftInputMode="adjustResize"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
             android:exported="false"/>
 
         <!-- Accounts changed prompt that can appear when creating a new contact. -->

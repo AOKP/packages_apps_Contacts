@@ -1007,4 +1007,8 @@
     <string name="description_list_delimiter">", "</string>
     <!--Toast msg when user select too many contacts to merge-->
     <string name="too_many_contacts_to_merge_message">Too many contacts, that should be less than <xliff:g id="count">%d</xliff:g></string>
+    <string name="replace_number_title_1">Replace the previous number</string>
+    <string name="replace_number_title_2">Replace the previous number?</string>
+    <string name="replace_number_question_mark">\?</string>
+    <string name="replace_button">REPLACE</string>
 </resources>

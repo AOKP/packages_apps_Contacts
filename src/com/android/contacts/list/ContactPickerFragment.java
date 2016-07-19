@@ -22,6 +22,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.provider.ContactsContract.Intents.Insert;
 
 import com.android.contacts.R;
 import com.android.contacts.common.list.ContactEntryListAdapter;
@@ -31,6 +32,8 @@ import com.android.contacts.common.list.ContactListFilter;
 import com.android.contacts.common.list.DirectoryListLoader;
 import com.android.contacts.common.list.ShortcutIntentBuilder;
 import com.android.contacts.common.list.ShortcutIntentBuilder.OnShortcutIntentCreatedListener;
+
+import com.android.contacts.activities.ContactSelectionActivity;
 
 /**
  * Fragment for the contact list used for browsing contacts (as compared to
@@ -165,7 +168,7 @@ public class ContactPickerFragment extends ContactEntryListFragment<ContactEntry
             HeaderEntryContactListAdapter adapter
                     = new HeaderEntryContactListAdapter(getActivity());
             adapter.setFilter(ContactListFilter.createFilterWithType(
-                    ContactListFilter.FILTER_TYPE_ALL_WITHOUT_SIM));
+                    configureFilter()));
             adapter.setSectionHeaderDisplayEnabled(true);
             adapter.setDisplayPhotos(true);
             adapter.setQuickContactEnabled(false);
@@ -207,4 +210,26 @@ public class ContactPickerFragment extends ContactEntryListFragment<ContactEntry
             mListener.onPickContactAction(data.getData());
         }
     }
+
+    // Filter if displaying the sim contacts or not.
+    // We only display sim contacts when there only has one PHONE or EMAIL.
+    private int configureFilter() {
+        int mContactListFilter = ContactListFilter.FILTER_TYPE_ALL_WITHOUT_SIM;
+
+        Intent intent = getActivity().getIntent();
+        Bundle extras = intent.getExtras();
+        boolean canShowSimContacts =
+                ((ContactSelectionActivity) getActivity()).launchAddToContactDialog(extras);
+
+        if (canShowSimContacts) {
+            mContactListFilter = ContactListFilter.FILTER_TYPE_ALL_ACCOUNTS;
+
+            if (extras.containsKey(Insert.EMAIL)) {
+                mContactListFilter = ContactListFilter.FILTER_TYPE_CAN_SAVE_EMAIL;
+            }
+        }
+
+        return mContactListFilter;
+    }
+
 }

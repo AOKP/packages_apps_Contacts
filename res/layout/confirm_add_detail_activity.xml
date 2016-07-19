@@ -19,8 +19,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root_view"
     android:orientation="vertical"
-    android:visibility="invisible"
+    android:visibility="gone"
     style="@style/ConfirmAddDetailViewStyle">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingTop="18dp"
+        android:textSize="20dip"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:text="@string/activity_title_confirm_add_detail"/>
 
     <!--
       The header contains the contact photo, name, a link to the contact card, and
