@@ -47,4 +47,7 @@
 
     <!-- An ID to be used for contents of a custom dialog so that its state be preserved -->
     <item type="id" name="custom_dialog_content" />
+
+    <!-- For SearchDupActivity -->
+    <item type="id" name="search_dup_dialog"/>
 </resources>

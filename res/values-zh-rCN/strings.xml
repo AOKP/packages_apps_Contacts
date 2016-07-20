@@ -394,7 +394,21 @@
     <string name="clear_call_log_button_text">清除</string>
     <!--Toast msg when user select too many contacts to merge-->
     <string name="too_many_contacts_to_merge_message">联系人太多，应该少于 <xliff:g id="count">%d</xliff:g>个</string>
+
     <string name="replace_number_title_1">替换前一个号码</string>
     <string name="replace_number_title_2">替换前一个号码?</string>
     <string name="replace_button">替换</string>
+
+    <!-- merge contacts -->
+    <string name="merge_contacts">"合并联系人"</string>
+    <string name="merging_contacts">"正在合并重复联系人"</string>
+    <string name="searching_duplicated_contacts">"正在搜索重复联系人"</string>
+    <string name="no_duplicated_contacts">"没有重复联系人"</string>
+    <string name="give_up_merging">"放弃合并重复联系人?"</string>
+    <string name="give_up">"放弃"</string>
+    <string name="cancel">"取消"</string>
+    <string name="merge_complete">"合并完成。"</string>
+    <string name="sim_email_full">"SIM卡邮件存储已满。"</string>
+    <string name="sim_anr_full">"SIM卡号码存储已满。"</string>
+    <string name="merge_fail">"合并失败。"</string>
 </resources>

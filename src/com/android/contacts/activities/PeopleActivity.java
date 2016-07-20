@@ -1318,6 +1318,7 @@ public class PeopleActivity extends ContactsActivity implements
         MenuItem addGroupMenu = menu.findItem(R.id.menu_add_group);
         final MenuItem clearFrequentsMenu = menu.findItem(R.id.menu_clear_frequents);
         final MenuItem helpMenu = menu.findItem(R.id.menu_help);
+        final MenuItem mergeContactsMenu = menu.findItem(R.id.menu_merge_contacts);
 
         final boolean isSearchOrSelectionMode = mActionBarAdapter.isSearchMode()
                 || mActionBarAdapter.isSelectionMode();
@@ -1326,12 +1327,14 @@ public class PeopleActivity extends ContactsActivity implements
             contactsFilterMenu.setVisible(false);
             clearFrequentsMenu.setVisible(false);
             helpMenu.setVisible(false);
+            mergeContactsMenu.setVisible(false);
         } else {
             switch (getTabPositionForTextDirection(mActionBarAdapter.getCurrentTab())) {
                 case TabState.FAVORITES:
                     addGroupMenu.setVisible(false);
                     contactsFilterMenu.setVisible(false);
                     clearFrequentsMenu.setVisible(hasFrequents());
+                    mergeContactsMenu.setVisible(false);
                     break;
                 case TabState.ALL:
                     addGroupMenu.setVisible(false);
@@ -1348,6 +1351,7 @@ public class PeopleActivity extends ContactsActivity implements
                     addGroupMenu.setVisible(true);
                     contactsFilterMenu.setVisible(false);
                     clearFrequentsMenu.setVisible(false);
+                    mergeContactsMenu.setVisible(false);
             }
             helpMenu.setVisible(HelpUtils.isHelpAndFeedbackAvailable());
         }
@@ -1483,6 +1487,11 @@ public class PeopleActivity extends ContactsActivity implements
                 final Intent intent = new Intent("com.android.providers.contacts.DUMP_DATABASE");
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
                 ImplicitIntentsUtil.startActivityOutsideApp(this, intent);
+                return true;
+            }
+            case R.id.menu_merge_contacts: {
+                Intent intent = new Intent("android.intent.action.MERGE_DUPLICATED");
+                startActivity(intent);
                 return true;
             }
         }

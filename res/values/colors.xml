@@ -126,4 +126,5 @@
     <!-- Popup select button background. -->
     <color name="select_popup_button_background">#FFFFFFFF</color>
     <color name="blocked_call">#636363</color>
+    <color name="merge_list_divider_color">#1F000000</color>
 </resources>

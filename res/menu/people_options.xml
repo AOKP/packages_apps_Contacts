@@ -48,6 +48,9 @@
         android:id="@+id/menu_add_group"
         android:title="@string/menu_new_group_action_bar" />
 
+    <item
+        android:id="@+id/menu_merge_contacts"
+        android:title="@string/merge_contacts" />
 
     <item
         android:id="@+id/menu_help"

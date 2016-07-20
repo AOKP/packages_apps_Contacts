@@ -186,6 +186,21 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activities.MergeContactActivity"
+            android:theme="@style/PeopleTheme"
+            android:label="@string/merge_contacts"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
+        </activity>
+
+        <activity android:name=".activities.SearchDupActivity"
+            android:theme="@style/ContactsAlertDialogTheme"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize">>
+            <intent-filter>
+                <action android:name="android.intent.action.MERGE_DUPLICATED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
         <!-- Backwards compatibility: somebody may have hard coded this activity name -->
         <activity-alias android:name="ContactsListActivity"
             android:targetActivity=".activities.PeopleActivity"

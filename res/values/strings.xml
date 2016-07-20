@@ -1007,8 +1007,23 @@
     <string name="description_list_delimiter">", "</string>
     <!--Toast msg when user select too many contacts to merge-->
     <string name="too_many_contacts_to_merge_message">Too many contacts, that should be less than <xliff:g id="count">%d</xliff:g></string>
+
     <string name="replace_number_title_1">Replace the previous number</string>
     <string name="replace_number_title_2">Replace the previous number?</string>
     <string name="replace_number_question_mark">\?</string>
     <string name="replace_button">REPLACE</string>
+
+    <!-- merge contacts -->
+    <string name="merge_contacts">"Merge contacts"</string>
+    <string name="merging_contacts">"Merging contacts"</string>
+    <string name="searching_duplicated_contacts">"Searching duplicated contacts"</string>
+    <string name="no_duplicated_contacts">"No duplicated contacts"</string>
+    <string name="give_up_merging">"Give up merging contacts?"</string>
+    <string name="give_up">"Give up"</string>
+    <string name="cancel">"Cancel"</string>
+    <string name="merge_complete">"Merge complete."</string>
+    <string name="sim_email_full">"SIM card email is full."</string>
+    <string name="sim_anr_full">"SIM card number is full."</string>
+    <string name="merge_fail">"Merge failed."</string>
+
 </resources>
