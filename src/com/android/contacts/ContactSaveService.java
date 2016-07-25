@@ -706,18 +706,6 @@ public class ContactSaveService extends IntentService {
                 }
             }
 
-            if (!TextUtils.isEmpty(tag)) {
-                if (tag.getBytes().length > tag.length()) {
-                    if (tag.length() > MAX_CH_LENGTH) {
-                        return RESULT_TAG_FAILURE;
-                    }
-                } else {
-                    if (tag.getBytes().length > MAX_EN_LENGTH) {
-                        return RESULT_TAG_FAILURE;
-                    }
-                }
-            }
-
             if (entity.isContactInsert()) {
                 int count = 0;
                 Cursor c = null;
