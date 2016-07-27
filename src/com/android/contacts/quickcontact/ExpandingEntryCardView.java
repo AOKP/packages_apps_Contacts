@@ -99,6 +99,7 @@ public class ExpandingEntryCardView extends CardView {
     private String mContactName;
     private Handler mHandler;
     private boolean mEnablePresence = false;
+    private boolean mHaveFetched = false;
 
     private static final Property<View, Integer> VIEW_LAYOUT_HEIGHT_PROPERTY =
             new Property<View, Integer>(Integer.class, "height") {
@@ -890,20 +891,22 @@ public class ExpandingEntryCardView extends CardView {
         if (mEnablePresence) {
             if (mEnable == CallUtil.ENABLE_VIDEO_CALLING) {
                 showVTicon = ContactDisplayUtils.getVTCapability(entry.getHeader());
-                new Thread(new Runnable(){
-                    public void run(){
-                        if (null != entry.getHeader()) {
-                            boolean oldVT = ContactDisplayUtils.getVTCapability(
-                                        entry.getHeader());
-                            boolean newVT = ContactDisplayUtils.startAvailabilityFetch(
-                                        entry.getHeader());
-                            if (oldVT != newVT) {
-                                mHandler.sendEmptyMessage(PRESENCE_AVAILABILITY_FETCH);
+                if(!mHaveFetched){
+                    new Thread(new Runnable(){
+                        public void run(){
+                            if (null != entry.getHeader()) {
+                                boolean oldVT = ContactDisplayUtils.getVTCapability(
+                                            entry.getHeader());
+                                boolean newVT = ContactDisplayUtils.startAvailabilityFetch(
+                                            entry.getHeader());
+                                if (oldVT != newVT) {
+                                    mHaveFetched = true;
+                                    mHandler.sendEmptyMessage(PRESENCE_AVAILABILITY_FETCH);
+                                }
                             }
                         }
-                    }
-
-                }).start();
+                    }).start();
+                }
             }
         }
         if (entry.getThirdIcon() != null && entry.getThirdAction() != Entry.ACTION_NONE
