@@ -39,6 +39,7 @@ import android.os.Parcelable;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.Intents;
 import android.text.TextUtils;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -484,6 +485,8 @@ public class GroupEditorFragment extends Fragment implements SelectAccountDialog
 
         // If the group name is ready only, don't let the user focus on the field.
         mGroupNameView.setFocusable(!mGroupNameIsReadOnly);
+        if (mGroupNameIsReadOnly)
+            mGroupNameView.setInputType(InputType.TYPE_NULL);
         if(isNewEditor) {
             mRootView.addView(editorView);
         }
