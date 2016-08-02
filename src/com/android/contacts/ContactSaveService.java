@@ -169,7 +169,6 @@ public class ContactSaveService extends IntentService {
     public static final int RESULT_MEMORY_FULL_FAILURE = 11; //for memory full exception
     public static final int RESULT_NUMBER_TYPE_FAILURE =12;  //only for sim failure of number TYPE
 
-    private final int MAX_NUM_LENGTH = 20;
     private final int MAX_EMAIL_LENGTH = 40;
     private final int MAX_EN_LENGTH = 14;
     private final int MAX_CH_LENGTH = 6;
@@ -670,7 +669,7 @@ public class ContactSaveService extends IntentService {
             }
 
             if (!TextUtils.isEmpty(number)) {
-                if (number.length() > MAX_NUM_LENGTH) {
+                if (number.length() > MoreContactUtils.MAX_LENGTH_NUMBER_IN_SIM) {
                     return RESULT_NUMBER_ANR_FAILURE;
                 } else if (number.contains(SimContactsConstants.STR_ANRS)) {
                     return RESULT_NUMBER_TYPE_FAILURE;
@@ -685,7 +684,7 @@ public class ContactSaveService extends IntentService {
                         return RESULT_NUMBER_TYPE_FAILURE;
                     }
                     for (String mAnr : anrs) {
-                        if (mAnr.length() > MAX_NUM_LENGTH) {
+                        if (mAnr.length() > MoreContactUtils.MAX_LENGTH_NUMBER_IN_SIM) {
                             return RESULT_NUMBER_ANR_FAILURE;
                         }
                     }
