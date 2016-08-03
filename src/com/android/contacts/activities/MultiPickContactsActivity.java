@@ -214,7 +214,9 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
     private static final int SIM_COLUMN_ID = 4;
 
     // reduce the value to avoid too large transaction.
-    private int MAX_CONTACTS_NUM_TO_SELECT_ONCE = 500;
+    private int MAX_CONTACTS_NUM_TO_SELECT_ONCE = 1000;
+
+    private int MAX_CONTACTS_NUM_TO_GROUP = 100;
 
     private static final int BUFFER_LENGTH = 400;
 
@@ -1115,25 +1117,43 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
                 }
                 if (mPickMode.isPickContact()) {
                     if (SimContactsConstants.ACTION_MULTI_PICK.equals(getIntent().getAction())) {
-                        if (mChoiceSet.size() > MAX_CONTACTS_NUM_TO_SELECT_ONCE) {
-                            Toast.makeText(mContext,
-                                    mContext.getString(R.string.too_many_contacts_add_to_group,
-                                            MAX_CONTACTS_NUM_TO_SELECT_ONCE),
-                                    Toast.LENGTH_SHORT).show();
-                        } else {
                             switch (getIntent().getIntExtra(ADD_MOVE_GROUP_MEMBER_KEY,
                                     ACTION_DEFAULT_VALUE)) {
                                 case ACTION_ADD_GROUP_MEMBER:
+                                    if (mChoiceSet.size() > MAX_CONTACTS_NUM_TO_GROUP) {
+                                        Toast.makeText(mContext,
+                                                mContext.getString(
+                                                        R.string.too_many_contacts_add_to_group,
+                                                        MAX_CONTACTS_NUM_TO_GROUP),
+                                                Toast.LENGTH_SHORT).show();
+                                        return;
+                                    }
                                     this.setResult(RESULT_OK, new Intent().putExtras(mChoiceSet));
                                     finish();
                                     break;
                                 case ACTION_MOVE_GROUP_MEMBER:
+                                    if (mChoiceSet.size() > MAX_CONTACTS_NUM_TO_GROUP) {
+                                        Toast.makeText(mContext,
+                                                mContext.getString(
+                                                        R.string.too_many_contacts_add_to_group,
+                                                        MAX_CONTACTS_NUM_TO_GROUP),
+                                                Toast.LENGTH_SHORT).show();
+                                        return;
+                                    }
                                     showGroupSelectionList(
                                             getIntent().getStringExtra(
                                                     SimContactsConstants.ACCOUNT_TYPE),
                                             getIntent().getLongExtra(KEY_GROUP_ID, -1));
                                     break;
                                 default:
+                                    if (mChoiceSet.size() > MAX_CONTACTS_NUM_TO_SELECT_ONCE) {
+                                        Toast.makeText(mContext,
+                                                mContext.getString(
+                                                        R.string.too_many_contacts_add_to_group,
+                                                        MAX_CONTACTS_NUM_TO_SELECT_ONCE),
+                                                Toast.LENGTH_SHORT).show();
+                                        return;
+                                    }
                                     Intent intent = new Intent();
                                     Bundle bundle = new Bundle();
                                     bundle.putBundle(SimContactsConstants.RESULT_KEY, mChoiceSet);
@@ -1141,7 +1161,6 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
                                     this.setResult(RESULT_OK, intent);
                                     finish();
                             }
-                        }
                     } else if (mChoiceSet.size() > 0) {
                         showDialog(R.id.dialog_delete_contact_confirmation);
                     }
