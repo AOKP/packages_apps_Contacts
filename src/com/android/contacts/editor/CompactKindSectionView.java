@@ -430,6 +430,8 @@ public class CompactKindSectionView extends LinearLayout {
         // Inflate the layout
         final View view = mLayoutInflater.inflate(
                 EditorUiUtils.getLayoutResourceId(dataKind.mimeType), mEditors, false);
+        boolean email = true;
+
         view.setEnabled(isEnabled());
         if (view instanceof Editor) {
             final Editor editor = (Editor) view;
@@ -467,6 +469,8 @@ public class CompactKindSectionView extends LinearLayout {
                     if (MoreContactUtils.canSaveEmail(getContext(), sub)) {
                         dataKind.typeOverallMax = MoreContactUtils
                                 .getOneSimEmailCount(getContext(), sub);
+                    } else {
+                        email = false;
                     }
                 }
             }
@@ -474,7 +478,11 @@ public class CompactKindSectionView extends LinearLayout {
                     mViewIdGenerator);
         }
 
-        mEditors.addView(view);
+        if (email) {
+            mEditors.addView(view);
+        } else {
+            mIcon.setVisibility(View.GONE);
+        }
 
         return view;
     }
