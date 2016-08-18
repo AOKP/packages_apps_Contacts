@@ -1296,7 +1296,9 @@ abstract public class ContactEditorBaseFragment extends Fragment implements
                 // For profile contacts, we need a different query URI
                 rawContactDelta.setProfileQueryUri();
                 // Try to find a local profile contact
-                if (rawContactDelta.getValues().getAsString(RawContacts.ACCOUNT_TYPE) == null) {
+                if (rawContactDelta.getValues().getAsString(RawContacts.ACCOUNT_TYPE) == null
+                        || rawContactDelta.getValues().getAsString(RawContacts.ACCOUNT_TYPE)
+                            .equals(SimContactsConstants.ACCOUNT_TYPE_PHONE)) {
                     localProfileExists = true;
                 }
             }
