@@ -245,6 +245,7 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
             // so the Fragment will only be created once. If we add a TAG manually, there will
             // occur crash.
             position = getRtlPosition(position);
+
             if (mAreTabsHiddenInViewPager) {
                 if (mPickMode.isPickCall()) {
                     mDelCallLogFragment = new DelCallLogFragment();
@@ -288,6 +289,53 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
         @Override
         public int getCount() {
             return mAreTabsHiddenInViewPager ? 1 : TAB_INDEX_COUNT;
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+
+            Fragment f = (Fragment) super.instantiateItem(container, position);
+
+            if (mAreTabsHiddenInViewPager) {
+                if (mPickMode.isPickCall()) {
+                    if (mDelCallLogFragment == null) {
+                        mDelCallLogFragment = (DelCallLogFragment) f;
+                        mDelCallLogFragment
+                                .setCheckListListener(new CheckListListener());
+                    }
+                } else {
+                    if (mContactsFragment == null) {
+                        mContactsFragment = (ContactsFragment) f;
+                        mContactsFragment
+                                .setCheckListListener(new CheckListListener());
+                    }
+                }
+            } else {
+                switch (position) {
+                case TAB_INDEX_RECENT:
+                    if (mCallLogFragment == null) {
+                        mCallLogFragment = (CallLogFragment) f;
+                        mCallLogFragment
+                                .setCheckListListener(new CheckListListener());
+                    }
+                    break;
+                case TAB_INDEX_CONTACTS:
+                    if (mContactsFragment == null) {
+                        mContactsFragment = (ContactsFragment) f;
+                        mContactsFragment
+                                .setCheckListListener(new CheckListListener());
+                    }
+                    break;
+                case TAB_INDEX_GROUP:
+                    if (mGroupFragment == null) {
+                        mGroupFragment = (GroupsFragment) f;
+                        mGroupFragment
+                                .setCheckListListener(new CheckListListener());
+                    }
+                    break;
+                }
+            }
+            return f;
         }
     }
 
