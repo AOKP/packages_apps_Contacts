@@ -1026,7 +1026,9 @@ public class QuickContactActivity extends ContactsActivity
         mContactCard.setExpandButtonText(
         getResources().getString(R.string.expanding_entry_card_view_see_all));
         mContactCard.setOnCreateContextMenuListener(mEntryContextMenuListener);
-        mEnablePresence = System.getProperty("persist.presence.enable", "false").equals("true");
+        mEnablePresence = mContext.getResources().getBoolean(Resources.getSystem().
+                getIdentifier("config_presence_enabled", "bool", "android"));
+        Log.e(TAG, "onCreate mEnablePresence = " + mEnablePresence);
         if (mEnablePresence) {
             mContactCard.disPlayVideoCallSwitch(mEnablePresence);
             if (!ContactDisplayUtils.mIsBound) {
