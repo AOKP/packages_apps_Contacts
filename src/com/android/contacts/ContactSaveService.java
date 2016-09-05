@@ -76,6 +76,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import org.codeaurora.wrapper.UiccPhoneBookController_Wrapper;
+
 /**
  * A service responsible for saving changes to the content provider.
  */
@@ -705,39 +707,26 @@ public class ContactSaveService extends IntentService {
                 }
             }
 
-            if (entity.isContactInsert()) {
-                int count = 0;
-                Cursor c = null;
-                Uri iccUri;
-                SubscriptionInfo subInfoRecord = null;
-                try {
-                    subInfoRecord = mSubscriptionManager
-                            .getActiveSubscriptionInfoForSimSlotIndex(subscription);
-                } catch (SecurityException e) {
-                    Log.w(TAG, "SecurityException thrown, lack permission for"
-                            + " getActiveSubscriptionInfoList", e);
-                }
-                if (subInfoRecord == null) {
-                    iccUri = Uri.parse(SimContactsConstants.SIM_URI);
-                } else {
-                    iccUri = Uri.parse(SimContactsConstants.SIM_SUB_URI
-                            + subInfoRecord.getSubscriptionId());
-                }
-                try {
-                    c = resolver.query(iccUri, null, null, null, null);
-                    if (c != null) {
-                        count = c.getCount();
-                    }
-                } finally {
-                    if (c != null) {
-                        c.close();
-                    }
-                }
-
-                if (count == MoreContactUtils.getAdnCount(this, subscription)) {
-                    return RESULT_SIM_FULL_FAILURE;
-                }
+        if (entity.isContactInsert()) {
+            int count = 0;
+            SubscriptionInfo subInfoRecord = null;
+            try {
+                subInfoRecord = mSubscriptionManager
+                        .getActiveSubscriptionInfoForSimSlotIndex(subscription);
+            } catch (SecurityException e) {
+                Log.w(TAG, "SecurityException thrown, lack permission for"
+                        + " getActiveSubscriptionInfoList", e);
             }
+            if (subInfoRecord != null) {
+                int[] adnCount = UiccPhoneBookController_Wrapper
+                        .getAdnRecordsCapacityForSubscriber(subInfoRecord.getSubscriptionId());
+                if(adnCount!=null)
+                    count= adnCount[MoreContactUtils.ADN_USED_POS];
+            }
+            if (count >0 && count == MoreContactUtils.getAdnCount(this, subscription)) {
+                return RESULT_SIM_FULL_FAILURE;
+            }
+        }
 
             if (isInsert) {
                 Uri resultUri = mSimContactsOperation.insert(values,
