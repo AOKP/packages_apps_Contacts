@@ -423,8 +423,7 @@ public class ContactsFragment extends ListFragment {
                 uri = Contacts.CONTENT_URI;
                 break;
             default:
-                throw new IllegalArgumentException("getUriToQuery: Incorrect mode: "
-                        + mPickMode.getMode());
+                uri = Contacts.CONTENT_URI;
         }
         return uri.buildUpon().appendQueryParameter(Contacts.EXTRA_ADDRESS_BOOK_INDEX, "true")
                 .build();
