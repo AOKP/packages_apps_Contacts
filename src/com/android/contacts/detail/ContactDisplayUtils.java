@@ -462,8 +462,6 @@ public class ContactDisplayUtils {
                 return vt;
             } catch (Exception e) {
                 Log.d(TAG, "getVTCapOfContact ERROR " + e);
-            } finally {
-                return false;
             }
         }
         return false;
@@ -480,8 +478,6 @@ public class ContactDisplayUtils {
                 return vt;
             } catch (Exception e) {
                 Log.d(TAG, "getVTCapability ERROR " + e);
-            } finally {
-                return false;
             }
         }
         return false;
