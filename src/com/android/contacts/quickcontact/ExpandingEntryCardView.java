@@ -357,8 +357,8 @@ public class ExpandingEntryCardView extends CardView {
         mTitleTextView = (TextView) expandingEntryCardView.findViewById(R.id.title);
         mContainer = (LinearLayout) expandingEntryCardView.findViewById(R.id.container);
 
-        mEnablePresence = System.getProperty("persist.presence.enable", "false").equals("true");
-
+        mEnablePresence = getResources().getBoolean(R.bool.config_presence_enabled);
+        Log.d(TAG, "ExpandingEntryCardView mEnablePresence = " + mEnablePresence);
         if (mEnablePresence) {
             mVideoCalling = (Switch) expandingEntryCardView
                     .findViewById(R.id.switch_video_call);
