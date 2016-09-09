@@ -591,6 +591,8 @@ public class ContactsFragment extends ListFragment {
 
     public void startQuery() {
         Uri uri = getUriToQuery();
+        if(uri == null)
+            return;
         ContactListFilter filter = (ContactListFilter) mPickMode.getIntent()
                 .getParcelableExtra(AccountFilterActivity.KEY_EXTRA_CONTACT_LIST_FILTER);
         if (filter != null) {
@@ -1124,18 +1126,14 @@ public class ContactsFragment extends ListFragment {
 
     private Uri querySimContacts(int subscription) {
         Uri uri = null;
-        TelephonyManager tm = (TelephonyManager) mContext
-                .getSystemService(Context.TELEPHONY_SERVICE);
+
         if (subscription != SimContactsConstants.SLOT1
                 && subscription != SimContactsConstants.SLOT2) {
             return uri;
         }
         int subId = MoreContactUtils.getActiveSubId(mContext, subscription);
-        if (subId > 0 && tm.getPhoneCount() > 1) {
+        if (subId > 0) {
             uri = Uri.parse(SimContactsConstants.SIM_SUB_URI + subId);
-        }
-        else {
-            uri = Uri.parse(SimContactsConstants.SIM_URI);
         }
 
         return uri;

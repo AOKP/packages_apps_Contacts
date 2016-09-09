@@ -246,7 +246,7 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
             // occur crash.
             position = getRtlPosition(position);
 
-            if (mAreTabsHiddenInViewPager || mPickMode.isPickCall()) {
+            if (mAreTabsHiddenInViewPager || !mPickMode.isPickPhone()) {
                 if (mPickMode.isPickCall()) {
                     mDelCallLogFragment = new DelCallLogFragment();
                     mDelCallLogFragment.setCheckListListener(new CheckListListener());
@@ -295,7 +295,7 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
         public Object instantiateItem(ViewGroup container, int position) {
 
             Fragment f = (Fragment) super.instantiateItem(container, position);
-            if (mAreTabsHiddenInViewPager || mPickMode.isPickCall()) {
+            if (mAreTabsHiddenInViewPager || !mPickMode.isPickPhone()) {
                 if (mPickMode.isPickCall()) {
                     if (mDelCallLogFragment == null) {
                         mDelCallLogFragment = (DelCallLogFragment) f;
