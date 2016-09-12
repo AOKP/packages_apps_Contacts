@@ -106,6 +106,9 @@ public class GroupEditorFragment extends Fragment implements SelectAccountDialog
     public static final int REQUEST_CODE_PICK_GROUP_MEM = 1001;
     private static final int MAX_CACHE_MEMBER_SIZE = 500;
 
+    //when save completed,close activity directly,no need reload group member.
+    private boolean mClose = false;
+
     public static interface Listener {
         /**
          * Group metadata was not found, close the fragment now.
@@ -676,7 +679,7 @@ public class GroupEditorFragment extends Fragment implements SelectAccountDialog
             }
             return false;
         }
-
+        mClose = true;
         // If we are about to close the editor - there is no need to refresh the data
         getLoaderManager().destroyLoader(LOADER_EXISTING_MEMBERS);
 
@@ -857,11 +860,14 @@ public class GroupEditorFragment extends Fragment implements SelectAccountDialog
 
         @Override
         public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-            bindGroupMetaData(data);
+            if (!mClose) {
+                bindGroupMetaData(data);
 
-            // Load existing members
-            getLoaderManager().initLoader(LOADER_EXISTING_MEMBERS, null,
-                    mGroupMemberListLoaderListener);
+                // Load existing members
+                getLoaderManager().initLoader(LOADER_EXISTING_MEMBERS, null,
+                        mGroupMemberListLoaderListener);
+            }
+            mClose = false;
         }
 
         @Override
