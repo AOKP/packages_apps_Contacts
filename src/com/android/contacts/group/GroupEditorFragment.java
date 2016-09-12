@@ -104,6 +104,7 @@ public class GroupEditorFragment extends Fragment implements SelectAccountDialog
     private static final String CURRENT_EDITOR_TAG = "currentEditorForAccount";
 
     public static final int REQUEST_CODE_PICK_GROUP_MEM = 1001;
+    private static final int MAX_CACHE_MEMBER_SIZE = 500;
 
     public static interface Listener {
         /**
@@ -238,7 +239,7 @@ public class GroupEditorFragment extends Fragment implements SelectAccountDialog
             onRestoreInstanceState(savedInstanceState);
             if (mStatus == Status.SELECTING_ACCOUNT) {
                 // Account select dialog is showing.  Don't setup the editor yet.
-            } else if (mStatus == Status.LOADING) {
+            } else if (mStatus == Status.LOADING || getCacheSize() == 0) {
                 startGroupMetaDataLoader();
             } else {
                 setupEditorForAccount();
@@ -288,9 +289,15 @@ public class GroupEditorFragment extends Fragment implements SelectAccountDialog
         outState.putBoolean(KEY_GROUP_NAME_IS_READ_ONLY, mGroupNameIsReadOnly);
         outState.putString(KEY_ORIGINAL_GROUP_NAME, mOriginalGroupName);
 
-        outState.putParcelableArrayList(KEY_MEMBERS_TO_ADD, mListMembersToAdd);
-        outState.putParcelableArrayList(KEY_MEMBERS_TO_REMOVE, mListMembersToRemove);
-        outState.putParcelableArrayList(KEY_MEMBERS_TO_DISPLAY, mListToDisplay);
+        // if size is too large,it will cause TransactionTooLargeException,so add limit here
+        if (getCacheSize() <= MAX_CACHE_MEMBER_SIZE) {
+            outState.putParcelableArrayList(KEY_MEMBERS_TO_ADD,
+                    mListMembersToAdd);
+            outState.putParcelableArrayList(KEY_MEMBERS_TO_REMOVE,
+                    mListMembersToRemove);
+            outState.putParcelableArrayList(KEY_MEMBERS_TO_DISPLAY,
+                    mListToDisplay);
+        }
     }
 
     private void onRestoreInstanceState(Bundle state) {
@@ -309,6 +316,12 @@ public class GroupEditorFragment extends Fragment implements SelectAccountDialog
         mListMembersToAdd = state.getParcelableArrayList(KEY_MEMBERS_TO_ADD);
         mListMembersToRemove = state.getParcelableArrayList(KEY_MEMBERS_TO_REMOVE);
         mListToDisplay = state.getParcelableArrayList(KEY_MEMBERS_TO_DISPLAY);
+    }
+
+    private int getCacheSize() {
+        int size = mListMembersToAdd.size() + mListMembersToRemove.size()
+                + mListToDisplay.size();
+        return size;
     }
 
     public void setContentResolver(ContentResolver resolver) {
