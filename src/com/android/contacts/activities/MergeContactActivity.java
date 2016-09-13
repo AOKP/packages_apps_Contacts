@@ -236,6 +236,7 @@ public class MergeContactActivity extends ListActivity {
             List<String> simNumberList = new ArrayList<>();
             List<String> simEmailList = new ArrayList<>();
 
+            boolean needUpdate = false;
             int subscription = -1;
             ArrayList<Long> delContactIds = new ArrayList<>();
             HashMap<Long, ArrayList<Long>> delRawIdsMap = new HashMap<>();
@@ -309,6 +310,7 @@ public class MergeContactActivity extends ListActivity {
                         }
                     }
                     if (!containsNumber) {
+                        needUpdate = true;
                         simNumberList.add(number);
                     }
                 }
@@ -326,6 +328,7 @@ public class MergeContactActivity extends ListActivity {
                                 }
                             }
                             if (!containsAnr) {
+                                needUpdate = true;
                                 simNumberList.add(splitAnr[j]);
                             }
                         }
@@ -337,6 +340,7 @@ public class MergeContactActivity extends ListActivity {
                     for (int j = 0; j < splitEmail.length; j++) {
                         if (!TextUtils.isEmpty(splitEmail[j]) && !simEmailList
                                 .contains(splitEmail[j])) {
+                            needUpdate = true;
                             simEmailList.add(splitEmail[j]);
                         }
                     }
@@ -383,7 +387,9 @@ public class MergeContactActivity extends ListActivity {
             sourceValues.remove(SimContactsConstants.ACCOUNT_TYPE);
             sourceValues.remove(SimContactsConstants.ACCOUNT_NAME);
             // update the contacts in sim.
-            int simResult = mSimContactsOperation.update(sourceValues, subscription);
+            int simResult = 1;
+            if (needUpdate)
+                mSimContactsOperation.update(sourceValues, subscription);
 
             // if update sim contacts fail, stop merging.
             if (simResult <= 0) {
@@ -415,6 +421,9 @@ public class MergeContactActivity extends ListActivity {
                                 .CONTENT_URI, String.valueOf(list.get(j)));
                         rawDelList.add(ContentProviderOperation.newDelete(uri).build());
                     }
+                } else {
+                    Toast.makeText(MergeContactActivity.this, R.string.merge_fail,
+                            Toast.LENGTH_SHORT).show();
                 }
             }
             return true;
