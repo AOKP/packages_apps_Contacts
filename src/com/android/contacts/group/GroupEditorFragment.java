@@ -239,7 +239,7 @@ public class GroupEditorFragment extends Fragment implements SelectAccountDialog
             onRestoreInstanceState(savedInstanceState);
             if (mStatus == Status.SELECTING_ACCOUNT) {
                 // Account select dialog is showing.  Don't setup the editor yet.
-            } else if (mStatus == Status.LOADING || getCacheSize() == 0) {
+            } else if (mStatus == Status.LOADING || mListToDisplay.size() == 0) {
                 startGroupMetaDataLoader();
             } else {
                 setupEditorForAccount();
@@ -297,6 +297,12 @@ public class GroupEditorFragment extends Fragment implements SelectAccountDialog
                     mListMembersToRemove);
             outState.putParcelableArrayList(KEY_MEMBERS_TO_DISPLAY,
                     mListToDisplay);
+        } else if (mListMembersToAdd.size() + mListMembersToRemove.size()
+                < MAX_CACHE_MEMBER_SIZE) {
+            outState.putParcelableArrayList(KEY_MEMBERS_TO_ADD,
+                    mListMembersToAdd);
+            outState.putParcelableArrayList(KEY_MEMBERS_TO_REMOVE,
+                    mListMembersToRemove);
         }
     }
 
@@ -316,6 +322,14 @@ public class GroupEditorFragment extends Fragment implements SelectAccountDialog
         mListMembersToAdd = state.getParcelableArrayList(KEY_MEMBERS_TO_ADD);
         mListMembersToRemove = state.getParcelableArrayList(KEY_MEMBERS_TO_REMOVE);
         mListToDisplay = state.getParcelableArrayList(KEY_MEMBERS_TO_DISPLAY);
+
+        if (mListMembersToAdd == null)
+            mListMembersToAdd = new ArrayList<Member>();
+        if (mListMembersToRemove == null)
+            mListMembersToRemove = new ArrayList<Member>();
+        if (mListToDisplay == null)
+            mListToDisplay = new ArrayList<Member>();
+
     }
 
     private int getCacheSize() {
