@@ -714,6 +714,10 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
         }
     }
 
+    public CheckListListener createListener() {
+        return new CheckListListener();
+    }
+
     private void configureSearchMode() {
         TextView topDividerLine = (TextView) findViewById(R.id.multi_pick_top_divider);
         if (mSearchUiVisible) {
