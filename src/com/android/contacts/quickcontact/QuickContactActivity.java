@@ -1026,7 +1026,8 @@ public class QuickContactActivity extends ContactsActivity
         mContactCard.setExpandButtonText(
         getResources().getString(R.string.expanding_entry_card_view_see_all));
         mContactCard.setOnCreateContextMenuListener(mEntryContextMenuListener);
-        mEnablePresence = System.getProperty("persist.presence.enable", "false").equals("true");
+        mEnablePresence = getResources().getBoolean(R.bool.config_presence_enabled);
+        Log.e(TAG, "onCreate mEnablePresence = " + mEnablePresence);
         if (mEnablePresence) {
             mContactCard.disPlayVideoCallSwitch(mEnablePresence);
             if (!ContactDisplayUtils.mIsBound) {
@@ -1035,7 +1036,9 @@ public class QuickContactActivity extends ContactsActivity
             mContactCard.setCallBack(new VideoCallingCallback(){
                 @Override
                 public void updateContact(){
-                    reFreshContact();
+                    if(mContactData != null){
+                        reFreshContact();
+                    }
                 }
             });
         }
@@ -2880,7 +2883,7 @@ public class QuickContactActivity extends ContactsActivity
             }
 
             final MenuItem refreshMenuItem = menu.findItem(R.id.menu_refresh);
-            refreshMenuItem.setVisible(isContactEditable());
+            refreshMenuItem.setVisible(false);
 
             final MenuItem deleteMenuItem = menu.findItem(R.id.menu_delete);
             deleteMenuItem.setVisible(isContactEditable() && !mContactData.isUserProfile());

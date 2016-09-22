@@ -423,8 +423,7 @@ public class ContactsFragment extends ListFragment {
                 uri = Contacts.CONTENT_URI;
                 break;
             default:
-                throw new IllegalArgumentException("getUriToQuery: Incorrect mode: "
-                        + mPickMode.getMode());
+                uri = Contacts.CONTENT_URI;
         }
         return uri.buildUpon().appendQueryParameter(Contacts.EXTRA_ADDRESS_BOOK_INDEX, "true")
                 .build();
@@ -592,6 +591,8 @@ public class ContactsFragment extends ListFragment {
 
     public void startQuery() {
         Uri uri = getUriToQuery();
+        if(uri == null)
+            return;
         ContactListFilter filter = (ContactListFilter) mPickMode.getIntent()
                 .getParcelableExtra(AccountFilterActivity.KEY_EXTRA_CONTACT_LIST_FILTER);
         if (filter != null) {
@@ -1125,18 +1126,14 @@ public class ContactsFragment extends ListFragment {
 
     private Uri querySimContacts(int subscription) {
         Uri uri = null;
-        TelephonyManager tm = (TelephonyManager) mContext
-                .getSystemService(Context.TELEPHONY_SERVICE);
+
         if (subscription != SimContactsConstants.SLOT1
                 && subscription != SimContactsConstants.SLOT2) {
             return uri;
         }
         int subId = MoreContactUtils.getActiveSubId(mContext, subscription);
-        if (subId > 0 && tm.getPhoneCount() > 1) {
+        if (subId > 0) {
             uri = Uri.parse(SimContactsConstants.SIM_SUB_URI + subId);
-        }
-        else {
-            uri = Uri.parse(SimContactsConstants.SIM_URI);
         }
 
         return uri;
