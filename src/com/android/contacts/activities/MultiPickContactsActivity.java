@@ -246,7 +246,7 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
             // occur crash.
             position = getRtlPosition(position);
 
-            if (mAreTabsHiddenInViewPager || !mPickMode.isPickPhone()) {
+            if (!mPickMode.isPickPhone()) {
                 if (mPickMode.isPickCall()) {
                     mDelCallLogFragment = new DelCallLogFragment();
                     mDelCallLogFragment.setCheckListListener(new CheckListListener());
@@ -295,15 +295,15 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
         public Object instantiateItem(ViewGroup container, int position) {
 
             Fragment f = (Fragment) super.instantiateItem(container, position);
-            if (mAreTabsHiddenInViewPager || !mPickMode.isPickPhone()) {
+            if (!mPickMode.isPickPhone()) {
                 if (mPickMode.isPickCall()) {
-                    if (mDelCallLogFragment == null) {
+                    if (mDelCallLogFragment == null && f instanceof DelCallLogFragment) {
                         mDelCallLogFragment = (DelCallLogFragment) f;
                         mDelCallLogFragment
                                 .setCheckListListener(new CheckListListener());
                     }
                 } else {
-                    if (mContactsFragment == null) {
+                    if (mContactsFragment == null && f instanceof ContactsFragment) {
                         mContactsFragment = (ContactsFragment) f;
                         mContactsFragment
                                 .setCheckListListener(new CheckListListener());
@@ -312,21 +312,21 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
             } else {
                 switch (position) {
                 case TAB_INDEX_RECENT:
-                    if (mCallLogFragment == null) {
+                    if (mCallLogFragment == null && f instanceof CallLogFragment) {
                         mCallLogFragment = (CallLogFragment) f;
                         mCallLogFragment
                                 .setCheckListListener(new CheckListListener());
                     }
                     break;
                 case TAB_INDEX_CONTACTS:
-                    if (mContactsFragment == null) {
+                    if (mContactsFragment == null && f instanceof ContactsFragment) {
                         mContactsFragment = (ContactsFragment) f;
                         mContactsFragment
                                 .setCheckListListener(new CheckListListener());
                     }
                     break;
                 case TAB_INDEX_GROUP:
-                    if (mGroupFragment == null) {
+                    if (mGroupFragment == null && f instanceof GroupsFragment) {
                         mGroupFragment = (GroupsFragment) f;
                         mGroupFragment
                                 .setCheckListListener(new CheckListListener());
