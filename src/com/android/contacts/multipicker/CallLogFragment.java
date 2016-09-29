@@ -55,6 +55,7 @@ import android.widget.AbsListView;
 import android.widget.TextView;
 
 import com.android.contacts.R;
+import com.android.contacts.activities.MultiPickContactsActivity;
 import com.android.contacts.common.ContactPhotoManager;
 import com.android.contacts.common.ContactPhotoManager.DefaultImageRequest;
 import com.android.contacts.common.util.UriUtils;
@@ -175,6 +176,10 @@ public class CallLogFragment extends ListFragment {
         resolver = mContext.getContentResolver();
         resolver.registerContentObserver(Calls.CONTENT_URI, true, mCallLogObserver);
 
+        if (mCheckListListener == null) {
+            mCheckListListener = ((MultiPickContactsActivity) getActivity())
+                    .createListener();
+        }
         if (mCallLogListAdapter == null) {
             mCallLogListAdapter = new CallLogItemListAdapter(mContext);
             mContactsCheckedList = new ArrayList<String>();

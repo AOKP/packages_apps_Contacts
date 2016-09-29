@@ -187,6 +187,10 @@ public class GroupsFragment extends ExpandableListFragment implements OnGroupCli
         mList.setOnGroupClickListener(this);
         mList.setOnChildClickListener(this);
         mList.setDivider(null);
+        if (mCheckListListener == null) {
+            mCheckListListener = ((MultiPickContactsActivity) getActivity())
+                    .createListener();
+        }
         if (mAdapter == null) {
             if (mAllContactsCurosrMap == null) {
                 mAllContactsCurosrMap = new HashMap<Long, String[]>();
