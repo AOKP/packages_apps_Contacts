@@ -42,6 +42,7 @@ import android.widget.ListView;
 import android.widget.AbsListView;
 
 import com.android.contacts.R;
+import com.android.contacts.activities.MultiPickContactsActivity;
 import com.android.contacts.list.OnCheckListActionListener;
 
 public class DelCallLogFragment extends ListFragment
@@ -95,6 +96,9 @@ public class DelCallLogFragment extends ListFragment
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        if (mCheckListListener == null)
+            mCheckListListener = ((MultiPickContactsActivity) getActivity())
+                    .createListener();
         if (mDelCallLogAdapter == null) {
             mDelCallLogAdapter = new DelCallLogAdapter(mContext);
             mDelCallLogAdapter.setCheckListListener(mCheckListListener);

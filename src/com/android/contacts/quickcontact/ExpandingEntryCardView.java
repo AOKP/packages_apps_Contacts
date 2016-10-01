@@ -330,10 +330,8 @@ public class ExpandingEntryCardView extends CardView {
         @Override
         public void onCheckedChanged(CompoundButton buttonView,
                 boolean isChecked) {
-            mEnable = isChecked ? CallUtil.ENABLE_VIDEO_CALLING:CallUtil.DISABLE_VIDEO_CALLING;
             CallUtil.createVideoCallingDialog(isChecked, mContext);
-            Settings.System.putInt(mContext.getContentResolver(),CallUtil.CONFIG_VIDEO_CALLING,
-                    mEnable);
+            CallUtil.saveVideoCallConfig(mContext,isChecked);
             if (mVideoCallingCallback != null)
                 mVideoCallingCallback.updateContact();
         }
