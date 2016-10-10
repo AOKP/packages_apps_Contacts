@@ -254,6 +254,9 @@ public class ContactsFragment extends ListFragment {
                 checkedList = new ArrayList<String>();
             }
         }
+        if (mCheckListListener == null)
+            mCheckListListener = ((MultiPickContactsActivity) getActivity())
+                    .createListener();
         mHeaderView = new View(mContext);
         AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(
                 AbsListView.LayoutParams.MATCH_PARENT,

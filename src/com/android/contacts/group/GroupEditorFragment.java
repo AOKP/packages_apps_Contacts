@@ -106,6 +106,9 @@ public class GroupEditorFragment extends Fragment implements SelectAccountDialog
     public static final int REQUEST_CODE_PICK_GROUP_MEM = 1001;
     private static final int MAX_CACHE_MEMBER_SIZE = 500;
 
+    //when save completed,close activity directly,no need reload group member.
+    private boolean mClose = false;
+
     public static interface Listener {
         /**
          * Group metadata was not found, close the fragment now.
@@ -239,7 +242,7 @@ public class GroupEditorFragment extends Fragment implements SelectAccountDialog
             onRestoreInstanceState(savedInstanceState);
             if (mStatus == Status.SELECTING_ACCOUNT) {
                 // Account select dialog is showing.  Don't setup the editor yet.
-            } else if (mStatus == Status.LOADING || getCacheSize() == 0) {
+            } else if (mStatus == Status.LOADING || mListToDisplay.size() == 0) {
                 startGroupMetaDataLoader();
             } else {
                 setupEditorForAccount();
@@ -297,6 +300,12 @@ public class GroupEditorFragment extends Fragment implements SelectAccountDialog
                     mListMembersToRemove);
             outState.putParcelableArrayList(KEY_MEMBERS_TO_DISPLAY,
                     mListToDisplay);
+        } else if (mListMembersToAdd.size() + mListMembersToRemove.size()
+                < MAX_CACHE_MEMBER_SIZE) {
+            outState.putParcelableArrayList(KEY_MEMBERS_TO_ADD,
+                    mListMembersToAdd);
+            outState.putParcelableArrayList(KEY_MEMBERS_TO_REMOVE,
+                    mListMembersToRemove);
         }
     }
 
@@ -316,6 +325,14 @@ public class GroupEditorFragment extends Fragment implements SelectAccountDialog
         mListMembersToAdd = state.getParcelableArrayList(KEY_MEMBERS_TO_ADD);
         mListMembersToRemove = state.getParcelableArrayList(KEY_MEMBERS_TO_REMOVE);
         mListToDisplay = state.getParcelableArrayList(KEY_MEMBERS_TO_DISPLAY);
+
+        if (mListMembersToAdd == null)
+            mListMembersToAdd = new ArrayList<Member>();
+        if (mListMembersToRemove == null)
+            mListMembersToRemove = new ArrayList<Member>();
+        if (mListToDisplay == null)
+            mListToDisplay = new ArrayList<Member>();
+
     }
 
     private int getCacheSize() {
@@ -662,7 +679,7 @@ public class GroupEditorFragment extends Fragment implements SelectAccountDialog
             }
             return false;
         }
-
+        mClose = true;
         // If we are about to close the editor - there is no need to refresh the data
         getLoaderManager().destroyLoader(LOADER_EXISTING_MEMBERS);
 
@@ -843,11 +860,14 @@ public class GroupEditorFragment extends Fragment implements SelectAccountDialog
 
         @Override
         public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-            bindGroupMetaData(data);
+            if (!mClose) {
+                bindGroupMetaData(data);
 
-            // Load existing members
-            getLoaderManager().initLoader(LOADER_EXISTING_MEMBERS, null,
-                    mGroupMemberListLoaderListener);
+                // Load existing members
+                getLoaderManager().initLoader(LOADER_EXISTING_MEMBERS, null,
+                        mGroupMemberListLoaderListener);
+            }
+            mClose = false;
         }
 
         @Override

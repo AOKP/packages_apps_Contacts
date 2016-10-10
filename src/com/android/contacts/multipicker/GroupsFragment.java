@@ -187,6 +187,10 @@ public class GroupsFragment extends ExpandableListFragment implements OnGroupCli
         mList.setOnGroupClickListener(this);
         mList.setOnChildClickListener(this);
         mList.setDivider(null);
+        if (mCheckListListener == null) {
+            mCheckListListener = ((MultiPickContactsActivity) getActivity())
+                    .createListener();
+        }
         if (mAdapter == null) {
             if (mAllContactsCurosrMap == null) {
                 mAllContactsCurosrMap = new HashMap<Long, String[]>();
@@ -221,12 +225,21 @@ public class GroupsFragment extends ExpandableListFragment implements OnGroupCli
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        fillAllContactsCursorMap();
+    }
+
+    @Override
     public void onDestroy() {
         mAdapter.getQueryHandler().removeCallbacksAndMessages(QUERY_TOKEN);
 
         if (mAdapter.getCursor() != null) {
             mAdapter.getCursor().close();
         }
+
+        if(allContactsInGroups!=null)
+            allContactsInGroups.close();
 
         if (mAllContactsCurosrMap != null) {
             mAllContactsCurosrMap.clear();
@@ -776,7 +789,10 @@ public class GroupsFragment extends ExpandableListFragment implements OnGroupCli
         @Override
         protected Cursor getChildrenCursor(Cursor groupCursor) {
             long groupId = groupCursor.getLong(GROUP_ID);
-            return getContactsDetailCursor(groupId);
+            Cursor c = getContactsDetailCursor(groupId);
+            if (c != null)
+                getActivity().startManagingCursor(c);
+            return c;
         }
 
         @Override
@@ -787,6 +803,7 @@ public class GroupsFragment extends ExpandableListFragment implements OnGroupCli
                 super.changeCursor(cursor);
             }
         }
+    }
 
         /**
          * all contacts cursor fill to map
@@ -794,6 +811,8 @@ public class GroupsFragment extends ExpandableListFragment implements OnGroupCli
         private void fillAllContactsCursorMap() {
             mAllContactsCurosrMap.clear();
             Cursor cursor = null;
+            if (mGroupsCursor == null)
+                return;
             for (int groupPosition = 0; groupPosition < mGroupsCursor.getCount(); groupPosition++) {
                 mGroupsCursor.moveToPosition(groupPosition);
                 long groupCacheId = mGroupsCursor.getLong(GROUP_ID);
@@ -816,7 +835,6 @@ public class GroupsFragment extends ExpandableListFragment implements OnGroupCli
             if (cursor != null) {
                 cursor.close();
             }
-        }
     }
 
     @Override
