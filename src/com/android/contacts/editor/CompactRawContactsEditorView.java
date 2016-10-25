@@ -67,6 +67,8 @@ import android.widget.LinearLayout;
 import android.widget.ListPopupWindow;
 import android.widget.TextView;
 
+import com.android.contacts.common.MoreContactUtils;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -852,6 +854,8 @@ public class CompactRawContactsEditorView extends LinearLayout implements View.O
         } else {
             mAccountSelectorName.setVisibility(View.VISIBLE);
             mAccountSelectorName.setText(accountInfo.first);
+            MoreContactUtils.setSimOperatorName(accountInfo.first,
+                    mAccountSelectorName, getContext());
         }
 
         final String selectorTitle = getResources().getString(
