@@ -3367,20 +3367,12 @@ public class QuickContactActivity extends ContactsActivity
                         StringBuilder strAnrNum = new StringBuilder();
                         for (int j = 1; j < arrayNumber.size(); j++) {
                             String s = arrayNumber.get(j);
-                            if (s.length() > MoreContactUtils.MAX_LENGTH_NUMBER_IN_SIM) {
-                                s = s.substring(
-                                        0, MoreContactUtils.MAX_LENGTH_NUMBER_IN_SIM);
-                            }
                             strAnrNum.append(s);
                             strAnrNum.append(SimContactsConstants.ANR_SEP);
                         }
                         StringBuilder strEmail = new StringBuilder();
                         for (int j = 0; j < arrayEmail.size(); j++) {
                             String s = arrayEmail.get(j);
-                            if (s.length() > MoreContactUtils.MAX_LENGTH_EMAIL_IN_SIM) {
-                                s = s.substring(
-                                        0, MoreContactUtils.MAX_LENGTH_EMAIL_IN_SIM);
-                            }
                             strEmail.append(s);
                             strEmail.append(SimContactsConstants.EMAIL_SEP);
                         }
