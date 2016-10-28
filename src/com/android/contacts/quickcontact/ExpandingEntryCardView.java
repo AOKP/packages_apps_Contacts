@@ -361,7 +361,7 @@ public class ExpandingEntryCardView extends CardView {
         if (mEnablePresence) {
             mVideoCalling = (Switch) expandingEntryCardView
                     .findViewById(R.id.switch_video_call);
-            mVideoCalling.setVisibility(View.VISIBLE);
+            mVideoCalling.setVisibility(View.GONE);
             mDefaultEnable = Settings.System.getInt(mContext.getContentResolver(),
                     CallUtil.CONFIG_VIDEO_CALLING,CallUtil.DISABLE_VIDEO_CALLING);
             mEnable = mDefaultEnable;
@@ -408,9 +408,6 @@ public class ExpandingEntryCardView extends CardView {
         mNumEntries = 0;
         mAllEntriesInflated = false;
         mShowFirstEntryTypeTwice = showFirstEntryTypeTwice;
-        if (isSupportVideoCall) {
-            mVideoCalling.setVisibility(View.VISIBLE);
-        }
         for (List<Entry> entryList : mEntries) {
             mNumEntries += entryList.size();
             mEntryViews.add(new ArrayList<View>());
