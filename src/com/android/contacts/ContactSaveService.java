@@ -56,6 +56,8 @@ import com.android.contacts.activities.ContactEditorBaseActivity;
 import com.android.contacts.common.MoreContactUtils;
 import com.android.contacts.common.SimContactsConstants;
 import com.android.contacts.common.SimContactsOperation;
+import com.android.contacts.common.model.ValuesDelta;
+import com.android.contacts.common.model.account.ExchangeAccountType;
 import com.android.contacts.common.compat.CompatUtils;
 import com.android.contacts.common.database.ContactUpdateUtils;
 import com.android.contacts.common.model.AccountTypeManager;
@@ -469,7 +471,9 @@ public class ContactSaveService extends IntentService {
             final String accountType = entity.getValues().getAsString(RawContacts.ACCOUNT_TYPE);
             final String accountName = entity.getValues().getAsString(RawContacts.ACCOUNT_NAME);
             rawContactsList.add(entity.getRawContactId());
-
+            if (accountType != null
+                    && ExchangeAccountType.isExchangeType(accountType))
+                removeDisplayName(entity);
             final int subscription = MoreContactUtils.getSubscription(
                 accountType, accountName);
             isCardOperation = (subscription != SubscriptionManager.INVALID_SUBSCRIPTION_ID) ?
@@ -639,6 +643,14 @@ public class ContactSaveService extends IntentService {
             callbackIntent.setData(lookupUri);
             deliverCallback(callbackIntent);
         }
+    }
+
+    private void removeDisplayName(RawContactDelta entity) {
+        ArrayList<ValuesDelta> names = entity
+                .getMimeEntries(StructuredName.CONTENT_ITEM_TYPE);
+        if (names != null
+                && names.get(0).containsKey(StructuredName.DISPLAY_NAME))
+            names.get(0).putNull(StructuredName.DISPLAY_NAME);
     }
 
     private Integer doSaveToSimCard(RawContactDelta entity, ContentResolver resolver,
