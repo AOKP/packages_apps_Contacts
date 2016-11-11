@@ -48,9 +48,11 @@ import java.util.ArrayList;
 public class MergeContactAdapter extends BaseAdapter {
     private Context mContext;
     private ArrayList<DuplicatesUtils.MergeContacts> mMergeList;
+    private final CharSequence mUnknownNameText;
 
     public MergeContactAdapter(Context context) {
         this.mContext = context;
+        mUnknownNameText = context.getText(android.R.string.unknownName);
     }
 
     @Override
@@ -111,6 +113,7 @@ public class MergeContactAdapter extends BaseAdapter {
             number = info.getPhones().get(0);
         }
         // show the number, if it exists. Otherwise just show the name.
+        childView.setUnknownNameText(mUnknownNameText);
         childView.setPhoneNumber(number, null);
         childView.setDisplayName(info.getName());
     }
