@@ -356,6 +356,7 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
         mActionBar = getActionBar();
         mActionBar.setDisplayShowHomeEnabled(true);
         mActionBar.setDisplayHomeAsUpEnabled(true);
+        mActionBar.setLogo(null);
         mActionBar.setTitle(null);
 
         mPickMode = ContactsPickMode.getInstance();
@@ -393,14 +394,12 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
         initResource();
 
         if (mPickMode.isPickPhone()) {
-            mActionBar.setElevation(0);
             mSearchFragment = new SearchFragment();
             mSearchFragment.setCheckListListener(new CheckListListener());
             FragmentTransaction mFragmentTransaction = fragmentManager.beginTransaction();
             mFragmentTransaction.add(R.id.search_layout, mSearchFragment);
             mFragmentTransaction.commit();
         } else {
-            mActionBar.setElevation(4 * getResources().getDisplayMetrics().density);
             mViewPagerTabs.setVisibility(View.GONE);
         }
     }

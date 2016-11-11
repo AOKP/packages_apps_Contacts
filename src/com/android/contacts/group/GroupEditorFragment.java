@@ -1069,6 +1069,7 @@ public class GroupEditorFragment extends Fragment implements SelectAccountDialog
 
             QuickContactBadge badge = (QuickContactBadge) result.findViewById(R.id.badge);
             badge.assignContactUri(member.getLookupUri());
+            badge.setOverlay(null);
 
             TextView name = (TextView) result.findViewById(R.id.name);
             name.setText(member.getDisplayName());

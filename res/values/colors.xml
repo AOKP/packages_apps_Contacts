@@ -25,6 +25,7 @@
     <color name="action_bar_background">#0288d1</color>
     <color name="action_bar_background_highlight">#cecece</color>
     <color name="action_bar_button_text_color">#FFFFFF</color>
+    <color name="actionbar_sub_text_color">#b3ffffff</color>
 
     <color name="actionbar_background_color">@color/primary_color</color>
     <color name="actionbar_background_color_dark">@color/primary_color_dark</color>

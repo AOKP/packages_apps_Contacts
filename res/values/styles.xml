@@ -15,20 +15,14 @@
 -->
 <resources>
 
-    <style name="DetailActivityTheme" parent="@android:style/Theme.Holo.Light">
-        <item name="android:actionBarStyle">@style/ContactsActionBarStyle</item>
-        <item name="android:homeAsUpIndicator">@drawable/ic_menu_back</item>
-        <item name="android:actionOverflowButtonStyle">@style/ContactsActionBarOverflow</item>
-        <item name="android:actionBarItemBackground">@drawable/action_bar_item_background</item>
+    <style name="DetailActivityTheme" parent="@style/PeopleTheme">
+        <item name="android:actionBarItemBackground">@drawable/item_background_material_borderless_dark</item>
         <item name="android:actionBarWidgetTheme">@style/ContactsActionBarTheme</item>
-        <item name="android:textColorPrimary">@color/primary_text_color</item>
-        <item name="android:textColorSecondary">@color/secondary_text_color</item>
         <item name="android:listViewStyle">@style/ListViewStyle</item>
     </style>
 
     <style name="EditorActivityTheme" parent="@style/PeopleTheme">
         <item name="android:listViewStyle">@style/ListViewStyle</item>
-        <item name="android:actionBarStyle">@style/EditorActionBarStyle</item>
         <item name="android:colorButtonNormal">@color/background_primary</item>
     </style>
 
@@ -117,13 +111,10 @@
     <style name="ContactsActionBarStyle" parent="@android:style/Widget.Material.ActionBar">
         <item name="android:background">@color/actionbar_background_color</item>
         <item name="android:titleTextStyle">@style/ContactsActionBarTitleText</item>
+        <item name="android:subtitleTextStyle">@style/ContactsActionBarSubTitleText</item>
         <item name="android:backgroundStacked">@color/actionbar_background_color</item>
         <!-- Empty icon -->
         <item name="android:icon">@android:color/transparent</item>
-    </style>
-
-    <style name="EditorActionBarStyle" parent="@style/ContactsActionBarStyle">
-        <item name="android:contentInsetStart">72dp</item>
     </style>
 
     <!-- When this style was added, android:toolbarStyle was private. Therefore, this style
@@ -148,6 +139,11 @@
     <style name="ContactsActionBarTitleText"
            parent="@android:style/TextAppearance.Material.Widget.ActionBar.Title">
         <item name="android:textColor">@color/actionbar_text_color</item>
+    </style>
+
+    <style name="ContactsActionBarSubTitleText"
+           parent="@android:style/TextAppearance.Material.Widget.ActionBar.Subtitle">
+        <item name="android:textColor">@color/actionbar_sub_text_color</item>
     </style>
 
     <!-- Styling for the tab bar; handles styling of the divider line. -->
@@ -177,7 +173,7 @@
         <item name="android:background">@drawable/ab_dropdown_navigation_item_background</item>
     </style>
 
-    <style name="ContactsActionBarTheme" parent="@android:style/Theme.Holo.Light">
+    <style name="ContactsActionBarTheme" parent="@android:style/Theme.Material.Light">
         <item name="android:textColorHint">#CCCCCC</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:popupMenuStyle">@android:style/Widget.Holo.Light.PopupMenu</item>
