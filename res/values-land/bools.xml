@@ -15,6 +15,7 @@
 -->
 <resources>
 
-    <bool name="quickcontact_two_panel">true</bool>
+    <bool name="quickcontact_two_panel">false</bool>
+    <bool name="contacteditor_two_panel">true</bool>
 
 </resources>
