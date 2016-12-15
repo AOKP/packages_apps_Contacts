@@ -237,7 +237,7 @@ public class GroupsFragment extends ExpandableListFragment implements OnGroupCli
         if (mAdapter.getCursor() != null) {
             mAdapter.getCursor().close();
         }
-
+        mAdapter.notifyDataSetInvalidated();
         if(allContactsInGroups!=null)
             allContactsInGroups.close();
 
@@ -790,8 +790,6 @@ public class GroupsFragment extends ExpandableListFragment implements OnGroupCli
         protected Cursor getChildrenCursor(Cursor groupCursor) {
             long groupId = groupCursor.getLong(GROUP_ID);
             Cursor c = getContactsDetailCursor(groupId);
-            if (c != null)
-                getActivity().startManagingCursor(c);
             return c;
         }
 
@@ -811,7 +809,7 @@ public class GroupsFragment extends ExpandableListFragment implements OnGroupCli
         private void fillAllContactsCursorMap() {
             mAllContactsCurosrMap.clear();
             Cursor cursor = null;
-            if (mGroupsCursor == null)
+            if (mGroupsCursor == null || mGroupsCursor.isClosed())
                 return;
             for (int groupPosition = 0; groupPosition < mGroupsCursor.getCount(); groupPosition++) {
                 mGroupsCursor.moveToPosition(groupPosition);

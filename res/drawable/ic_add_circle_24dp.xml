@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 The Android Open Source Project
+<!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,11 +13,15 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
 
-    <bool name="quickcontact_two_panel">false</bool>
-    <bool name="contact_all_list_show_card_frame">false</bool>
-    <bool name="config_presence_enabled">false</bool>
-    <bool name="contacteditor_two_panel">false</bool>
-
-</resources>
+<!-- Customized ic_add_circle material asset. See b/30018040#comment12 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:height="24dp"
+        android:width="24dp"
+        android:viewportHeight="192.0"
+        android:viewportWidth="192.0">
+  <path android:fillColor="#F5F5F5"
+        android:pathData="M96,8C47.38,8 8,47.38 8,96s39.38,88 88,88s88,-39.38 88,-88S144.62,8 96,8z"/>
+  <path android:fillColor="#039BE5"
+        android:pathData="M124,100h-24v24h-8v-24H68v-8h24V68h8v24h24V100z"/>
+</vector>

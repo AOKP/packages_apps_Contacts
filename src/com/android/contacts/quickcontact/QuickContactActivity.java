@@ -32,6 +32,7 @@ import android.content.Loader;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.ColorStateList;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -120,6 +121,7 @@ import com.android.contacts.common.GroupMetaData;
 import com.android.contacts.common.activity.RequestPermissionsActivity;
 import com.android.contacts.common.compat.CompatUtils;
 import com.android.contacts.common.compat.EventCompat;
+import com.android.contacts.common.compat.MultiWindowCompat;
 import com.android.contacts.common.dialog.CallSubjectDialog;
 import com.android.contacts.common.editor.SelectAccountDialogFragment;
 import com.android.contacts.common.interactions.TouchPointManager;
@@ -1078,7 +1080,9 @@ public class QuickContactActivity extends ContactsActivity
         mWindowScrim.setAlpha(0);
         getWindow().setBackgroundDrawable(mWindowScrim);
 
-        mScroller.initialize(mMultiShrinkScrollerListener, mExtraMode == MODE_FULLY_EXPANDED);
+        mScroller.initialize(mMultiShrinkScrollerListener, mExtraMode == MODE_FULLY_EXPANDED,
+                /* maximumHeaderTextSize */ -1,
+                /* shouldUpdateNameViewHeight */ true);
         // mScroller needs to perform asynchronous measurements after initalize(), therefore
         // we can't mark this as GONE.
         mScroller.setVisibility(View.INVISIBLE);
@@ -1191,7 +1195,11 @@ public class QuickContactActivity extends ContactsActivity
                     ContentUris.withAppendedId(RawContacts.CONTENT_URI, rawContactId));
         }
         mExtraMode = getIntent().getIntExtra(QuickContact.EXTRA_MODE, QuickContact.MODE_LARGE);
-        mExtraPrioritizedMimeType = getIntent().getStringExtra(QuickContact.EXTRA_PRIORITIZED_MIMETYPE);
+        if (isMultiWindowOnPhone()) {
+            mExtraMode = QuickContact.MODE_LARGE;
+        }
+        mExtraPrioritizedMimeType =
+                getIntent().getStringExtra(QuickContact.EXTRA_PRIORITIZED_MIMETYPE);
         final Uri oldLookupUri = mLookupUri;
 
         if (lookupUri == null) {
@@ -1228,7 +1236,12 @@ public class QuickContactActivity extends ContactsActivity
             return;
         }
         mHasAlreadyBeenOpened = true;
-        mScroller.scrollUpForEntranceAnimation(mExtraMode != MODE_FULLY_EXPANDED);
+        mScroller.scrollUpForEntranceAnimation(/* scrollToCurrentPosition */ !isMultiWindowOnPhone()
+                && (mExtraMode != MODE_FULLY_EXPANDED));
+    }
+
+    private boolean isMultiWindowOnPhone() {
+        return MultiWindowCompat.isInMultiWindowMode(this) && PhoneCapabilityTester.isPhone(this);
     }
 
     /** Assign this string to the view if it is not empty. */
@@ -1930,7 +1943,7 @@ public class QuickContactActivity extends ContactsActivity
                 alternateIntent = new Intent(Intent.ACTION_SENDTO,
                         Uri.fromParts(ContactsUtils.SCHEME_SMSTO, phone.getNumber(), null));
 
-                alternateIcon = res.getDrawable(R.drawable.ic_message_24dp);
+                alternateIcon = res.getDrawable(R.drawable.ic_message_24dp_mirrored);
                 alternateContentDescription.append(res.getString(R.string.sms_custom, header));
                 smsContentDescription = com.android.contacts.common.util.ContactDisplayUtils
                         .getTelephoneTtsSpannable(alternateContentDescription.toString(), header);
@@ -3393,20 +3406,12 @@ public class QuickContactActivity extends ContactsActivity
                         StringBuilder strAnrNum = new StringBuilder();
                         for (int j = 1; j < arrayNumber.size(); j++) {
                             String s = arrayNumber.get(j);
-                            if (s.length() > MoreContactUtils.MAX_LENGTH_NUMBER_IN_SIM) {
-                                s = s.substring(
-                                        0, MoreContactUtils.MAX_LENGTH_NUMBER_IN_SIM);
-                            }
                             strAnrNum.append(s);
                             strAnrNum.append(SimContactsConstants.ANR_SEP);
                         }
                         StringBuilder strEmail = new StringBuilder();
                         for (int j = 0; j < arrayEmail.size(); j++) {
                             String s = arrayEmail.get(j);
-                            if (s.length() > MoreContactUtils.MAX_LENGTH_EMAIL_IN_SIM) {
-                                s = s.substring(
-                                        0, MoreContactUtils.MAX_LENGTH_EMAIL_IN_SIM);
-                            }
                             strEmail.append(s);
                             strEmail.append(SimContactsConstants.EMAIL_SEP);
                         }
