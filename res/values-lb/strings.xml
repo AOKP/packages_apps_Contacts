@@ -275,9 +275,7 @@
   <!-- Title for the disambiguation dialog that requests the user choose an account for the new group to be created under [CHAR LIMIT=NONE] -->
   <string name="dialog_new_group_account">Grupp ënner dësem Kont erstellen</string>
   <string name="title_move_members">Membere réckelen</string>
-  <string name="message_add_members">Memberen dobäisetzen...</string>
-  <string name="message_move_members">Membere réckelen...</string>
-  <string name="cancel_operation">Operatioun ass ofgebrach.</string>
+  <string name="message_move_members">Membere réckelen\u2026</string>
   <string name="message_can_not_move_members">Kann d\'Memberen net réckelen</string>
   <!-- Generic action string for starting an audio chat. Used by AccessibilityService to announce the purpose of the view. [CHAR LIMIT=NONE] -->
   <string name="audio_chat">Stëmmchat</string>
@@ -491,7 +489,7 @@
   <!-- Title of sms action entry. [CHAR LIMIT=60] -->
   <string name="send_message">Message schécken</string>
   <!-- Toast that appears when you are copying a directory contact into your personal contacts -->
-  <string name="toast_making_personal_copy">Eng perséinlech Kopie gëtt erstallt...</string>
+  <string name="toast_making_personal_copy">Eng perséinlech Kopie gëtt erstallt\u2026</string>
   <!-- Timestamp string for interactions from yesterday. [CHAR LIMIT=40] -->
   <string name="yesterday">Gëschter</string>
   <string name="tomorrow">Muer</string>
@@ -598,7 +596,5 @@
   <!-- String used to display calls from unknown numbers in the call log -->
   <!-- String used to display calls from private numbers in the call log -->
   <!-- String used to display calls from pay phone in the call log -->
-  <!-- Call-log count in one call-log group. Call location and call date. -->
-  <!--Toast msg when user select too many contacts to merge-->
-  <!-- merge contacts -->
+  <string name="payphone">Telefonskabinn</string>
 </resources>

@@ -61,7 +61,7 @@
             android:layout_marginRight="5dip"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:singleLine="true"
-            android:text="@string/select_all"
+            android:text="@string/menu_select_all"
         />
         <CheckBox
             android:id="@+id/select_all_check"
@@ -87,14 +87,14 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/btn_ok"
+            android:text="@android:string/ok"
         />
 
         <Button android:id="@+id/btn_cancel"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/btn_cancel"
+            android:text="@android:string/cancel"
         />
     </LinearLayout>
 </LinearLayout>

@@ -141,8 +141,6 @@
     <!-- Menu item that deletes the currently selected group [CHAR LIMIT=30] -->
     <string name="menu_deleteGroup">Delete</string>
 
-    <string name="menu_moveGroupMembers">Move group members</string>
-
     <!-- Menu item (in the action bar) that creates a new contact [CHAR LIMIT=30] -->
     <string name="menu_new_contact_action_bar">Add Contact</string>
 
@@ -313,15 +311,10 @@
 
     <!-- Toast displayed when a contact is saved [CHAR LIMIT=NONE] -->
 
-    <string name="contactSavedToast">Contact saved</string>
-
     <!-- Toast displayed when linked contacts get unlinked [CHAR LIMIT=NONE] -->
     <string name="contactUnlinkedToast">Contacts unlinked</string>
 
     <string name="contactSavedToast">Contact saved.</string>
-    <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
-    <string name="contactDeletedToast">Contact deleted.</string>
-
 
     <!-- Toast displayed when saving a contact failed. [CHAR LIMIT=NONE] -->
     <string name="contactSavedErrorToast">Couldn\'t save contact changes.</string>
@@ -337,18 +330,6 @@
 
     <!-- Toast displayed when saving a contact photo failed. [CHAR LIMIT=NONE] -->
     <string name="contactPhotoSavedErrorToast">Couldn\'t save contact photo changes.</string>
-    <!-- Toast displayed when saving a contact to sim card failed -->
-    <string name="contactSavedToSimCardError">Error, Save to SIM card fail.</string>
-    <string name="number_anr_too_long">Error, Number is too long.</string>
-    <string name="email_address_too_long">Error, Email Address is too long.</string>
-    <string name="sim_card_full">Error, Sim Card is full.</string>
-    <string name="tag_too_long">Error, Contact name is too long.</string>
-    <string name="no_phone_number">Please insert phone number.</string>
-    <string name="invalid_phone_number">Error, Number is invalid.</string>
-    <string name="invalid_number_type">Error, Number type is invalid.</string>
-    <string name="no_phone_number_or_email">Please insert phone number or email address.</string>
-    <string name="importConfirmation_title">Import contact?</string>
-    <!-- Toast displayed when a group is saved [CHAR LIMIT=NONE] -->
     <!-- Toast displayed when a group is saved [CHAR LIMIT=NONE] -->
     <string name="groupSavedToast">Group saved.</string>
 
@@ -384,9 +365,6 @@
 
     <!-- The title of "favorites" tab. [CHAR LIMIT=14] -->
     <string name="favorites_tab_label">Favorites</string>
-
-    <!-- The title of "groups" tab. [CHAR LIMIT=14] -->
-    <string name="contacts_groups_label">Groups</string>
 
     <!-- Action string for calling back a number in the call log -->
     <string name="callBack">Call back</string>
@@ -447,12 +425,6 @@
 
     <!-- Title for the disambiguation dialog that requests the user choose an account for the new group to be created under [CHAR LIMIT=NONE] -->
     <string name="dialog_new_group_account">Create group under account</string>
-
-    <string name="title_move_members">Move members</string>
-    <string name="message_add_members">Add members...</string>
-    <string name="message_move_members">Move members...</string>
-    <string name="cancel_operation">Operation is canceled.</string>
-    <string name="message_can_not_move_members">Can not move members</string>
 
     <!-- Generic action string for starting an audio chat. Used by AccessibilityService to announce the purpose of the view. [CHAR LIMIT=NONE] -->
     <string name="audio_chat">Voice chat</string>
@@ -740,24 +712,6 @@
     <!-- Button label to prompt the user to add another account (when there are already existing accounts on the device) [CHAR LIMIT=30] -->
     <string name="add_new_account">Add new account</string>
 
-    <string name="select_all">All</string>
-    <string name="btn_ok">Ok</string>
-    <string name="btn_cancel">Cancel</string>
-    <!-- Gray hint displayed in the search field in Contacts when empty -->
-    <string name="search_bar_hint">Search contacts</string>
-    <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
-    <string name="deleteConfirmation_title">Delete contact?</string>
-    <string name="import_sim_contacts_title">Import sim contacts</string>
-    <string name="import_sim_contacts_message">Importing sim contacts ...</string>
-    <string name="ContactMultiImportConfirmation">These contacts will be imported.</string>
-    <string name="import_finish">"Import finished"</string>
-    <string name="import_stop">"Import stopped"</string>
-    <string name="too_many_contacts_add_to_group">Too many contacts, that should be less than <xliff:g id="count">%d</xliff:g></string>
-    <!-- Multi Delete Contacts related strings -->
-    <string name="ContactMultiDeleteConfirmation">These contacts will be deleted.</string>
-    <string name="delete_contacts_title">Delete Contacts</string>
-    <string name="delete_contacts_message">Deleting Contacts ...</string>
-    <string name="delete_termination">"Delete is termination"</string>
     <!-- Menu item shown only when the special debug mode is enabled, which is used to send all contacts database files via email.  [CHAR LIMI=NONE] -->
     <string name="menu_export_database">Export database files</string>
 
@@ -881,13 +835,6 @@
     <!-- Quick contact display name with phonetic name -->
     <string name="quick_contact_display_name_with_phonetic"><xliff:g id="display_name">%s</xliff:g> (<xliff:g id="phonetic_name">%s</xliff:g>)</string>
 
-
-    <!-- Menu item used to refresh a specific contact -->
-    <string name="menu_refresh">Refresh</string>
-
-    <string name="video_call">Video Calling</string>
-
-
     <!-- Button used in quick contact suggestion card to link selected contacts. [CHAR LIMIT=30]-->
     <string name="quickcontact_suggestion_link_button">LINK CONTACTS</string>
 
@@ -969,68 +916,5 @@
 
     <!-- The menu item to open blocked numbers activity [CHAR LIMIT=60]-->
     <string name="menu_blocked_numbers">Blocked numbers</string>
-
-    <string name="menu_copyTo">"Copy to "</string>
-    <string name="no_empty_email_in_usim">"Email is full, some record copy failed "</string>
-
-    <string name="voicemail">Voicemail</string>
-    <string name="select_call_title">Select call logs</string>
-    <string name="delete_call_title">Delete call logs</string>
-    <string name="delete_call_message">Deleting call logs ...</string>
-    <string name="delete_call_alert">Sure to delete the call logs selected?</string>
-    <string name="title_del_call">Delete</string>
-    <string name="title_add_members">Add members</string>
-    <!-- MultiPickActivity -->
-    <string name="multi_pick_recent_title">RECENT</string>
-    <string name="multi_pick_contacts_title">CONTACTS</string>
-    <string name="multi_pick_group_title">GROUP</string>
-
-    <string name="contacts_selected">%d selected</string>
-
-    <string name="summary_count_numbers">%s numbers</string>
-
-    <string name="contact_info_text_as_name">Name:</string>
-    <string name="contact_info_text_as_phone">Tel:</string>
-    <string name="contact_info_text_as_email">Email:</string>
-
-    <!-- The hint text in search-view.-->
-    <string name="search_menu_search">Search</string>
-
-    <!-- The call-log's clear button text in pick call mode. -->
-    <string name="clear_call_log_button_text">CLEAR</string>
-
-    <!-- String used to display calls from unknown numbers in the call log -->
-    <string name="unknown">Unknown</string>
-
-    <!-- String used to display calls from private numbers in the call log -->
-    <string name="private_num">Private number</string>
-
-    <!-- String used to display calls from pay phone in the call log -->
-    <string name="payphone">Payphone</string>
-
-    <!-- Call-log count in one call-log group. Call location and call date. -->
-    <string name="recent_call_count_or_location_and_date">(<xliff:g id="call_count">%1$d</xliff:g>)
-        <xliff:g id="call_location_and_date">%2$s</xliff:g></string>
-    <string name="description_list_delimiter">", "</string>
-    <!--Toast msg when user select too many contacts to merge-->
-    <string name="too_many_contacts_to_merge_message">Too many contacts, that should be less than <xliff:g id="count">%d</xliff:g></string>
-
-    <string name="replace_number_title_1">Replace the previous number</string>
-    <string name="replace_number_title_2">Replace the previous number?</string>
-    <string name="replace_number_question_mark">\?</string>
-    <string name="replace_button">REPLACE</string>
-
-    <!-- merge contacts -->
-    <string name="merge_contacts">"Merge contacts"</string>
-    <string name="merging_contacts">"Merging contacts"</string>
-    <string name="searching_duplicated_contacts">"Searching duplicated contacts"</string>
-    <string name="no_duplicated_contacts">"No duplicated contacts"</string>
-    <string name="give_up_merging">"Give up merging contacts?"</string>
-    <string name="give_up">"Give up"</string>
-    <string name="cancel">"Cancel"</string>
-    <string name="merge_complete">"Merge complete."</string>
-    <string name="sim_email_full">"SIM card email is full."</string>
-    <string name="sim_anr_full">"SIM card number is full."</string>
-    <string name="merge_fail">"Merge failed."</string>
 
 </resources>

@@ -1142,7 +1142,7 @@ public class MultiPickContactsActivity extends Activity implements ViewPager.OnP
             mProgressDialog.setMessage(message);
             mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
             mProgressDialog.setButton(DialogInterface.BUTTON_NEGATIVE,
-                    getString(R.string.btn_cancel), (OnClickListener) thread);
+                    getString(android.R.string.cancel), (OnClickListener) thread);
             mProgressDialog.setOnCancelListener((OnCancelListener) thread);
             mProgressDialog.setOnKeyListener(keyListener);
             mProgressDialog.setProgress(0);

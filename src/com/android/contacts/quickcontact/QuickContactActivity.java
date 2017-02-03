@@ -2936,34 +2936,34 @@ public class QuickContactActivity extends ContactsActivity
             if (!TextUtils.isEmpty(accoutType)) {
                 if (SimContactsConstants.ACCOUNT_TYPE_SIM.equals(accoutType)) {
                     copyToPhoneMenu.setVisible(true);
-                    copyToPhoneMenu.setTitle(getString(R.string.menu_copyTo)
-                            + getString(R.string.phoneLabelsGroup));
+                    copyToPhoneMenu.setTitle(getString(R.string.menu_copyTo,
+                            getString(R.string.phoneLabelsGroup)));
                     if (tm.getPhoneCount() > 1) {
                         if (SimContactsConstants.SIM_NAME_1.equals(accoutName)
                                 && simTwoLoadComplete) {
-                            copyToSim2Menu.setTitle(getString(R.string.menu_copyTo)
-                                    + MoreContactUtils.getAcount(
+                            copyToSim2Menu.setTitle(getString(R.string.menu_copyTo,
+                                    MoreContactUtils.getAcount(
                                             QuickContactActivity.this,
-                                            SimContactsConstants.SLOT2).name);
+                                            SimContactsConstants.SLOT2).name));
                             String customLabel = MoreContactUtils.getCustomOperatorLabel(
                                     getApplicationContext(), SimContactsConstants.SLOT2);
                             if(!TextUtils.isEmpty(customLabel)) {
-                                copyToSim2Menu.setTitle(getString(R.string.menu_copyTo)
-                                    + customLabel);
+                                copyToSim2Menu.setTitle(getString(R.string.menu_copyTo,
+                                        customLabel));
                             }
                             copyToSim2Menu.setVisible(true);
                         }
                         if (SimContactsConstants.SIM_NAME_2.equals(accoutName)
                                 && simOneLoadComplete) {
-                            copyToSim1Menu.setTitle(getString(R.string.menu_copyTo)
-                                    + MoreContactUtils.getAcount(
+                            copyToSim1Menu.setTitle(getString(R.string.menu_copyTo,
+                                    MoreContactUtils.getAcount(
                                             QuickContactActivity.this,
-                                            SimContactsConstants.SLOT1).name);
+                                            SimContactsConstants.SLOT1).name));
                             String customLabel = MoreContactUtils.getCustomOperatorLabel(
                                     getApplicationContext(), SimContactsConstants.SLOT1);
                             if(!TextUtils.isEmpty(customLabel)) {
-                                copyToSim1Menu.setTitle(getString(R.string.menu_copyTo)
-                                    + customLabel);
+                                copyToSim1Menu.setTitle(getString(R.string.menu_copyTo,
+                                        customLabel));
                             }
                             copyToSim1Menu.setVisible(true);
                         }
@@ -2973,33 +2973,33 @@ public class QuickContactActivity extends ContactsActivity
                     boolean hasPhoneOrEmail = hasPhoneOrEmailDate(mContactData);
                     if (tm.getPhoneCount() > 1) {
                         if (hasPhoneOrEmail && simOneLoadComplete) {
-                            copyToSim1Menu.setTitle(getString(R.string.menu_copyTo)
-                                    + MoreContactUtils.getAcount(
-                                            this, SimContactsConstants.SLOT1).name);
+                            copyToSim1Menu.setTitle(getString(R.string.menu_copyTo,
+                                    MoreContactUtils.getAcount(
+                                            this, SimContactsConstants.SLOT1).name));
                             String customLabel = MoreContactUtils.getCustomOperatorLabel(
                                     getApplicationContext(), SimContactsConstants.SLOT1);
                             if(!TextUtils.isEmpty(customLabel)) {
-                                copyToSim1Menu.setTitle(getString(R.string.menu_copyTo)
-                                    + customLabel);
+                                copyToSim1Menu.setTitle(getString(R.string.menu_copyTo,
+                                        customLabel));
                             }
                             copyToSim1Menu.setVisible(true);
                         }
                         if (hasPhoneOrEmail && simTwoLoadComplete) {
-                            copyToSim2Menu.setTitle(getString(R.string.menu_copyTo)
-                                    + MoreContactUtils.getAcount(
-                                            this, SimContactsConstants.SLOT2).name);
+                            copyToSim2Menu.setTitle(getString(R.string.menu_copyTo,
+                                    MoreContactUtils.getAcount(
+                                            this, SimContactsConstants.SLOT2).name));
                             String customLabel = MoreContactUtils.getCustomOperatorLabel(
                                     getApplicationContext(), SimContactsConstants.SLOT2);
                             if(!TextUtils.isEmpty(customLabel)) {
-                                copyToSim2Menu.setTitle(getString(R.string.menu_copyTo)
-                                    + customLabel);
+                                copyToSim2Menu.setTitle(getString(R.string.menu_copyTo,
+                                        customLabel));
                             }
                             copyToSim2Menu.setVisible(true);
                         }
                     } else {
                         if (hasPhoneOrEmail && simOneLoadComplete) {
-                            copyToSim1Menu.setTitle(getString(R.string.menu_copyTo)
-                                    + SimContactsConstants.SIM_NAME);
+                            copyToSim1Menu.setTitle(getString(R.string.menu_copyTo,
+                                    SimContactsConstants.SIM_NAME));
                             copyToSim1Menu.setVisible(true);
                         }
                     }
