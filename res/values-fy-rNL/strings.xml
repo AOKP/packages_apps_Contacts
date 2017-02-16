@@ -107,7 +107,6 @@
          The text will be all capitalized.
          [CHAR LIMIT=30] -->
   <!-- The order of the items below is important, don't reorder without changing EditContactActivity.java -->
-  <skip></skip>
   <!-- The labels that are under the otherLabelsGroup when editing a contact. [CHAR LIMIT=20] -->
   <!-- Description in the dialog that appears if there are no pictures from which to create an icon for a contact -->
   <!-- Description in the dialog that appears if there are no pictures from which to create an icon for a contact -->
@@ -124,14 +123,11 @@
   <!-- Displayed in a spinner dialog after the user creates a contact and it's being saved to the database -->
   <!-- Toast displayed when a contact is saved [CHAR LIMIT=NONE] -->
   <!-- Toast displayed when linked contacts get unlinked [CHAR LIMIT=NONE] -->
-  <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <!-- Toast displayed when saving a contact failed. [CHAR LIMIT=NONE] -->
   <!-- Toast displayed when unlinking a contact failed. [CHAR LIMIT=NONE] -->
   <!-- Toast displayed when linking a contact failed. [CHAR LIMIT=NONE] -->
   <!-- Generic error default clause displayed when saving a contact failed. [CHAR LIMIT=NONE] -->
   <!-- Toast displayed when saving a contact photo failed. [CHAR LIMIT=NONE] -->
-  <!-- Toast displayed when saving a contact to sim card failed -->
-  <!-- Toast displayed when a group is saved [CHAR LIMIT=NONE] -->
   <!-- Toast displayed when a group is saved [CHAR LIMIT=NONE] -->
   <!-- Toast displayed when saving a group failed [CHAR LIMIT=NONE] -->
   <!-- Displayed at the top of the contacts showing the total number of contacts visible when "Only contacts with phones" is selected -->
@@ -141,7 +137,6 @@
   <!-- Displayed at the top of the contacts showing the total number of contacts found when typing search query -->
   <!-- The title of "all contacts" tab. [CHAR LIMIT=14] -->
   <!-- The title of "favorites" tab. [CHAR LIMIT=14] -->
-  <!-- The title of "groups" tab. [CHAR LIMIT=14] -->
   <!-- Action string for calling back a number in the call log -->
   <!-- Action string for calling a number in the call log again -->
   <!-- Action string for returning a missed call in the call log -->
@@ -275,9 +270,6 @@
   <!-- Button label to indicate that the user wants to save the newly created contact locally (instead of backing it up online) [CHAR LIMIT=20] -->
   <!-- Button label to prompt the user to add an account (when there are 0 existing accounts on the device) [CHAR LIMIT=30] -->
   <!-- Button label to prompt the user to add another account (when there are already existing accounts on the device) [CHAR LIMIT=30] -->
-  <!-- Gray hint displayed in the search field in Contacts when empty -->
-  <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
-  <!-- Multi Delete Contacts related strings -->
   <!-- Menu item shown only when the special debug mode is enabled, which is used to send all contacts database files via email.  [CHAR LIMI=NONE] -->
   <!-- Content description for the button that adds a new contact
          [CHAR LIMIT=NONE] -->
@@ -328,7 +320,6 @@
   <!-- Label for the linked contacts selector which indicates the number of raw contacts which have been linked together into the aggregate being viewed. [CHAR LIMIT=40] -->
   <!-- Number of linked contacts of the current contact, only shown when there are more than 2 linked contacts (plural only!!!) [CHAR LIMIT=60] -->
   <!-- Quick contact display name with phonetic name -->
-  <!-- Menu item used to refresh a specific contact -->
   <!-- Button used in quick contact suggestion card to link selected contacts. [CHAR LIMIT=30]-->
   <!-- Button used in quick contact suggestion card to collapse suggestion card. [CHAR LIMIT=30]-->
   <!-- Suggestion card title in quick contact UI [CHAR LIMIT=100] -->
@@ -356,13 +347,4 @@
   <!-- Content description of photo in photo picker indicating a photo from unknown account is selected. -->
   <!-- Text shown in the contacts app while the background process updates contacts after a locale change [CHAR LIMIT=150]-->
   <!-- The menu item to open blocked numbers activity [CHAR LIMIT=60]-->
-  <!-- MultiPickActivity -->
-  <!-- The hint text in search-view.-->
-  <!-- The call-log's clear button text in pick call mode. -->
-  <!-- String used to display calls from unknown numbers in the call log -->
-  <!-- String used to display calls from private numbers in the call log -->
-  <!-- String used to display calls from pay phone in the call log -->
-  <!-- Call-log count in one call-log group. Call location and call date. -->
-  <!--Toast msg when user select too many contacts to merge-->
-  <!-- merge contacts -->
 </resources>

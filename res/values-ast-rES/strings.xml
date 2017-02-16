@@ -155,7 +155,6 @@
          [CHAR LIMIT=30] -->
   <string name="pickerNewContactText">Crear contautu nuevu</string>
   <!-- The order of the items below is important, don't reorder without changing EditContactActivity.java -->
-  <skip></skip>
   <!-- The labels that are under the otherLabelsGroup when editing a contact. [CHAR LIMIT=20] -->
   <string-array name="otherLabels">
     <!-- An organization associated with a contact -->
@@ -189,10 +188,8 @@
   <!-- Displayed in a spinner dialog after the user creates a contact and it's being saved to the database -->
   <string name="savingContact">Guardando contautu\u2026</string>
   <!-- Toast displayed when a contact is saved [CHAR LIMIT=NONE] -->
-  <string name="contactSavedToast">Guardóse\'l contautu.</string>
   <!-- Toast displayed when linked contacts get unlinked [CHAR LIMIT=NONE] -->
   <string name="contactSavedToast">Guardóse\'l contautu.</string>
-  <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <!-- Toast displayed when saving a contact failed. [CHAR LIMIT=NONE] -->
   <string name="contactSavedErrorToast">Nun se guardaron los cambeos del contautu.</string>
   <!-- Toast displayed when unlinking a contact failed. [CHAR LIMIT=NONE] -->
@@ -200,8 +197,6 @@
   <!-- Generic error default clause displayed when saving a contact failed. [CHAR LIMIT=NONE] -->
   <!-- Toast displayed when saving a contact photo failed. [CHAR LIMIT=NONE] -->
   <string name="contactPhotoSavedErrorToast">Nun pudieron guardase les camudancies de semeya del contautu.</string>
-  <!-- Toast displayed when saving a contact to sim card failed -->
-  <!-- Toast displayed when a group is saved [CHAR LIMIT=NONE] -->
   <!-- Toast displayed when a group is saved [CHAR LIMIT=NONE] -->
   <string name="groupSavedToast">Grupu guardáu</string>
   <!-- Toast displayed when saving a group failed [CHAR LIMIT=NONE] -->
@@ -228,7 +223,6 @@
   <!-- The title of "all contacts" tab. [CHAR LIMIT=14] -->
   <!-- The title of "favorites" tab. [CHAR LIMIT=14] -->
   <string name="favorites_tab_label">Favoritos</string>
-  <!-- The title of "groups" tab. [CHAR LIMIT=14] -->
   <!-- Action string for calling back a number in the call log -->
   <string name="callBack">Llamar</string>
   <!-- Action string for calling a number in the call log again -->
@@ -460,10 +454,6 @@
   <string name="add_account">Amestar cuenta</string>
   <!-- Button label to prompt the user to add another account (when there are already existing accounts on the device) [CHAR LIMIT=30] -->
   <string name="add_new_account">Amestar una cuenta</string>
-  <!-- Gray hint displayed in the search field in Contacts when empty -->
-  <string name="search_bar_hint">Guetar contautos</string>
-  <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
-  <!-- Multi Delete Contacts related strings -->
   <!-- Menu item shown only when the special debug mode is enabled, which is used to send all contacts database files via email.  [CHAR LIMI=NONE] -->
   <string name="menu_export_database">Esportar ficheros de base de datos</string>
   <!-- Content description for the button that adds a new contact
@@ -545,7 +535,6 @@
   <!-- Number of linked contacts of the current contact, only shown when there are more than 2 linked contacts (plural only!!!) [CHAR LIMIT=60] -->
   <!-- Quick contact display name with phonetic name -->
   <string name="quick_contact_display_name_with_phonetic"><xliff:g id="display_name">%s</xliff:g> (<xliff:g id="phonetic_name">%s</xliff:g>)</string>
-  <!-- Menu item used to refresh a specific contact -->
   <!-- Button used in quick contact suggestion card to link selected contacts. [CHAR LIMIT=30]-->
   <!-- Button used in quick contact suggestion card to collapse suggestion card. [CHAR LIMIT=30]-->
   <!-- Suggestion card title in quick contact UI [CHAR LIMIT=100] -->
@@ -574,14 +563,4 @@
   <!-- Content description of photo in photo picker indicating a photo from unknown account is selected. -->
   <!-- Text shown in the contacts app while the background process updates contacts after a locale change [CHAR LIMIT=150]-->
   <!-- The menu item to open blocked numbers activity [CHAR LIMIT=60]-->
-  <string name="title_del_call">Desaniciar</string>
-  <!-- MultiPickActivity -->
-  <!-- The hint text in search-view.-->
-  <!-- The call-log's clear button text in pick call mode. -->
-  <!-- String used to display calls from unknown numbers in the call log -->
-  <!-- String used to display calls from private numbers in the call log -->
-  <!-- String used to display calls from pay phone in the call log -->
-  <!-- Call-log count in one call-log group. Call location and call date. -->
-  <!--Toast msg when user select too many contacts to merge-->
-  <!-- merge contacts -->
 </resources>
