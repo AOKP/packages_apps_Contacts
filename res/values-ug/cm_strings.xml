@@ -35,7 +35,7 @@
   <string name="deleteConfirmation_title">ئالاقەداش ئۆچۈرەمدۇ؟</string>
   <string name="import_sim_contacts_title">SIM كارتىدىكى ئالاقەداشلارنى ئەكىر</string>
   <string name="import_sim_contacts_message">SIM كارتىدىكى ئالاقەداشلارنى ئەكىرىۋاتىدۇ\u2026</string>
-  <string name="import_finish">"ئەكىرىش تامام"</string>
+  <string name="import_finish">ئەكىرىش تامام</string>
   <string name="too_many_contacts_add_to_group">قوشىدىغان ئالاقەداش <xliff:g id="count">%d</xliff:g> دىن ئاشسا بولمايدۇ</string>
   <!-- Multi Delete Contacts related strings -->
   <!-- Menu item used to refresh a specific contact -->

@@ -39,8 +39,8 @@
   <string name="import_sim_contacts_title">SIM kişilerini al</string>
   <string name="import_sim_contacts_message">SIM kişileri alınıyor\u2026</string>
   <string name="ContactMultiImportConfirmation">Seçili kişiler içe aktarılacak.</string>
-  <string name="import_finish">"Alma işi bitti"</string>
-  <string name="import_stop">\"İçe aktarma iptal edildi</string>
+  <string name="import_finish">Alma işi bitti</string>
+  <string name="import_stop">İçe aktarma iptal edildi</string>
   <string name="too_many_contacts_add_to_group"><xliff:g id="count">%d</xliff:g>\'den fazla kişi eklenemez</string>
   <!-- Multi Delete Contacts related strings -->
   <string name="ContactMultiDeleteConfirmation">Seçili kişiler silinecek.</string>
@@ -83,14 +83,14 @@
   <string name="replace_number_title_2">Önceki numarayla yer değistirilsin mi?</string>
   <string name="replace_button">DEĞİŞTİR</string>
   <!-- merge contacts -->
-  <string name="merge_contacts">"Kişileri birleştir"</string>
-  <string name="merging_contacts">"Kişiler birleştiriliyor\u2026"</string>
-  <string name="searching_duplicated_contacts">"Yinelenen kişiler aranıyor\u2026"</string>
-  <string name="no_duplicated_contacts">"Yinelenen kişi yok"</string>
-  <string name="give_up_merging">"Kişileri birleştirmeyi durdur?"</string>
-  <string name="give_up">"Birleştirmeyi durdur"</string>
-  <string name="merge_complete">"Birleştirme tamamlandı."</string>
-  <string name="sim_email_full">"SIM kart e-posta alanı dolu."</string>
-  <string name="sim_anr_full">"SIM kart numara sınırına ulaşıldı."</string>
-  <string name="merge_fail">"Birleştirme başarısız."</string>
+  <string name="merge_contacts">Kişileri birleştir</string>
+  <string name="merging_contacts">Kişiler birleştiriliyor\u2026</string>
+  <string name="searching_duplicated_contacts">Yinelenen kişiler aranıyor\u2026</string>
+  <string name="no_duplicated_contacts">Yinelenen kişi yok</string>
+  <string name="give_up_merging">Kişileri birleştirmeyi durdur?</string>
+  <string name="give_up">Birleştirmeyi durdur</string>
+  <string name="merge_complete">Birleştirme tamamlandı.</string>
+  <string name="sim_email_full">SIM kart e-posta alanı dolu.</string>
+  <string name="sim_anr_full">SIM kart numara sınırına ulaşıldı.</string>
+  <string name="merge_fail">Birleştirme başarısız.</string>
 </resources>

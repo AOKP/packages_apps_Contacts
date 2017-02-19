@@ -35,7 +35,7 @@
   <string name="deleteConfirmation_title">संपर्क को हटा दें?</string>
   <string name="import_sim_contacts_title">सिम संपर्कों को आयात करें</string>
   <string name="import_sim_contacts_message">सिम संपर्कों को आयात कर रहे हैं\u2026</string>
-  <string name="import_finish">"आयात पूर्ण"</string>
+  <string name="import_finish">आयात पूर्ण</string>
   <string name="too_many_contacts_add_to_group">केवल <xliff:g id="count">%d</xliff:g> संपर्क और जोड़े जा सकते हैं</string>
   <!-- Multi Delete Contacts related strings -->
   <!-- Menu item used to refresh a specific contact -->

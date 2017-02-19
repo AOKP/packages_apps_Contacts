@@ -35,7 +35,7 @@
   <string name="deleteConfirmation_title">ลบ​ราย​ชื่อหรือไม่</string>
   <string name="import_sim_contacts_title">นำเข้ารายชื่อติดต่อจากซิม</string>
   <string name="import_sim_contacts_message">กำลังนำเข้ารายชื่อติดต่อจากซิม\u2026</string>
-  <string name="import_finish">"นำเข้าเสร็จสิ้น"</string>
+  <string name="import_finish">นำเข้าเสร็จสิ้น</string>
   <string name="too_many_contacts_add_to_group">ไม่สามารถเพิ่มรายชื่อติดต่อได้เกิน <xliff:g id="count">%d</xliff:g> ชื่อ</string>
   <!-- Multi Delete Contacts related strings -->
   <!-- Menu item used to refresh a specific contact -->

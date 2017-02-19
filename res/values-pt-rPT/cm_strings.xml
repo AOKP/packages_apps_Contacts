@@ -39,8 +39,7 @@
   <string name="import_sim_contacts_title">Importar contactos do SIM</string>
   <string name="import_sim_contacts_message">A importar contactos\u2026</string>
   <string name="ContactMultiImportConfirmation">Os contactos selecionados vão ser importados.</string>
-  <string name="import_finish">"Importação terminada"</string>
-  <string name="import_stop">A importação foi cancelada</string>
+  <string name="import_finish">Importação terminada</string>
   <string name="too_many_contacts_add_to_group">Não podem ser adicionados mais que <xliff:g id="count">%d</xliff:g> contactos</string>
   <!-- Multi Delete Contacts related strings -->
   <string name="ContactMultiDeleteConfirmation">Os contactos selecionados vão ser apagados.</string>
@@ -83,14 +82,14 @@
   <string name="replace_number_title_2">Substituir o número anterior?</string>
   <string name="replace_button">SUBSTITUIR</string>
   <!-- merge contacts -->
-  <string name="merge_contacts">"Associar contactos"</string>
-  <string name="merging_contacts">"A associar contactos\u2026"</string>
-  <string name="searching_duplicated_contacts">"A procurar por contactos duplicados\u2026"</string>
-  <string name="no_duplicated_contacts">"Sem contactos duplicados"</string>
-  <string name="give_up_merging">"Parar de associar contactos?"</string>
-  <string name="give_up">"Parar de associar"</string>
-  <string name="merge_complete">"Associação concluída."</string>
-  <string name="sim_email_full">"O armazenamento para e-mails do cartão SIM está cheio."</string>
-  <string name="sim_anr_full">"O armazenamento para números do cartão SIM está cheio."</string>
-  <string name="merge_fail">"A associação falhou."</string>
+  <string name="merge_contacts">Associar contactos</string>
+  <string name="merging_contacts">A associar contactos\u2026</string>
+  <string name="searching_duplicated_contacts">A procurar por contactos duplicados\u2026</string>
+  <string name="no_duplicated_contacts">Sem contactos duplicados</string>
+  <string name="give_up_merging">Parar de associar contactos?</string>
+  <string name="give_up">Parar de associar</string>
+  <string name="merge_complete">Associação concluída.</string>
+  <string name="sim_email_full">O armazenamento para e-mails do cartão SIM está cheio.</string>
+  <string name="sim_anr_full">O armazenamento para números do cartão SIM está cheio.</string>
+  <string name="merge_fail">A associação falhou.</string>
 </resources>

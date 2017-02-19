@@ -15,8 +15,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
+  <string name="contactDeletedToast">Kontakt odstraněn.</string>
   <string name="menu_moveGroupMembers">Přesunout členy skupiny</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Nelze uložit vybrané kontakty na SIM kartu</string>
   <string name="number_anr_too_long">Číslo je moc dlouhé</string>
   <string name="email_address_too_long">E-mailová adresa je moc dlouhá</string>
   <string name="sim_card_full">SIM karta je plná</string>
@@ -31,14 +33,22 @@
   <string name="message_move_members">Přesouvání členů\u2026</string>
   <string name="message_can_not_move_members">Nelze přesunout členy</string>
   <!-- Gray hint displayed in the search field in Contacts when empty -->
+  <string name="search_bar_hint">Prohledávat kontakty</string>
   <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
   <string name="deleteConfirmation_title">Odstranit kontakt?</string>
   <string name="import_sim_contacts_title">Importovat kontakty ze SIM karty</string>
   <string name="import_sim_contacts_message">Importování kontaktů ze SIM karty\u2026</string>
-  <string name="import_finish">"Import dokončen"</string>
+  <string name="ContactMultiImportConfirmation">Vybrané kontakty budou naimportovány.</string>
+  <string name="import_finish">Import dokončen</string>
+  <string name="import_stop">Import zrušen</string>
   <string name="too_many_contacts_add_to_group">Nelze přidat více než <xliff:g id="count">%d</xliff:g> kontaktů</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="ContactMultiDeleteConfirmation">Vybrané kontakty budou odstraněny.</string>
+  <string name="delete_contacts_title">Odstranit kontakty</string>
+  <string name="delete_contacts_message">Odstraňují se kontakty\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
+  <string name="menu_refresh">Aktualizovat</string>
+  <string name="video_call">Videohovor</string>
   <string name="menu_copyTo">Zkopírovat do <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">Kontakty USIM nemají k dispozici e-mailové pole - nelze kopírovat zprávy.</string>
   <string name="voicemail">Hlasová schránka</string>
@@ -48,12 +58,39 @@
   <string name="delete_call_alert">Odstranit vybrané historie volání?</string>
   <string name="title_del_call">Odstranit</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_recent_title">NEDÁVNÉ</string>
+  <string name="multi_pick_contacts_title">KONTAKTY</string>
+  <string name="multi_pick_group_title">SKUPINA</string>
+  <string name="contacts_selected">%d vybraných</string>
+  <string name="summary_count_numbers">%s čísel</string>
+  <string name="contact_info_text_as_name">Jméno:</string>
+  <string name="contact_info_text_as_phone">Tel:</string>
+  <string name="contact_info_text_as_email">E-mail:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Vyhledat</string>
   <!-- The call-log's clear button text in pick call mode. -->
+  <string name="clear_call_log_button_text">VYMAZAT</string>
   <!-- String used to display calls from unknown numbers in the call log -->
+  <string name="unknown">Neznámý</string>
   <!-- String used to display calls from private numbers in the call log -->
+  <string name="private_num">Soukromé číslo</string>
   <!-- String used to display calls from pay phone in the call log -->
+  <string name="payphone">Telefonní automat</string>
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
+  <string name="too_many_contacts_to_merge_message">Nelze sloučit více než <xliff:g id="count">%d</xliff:g> kontaktů</string>
+  <string name="replace_number_title_1">Nahradit předchozí číslo</string>
+  <string name="replace_number_title_2">Nahradit předchozí číslo?</string>
+  <string name="replace_button">NAHRADIT</string>
   <!-- merge contacts -->
+  <string name="merge_contacts">Sloučit kontakty</string>
+  <string name="merging_contacts">Slučují se kontakty\u2026</string>
+  <string name="searching_duplicated_contacts">Hledání duplicitních kontaktů\u2026</string>
+  <string name="no_duplicated_contacts">Žádné duplicitní kontakty</string>
+  <string name="give_up_merging">Zastavit slučování kontaktů?</string>
+  <string name="give_up">Zastavit slučování</string>
+  <string name="merge_complete">Sloučení dokončeno.</string>
+  <string name="sim_email_full">Úložiště e-mailů na SIM kartě je plné.</string>
+  <string name="sim_anr_full">Úložiště čísel na SIM kartě je plné.</string>
+  <string name="merge_fail">Sloučení se nezdařilo.</string>
 </resources>

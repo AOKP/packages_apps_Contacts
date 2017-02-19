@@ -38,7 +38,7 @@
   <string name="import_sim_contacts_title">Kontakte von SIM-Karte importieren</string>
   <string name="import_sim_contacts_message">SIM-Kontakte werden importiert\u2026</string>
   <string name="ContactMultiImportConfirmation">Die ausgewählten Kontakte werden importiert.</string>
-  <string name="import_finish">"Importieren abgeschlossen"</string>
+  <string name="import_finish">Importieren abgeschlossen</string>
   <string name="too_many_contacts_add_to_group">Es können maximal <xliff:g id="count">%d</xliff:g> Kontakte hinzugefügt werden.</string>
   <!-- Multi Delete Contacts related strings -->
   <string name="ContactMultiDeleteConfirmation">Die ausgewählten Kontakte werden gelöscht.</string>
@@ -56,6 +56,8 @@
   <string name="delete_call_alert">Sollen die ausgewählten Anrufprotokolle gelöscht werden?</string>
   <string name="title_del_call">Löschen</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_contacts_title">KONTAKTE</string>
+  <string name="multi_pick_group_title">GRUPPE</string>
   <string name="contacts_selected">%d ausgewählt</string>
   <string name="summary_count_numbers">%s Nummern</string>
   <string name="contact_info_text_as_name">Name:</string>
@@ -63,15 +65,19 @@
   <!-- The hint text in search-view.-->
   <!-- The call-log's clear button text in pick call mode. -->
   <!-- String used to display calls from unknown numbers in the call log -->
+  <string name="unknown">Unbekannt</string>
   <!-- String used to display calls from private numbers in the call log -->
   <!-- String used to display calls from pay phone in the call log -->
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
+  <string name="too_many_contacts_to_merge_message">Es können maximal <xliff:g id="count">%d</xliff:g> Kontakte zusammengeführt werden</string>
+  <string name="replace_button">ERSETZEN</string>
   <!-- merge contacts -->
-  <string name="merge_contacts">"Kontakte zusammenführen"</string>
-  <string name="merging_contacts">"Kontakte werden zusammengeführt\u2026"</string>
-  <string name="searching_duplicated_contacts">"Suche nach identischen Kontakten\u2026"</string>
-  <string name="no_duplicated_contacts">"Keine doppelten Kontakte"</string>
-  <string name="give_up_merging">"Zusammenführen der Kontakte abbrechen?"</string>
-  <string name="merge_fail">"Fehler beim Zusammenführen."</string>
+  <string name="merge_contacts">Kontakte zusammenführen</string>
+  <string name="merging_contacts">Kontakte werden zusammengeführt\u2026</string>
+  <string name="searching_duplicated_contacts">Suche nach identischen Kontakten\u2026</string>
+  <string name="no_duplicated_contacts">Keine doppelten Kontakte</string>
+  <string name="give_up_merging">Zusammenführen der Kontakte abbrechen?</string>
+  <string name="give_up">Zusammenführen abbrechen</string>
+  <string name="merge_fail">Fehler beim Zusammenführen.</string>
 </resources>

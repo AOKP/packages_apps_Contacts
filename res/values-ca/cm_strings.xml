@@ -35,7 +35,7 @@
   <string name="deleteConfirmation_title">Vols esborrar el contacte?</string>
   <string name="import_sim_contacts_title">Importa contactes de la SIM</string>
   <string name="import_sim_contacts_message">S\'estan important els contactes de la SIM\u2026</string>
-  <string name="import_finish">"S'ha finalitzat la importació"</string>
+  <string name="import_finish">S\'ha finalitzat la importació</string>
   <string name="too_many_contacts_add_to_group">Només hi ha <xliff:g id="count">%d</xliff:g> contactes que puguin ser afegits</string>
   <!-- Multi Delete Contacts related strings -->
   <!-- Menu item used to refresh a specific contact -->

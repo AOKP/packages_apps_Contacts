@@ -35,7 +35,7 @@
   <string name="deleteConfirmation_title">ಸಂಪರ್ಕ ಅಳಿಸು?</string>
   <string name="import_sim_contacts_title">ಸಿಮ್ ಸಂಪರ್ಕಗಳನ್ನು ಆಮದುಮಾಡು</string>
   <string name="import_sim_contacts_message">ಸಿಮ್ ಸಂಪರ್ಕಗಳನ್ನು ಆಮದುಮಾಡಲಾಗುತ್ತಿದೆ\u2026</string>
-  <string name="import_finish">"ಆಮದು ಮುಗಿದಿದೆ"</string>
+  <string name="import_finish">ಆಮದು ಮುಗಿದಿದೆ</string>
   <string name="too_many_contacts_add_to_group"><xliff:g id="count">%d</xliff:g>ಕ್ಕಿಂತ ಹೆಚ್ಚು ಸಂಪರ್ಕಗಳನ್ನು ಸೇರಿಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ</string>
   <!-- Multi Delete Contacts related strings -->
   <!-- Menu item used to refresh a specific contact -->

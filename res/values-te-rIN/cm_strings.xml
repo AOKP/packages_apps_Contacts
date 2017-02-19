@@ -35,7 +35,7 @@
   <string name="deleteConfirmation_title">పరిచయాన్ని తొలిగించాలా?</string>
   <string name="import_sim_contacts_title">SIM పరిచయాలను దిగుమతి చేయుము</string>
   <string name="import_sim_contacts_message">SIM పరిచయాల దిగుమతి జరుగుతోంది\u2026</string>
-  <string name="import_finish">"దిగుమతి పూర్తయింది"</string>
+  <string name="import_finish">దిగుమతి పూర్తయింది</string>
   <string name="too_many_contacts_add_to_group"><xliff:g id="count">%d</xliff:g> పరిచయాల కంటే ఎక్కువ జోడించడం సాధ్యపడదు</string>
   <!-- Multi Delete Contacts related strings -->
   <!-- Menu item used to refresh a specific contact -->

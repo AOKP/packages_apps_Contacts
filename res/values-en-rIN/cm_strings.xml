@@ -35,7 +35,7 @@
   <string name="deleteConfirmation_title">Delete contact?</string>
   <string name="import_sim_contacts_title">Import SIM contacts</string>
   <string name="import_sim_contacts_message">Importing SIM contacts\u2026</string>
-  <string name="import_finish">"Import finished"</string>
+  <string name="import_finish">Import finished</string>
   <string name="too_many_contacts_add_to_group">No more than <xliff:g id="count">%d</xliff:g> contacts can be added</string>
   <!-- Multi Delete Contacts related strings -->
   <!-- Menu item used to refresh a specific contact -->

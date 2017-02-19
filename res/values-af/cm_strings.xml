@@ -35,7 +35,7 @@
   <string name="deleteConfirmation_title">Verwyder kontak?</string>
   <string name="import_sim_contacts_title">Voer SIM kontakte in</string>
   <string name="import_sim_contacts_message">Besig om SIM kontakte in te voer\u2026</string>
-  <string name="import_finish">"Invoering klaar"</string>
+  <string name="import_finish">Invoering klaar</string>
   <string name="too_many_contacts_add_to_group">Nie mees as <xliff:g id="count">%d</xliff:g> kontakte kan gedeel word nie</string>
   <!-- Multi Delete Contacts related strings -->
   <!-- Menu item used to refresh a specific contact -->

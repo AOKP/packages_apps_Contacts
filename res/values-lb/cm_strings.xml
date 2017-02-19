@@ -35,7 +35,7 @@
   <string name="deleteConfirmation_title">Kontakt läschen?</string>
   <string name="import_sim_contacts_title">SIM-Kontakter importéieren</string>
   <string name="import_sim_contacts_message">SIM-Kontakter ginn importéiert\u2026</string>
-  <string name="import_finish">"Import fäerdeg"</string>
+  <string name="import_finish">Import fäerdeg</string>
   <string name="too_many_contacts_add_to_group">Et kënne just <xliff:g id="count">%d</xliff:g> Kontakter agedroe ginn</string>
   <!-- Multi Delete Contacts related strings -->
   <!-- Menu item used to refresh a specific contact -->

@@ -23,7 +23,7 @@
   <string name="deleteConfirmation_title">සබඳතාව මකනවා ද?</string>
   <string name="import_sim_contacts_title">සිම් සම්බන්ධතා ආයාත කරන්න</string>
   <string name="import_sim_contacts_message">සිම් සම්බන්ධතා ආයාත කරමින්\u2026</string>
-  <string name="import_finish">"ආයාතය නිමාවුනි"</string>
+  <string name="import_finish">ආයාතය නිමාවුනි</string>
   <string name="too_many_contacts_add_to_group">සම්බන්ධතා <xliff:g id="count">%d</xliff:g> ට වඩා එක් කල නොහැක</string>
   <!-- Multi Delete Contacts related strings -->
   <!-- Menu item used to refresh a specific contact -->

@@ -39,7 +39,7 @@
   <string name="import_sim_contacts_title">SIMの連絡先をインポート</string>
   <string name="import_sim_contacts_message">SIMの連絡先をインポート中...</string>
   <string name="ContactMultiImportConfirmation">選択した連絡先をインポートします。</string>
-  <string name="import_finish">"インポートが完了しました"</string>
+  <string name="import_finish">インポートが完了しました</string>
   <string name="import_stop">インポートをキャンセルしました</string>
   <string name="too_many_contacts_add_to_group"><xliff:g id="count">%d</xliff:g>件以上の連絡先は追加できません</string>
   <!-- Multi Delete Contacts related strings -->
@@ -83,14 +83,14 @@
   <string name="replace_number_title_2">前の電話番号を置換しますか？</string>
   <string name="replace_button">置換</string>
   <!-- merge contacts -->
-  <string name="merge_contacts">"連絡先を統合する"</string>
-  <string name="merging_contacts">"連絡先を統合中..."</string>
-  <string name="searching_duplicated_contacts">"重複した連絡先を検索中..."</string>
-  <string name="no_duplicated_contacts">"重複した連絡先はありません"</string>
-  <string name="give_up_merging">"連絡先の統合を中止しますか？"</string>
-  <string name="give_up">"統合の停止"</string>
-  <string name="merge_complete">"統合が完了しました。"</string>
-  <string name="sim_email_full">"SIM カードのメールストレージがいっぱいです。"</string>
-  <string name="sim_anr_full">"SIM カードの番号ストレージがいっぱいです。"</string>
-  <string name="merge_fail">"統合に失敗しました。"</string>
+  <string name="merge_contacts">連絡先を統合する</string>
+  <string name="merging_contacts">連絡先を統合中...</string>
+  <string name="searching_duplicated_contacts">重複した連絡先を検索中...</string>
+  <string name="no_duplicated_contacts">重複した連絡先はありません</string>
+  <string name="give_up_merging">連絡先の統合を中止しますか？</string>
+  <string name="give_up">統合の停止</string>
+  <string name="merge_complete">統合が完了しました。</string>
+  <string name="sim_email_full">SIM カードのメールストレージがいっぱいです。</string>
+  <string name="sim_anr_full">SIM カードの番号ストレージがいっぱいです。</string>
+  <string name="merge_fail">統合に失敗しました。</string>
 </resources>

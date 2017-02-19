@@ -39,8 +39,8 @@
   <string name="import_sim_contacts_title">Імпортувати контакти SIM</string>
   <string name="import_sim_contacts_message">Імпорт контактів SIM\u2026</string>
   <string name="ContactMultiImportConfirmation">Вибрані контакти буде імпортовано.</string>
-  <string name="import_finish">"Імпортування завершено"</string>
-  <string name="import_stop">\"Імпорт було скасовано</string>
+  <string name="import_finish">Імпортування завершено</string>
+  <string name="import_stop">Імпорт було скасовано</string>
   <string name="too_many_contacts_add_to_group">Більше ніж <xliff:g id="count">%d</xliff:g> контактів не може бути додано</string>
   <!-- Multi Delete Contacts related strings -->
   <string name="ContactMultiDeleteConfirmation">Вибрані контакти буде видалено.</string>
@@ -83,14 +83,14 @@
   <string name="replace_number_title_2">Замінити попередній номер?</string>
   <string name="replace_button">ЗАМІНИТИ</string>
   <!-- merge contacts -->
-  <string name="merge_contacts">"Об'єднати контакти"</string>
-  <string name="merging_contacts">"Об'єднання контактів\u2026"</string>
-  <string name="searching_duplicated_contacts">"Пошук дубльованих контактів\u2026"</string>
-  <string name="no_duplicated_contacts">"Немає дубльованих контактів"</string>
-  <string name="give_up_merging">"Зупинити об'єднання контактів?"</string>
-  <string name="give_up">"Зупинити об'єднання"</string>
-  <string name="merge_complete">"Об'єднання завершено."</string>
-  <string name="sim_email_full">"Пам'ять електронної пошти SIM карти заповнена."</string>
-  <string name="sim_anr_full">"Пам'ять номерів SIM карти заповнена."</string>
-  <string name="merge_fail">"Об'єднання не вдалося."</string>
+  <string name="merge_contacts">Об\'єднати контакти</string>
+  <string name="merging_contacts">Об\'єднання контактів\u2026</string>
+  <string name="searching_duplicated_contacts">Пошук дубльованих контактів\u2026</string>
+  <string name="no_duplicated_contacts">Немає дубльованих контактів</string>
+  <string name="give_up_merging">Зупинити об\'єднання контактів?</string>
+  <string name="give_up">Зупинити об\'єднання</string>
+  <string name="merge_complete">Об\'єднання завершено.</string>
+  <string name="sim_email_full">Пам\'ять електронної пошти SIM карти заповнена.</string>
+  <string name="sim_anr_full">Пам\'ять номерів SIM карти заповнена.</string>
+  <string name="merge_fail">Об\'єднання не вдалося.</string>
 </resources>

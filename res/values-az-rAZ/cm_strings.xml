@@ -35,7 +35,7 @@
   <string name="deleteConfirmation_title">Şəxsi sil?</string>
   <string name="import_sim_contacts_title">SIM şəxslərini idxal et</string>
   <string name="import_sim_contacts_message">SIM şəxsləri idxal edilir\u2026</string>
-  <string name="import_finish">"İdxal başa çatdı"</string>
+  <string name="import_finish">İdxal başa çatdı</string>
   <string name="too_many_contacts_add_to_group"><xliff:g id="count">%d</xliff:g> \'dən çox şəxs əlavə etmək olmaz</string>
   <!-- Multi Delete Contacts related strings -->
   <!-- Menu item used to refresh a specific contact -->

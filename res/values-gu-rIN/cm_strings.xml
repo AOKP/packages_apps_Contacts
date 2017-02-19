@@ -35,7 +35,7 @@
   <string name="deleteConfirmation_title">સંપર્ક હટાવીએ?</string>
   <string name="import_sim_contacts_title">SIM સંપર્કો આયાત કરો</string>
   <string name="import_sim_contacts_message">SIM સંપર્કો\u2026 આયાત થાય છે</string>
-  <string name="import_finish">"આયાત સમાપ્ત થયું"</string>
+  <string name="import_finish">આયાત સમાપ્ત થયું</string>
   <string name="too_many_contacts_add_to_group"><xliff:g id="count">%d</xliff:g> કરતા વધુ સંપર્કો ઉમેરી શકાશે નહીં</string>
   <!-- Multi Delete Contacts related strings -->
   <!-- Menu item used to refresh a specific contact -->

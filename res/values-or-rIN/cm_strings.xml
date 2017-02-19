@@ -35,7 +35,7 @@
   <string name="deleteConfirmation_title">ସମ୍ପର୍କ ବିଲୋପ କରିବେ?</string>
   <string name="import_sim_contacts_title">SIM ସମ୍ପର୍କଗୁଡିକୁ ଆମଦାନୀ କରୁଛି</string>
   <string name="import_sim_contacts_message">SIM ସମ୍ପର୍କଗୁଡିକୁ ଆମଦାନୀ କରାଯାଉଛି\u2026</string>
-  <string name="import_finish">"ଆମଦାନୀ ସମାପ୍ତ ହୋଇଛି"</string>
+  <string name="import_finish">ଆମଦାନୀ ସମାପ୍ତ ହୋଇଛି</string>
   <string name="too_many_contacts_add_to_group"><xliff:g id="count">%d</xliff:g> ରୁ ଅଧିକ ସମ୍ପର୍କ ଯୋଗ କରାଯାଇପାରିବ ନାହିଁ</string>
   <!-- Multi Delete Contacts related strings -->
   <!-- Menu item used to refresh a specific contact -->

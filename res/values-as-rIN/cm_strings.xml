@@ -35,7 +35,7 @@
   <string name="deleteConfirmation_title">কনটেক্ট মচি দিব?</string>
   <string name="import_sim_contacts_title">SIM যোগাযোগবোৰ আমদানি কৰক</string>
   <string name="import_sim_contacts_message">SIM যোগাযোগবোৰ আমদানি কৰি আছে\u2026</string>
-  <string name="import_finish">"আমদানি সমাপ্ত হৈছে"</string>
+  <string name="import_finish">আমদানি সমাপ্ত হৈছে</string>
   <string name="too_many_contacts_add_to_group"><xliff:g id="count">%d</xliff:g> তকৈ অধিক যোগাযোগ যোগ কৰিব নোৱাৰি</string>
   <!-- Multi Delete Contacts related strings -->
   <!-- Menu item used to refresh a specific contact -->

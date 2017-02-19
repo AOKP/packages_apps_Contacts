@@ -15,8 +15,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
+  <string name="contactDeletedToast">Stik izbrisan.</string>
   <string name="menu_moveGroupMembers">Premakni člane skupine</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Izbranih stikov ni bilo mogoče shraniti na kartico SIM</string>
   <string name="number_anr_too_long">Število je predolgo</string>
   <string name="email_address_too_long">E-poštni naslov je predolg</string>
   <string name="sim_card_full">Kartica SIM je polna</string>
@@ -31,14 +33,22 @@
   <string name="message_move_members">Premikanje članov \u2026</string>
   <string name="message_can_not_move_members">Premikanje članov ni mogoče</string>
   <!-- Gray hint displayed in the search field in Contacts when empty -->
+  <string name="search_bar_hint">Išči stike</string>
   <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
   <string name="deleteConfirmation_title">Izbriši stik?</string>
   <string name="import_sim_contacts_title">Uvozi stike SIM</string>
   <string name="import_sim_contacts_message">Uvažanje stikov SIM \u2026</string>
-  <string name="import_finish">"Uvoz končan"</string>
+  <string name="ContactMultiImportConfirmation">Izbrani stiki bodo uvoženi.</string>
+  <string name="import_finish">Uvoz končan</string>
+  <string name="import_stop">Uvoz je bil preklican</string>
   <string name="too_many_contacts_add_to_group">Dodanih ne more bite več kot <xliff:g id="count">%d</xliff:g> stikov</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="ContactMultiDeleteConfirmation">Izbrani stiki bodo izbrisani.</string>
+  <string name="delete_contacts_title">Izbriši stike</string>
+  <string name="delete_contacts_message">Brisanje stikov \u2026</string>
   <!-- Menu item used to refresh a specific contact -->
+  <string name="menu_refresh">Osveži</string>
+  <string name="video_call">Video klici</string>
   <string name="menu_copyTo">Kopiraj v <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">Stik USIM nima na voljo e-poštnega polja, sporočila ni mogoče kopirati.</string>
   <string name="voicemail">Glasovna pošta</string>
@@ -48,12 +58,39 @@
   <string name="delete_call_alert">Izbriši izbrane dnevnike klicev?</string>
   <string name="title_del_call">Izbriši</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_recent_title">NEDAVNO</string>
+  <string name="multi_pick_contacts_title">STIKI</string>
+  <string name="multi_pick_group_title">SKUPINA</string>
+  <string name="contacts_selected">%d izbranih</string>
+  <string name="summary_count_numbers">%s številk</string>
+  <string name="contact_info_text_as_name">Ime:</string>
+  <string name="contact_info_text_as_phone">Telefon:</string>
+  <string name="contact_info_text_as_email">E-pošta:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Iskanje</string>
   <!-- The call-log's clear button text in pick call mode. -->
+  <string name="clear_call_log_button_text">POČISTI</string>
   <!-- String used to display calls from unknown numbers in the call log -->
+  <string name="unknown">Neznano</string>
   <!-- String used to display calls from private numbers in the call log -->
+  <string name="private_num">Zasebna številka</string>
   <!-- String used to display calls from pay phone in the call log -->
+  <string name="payphone">Telefonska govorilnica</string>
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
+  <string name="too_many_contacts_to_merge_message">Združenih ne more biti več kot <xliff:g id="count">%d</xliff:g> stikov</string>
+  <string name="replace_number_title_1">Nadomesti prejšnjo številko</string>
+  <string name="replace_number_title_2">Nadomesti prejšnjo številko?</string>
+  <string name="replace_button">NADOMESTI</string>
   <!-- merge contacts -->
+  <string name="merge_contacts">Združi stike</string>
+  <string name="merging_contacts">Združevanje stikov \u2026</string>
+  <string name="searching_duplicated_contacts">Iskanje podvojenih stikov \u2026</string>
+  <string name="no_duplicated_contacts">Ni podvojenih stikov</string>
+  <string name="give_up_merging">Ustavi združevanje stikov?</string>
+  <string name="give_up">Ustavi združevanje</string>
+  <string name="merge_complete">Združevanje končano.</string>
+  <string name="sim_email_full">Pomnilnik za e-pošto na kartici SIM je poln.</string>
+  <string name="sim_anr_full">Pomnilnik za številke na kartici SIM je poln.</string>
+  <string name="merge_fail">Združevanje ni uspelo.</string>
 </resources>

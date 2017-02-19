@@ -35,7 +35,7 @@
   <string name="deleteConfirmation_title">سڕینەوەی پەیوەندی?</string>
   <string name="import_sim_contacts_title">هاوردنی پەیوەندییەکانی سیمکارت</string>
   <string name="import_sim_contacts_message">هاوردنی ناوەکان لە سیمکارتەوە\u2026</string>
-  <string name="import_finish">"هاوردن تەواو بوو"</string>
+  <string name="import_finish">هاوردن تەواو بوو</string>
   <string name="too_many_contacts_add_to_group">زۆرتر لە <xliff:g id="count">%d</xliff:g> پەیوەندی ناتوانرێت زیا بکرێت</string>
   <!-- Multi Delete Contacts related strings -->
   <!-- Menu item used to refresh a specific contact -->

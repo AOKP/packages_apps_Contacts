@@ -15,8 +15,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
+  <string name="contactDeletedToast">Kontakt slettet.</string>
   <string name="menu_moveGroupMembers">Flytt medlemmer</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Kunne ikke lagre de valgte kontaktene til SIM-kortet</string>
   <string name="number_anr_too_long">Nummeret er for langt</string>
   <string name="email_address_too_long">E-postadressen er for lang</string>
   <string name="sim_card_full">SIM-kortet er fullt</string>
@@ -31,14 +33,22 @@
   <string name="message_move_members">Flytter kontakter\u2026</string>
   <string name="message_can_not_move_members">Kan ikke flytte medlemmer</string>
   <!-- Gray hint displayed in the search field in Contacts when empty -->
+  <string name="search_bar_hint">Søk i kontakter</string>
   <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
   <string name="deleteConfirmation_title">Slette kontakt?</string>
   <string name="import_sim_contacts_title">Importer SIM-kontakter</string>
   <string name="import_sim_contacts_message">Importerer SIM kontakter\u2026</string>
-  <string name="import_finish">"Import fullført"</string>
+  <string name="ContactMultiImportConfirmation">De valgte kontaktene vil bli importert.</string>
+  <string name="import_finish">Import fullført</string>
+  <string name="import_stop">Importering ble avbrutt</string>
   <string name="too_many_contacts_add_to_group">Ikke mer enn <xliff:g id="count">%d</xliff:g> kontakter kan legges til</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="ContactMultiDeleteConfirmation">De valgte kontaktene vil bli slettet.</string>
+  <string name="delete_contacts_title">Slett kontakter</string>
+  <string name="delete_contacts_message">Sletter kontakter\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
+  <string name="menu_refresh">Oppdater</string>
+  <string name="video_call">Videoanrop</string>
   <string name="menu_copyTo">Kopiere til <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">USIM kontakten har ikke ett tilgjengelig e-felt, kan ikke kopiere meldinger.</string>
   <string name="voicemail">Talepostkasse</string>
@@ -48,12 +58,39 @@
   <string name="delete_call_alert">Slett valgte Anropslister?</string>
   <string name="title_del_call">Slett</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_recent_title">SISTE</string>
+  <string name="multi_pick_contacts_title">KONTAKTER</string>
+  <string name="multi_pick_group_title">GRUPPE</string>
+  <string name="contacts_selected">%d valgte</string>
+  <string name="summary_count_numbers">%s nummer</string>
+  <string name="contact_info_text_as_name">Navn:</string>
+  <string name="contact_info_text_as_phone">Tlf:</string>
+  <string name="contact_info_text_as_email">E-post:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Søk</string>
   <!-- The call-log's clear button text in pick call mode. -->
+  <string name="clear_call_log_button_text">TØM</string>
   <!-- String used to display calls from unknown numbers in the call log -->
+  <string name="unknown">Ukjent</string>
   <!-- String used to display calls from private numbers in the call log -->
+  <string name="private_num">Privat nummer</string>
   <!-- String used to display calls from pay phone in the call log -->
+  <string name="payphone">Telefonkiosk</string>
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
+  <string name="too_many_contacts_to_merge_message">Ikke flere enn <xliff:g id="count">%d</xliff:g> kontakter kan bli slått sammen</string>
+  <string name="replace_number_title_1">Erstatt det forrige nummeret</string>
+  <string name="replace_number_title_2">Erstatte det forrige nummeret?</string>
+  <string name="replace_button">ERSTATT</string>
   <!-- merge contacts -->
+  <string name="merge_contacts">Slå sammen kontakter</string>
+  <string name="merging_contacts">Slår sammen kontakter\u2026</string>
+  <string name="searching_duplicated_contacts">Søker etter dupliserte kontakter\u2026</string>
+  <string name="no_duplicated_contacts">Ingen dupliserte kontakter</string>
+  <string name="give_up_merging">Stoppe sammenslåing av kontakter?</string>
+  <string name="give_up">Stopp sammenslåing</string>
+  <string name="merge_complete">Sammenslåing fullført.</string>
+  <string name="sim_email_full">SIM-kort e-post lagring er full.</string>
+  <string name="sim_anr_full">SIM-kort telefonnummer lagring er full.</string>
+  <string name="merge_fail">Sammenslåing mislyktes.</string>
 </resources>

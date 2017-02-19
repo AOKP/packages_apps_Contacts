@@ -39,7 +39,7 @@
   <string name="import_sim_contacts_title">导入 SIM 卡联系人</string>
   <string name="import_sim_contacts_message">正在导入 SIM 卡联系人\u2026</string>
   <string name="ContactMultiImportConfirmation">选择的联系人将被导入。</string>
-  <string name="import_finish">"导入完成"</string>
+  <string name="import_finish">导入完成</string>
   <string name="import_stop">导入已取消</string>
   <string name="too_many_contacts_add_to_group">最多添加 <xliff:g id="count">%d</xliff:g> 个联系人</string>
   <!-- Multi Delete Contacts related strings -->
@@ -83,14 +83,14 @@
   <string name="replace_number_title_2">替换上一个号码？</string>
   <string name="replace_button">替换</string>
   <!-- merge contacts -->
-  <string name="merge_contacts">"合并联系人"</string>
-  <string name="merging_contacts">"正在合并联系人\u2026"</string>
-  <string name="searching_duplicated_contacts">"正在搜索重复的联系人\u2026"</string>
-  <string name="no_duplicated_contacts">"没有重复的联系人"</string>
-  <string name="give_up_merging">"停止合并联系人？"</string>
-  <string name="give_up">"停止合并"</string>
-  <string name="merge_complete">"合并完成。"</string>
-  <string name="sim_email_full">"SIM 卡电子邮件存储已满。"</string>
-  <string name="sim_anr_full">"SIM 卡电话号码存储已满。"</string>
-  <string name="merge_fail">"合并失败。"</string>
+  <string name="merge_contacts">合并联系人</string>
+  <string name="merging_contacts">正在合并联系人\u2026</string>
+  <string name="searching_duplicated_contacts">正在搜索重复的联系人\u2026</string>
+  <string name="no_duplicated_contacts">没有重复的联系人</string>
+  <string name="give_up_merging">停止合并联系人？</string>
+  <string name="give_up">停止合并</string>
+  <string name="merge_complete">合并完成。</string>
+  <string name="sim_email_full">SIM 卡电子邮件存储已满。</string>
+  <string name="sim_anr_full">SIM 卡电话号码存储已满。</string>
+  <string name="merge_fail">合并失败。</string>
 </resources>

@@ -35,7 +35,7 @@
   <string name="deleteConfirmation_title">Kustuta kontakt?</string>
   <string name="import_sim_contacts_title">Impordi SIM-kaardi kontaktid</string>
   <string name="import_sim_contacts_message">SIM-kaardi kontaktide importimine</string>
-  <string name="import_finish">"Importimine lõpetatud"</string>
+  <string name="import_finish">Importimine lõpetatud</string>
   <string name="too_many_contacts_add_to_group">Enam kui <xliff:g id="count">%d </xliff:g> kontakti ei saa lisada</string>
   <!-- Multi Delete Contacts related strings -->
   <!-- Menu item used to refresh a specific contact -->

@@ -15,8 +15,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
+  <string name="contactDeletedToast">Liên hệ đã bị xóa.</string>
   <string name="menu_moveGroupMembers">Chuyển thành viên nhóm</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Không thể lưu các liên hệ đã chọn vào thẻ SIM</string>
   <string name="number_anr_too_long">Số quá dài</string>
   <string name="email_address_too_long">Địa chỉ email quá dài</string>
   <string name="sim_card_full">Thẻ SIM đầy</string>
@@ -31,14 +33,21 @@
   <string name="message_move_members">Đang chuyển thành viên\u2026</string>
   <string name="message_can_not_move_members">Không thể chuyển thành viên</string>
   <!-- Gray hint displayed in the search field in Contacts when empty -->
+  <string name="search_bar_hint">Tìm kiếm liên hệ</string>
   <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
   <string name="deleteConfirmation_title">Xoá số liên lạc?</string>
   <string name="import_sim_contacts_title">Nhập các số liên lạc từ SIM</string>
   <string name="import_sim_contacts_message">Đang nhập các số liên lạc từ SIM\u2026</string>
-  <string name="import_finish">"Nhập hoàn tất"</string>
+  <string name="ContactMultiImportConfirmation">Các liên hệ đã chọn sẽ được nhập.</string>
+  <string name="import_finish">Nhập hoàn tất</string>
   <string name="too_many_contacts_add_to_group">Không được thêm vào nhiều hơn <xliff:g id="count">%d</xliff:g> số liên lạc</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="ContactMultiDeleteConfirmation">Liên hệ đã chọn sẽ bị xóa.</string>
+  <string name="delete_contacts_title">Xoá liên hệ</string>
+  <string name="delete_contacts_message">Đang xoá các liên hệ\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
+  <string name="menu_refresh">Làm mới</string>
+  <string name="video_call">Gọi video</string>
   <string name="menu_copyTo">Chép vào <xliff:g id="destination">%s </xliff:g></string>
   <string name="no_empty_email_in_usim">Số liên lạc trên USIM không có trường email khả dụng, không thể chép tin nhắn.</string>
   <string name="voicemail">Thư thoại</string>
@@ -48,12 +57,39 @@
   <string name="delete_call_alert">Xoá nhật ký cuộc gọi đã chọn?</string>
   <string name="title_del_call">Xoá</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_recent_title">HIỆN TẠI</string>
+  <string name="multi_pick_contacts_title">LIÊN HỆ</string>
+  <string name="multi_pick_group_title">NHÓM</string>
+  <string name="contacts_selected">%d đã chọn</string>
+  <string name="summary_count_numbers">%s số</string>
+  <string name="contact_info_text_as_name">Tên:</string>
+  <string name="contact_info_text_as_phone">Số điện thoại:</string>
+  <string name="contact_info_text_as_email">Email:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Tìm kiếm</string>
   <!-- The call-log's clear button text in pick call mode. -->
+  <string name="clear_call_log_button_text">XÓA</string>
   <!-- String used to display calls from unknown numbers in the call log -->
+  <string name="unknown">Không rõ</string>
   <!-- String used to display calls from private numbers in the call log -->
+  <string name="private_num">Số cá nhân</string>
   <!-- String used to display calls from pay phone in the call log -->
+  <string name="payphone">Điện thoại công cộng</string>
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
+  <string name="too_many_contacts_to_merge_message">Không được nhiều hơn <xliff:g id="count">%d</xliff:g> liên hệ có thể được hợp nhất</string>
+  <string name="replace_number_title_1">Thay thế số trước</string>
+  <string name="replace_number_title_2">Thay thế số trước?</string>
+  <string name="replace_button">THAY THẾ</string>
   <!-- merge contacts -->
+  <string name="merge_contacts">Hợp nhất liên hệ</string>
+  <string name="merging_contacts">Đang hợp nhất các liên hệ\u2026</string>
+  <string name="searching_duplicated_contacts">Đang tìm kiếm các liên hệ đã trùng lặp\u2026</string>
+  <string name="no_duplicated_contacts">Không có liên hệ trùng lặp</string>
+  <string name="give_up_merging">Dừng hợp nhất các liên hệ?</string>
+  <string name="give_up">Dừng hợp nhất</string>
+  <string name="merge_complete">Hợp nhất hoàn tất.</string>
+  <string name="sim_email_full">Bộ nhớ email thẻ SIM bị đầy.</string>
+  <string name="sim_anr_full">Bộ nhớ số thẻ SIM bị đầy.</string>
+  <string name="merge_fail">Không thể hợp nhất.</string>
 </resources>

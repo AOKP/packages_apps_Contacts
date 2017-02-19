@@ -15,8 +15,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
+  <string name="contactDeletedToast">Contacto eliminado.</string>
   <string name="menu_moveGroupMembers">Mover miembros del grupo</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">No se pudieron guardar los contactos seleccionados en la tarjeta SIM</string>
   <string name="number_anr_too_long">El número es demasiado largo</string>
   <string name="email_address_too_long">La dirección de correo electrónico es demasiado larga</string>
   <string name="sim_card_full">La tarjeta SIM está llena</string>
@@ -31,14 +33,21 @@
   <string name="message_move_members">Moviendo miembros\u2026</string>
   <string name="message_can_not_move_members">No se puede mover a los miembros</string>
   <!-- Gray hint displayed in the search field in Contacts when empty -->
+  <string name="search_bar_hint">Buscar contactos</string>
   <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
   <string name="deleteConfirmation_title">¿Eliminar contacto?</string>
   <string name="import_sim_contacts_title">Importar contactos de SIM</string>
   <string name="import_sim_contacts_message">Importando contactos de SIM\u2026</string>
-  <string name="import_finish">"Importación finalizada"</string>
+  <string name="ContactMultiImportConfirmation">Se importarán los contactos seleccionados.</string>
+  <string name="import_finish">Importación finalizada</string>
   <string name="too_many_contacts_add_to_group">No se pueden añadir más de <xliff:g id="count">%d</xliff:g> contactos</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="ContactMultiDeleteConfirmation">Se eliminarán los contactos seleccionados.</string>
+  <string name="delete_contacts_title">Eliminar contactos</string>
+  <string name="delete_contacts_message">Eliminando contactos\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
+  <string name="menu_refresh">Recargar</string>
+  <string name="video_call">Videollamada</string>
   <string name="menu_copyTo">Copiar a <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">Contacto USIM no tiene un campo de correo electrónico disponible. No se pueden copiar los mensajes.</string>
   <string name="voicemail">Buzón de voz</string>
@@ -48,12 +57,39 @@
   <string name="delete_call_alert">¿Eliminar registros de llamadas seleccionados?</string>
   <string name="title_del_call">Eliminar</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_recent_title">RECIENTES</string>
+  <string name="multi_pick_contacts_title">CONTACTOS</string>
+  <string name="multi_pick_group_title">GRUPOS</string>
+  <string name="contacts_selected">%d seleccionados</string>
+  <string name="summary_count_numbers">%s números</string>
+  <string name="contact_info_text_as_name">Nombre:</string>
+  <string name="contact_info_text_as_phone">Tel:</string>
+  <string name="contact_info_text_as_email">Email:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Buscar</string>
   <!-- The call-log's clear button text in pick call mode. -->
+  <string name="clear_call_log_button_text">LIMPIAR</string>
   <!-- String used to display calls from unknown numbers in the call log -->
+  <string name="unknown">Desconocido</string>
   <!-- String used to display calls from private numbers in the call log -->
+  <string name="private_num">Número privado</string>
   <!-- String used to display calls from pay phone in the call log -->
+  <string name="payphone">Teléfono público</string>
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
+  <string name="too_many_contacts_to_merge_message">No se pueden combinar más de <xliff:g id="count">%d</xliff:g> contactos</string>
+  <string name="replace_number_title_1">Reemplazar número anterior</string>
+  <string name="replace_number_title_2">¿Reemplazar número anterior?</string>
+  <string name="replace_button">REEMPLAZAR</string>
   <!-- merge contacts -->
+  <string name="merge_contacts">Combinar contactos</string>
+  <string name="merging_contacts">Combinando contactos\u2026</string>
+  <string name="searching_duplicated_contacts">Buscando contactos duplicados\u2026</string>
+  <string name="no_duplicated_contacts">No hay contactos duplicados</string>
+  <string name="give_up_merging">¿Dejar de combinar contactos?</string>
+  <string name="give_up">Detener combinación</string>
+  <string name="merge_complete">Combinación terminada.</string>
+  <string name="sim_email_full">Almacenamiento de email de la tarjeta SIM lleno.</string>
+  <string name="sim_anr_full">Almacenamiento de números de la tarjeta SIM lleno.</string>
+  <string name="merge_fail">Error al combinar.</string>
 </resources>
