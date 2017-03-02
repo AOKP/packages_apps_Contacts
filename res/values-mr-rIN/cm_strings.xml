@@ -17,6 +17,7 @@
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <string name="menu_moveGroupMembers">समूह सदस्य हलवा</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">निवडलेले संपर्क सिम कार्डवर जतन करता आले नाहीत</string>
   <string name="number_anr_too_long">नंबर खूप लांब आहे</string>
   <string name="email_address_too_long">ईमेल पत्ता खूप लांब आहे</string>
   <string name="sim_card_full">सिम कार्ड भरले आहे</string>
@@ -38,6 +39,8 @@
   <string name="import_finish">आयात संपली</string>
   <string name="too_many_contacts_add_to_group"><xliff:g id="count">%d</xliff:g> पेक्षा जास्त संपर्क जोडता येणार नाहीत</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">संपर्क हटवा</string>
+  <string name="delete_contacts_message">संपर्क हटवत आहे\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_copyTo"><xliff:g id="destination">%s</xliff:g>ला कॉपी करा</string>
   <string name="no_empty_email_in_usim">USIM संपर्कामध्ये उपलब्ध ईमेल क्षेत्र नाही, संदेश कॉपी करण्यात अक्षम.</string>

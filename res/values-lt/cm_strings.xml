@@ -17,6 +17,7 @@
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <string name="menu_moveGroupMembers">Perkelti grupės narius</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Negalima išsaugoti pažymėtų kontaktų į SIM kortelę</string>
   <string name="number_anr_too_long">Numeris yra per ilgas</string>
   <string name="email_address_too_long">El. pašto adresas yra per ilgas</string>
   <string name="sim_card_full">SIM kortelė yra pilna</string>
@@ -38,6 +39,8 @@
   <string name="import_finish">Importavimas baigtas</string>
   <string name="too_many_contacts_add_to_group">Negali būti pridėta daugiau nei <xliff:g id="count">%d</xliff:g> kontaktų</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">Ištrinti kontaktus</string>
+  <string name="delete_contacts_message">Ištrinami kontakai\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_copyTo">Kopijuoti į <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">USIM kontaktas neturi pasiekiamo el. pašto lauko, negalima kopijuoti pranešimų.</string>

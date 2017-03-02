@@ -17,6 +17,7 @@
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <string name="menu_moveGroupMembers">Pārvietot grupas dalībniekus</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Neizdevās saglabāt izvēlēto kontaktu SIM kartē</string>
   <string name="number_anr_too_long">Numurs ir pārāk garš</string>
   <string name="email_address_too_long">E-pasta adrese ir pārāk gara</string>
   <string name="sim_card_full">SIM karte ir pilna</string>
@@ -38,6 +39,8 @@
   <string name="import_finish">Importēšana pabeigta</string>
   <string name="too_many_contacts_add_to_group">Var pievienot ne vairāk kā <xliff:g id="count">%d</xliff:g> kontaktus</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">Dzēst kontaktus</string>
+  <string name="delete_contacts_message">Dzēš kontaktus\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_copyTo">Kopēt uz <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">USIM kontaktpersonai nav pieejamas e-pasta lauks, nevar kopēt ziņojumus.</string>

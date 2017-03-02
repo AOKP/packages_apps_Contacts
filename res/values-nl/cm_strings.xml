@@ -15,8 +15,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
+  <string name="contactDeletedToast">Contact verwijderd.</string>
   <string name="menu_moveGroupMembers">Leden van de groep verplaatsen</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Geselecteerde contacten konden niet worden opgeslagen op de simkaart</string>
   <string name="number_anr_too_long">Nummer is te lang</string>
   <string name="email_address_too_long">E-mailadres is te lang</string>
   <string name="sim_card_full">Simkaart is vol</string>
@@ -31,25 +33,64 @@
   <string name="message_move_members">Leden verplaatsen\u2026</string>
   <string name="message_can_not_move_members">Kan leden niet verplaatsen</string>
   <!-- Gray hint displayed in the search field in Contacts when empty -->
+  <string name="search_bar_hint">Contacten zoeken</string>
   <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
   <string name="deleteConfirmation_title">Contact verwijderen?</string>
   <string name="import_sim_contacts_title">SIM-contacten importeren</string>
   <string name="import_sim_contacts_message">SIM-contacten importeren\u2026</string>
+  <string name="ContactMultiImportConfirmation">Geselecteerde contacten worden geïmporteerd.</string>
   <string name="import_finish">Importeren voltooid</string>
+  <string name="import_stop">Import geannuleerd</string>
   <string name="too_many_contacts_add_to_group">Er kunnen niet meer dan <xliff:g id="count">%d</xliff:g> contacten worden toegevoegd</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="ContactMultiDeleteConfirmation">Geselecteerde contacten worden verwijderd.</string>
+  <string name="delete_contacts_title">Contacten verwijderen</string>
+  <string name="delete_contacts_message">Contacten verwijderen\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
+  <string name="menu_refresh">Vernieuwen</string>
+  <string name="video_call">Video-oproep</string>
   <string name="menu_copyTo">Kopiëren naar <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">USIM-contact heeft geen e-mailveld beschikbaar, kan berichten niet kopiëren.</string>
   <string name="voicemail">Voicemail</string>
+  <string name="select_call_title">Oproepgeschiedenis selecteren</string>
+  <string name="delete_call_title">Oproepgeschiedenis verwijderen</string>
+  <string name="delete_call_message">Oproepgeschiedenis verwijderen\u2026</string>
+  <string name="delete_call_alert">Geselecteerde oproepgeschiedenis verwijderen?</string>
   <string name="title_del_call">Verwijderen</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_recent_title">RECENT</string>
+  <string name="multi_pick_contacts_title">CONTACTEN</string>
+  <string name="multi_pick_group_title">GROEP</string>
+  <string name="contacts_selected">%d geselecteerd</string>
+  <string name="summary_count_numbers">%s nummers</string>
+  <string name="contact_info_text_as_name">Naam:</string>
+  <string name="contact_info_text_as_phone">Tel:</string>
+  <string name="contact_info_text_as_email">E-mail:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Zoeken</string>
   <!-- The call-log's clear button text in pick call mode. -->
+  <string name="clear_call_log_button_text">WISSEN</string>
   <!-- String used to display calls from unknown numbers in the call log -->
+  <string name="unknown">Onbekend</string>
   <!-- String used to display calls from private numbers in the call log -->
+  <string name="private_num">Privénummer</string>
   <!-- String used to display calls from pay phone in the call log -->
+  <string name="payphone">Telefooncel</string>
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
+  <string name="too_many_contacts_to_merge_message">Er kunnen niet meer dan <xliff:g id="count">%d</xliff:g> contacten worden toegevoegd</string>
+  <string name="replace_number_title_1">Vorig nummer vervangen</string>
+  <string name="replace_number_title_2">Vorig nummer vervangen?</string>
+  <string name="replace_button">VERVANGEN</string>
   <!-- merge contacts -->
+  <string name="merge_contacts">Contacten samenvoegen</string>
+  <string name="merging_contacts">Contacten samenvoegen\u2026</string>
+  <string name="searching_duplicated_contacts">Dubbele contacten zoeken\u2026</string>
+  <string name="no_duplicated_contacts">Geen dubbele contacten</string>
+  <string name="give_up_merging">Contacten samenvoegen stoppen?</string>
+  <string name="give_up">Samenvoegen stoppen</string>
+  <string name="merge_complete">Samenvoegen voltooid.</string>
+  <string name="sim_email_full">E-mailopslag op simkaart is vol.</string>
+  <string name="sim_anr_full">Nummeropslag op simkaart is vol.</string>
+  <string name="merge_fail">Samenvoegen mislukt.</string>
 </resources>

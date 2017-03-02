@@ -17,6 +17,7 @@
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <string name="menu_moveGroupMembers">Μετακίνηση μελών ομάδας</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Δεν ήταν δυνατή η αποθήκευση των επιλεγμένων επαφών στην κάρτα SIM</string>
   <string name="number_anr_too_long">Ο αριθμός είναι πολύ μεγάλος</string>
   <string name="email_address_too_long">Η διεύθυνση ηλεκτρονικού ταχυδρομείου είναι πολύ μεγάλη</string>
   <string name="sim_card_full">Η κάρτα SIM είναι γεμάτη</string>
@@ -38,6 +39,8 @@
   <string name="import_finish">Η εισαγωγή ολοκληρώθηκε</string>
   <string name="too_many_contacts_add_to_group">Δεν είναι δυνατή η προσθήκη περισσότερων από <xliff:g id="count">%d</xliff:g> επαφών</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">Διαγραφή επαφών</string>
+  <string name="delete_contacts_message">Διαγραφή επαφών\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_copyTo">Αντιγραφή σε <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">Η επαφή USIM δεν έχει κανένα διαθέσιμο πεδίο ηλεκτρονικού ταχυδρομείου, δεν είναι δυνατή η αντιγραφή των μηνυμάτων.</string>

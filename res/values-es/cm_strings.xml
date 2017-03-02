@@ -18,7 +18,7 @@
   <string name="contactDeletedToast">Contacto eliminado.</string>
   <string name="menu_moveGroupMembers">Mover miembros del grupo</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
-  <string name="contactSavedToSimCardError">No se pudieron guardar los contactos seleccionados en la tarjeta SIM</string>
+  <string name="contactSavedToSimCardError">No se han podido guardar los contactos seleccionados en la tarjeta SIM</string>
   <string name="number_anr_too_long">El número es demasiado largo</string>
   <string name="email_address_too_long">La dirección de correo electrónico es demasiado larga</string>
   <string name="sim_card_full">La tarjeta SIM está llena</string>

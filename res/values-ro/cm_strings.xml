@@ -44,11 +44,11 @@
   <string name="too_many_contacts_add_to_group">Nu mai mult de <xliff:g id="count">%d</xliff:g> persoane de contact pot fi adăugate</string>
   <!-- Multi Delete Contacts related strings -->
   <string name="ContactMultiDeleteConfirmation">Contactele selectate vor fi șterse.</string>
-  <string name="delete_contacts_title">Ştergeți Contacte</string>
-  <string name="delete_contacts_message">Se șterg Contactele\u2026</string>
+  <string name="delete_contacts_title">Ștergere contacte</string>
+  <string name="delete_contacts_message">Se șterg contacte\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_refresh">Reîmprospătare</string>
-  <string name="video_call">Apelare Video</string>
+  <string name="video_call">Apelare video</string>
   <string name="menu_copyTo">Copiere pe <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">Contactul USIM nu are un câmp de email disponibil, mesajele nu pot fi copiate.</string>
   <string name="voicemail">Mesagerie vocală</string>

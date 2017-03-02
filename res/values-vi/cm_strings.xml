@@ -18,7 +18,7 @@
   <string name="contactDeletedToast">Liên hệ đã bị xóa.</string>
   <string name="menu_moveGroupMembers">Chuyển thành viên nhóm</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
-  <string name="contactSavedToSimCardError">Không thể lưu các liên hệ đã chọn vào thẻ SIM</string>
+  <string name="contactSavedToSimCardError">Không thể lưu các số liên lạc đã chọn vào thẻ SIM</string>
   <string name="number_anr_too_long">Số quá dài</string>
   <string name="email_address_too_long">Địa chỉ email quá dài</string>
   <string name="sim_card_full">Thẻ SIM đầy</string>
@@ -40,14 +40,14 @@
   <string name="import_sim_contacts_message">Đang nhập các số liên lạc từ SIM\u2026</string>
   <string name="ContactMultiImportConfirmation">Các liên hệ đã chọn sẽ được nhập.</string>
   <string name="import_finish">Nhập hoàn tất</string>
+  <string name="import_stop">Nhập vào đã bị hủy</string>
   <string name="too_many_contacts_add_to_group">Không được thêm vào nhiều hơn <xliff:g id="count">%d</xliff:g> số liên lạc</string>
   <!-- Multi Delete Contacts related strings -->
   <string name="ContactMultiDeleteConfirmation">Liên hệ đã chọn sẽ bị xóa.</string>
-  <string name="delete_contacts_title">Xoá liên hệ</string>
-  <string name="delete_contacts_message">Đang xoá các liên hệ\u2026</string>
+  <string name="delete_contacts_title">Xoá số liên lạc</string>
+  <string name="delete_contacts_message">Đang xoá số liên lạc\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_refresh">Làm mới</string>
-  <string name="video_call">Gọi video</string>
   <string name="menu_copyTo">Chép vào <xliff:g id="destination">%s </xliff:g></string>
   <string name="no_empty_email_in_usim">Số liên lạc trên USIM không có trường email khả dụng, không thể chép tin nhắn.</string>
   <string name="voicemail">Thư thoại</string>

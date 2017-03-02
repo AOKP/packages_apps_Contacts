@@ -17,6 +17,7 @@
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <string name="menu_moveGroupMembers">جوڵاندنی ئەندامانی کۆمەڵەکان</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">ناتوانرێت ناوە دیاریکراوەکان پاشەکەوت بکرێت بۆ ناو سیمکارتەکە</string>
   <string name="number_anr_too_long">ژمارەکە زۆر درێژە</string>
   <string name="email_address_too_long">ناونیشانی ئیمەیڵەکە زۆر درێژە</string>
   <string name="sim_card_full">سیمکارتەکە پڕە</string>
@@ -38,6 +39,8 @@
   <string name="import_finish">هاوردن تەواو بوو</string>
   <string name="too_many_contacts_add_to_group">زۆرتر لە <xliff:g id="count">%d</xliff:g> پەیوەندی ناتوانرێت زیا بکرێت</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">سڕینەوەی پەیوەندی</string>
+  <string name="delete_contacts_message">سڕینەوەی ناوەکان\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_copyTo">لەبەرگرتنەوە بۆ <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">ناوەکانی USIM شوێنی پۆستی ئیلکترۆنی لە کارە نیە، لە توانادا نیە لەبەری نامەکان بگیرێتەوە.</string>

@@ -17,6 +17,7 @@
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <string name="menu_moveGroupMembers">Déplacer des membres du groupe</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Impossible d\'enregistrer les contacts sélectionnés sur la carte SIM</string>
   <string name="number_anr_too_long">Numéro trop long</string>
   <string name="email_address_too_long">Adresse e-mail trop longue</string>
   <string name="sim_card_full">Carte SIM saturée</string>
@@ -38,6 +39,8 @@
   <string name="import_finish">Importation terminée</string>
   <string name="too_many_contacts_add_to_group">Impossible d\'ajouter plus de <xliff:g id="count">%d</xliff:g> contacts</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">Supprimer les contacts</string>
+  <string name="delete_contacts_message">Suppression des contacts\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_copyTo">Copier dans <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">Un contact USIM n\'a pas de champ e-mail disponible, impossible de copier les messages.</string>

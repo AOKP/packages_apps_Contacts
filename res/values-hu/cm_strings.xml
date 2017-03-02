@@ -17,6 +17,7 @@
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <string name="menu_moveGroupMembers">Csoport tagjainak áthelyezése</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Nem lehet elmenteni a kiválasztott névjegyeket a SIM-kártyára</string>
   <string name="number_anr_too_long">A szám túl hosszú</string>
   <string name="email_address_too_long">Az e-mail cím túl hosszú</string>
   <string name="sim_card_full">SIM-kártya megtelt</string>
@@ -38,6 +39,8 @@
   <string name="import_finish">Importálás befejeződött</string>
   <string name="too_many_contacts_add_to_group"><xliff:g id="count">%d</xliff:g> névjegynél több nem adható hozzá</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">Névjegyek törlése</string>
+  <string name="delete_contacts_message">Névjegyek törlése\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_copyTo">Másolás ide: <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">Az USIM kapcsolat nem rendelkezik e-mail címmel, nem lehet másolni az üzeneteket.</string>

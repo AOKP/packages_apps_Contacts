@@ -44,7 +44,7 @@
   <string name="too_many_contacts_add_to_group">不可以新增超過 <xliff:g id="count">%d</xliff:g> 個聯絡人</string>
   <!-- Multi Delete Contacts related strings -->
   <string name="ContactMultiDeleteConfirmation">已選取的聯絡人將被刪除。</string>
-  <string name="delete_contacts_title">删除聯絡人</string>
+  <string name="delete_contacts_title">刪除聯絡人</string>
   <string name="delete_contacts_message">正在刪除聯絡人\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_refresh">重新整理</string>

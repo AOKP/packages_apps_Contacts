@@ -17,6 +17,7 @@
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <string name="menu_moveGroupMembers">குழு உறுப்பினர்களை நகர்த்து</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">தேர்ந்தெடுக்கப்பட்ட தொடர்புகளை SIM கார்டிடம் சேமிக்க முடியவில்லை</string>
   <string name="number_anr_too_long">இந்த எண் மிகவும் நீளம்</string>
   <string name="email_address_too_long">மின்னஞ்சல் முகவரி மிகவும் நீளம்</string>
   <string name="sim_card_full">SIM கார்டு நிரம்பிவிட்டது</string>
@@ -38,6 +39,8 @@
   <string name="import_finish">இறக்குமதி முடிந்தது</string>
   <string name="too_many_contacts_add_to_group"><xliff:g id="count">%d</xliff:g> தொடர்புகளுக்கு மேல் சேர்க்க முடியாது</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">தொடர்புகளை நீக்கு</string>
+  <string name="delete_contacts_message">தொடர்புகள் நீக்கப்படுகின்றன\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_copyTo"><xliff:g id="destination">%s</xliff:g>க்கு நகலெடு</string>
   <string name="no_empty_email_in_usim">USIM தொடர்பிலே கிடைக்கின்ற மின்னஞ்சல் புலம் இல்லை, செய்திகளை நகல்செய்ய முடியவில்லை</string>

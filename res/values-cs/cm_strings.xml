@@ -48,7 +48,6 @@
   <string name="delete_contacts_message">Odstraňují se kontakty\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_refresh">Aktualizovat</string>
-  <string name="video_call">Videohovor</string>
   <string name="menu_copyTo">Zkopírovat do <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">Kontakty USIM nemají k dispozici e-mailové pole - nelze kopírovat zprávy.</string>
   <string name="voicemail">Hlasová schránka</string>

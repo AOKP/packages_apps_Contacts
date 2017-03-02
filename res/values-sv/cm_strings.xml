@@ -15,8 +15,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
+  <string name="contactDeletedToast">Kontakt borttagen.</string>
   <string name="menu_moveGroupMembers">Flytta gruppmedlemmar</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Kunde inte spara de valda kontakterna till SIM-kortet</string>
   <string name="number_anr_too_long">Numret är för lång</string>
   <string name="email_address_too_long">E-postadressen är för lång</string>
   <string name="sim_card_full">SIM-kortet är fullt</string>
@@ -38,7 +40,10 @@
   <string name="import_finish">Import slutförd</string>
   <string name="too_many_contacts_add_to_group">Maximalt <xliff:g id="count">%d</xliff:g> kontakter kan delas</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">Ta bort kontakter</string>
+  <string name="delete_contacts_message">Tar bort kontakter\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
+  <string name="menu_refresh">Uppdatera</string>
   <string name="menu_copyTo">Kopiera till <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">USIM-kontakten har inte ett tillgänglig epostfält, kan inte kopiera meddelanden.</string>
   <string name="voicemail">Telefonsvarare</string>
@@ -48,12 +53,23 @@
   <string name="delete_call_alert">Ta bort valda samtalslistor?</string>
   <string name="title_del_call">Ta bort</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_recent_title">SENASTE</string>
+  <string name="multi_pick_contacts_title">KONTAKTER</string>
+  <string name="multi_pick_group_title">GRUPP</string>
+  <string name="contact_info_text_as_name">Namn:</string>
+  <string name="contact_info_text_as_phone">Tel:</string>
+  <string name="contact_info_text_as_email">E-post:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Sök</string>
   <!-- The call-log's clear button text in pick call mode. -->
+  <string name="clear_call_log_button_text">RENSA</string>
   <!-- String used to display calls from unknown numbers in the call log -->
   <!-- String used to display calls from private numbers in the call log -->
+  <string name="private_num">Privat nummer</string>
   <!-- String used to display calls from pay phone in the call log -->
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
+  <string name="replace_button">ERSÄTT</string>
   <!-- merge contacts -->
+  <string name="merge_contacts">Sammanfoga kontakter</string>
 </resources>

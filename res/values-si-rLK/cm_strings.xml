@@ -16,6 +16,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">තෝරාගත් සම්බන්ධතා සිම් කාඩ් පතට සුරැකීමට නොහැකිවිය</string>
   <string name="importConfirmation_title">සබඳතාව ආයාත කරනවා ද?</string>
   <!-- The title of "groups" tab. [CHAR LIMIT=14] -->
   <!-- Gray hint displayed in the search field in Contacts when empty -->
@@ -26,6 +27,8 @@
   <string name="import_finish">ආයාතය නිමාවුනි</string>
   <string name="too_many_contacts_add_to_group">සම්බන්ධතා <xliff:g id="count">%d</xliff:g> ට වඩා එක් කල නොහැක</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">සම්බන්ධතා මකන්න</string>
+  <string name="delete_contacts_message">සම්බන්ධතා මකාදමමින්\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_copyTo"><xliff:g id="destination">%s</xliff:g> වෙත පිටපත් කරන්න</string>
   <string name="voicemail">හඬ තැපෑල</string>

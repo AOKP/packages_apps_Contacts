@@ -35,7 +35,7 @@
   <!-- Gray hint displayed in the search field in Contacts when empty -->
   <string name="search_bar_hint">Buscar contactos</string>
   <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
-  <string name="deleteConfirmation_title">¿Eliminar contacto?</string>
+  <string name="deleteConfirmation_title">¿Borrar contacto?</string>
   <string name="import_sim_contacts_title">Importar contactos de SIM</string>
   <string name="import_sim_contacts_message">Importando contactos de SIM\u2026</string>
   <string name="ContactMultiImportConfirmation">Se importarán los contactos seleccionados.</string>
@@ -45,7 +45,7 @@
   <!-- Multi Delete Contacts related strings -->
   <string name="ContactMultiDeleteConfirmation">Se borrarán los contactos seleccionados.</string>
   <string name="delete_contacts_title">Borrar contactos</string>
-  <string name="delete_contacts_message">Borrando contactos\u2026</string>
+  <string name="delete_contacts_message">Eliminando contactos\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_refresh">Actualizar</string>
   <string name="video_call">Videollamada</string>
@@ -53,10 +53,10 @@
   <string name="no_empty_email_in_usim">El contacto USIM no tiene un campo de correo electrónico disponible, no se pueden copiar los mensajes.</string>
   <string name="voicemail">Correo de voz</string>
   <string name="select_call_title">Seleccionar registros de llamadas</string>
-  <string name="delete_call_title">Eliminar registros de llamadas</string>
+  <string name="delete_call_title">Borrar registros de llamadas</string>
   <string name="delete_call_message">Eliminando registro de llamadas\u2026</string>
-  <string name="delete_call_alert">¿Eliminar los registros de llamadas seleccionados?</string>
-  <string name="title_del_call">Eliminar</string>
+  <string name="delete_call_alert">¿Borrar los registros de llamadas seleccionados?</string>
+  <string name="title_del_call">Borrar</string>
   <!-- MultiPickActivity -->
   <string name="multi_pick_recent_title">RECIENTES</string>
   <string name="multi_pick_contacts_title">CONTACTOS</string>

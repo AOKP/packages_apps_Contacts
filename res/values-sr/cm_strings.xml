@@ -17,6 +17,7 @@
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <string name="menu_moveGroupMembers">Премести чланове групе</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Не може да се сачува изабрани контакт на SIM картици</string>
   <string name="number_anr_too_long">Број је предуг</string>
   <string name="email_address_too_long">Адреса Е-поште је предуга</string>
   <string name="sim_card_full">SIM картица је пуна</string>
@@ -38,6 +39,8 @@
   <string name="import_finish">Увоз завршен</string>
   <string name="too_many_contacts_add_to_group">Не више од <xliff:g id="count">%d</xliff:g> контаката може бити додато</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">Избриши контакте</string>
+  <string name="delete_contacts_message">Брисање контаката\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_copyTo">Копирај на <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">USIM контакт нема доступно поље е-поште, не могу копирати поруке.</string>

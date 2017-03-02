@@ -36,6 +36,8 @@
   <string name="import_finish">匯入完成</string>
   <string name="too_many_contacts_add_to_group">可添加的聯絡人不超過 <xliff:g id="count">%d</xliff:g> 個</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">刪除聯絡人</string>
+  <string name="delete_contacts_message">正在刪除聯絡人\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_copyTo">複製到 <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">USIM 聯絡人沒有可用的電子郵件欄位，無法複製訊息。</string>

@@ -17,6 +17,7 @@
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <string name="menu_moveGroupMembers">انتقال اعضای گروه</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">مخاطبین انتخاب شده را نمی توان در سیم کارت ذخیره کرد</string>
   <string name="number_anr_too_long">شماره بسیار طولانی است</string>
   <string name="email_address_too_long">آدرس ایمیل بسیار طولانی است</string>
   <string name="sim_card_full">سیم کارت پر است</string>
@@ -38,6 +39,8 @@
   <string name="import_finish">وارد کردن تمام شد</string>
   <string name="too_many_contacts_add_to_group">نمی توان بیشتر از <xliff:g id="count">%d</xliff:g> مخاطب اضافه کرد</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">حذف مخاطبین</string>
+  <string name="delete_contacts_message">حذف مخاطبین\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_copyTo">کپی به <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">مخاطب یوسیم قسمت ایمیل را ندارد، نمی‌توان پیام‌ها را کپی کرد.</string>

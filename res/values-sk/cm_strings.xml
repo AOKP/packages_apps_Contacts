@@ -18,7 +18,7 @@
   <string name="contactDeletedToast">Kontakt bol vymazaný.</string>
   <string name="menu_moveGroupMembers">Presunúť členov skupiny</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
-  <string name="contactSavedToSimCardError">Vybrané kontakty sa nepodarilo sa uložiť na SIM kartu</string>
+  <string name="contactSavedToSimCardError">Nepodarilo sa uložiť vybrané kontakty na kartu SIM</string>
   <string name="number_anr_too_long">Číslo je príliš dlhé</string>
   <string name="email_address_too_long">E-mailová adresa je príliš dlhá</string>
   <string name="sim_card_full">Karta SIM je plná</string>
@@ -43,11 +43,10 @@
   <string name="too_many_contacts_add_to_group">Nie viac ako <xliff:g id="count">%d</xliff:g> kontaktov môže byť pridaných</string>
   <!-- Multi Delete Contacts related strings -->
   <string name="ContactMultiDeleteConfirmation">Vybrané kontakty budú vymazané.</string>
-  <string name="delete_contacts_title">Mazanie kontaktov</string>
+  <string name="delete_contacts_title">Vymazať kontakty</string>
   <string name="delete_contacts_message">Vymazávanie kontaktov\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_refresh">Obnoviť</string>
-  <string name="video_call">Videohovory</string>
   <string name="menu_copyTo">Kopírovať do <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">Kontakty USIM nemajú k dispozícii e-mailové pole. Nemožno kopírovať správy.</string>
   <string name="voicemail">Hlasová pošta</string>

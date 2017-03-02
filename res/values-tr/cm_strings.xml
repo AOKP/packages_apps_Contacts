@@ -44,11 +44,11 @@
   <string name="too_many_contacts_add_to_group"><xliff:g id="count">%d</xliff:g>\'den fazla kişi eklenemez</string>
   <!-- Multi Delete Contacts related strings -->
   <string name="ContactMultiDeleteConfirmation">Seçili kişiler silinecek.</string>
-  <string name="delete_contacts_title">Kişileri Sil</string>
-  <string name="delete_contacts_message">Kişiler Siliniyor\u2026</string>
+  <string name="delete_contacts_title">Kişileri sil</string>
+  <string name="delete_contacts_message">Kişiler siliniyor\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_refresh">Yenile</string>
-  <string name="video_call">Görüntülü Arama</string>
+  <string name="video_call">Görüntülü arama</string>
   <string name="menu_copyTo"><xliff:g id="destination">%s</xliff:g> konumuna kopyala</string>
   <string name="no_empty_email_in_usim">USIM kişisinin mevcut e-posta alanı yok, mesajlar kopyalanamıyor.</string>
   <string name="voicemail">Sesli mesaj</string>

@@ -18,7 +18,7 @@
   <string name="contactDeletedToast">Контакт видалено.</string>
   <string name="menu_moveGroupMembers">Перемістити контакти групи</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
-  <string name="contactSavedToSimCardError">Не вдалося зберегти вибрані контакти на SIM-карті</string>
+  <string name="contactSavedToSimCardError">Не вдалося зберегти вибрані контакти на SIM-картці</string>
   <string name="number_anr_too_long">Номер задовгий</string>
   <string name="email_address_too_long">Адреса електронної пошти задовга</string>
   <string name="sim_card_full">SIM-картка заповнена</string>
@@ -48,7 +48,7 @@
   <string name="delete_contacts_message">Видалення контактів\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_refresh">Оновити</string>
-  <string name="video_call">Відеодзвінок</string>
+  <string name="video_call">Відеовиклики</string>
   <string name="menu_copyTo">Копіювати до <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">USIM контакт не має доступного поля електронної пошти, не вдається скопіювати повідомлення.</string>
   <string name="voicemail">Голосова пошта</string>

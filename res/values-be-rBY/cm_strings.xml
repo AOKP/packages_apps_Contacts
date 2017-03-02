@@ -17,6 +17,7 @@
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <string name="menu_moveGroupMembers">Перасунуць удзельнікаў гурта</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Не атрымалася захаваць абраныя кантакты на SIM-картку</string>
   <string name="number_anr_too_long">Задоўгі нумар</string>
   <string name="email_address_too_long">Задоўгі адрас электроннай пошты</string>
   <string name="sim_card_full">SIM-картка запоўнена</string>
@@ -38,6 +39,8 @@
   <string name="import_finish">Імпартаванне скончана</string>
   <string name="too_many_contacts_add_to_group">Можна дадаць не больш за <xliff:g id="count">%d</xliff:g> кантактаў</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">Выдаліць кантакты</string>
+  <string name="delete_contacts_message">Выдаленне кантактаў\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_copyTo">Капіяваць у <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">Кантакт USIM не мае поля для электроннай пошты, не атрымоўваецца скапіяваць паведамленні.</string>

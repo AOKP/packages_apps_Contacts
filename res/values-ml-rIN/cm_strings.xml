@@ -17,6 +17,7 @@
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <string name="menu_moveGroupMembers">ഗരൂപ്പിലെ ആളുകളെ മൂവ് ചെയ്യുക</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">തിരഞ്ഞെടുത്ത ആളുകളെ സിം കാര്‍ഡിലെക് മാട്ടാന്‍ കഴിഞ്ഞില്ല</string>
   <string name="number_anr_too_long">നുംബെര്‍ വളരെ വലുതാണ്</string>
   <string name="email_address_too_long">ഇമെയില് ഐഡി വളരെ വലുതാണ്‍</string>
   <string name="sim_card_full">സിം കാര്‍ട് ഫുല്ല് ആണ്‍</string>
@@ -38,6 +39,8 @@
   <string name="import_finish">ഇംമ്പൊര്ട് ഫിനിഷെട്</string>
   <string name="too_many_contacts_add_to_group"><xliff:g id="count">%d</xliff:g> ഇത്രെം ആലുകളെ മാത്രെ ഗ്രൂപ്പില് ഉല്പ്പെടുതാന് പട്റ്റൂ</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">ആല്ളുകളെ ഒഴിവാക്കുക</string>
+  <string name="delete_contacts_message">ആളുകളെ ഒഴിവാക്കുന്നു\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_copyTo">കൊപി ചെയ്യുക <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">യൂസിം കൊന്റക്ടുകല്ക്ക് ഇമൈല് ഐഡി ഇല്ല, അതുകൊന്ടു സന്ദെഷം കൊപ്പി ചെയാന്ന്‍ പട്റ്റില്ല.</string>

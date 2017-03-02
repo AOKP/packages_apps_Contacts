@@ -18,7 +18,7 @@
   <string name="contactDeletedToast">連絡先を削除しました。</string>
   <string name="menu_moveGroupMembers">グループのメンバーを移動</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
-  <string name="contactSavedToSimCardError">選択した連絡先を SIM に保存できませんでした</string>
+  <string name="contactSavedToSimCardError">選択した連絡先をSIMに保存できませんでした</string>
   <string name="number_anr_too_long">電話番号が長すぎます</string>
   <string name="email_address_too_long">メールアドレスが長すぎます</string>
   <string name="sim_card_full">SIMカードがいっぱいです</string>

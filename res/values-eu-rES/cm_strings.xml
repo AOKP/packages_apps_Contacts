@@ -15,8 +15,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
+  <string name="contactDeletedToast">Kontaktua ezabatu da.</string>
   <string name="menu_moveGroupMembers">Mugitu taldekideak</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Ezin izan dira SIM txartelean gorde hautatutako kontaktuak</string>
   <string name="number_anr_too_long">Zenbakia luzeegia da</string>
   <string name="email_address_too_long">E-posta helbidea luzeegia da</string>
   <string name="sim_card_full">SIM txartela beteta dago</string>
@@ -36,9 +38,14 @@
   <string name="import_sim_contacts_title">Inportatu SIM txarteleko kontaktuak</string>
   <string name="import_sim_contacts_message">SIMeko kontaktuak inportatzen \u2026</string>
   <string name="import_finish">Inportazioa burutu da</string>
+  <string name="import_stop">Inportazioa bertan behera utzi da</string>
   <string name="too_many_contacts_add_to_group">Ezin dira <xliff:g id="count">%d</xliff:g> kontaktu baino gehiago gehitu</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="ContactMultiDeleteConfirmation">Aukeratutako kontaktuak ezabatuko dira.</string>
+  <string name="delete_contacts_title">Ezabatu kontaktuak</string>
+  <string name="delete_contacts_message">Kontaktuak ezabatzen \u2026</string>
   <!-- Menu item used to refresh a specific contact -->
+  <string name="menu_refresh">Freskatu</string>
   <string name="menu_copyTo">Kopiatu hona <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">USIM kontaktuak ez du e-posta eremurik eskuragarri, ezin dira mezuak kopiatu.</string>
   <string name="voicemail">Ahots postontzia</string>

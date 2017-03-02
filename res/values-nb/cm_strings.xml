@@ -18,7 +18,7 @@
   <string name="contactDeletedToast">Kontakt slettet.</string>
   <string name="menu_moveGroupMembers">Flytt medlemmer</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
-  <string name="contactSavedToSimCardError">Kunne ikke lagre de valgte kontaktene til SIM-kortet</string>
+  <string name="contactSavedToSimCardError">Kunne ikke lagre valgte kontakter på SIM-kortet</string>
   <string name="number_anr_too_long">Nummeret er for langt</string>
   <string name="email_address_too_long">E-postadressen er for lang</string>
   <string name="sim_card_full">SIM-kortet er fullt</string>
@@ -44,7 +44,7 @@
   <string name="too_many_contacts_add_to_group">Ikke mer enn <xliff:g id="count">%d</xliff:g> kontakter kan legges til</string>
   <!-- Multi Delete Contacts related strings -->
   <string name="ContactMultiDeleteConfirmation">De valgte kontaktene vil bli slettet.</string>
-  <string name="delete_contacts_title">Slett kontakter</string>
+  <string name="delete_contacts_title">Slette kontakter</string>
   <string name="delete_contacts_message">Sletter kontakter\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_refresh">Oppdater</string>

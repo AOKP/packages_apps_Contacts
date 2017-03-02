@@ -17,6 +17,7 @@
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <string name="menu_moveGroupMembers">گۇرۇپپا ئەزاسىنى يۆتكە</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">تاللىغان ئالاقەداشلارنى SIM كارتىغا ساقلىيالمايدۇ</string>
   <string name="number_anr_too_long">نومۇر بەك ئۇزۇن</string>
   <string name="email_address_too_long">تورخەت ئادرېس بەك ئۇزۇن</string>
   <string name="sim_card_full">SIM كارتا لىق</string>
@@ -38,6 +39,8 @@
   <string name="import_finish">ئەكىرىش تامام</string>
   <string name="too_many_contacts_add_to_group">قوشىدىغان ئالاقەداش <xliff:g id="count">%d</xliff:g> دىن ئاشسا بولمايدۇ</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">ئالاقەداشلارنى ئۆچۈر</string>
+  <string name="delete_contacts_message">ئالاقەداشلارنى ئۆچۈرۈۋاتىدۇ\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_copyTo"><xliff:g id="destination">%s</xliff:g> غا كۆچۈر</string>
   <string name="no_empty_email_in_usim">USIM ئالاقەداشنىڭ ئىشلەتكىلى بولىدىغان تورخەت سۆز بۆلىكى يوق، ئۇچۇرنى كۆچۈرەلمەيدۇ.</string>

@@ -17,6 +17,7 @@
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <string name="menu_moveGroupMembers">Gruppemembere réckelen</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Déi ausgewielt Kontakter konnten net op d\'SIM-Kaart gespäichert ginn</string>
   <string name="number_anr_too_long">Nummer ze laang</string>
   <string name="email_address_too_long">E-Mail-Adress ass ze laang</string>
   <string name="sim_card_full">SIM-Kaart ass voll</string>
@@ -38,6 +39,8 @@
   <string name="import_finish">Import fäerdeg</string>
   <string name="too_many_contacts_add_to_group">Et kënne just <xliff:g id="count">%d</xliff:g> Kontakter agedroe ginn</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">Kontakter läschen</string>
+  <string name="delete_contacts_message">Kontakter gi geläscht\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_copyTo">Kopéieren op <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">Den USIM-Kontakt huet keen disponibelt E-Mail-Feld, d\'Messagë kënnen net kopéiert ginn.</string>

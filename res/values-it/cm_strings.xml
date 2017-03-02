@@ -45,7 +45,7 @@
   <!-- Multi Delete Contacts related strings -->
   <string name="ContactMultiDeleteConfirmation">I contatti selezionati saranno eliminati.</string>
   <string name="delete_contacts_title">Elimina contatti</string>
-  <string name="delete_contacts_message">Eliminazione contatti\u2026</string>
+  <string name="delete_contacts_message">Eliminando contatti\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_refresh">Ricarica</string>
   <string name="video_call">Videochiamata</string>

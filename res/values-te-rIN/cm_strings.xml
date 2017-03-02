@@ -17,6 +17,7 @@
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <string name="menu_moveGroupMembers">సమూహ సభ్యులను తరలించుము</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">ఎంచుకోబడిన పరిచయాలను SIM కార్డుకు  భద్రపరచడం సాధ్యపడలేదు</string>
   <string name="number_anr_too_long">నంబర్ చాలా పెద్దదిగా ఉంది</string>
   <string name="email_address_too_long">ఇమెయిల్ చిరునామా చాలా పెద్దదిగా ఉంది</string>
   <string name="sim_card_full">SIM కార్డ్ నిండినది</string>
@@ -38,6 +39,8 @@
   <string name="import_finish">దిగుమతి పూర్తయింది</string>
   <string name="too_many_contacts_add_to_group"><xliff:g id="count">%d</xliff:g> పరిచయాల కంటే ఎక్కువ జోడించడం సాధ్యపడదు</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">పరిచయాలను తొలిగించుము</string>
+  <string name="delete_contacts_message">పరిచయాలు తొలిగించబడుతున్నాయి\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_copyTo"><xliff:g id="destination">%s</xliff:g> కు కాపీ చేయుము</string>
   <string name="no_empty_email_in_usim">USIM పరిచయంలో ఇమెయిల్ క్షేత్రం అందుబాటులో లేదు, సందేశాలను కాపీ చేయడం కుదరలేదు.</string>

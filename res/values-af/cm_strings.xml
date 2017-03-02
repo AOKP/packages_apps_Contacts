@@ -17,6 +17,7 @@
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <string name="menu_moveGroupMembers">Skuif groep lede</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Kon nie die geselekteerde kontakte na die SIM-kaart stoor</string>
   <string name="number_anr_too_long">Nommer is te lank</string>
   <string name="email_address_too_long">E-pos adres is te lank</string>
   <string name="sim_card_full">SIM kaart is vol</string>
@@ -38,6 +39,8 @@
   <string name="import_finish">Invoering klaar</string>
   <string name="too_many_contacts_add_to_group">Nie mees as <xliff:g id="count">%d</xliff:g> kontakte kan gedeel word nie</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">Verwyder kontak</string>
+  <string name="delete_contacts_message">Verwydering van kontakte\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_copyTo">Kopieer na<xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">USIM kontak het nie \'n beskikbare epos veld nie, kon nie epos kopieer nie.</string>

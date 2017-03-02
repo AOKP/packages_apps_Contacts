@@ -17,6 +17,7 @@
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <string name="menu_moveGroupMembers">Liiguta grupi liikmeid</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Valitud kontakte ei saanud salvestada SIM kaardile</string>
   <string name="number_anr_too_long">Number on liiga pikk</string>
   <string name="email_address_too_long">E-posti aadress on liiga pikk</string>
   <string name="sim_card_full">SIM-kaart on täis</string>
@@ -38,6 +39,8 @@
   <string name="import_finish">Importimine lõpetatud</string>
   <string name="too_many_contacts_add_to_group">Enam kui <xliff:g id="count">%d </xliff:g> kontakti ei saa lisada</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="delete_contacts_title">Kontaktide kustutamine</string>
+  <string name="delete_contacts_message">Kontaktide kustutamine\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_copyTo">Asukohta <xliff:g id="destination"> %s </xliff:g> kopeerimine</string>
   <string name="no_empty_email_in_usim">USIM kontaktil ei ole e-posti välja, ei saa sõnumeid kopeerida.</string>

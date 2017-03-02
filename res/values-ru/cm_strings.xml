@@ -15,8 +15,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
+  <string name="contactDeletedToast">Контакт удален.</string>
   <string name="menu_moveGroupMembers">Переместить членов группы</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Не удалось сохранить выбранные контакты на SIM-карту</string>
   <string name="number_anr_too_long">Слишком длинный номер</string>
   <string name="email_address_too_long">Слишком длинный адрес электронной почты</string>
   <string name="sim_card_full">SIM-карта заполнена</string>
@@ -31,14 +33,21 @@
   <string name="message_move_members">Перемещение контактов\u2026</string>
   <string name="message_can_not_move_members">Невозможно переместить контакты</string>
   <!-- Gray hint displayed in the search field in Contacts when empty -->
+  <string name="search_bar_hint">Поиск контактов</string>
   <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
   <string name="deleteConfirmation_title">Удалить контакт?</string>
   <string name="import_sim_contacts_title">Импорт. контакты с SIM-карты</string>
   <string name="import_sim_contacts_message">Импорт контактов с SIM-карты\u2026</string>
+  <string name="ContactMultiImportConfirmation">Выбранные контакты будут импортированы.</string>
   <string name="import_finish">Импорт завершён</string>
+  <string name="import_stop">Импорт отменен</string>
   <string name="too_many_contacts_add_to_group">Можно добавить не более <xliff:g id="count">%d</xliff:g> контакт.</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="ContactMultiDeleteConfirmation">Выбранные контакты будут удалены.</string>
+  <string name="delete_contacts_title">Удалить контакты</string>
+  <string name="delete_contacts_message">Удаление контактов\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
+  <string name="menu_refresh">Обновить</string>
   <string name="menu_copyTo">Копировать в <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">У контакта USIM нет поля электронной почты. Не удается скопировать сообщения.</string>
   <string name="voicemail">Голосовая почта</string>
@@ -48,12 +57,28 @@
   <string name="delete_call_alert">Удалить выбранные записи из журнала вызовов?</string>
   <string name="title_del_call">Удалить</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_recent_title">НЕДАВНИЕ</string>
+  <string name="multi_pick_contacts_title">КОНТАКТЫ</string>
+  <string name="contact_info_text_as_name">Имя:</string>
+  <string name="contact_info_text_as_phone">Тлф:</string>
+  <string name="contact_info_text_as_email">Эл. почта:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Поиск</string>
   <!-- The call-log's clear button text in pick call mode. -->
+  <string name="clear_call_log_button_text">ОЧИСТИТЬ</string>
   <!-- String used to display calls from unknown numbers in the call log -->
+  <string name="unknown">Неизвестно</string>
   <!-- String used to display calls from private numbers in the call log -->
   <!-- String used to display calls from pay phone in the call log -->
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
+  <string name="replace_button">ЗАМЕНИТЬ</string>
   <!-- merge contacts -->
+  <string name="no_duplicated_contacts">Нет повторяющихся контактов</string>
+  <string name="give_up_merging">Остановить объединение контактов?</string>
+  <string name="give_up">Остановить объединение</string>
+  <string name="merge_complete">Объединение завершено.</string>
+  <string name="sim_email_full">Хранилище сообщений SIM-карты заполнено.</string>
+  <string name="sim_anr_full">Хранилище номеров SIM-карты заполнено.</string>
+  <string name="merge_fail">Ошибка объединения.</string>
 </resources>

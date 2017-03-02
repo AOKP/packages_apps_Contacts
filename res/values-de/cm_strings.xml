@@ -18,7 +18,7 @@
   <string name="contactDeletedToast">Kontakt gelöscht.</string>
   <string name="menu_moveGroupMembers">Gruppenmitglieder verschieben</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
-  <string name="contactSavedToSimCardError">Die ausgewählten Kontakte konnten nicht auf der SIM-Karte gespeichert werden</string>
+  <string name="contactSavedToSimCardError">Die ausgewählten Kontakte konnten nicht auf der SIM-Karte gespeichert werden.</string>
   <string name="number_anr_too_long">Nummer ist zu lang</string>
   <string name="email_address_too_long">Die E-Mail-Adresse ist zu lang.</string>
   <string name="sim_card_full">SIM-Karte ist voll</string>
@@ -33,6 +33,7 @@
   <string name="message_move_members">Mitglieder werden verschoben\u2026</string>
   <string name="message_can_not_move_members">Mitglieder können nicht verschoben werden.</string>
   <!-- Gray hint displayed in the search field in Contacts when empty -->
+  <string name="search_bar_hint">Kontakte suchen</string>
   <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
   <string name="deleteConfirmation_title">Kontakt löschen?</string>
   <string name="import_sim_contacts_title">Kontakte von SIM-Karte importieren</string>
@@ -56,14 +57,18 @@
   <string name="delete_call_alert">Sollen die ausgewählten Anrufprotokolle gelöscht werden?</string>
   <string name="title_del_call">Löschen</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_recent_title">VERLAUF</string>
   <string name="multi_pick_contacts_title">KONTAKTE</string>
   <string name="multi_pick_group_title">GRUPPE</string>
   <string name="contacts_selected">%d ausgewählt</string>
   <string name="summary_count_numbers">%s Nummern</string>
   <string name="contact_info_text_as_name">Name:</string>
+  <string name="contact_info_text_as_phone">Tel.:</string>
   <string name="contact_info_text_as_email">E-Mail:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Suchen</string>
   <!-- The call-log's clear button text in pick call mode. -->
+  <string name="clear_call_log_button_text">LEEREN</string>
   <!-- String used to display calls from unknown numbers in the call log -->
   <string name="unknown">Unbekannt</string>
   <!-- String used to display calls from private numbers in the call log -->
