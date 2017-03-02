@@ -18,6 +18,7 @@
   <string name="contactDeletedToast">Kontak dihapus.</string>
   <string name="menu_moveGroupMembers">Pindahkan anggota kelompok</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Tidak dapat menyimpan kontak yang dipilih ke kartu SIM</string>
   <string name="number_anr_too_long">Nomor terlalu panjang</string>
   <string name="email_address_too_long">Alamat email terlalu panjang</string>
   <string name="sim_card_full">Kartu SIM penuh</string>
@@ -42,11 +43,10 @@
   <string name="too_many_contacts_add_to_group">Tidak lebih dari <xliff:g id="count">%d</xliff:g> kontak dapat ditambahkan</string>
   <!-- Multi Delete Contacts related strings -->
   <string name="ContactMultiDeleteConfirmation">Kontak yang dipilih akan dihapus.</string>
-  <string name="delete_contacts_title">Hapus Kontak</string>
-  <string name="delete_contacts_message">Menghapus Kontak\u2026</string>
+  <string name="delete_contacts_title">Hapus kontak</string>
+  <string name="delete_contacts_message">Menghapus kontak\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_refresh">Segarkan</string>
-  <string name="video_call">Panggilan Video</string>
   <string name="menu_copyTo">Salin ke <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">Kontak USIM tidak memiliki bidang email yang tersedia, tidak dapat menyalin pesan.</string>
   <string name="voicemail">Pesan suara</string>
@@ -59,10 +59,12 @@
   <string name="multi_pick_contacts_title">KONTAK</string>
   <string name="multi_pick_group_title">GRUP</string>
   <string name="contacts_selected">%d dipilih</string>
+  <string name="summary_count_numbers">%s nomor</string>
   <string name="contact_info_text_as_name">Nama:</string>
   <string name="contact_info_text_as_phone">Telp:</string>
   <string name="contact_info_text_as_email">Email:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Cari</string>
   <!-- The call-log's clear button text in pick call mode. -->
   <!-- String used to display calls from unknown numbers in the call log -->
   <string name="unknown">Tidak dikenal</string>

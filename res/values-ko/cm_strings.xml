@@ -15,8 +15,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
+  <string name="contactDeletedToast">연락처가 삭제되었습니다.</string>
   <string name="menu_moveGroupMembers">그룹 구성원 이동</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">선택된 연락처를 SIM 카드에 저장하지 못했습니다</string>
   <string name="number_anr_too_long">전화번호가 너무 깁니다</string>
   <string name="email_address_too_long">이메일 주소가 너무 깁니다</string>
   <string name="sim_card_full">SIM 카드가 가득 찼습니다</string>
@@ -28,7 +30,7 @@
   <!-- The title of "groups" tab. [CHAR LIMIT=14] -->
   <string name="contacts_groups_label">그룹</string>
   <string name="title_move_members">구성원 이동</string>
-  <string name="message_move_members">구성원 이동 중\u2026</string>
+  <string name="message_move_members">구성원을 이동하는 중\u2026</string>
   <string name="message_can_not_move_members">구성원을 이동시킬 수 없음</string>
   <!-- Gray hint displayed in the search field in Contacts when empty -->
   <string name="search_bar_hint">연락처 검색</string>
@@ -36,30 +38,59 @@
   <string name="deleteConfirmation_title">연락처를 삭제할까요?</string>
   <string name="import_sim_contacts_title">SIM 연락처 가져오기</string>
   <string name="import_sim_contacts_message">SIM 연락처를 가져오는 중\u2026</string>
+  <string name="ContactMultiImportConfirmation">선택한 연락처를 가져옵니다.</string>
   <string name="import_finish">가져오기 완료</string>
+  <string name="import_stop">가져오기가 취소되었습니다</string>
   <string name="too_many_contacts_add_to_group"><xliff:g id="count">%d</xliff:g>건보다 많은 수의 연락처는 추가할 수 없습니다</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="ContactMultiDeleteConfirmation">선택한 연락처를 삭제합니다.</string>
   <string name="delete_contacts_title">연락처 삭제</string>
+  <string name="delete_contacts_message">연락처 삭제하는 중\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_refresh">새로 고침</string>
+  <string name="video_call">영상 통화</string>
   <string name="menu_copyTo"><xliff:g id="destination">%s</xliff:g>(으)로 복사</string>
   <string name="no_empty_email_in_usim">USIM 연락처가 비어있는 이메일 입력란을 찾지 못하여 메시지를 복사할 수 없습니다.</string>
   <string name="voicemail">음성 메시지</string>
   <string name="select_call_title">통화 기록 선택</string>
   <string name="delete_call_title">통화 기록 삭제</string>
-  <string name="delete_call_message">통화 기록 삭제 중\u2026</string>
+  <string name="delete_call_message">통화 기록을 삭제하는 중\u2026</string>
   <string name="delete_call_alert">선택된 통화 기록을 삭제할까요?</string>
   <string name="title_del_call">삭제</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_recent_title">최근</string>
+  <string name="multi_pick_contacts_title">연락처</string>
+  <string name="multi_pick_group_title">그룹</string>
+  <string name="contacts_selected">%d건 선택됨</string>
+  <string name="summary_count_numbers">%s개 번호</string>
   <string name="contact_info_text_as_name">이름:</string>
+  <string name="contact_info_text_as_phone">전화:</string>
+  <string name="contact_info_text_as_email">이메일:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">검색</string>
   <!-- The call-log's clear button text in pick call mode. -->
+  <string name="clear_call_log_button_text">지우기</string>
   <!-- String used to display calls from unknown numbers in the call log -->
+  <string name="unknown">알 수 없음</string>
   <!-- String used to display calls from private numbers in the call log -->
+  <string name="private_num">발신번호 표시 제한</string>
   <!-- String used to display calls from pay phone in the call log -->
+  <string name="payphone">공중전화</string>
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
+  <string name="too_many_contacts_to_merge_message"><xliff:g id="count">%d</xliff:g>건보다 많은 수의 연락처는 통합할 수 없습니다</string>
+  <string name="replace_number_title_1">이전 전화번호를 대체</string>
+  <string name="replace_number_title_2">이전 번호를 대체하시겠습니까?</string>
+  <string name="replace_button">대체</string>
   <!-- merge contacts -->
+  <string name="merge_contacts">연락처 병합</string>
+  <string name="merging_contacts">연락처를 병합하는 중\u2026</string>
+  <string name="searching_duplicated_contacts">중복된 연락처를 검색하는 중\u2026</string>
+  <string name="no_duplicated_contacts">중복된 연락처가 없습니다</string>
+  <string name="give_up_merging">연락처 병합을 중지할까요?</string>
+  <string name="give_up">병합 중지</string>
+  <string name="merge_complete">병합이 완료되었습니다.</string>
   <string name="sim_email_full">SIM 카드의 이메일 저장소가 가득 찼습니다.</string>
   <string name="sim_anr_full">SIM 카드의 번호 저장소가 가득 찼습니다.</string>
+  <string name="merge_fail">병합에 실패했습니다.</string>
 </resources>
