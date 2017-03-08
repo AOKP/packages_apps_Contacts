@@ -16,18 +16,43 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Nun pudieron guardase na tarxeta SIM los contautos esbillaos</string>
+  <string name="number_anr_too_long">El númberu ye perllargu</string>
+  <string name="sim_card_full">La tarxeta SIM ta enllena</string>
   <!-- The title of "groups" tab. [CHAR LIMIT=14] -->
   <!-- Gray hint displayed in the search field in Contacts when empty -->
   <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
+  <string name="ContactMultiImportConfirmation">Importaránse los contautos esbillaos.</string>
+  <string name="import_stop">Encaboxóse la importación</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="ContactMultiDeleteConfirmation">Desaniciaránse los contautos esbillaos.</string>
   <!-- Menu item used to refresh a specific contact -->
+  <string name="menu_refresh">Refrescar</string>
+  <string name="video_call">Videollamada</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_contacts_title">CONTAUTOS</string>
+  <string name="summary_count_numbers">%s númberos</string>
+  <string name="contact_info_text_as_name">Nome:</string>
+  <string name="contact_info_text_as_phone">Tel:</string>
+  <string name="contact_info_text_as_email">Corréu:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Guetar</string>
   <!-- The call-log's clear button text in pick call mode. -->
+  <string name="clear_call_log_button_text">LLIMPIAR</string>
   <!-- String used to display calls from unknown numbers in the call log -->
   <!-- String used to display calls from private numbers in the call log -->
+  <string name="private_num">Númberu priváu</string>
   <!-- String used to display calls from pay phone in the call log -->
+  <string name="payphone">Teléfonu públicu</string>
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
+  <string name="too_many_contacts_to_merge_message">Nun puen mecese más de <xliff:g id="count">%d</xliff:g> contautos</string>
+  <string name="replace_button">TROCAR</string>
   <!-- merge contacts -->
+  <string name="merge_contacts">Mecer contautos</string>
+  <string name="merging_contacts">Meciendo contautos\u2026</string>
+  <string name="searching_duplicated_contacts">Guetando contautos duplicaos\u2026</string>
+  <string name="no_duplicated_contacts">Nun hai contautos duplicaos</string>
+  <string name="give_up_merging">¿Parar mecedura de contautos?</string>
+  <string name="merge_fail">Falló la mecedura.</string>
 </resources>

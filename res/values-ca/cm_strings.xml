@@ -48,6 +48,7 @@
   <string name="delete_contacts_message">S\'estan esborrant els contactes\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_refresh">Actualitza</string>
+  <string name="video_call">Videotrucant</string>
   <string name="menu_copyTo">Còpia a <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">El contacte USIM no té un camp de correu electrònic disponible, no es poden copiar els missatges.</string>
   <string name="voicemail">Contestador</string>

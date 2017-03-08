@@ -48,6 +48,7 @@
   <string name="delete_contacts_message">Đang xoá số liên lạc\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_refresh">Làm mới</string>
+  <string name="video_call">Gọi video</string>
   <string name="menu_copyTo">Chép vào <xliff:g id="destination">%s </xliff:g></string>
   <string name="no_empty_email_in_usim">Số liên lạc trên USIM không có trường email khả dụng, không thể chép tin nhắn.</string>
   <string name="voicemail">Thư thoại</string>

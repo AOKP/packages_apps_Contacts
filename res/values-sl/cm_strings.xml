@@ -48,6 +48,7 @@
   <string name="delete_contacts_message">Brisanje stikov \u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_refresh">Osveži</string>
+  <string name="video_call">Video klici</string>
   <string name="menu_copyTo">Kopiraj v <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">Stik USIM nima na voljo e-poštnega polja, sporočila ni mogoče kopirati.</string>
   <string name="voicemail">Glasovna pošta</string>

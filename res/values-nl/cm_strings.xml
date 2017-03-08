@@ -40,7 +40,7 @@
   <string name="import_sim_contacts_message">SIM-contacten importeren\u2026</string>
   <string name="ContactMultiImportConfirmation">Geselecteerde contacten worden geïmporteerd.</string>
   <string name="import_finish">Importeren voltooid</string>
-  <string name="import_stop">Import geannuleerd</string>
+  <string name="import_stop">Importeren geannuleerd</string>
   <string name="too_many_contacts_add_to_group">Er kunnen niet meer dan <xliff:g id="count">%d</xliff:g> contacten worden toegevoegd</string>
   <!-- Multi Delete Contacts related strings -->
   <string name="ContactMultiDeleteConfirmation">Geselecteerde contacten worden verwijderd.</string>
@@ -52,10 +52,10 @@
   <string name="menu_copyTo">Kopiëren naar <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">USIM-contact heeft geen e-mailveld beschikbaar, kan berichten niet kopiëren.</string>
   <string name="voicemail">Voicemail</string>
-  <string name="select_call_title">Oproepgeschiedenis selecteren</string>
-  <string name="delete_call_title">Oproepgeschiedenis verwijderen</string>
-  <string name="delete_call_message">Oproepgeschiedenis verwijderen\u2026</string>
-  <string name="delete_call_alert">Geselecteerde oproepgeschiedenis verwijderen?</string>
+  <string name="select_call_title">Oproepen selecteren</string>
+  <string name="delete_call_title">Oproepen verwijderen</string>
+  <string name="delete_call_message">Oproepen verwijderen\u2026</string>
+  <string name="delete_call_alert">Geselecteerde oproepen verwijderen?</string>
   <string name="title_del_call">Verwijderen</string>
   <!-- MultiPickActivity -->
   <string name="multi_pick_recent_title">RECENT</string>
