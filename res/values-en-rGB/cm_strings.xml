@@ -58,7 +58,13 @@
   <string name="delete_call_alert">Delete selected call logs?</string>
   <string name="title_del_call">Delete</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_group_title">GROUP</string>
+  <string name="contacts_selected">%d selected</string>
+  <string name="summary_count_numbers">%s numbers</string>
+  <string name="contact_info_text_as_phone">Tel:</string>
+  <string name="contact_info_text_as_email">Email:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Search</string>
   <!-- The call-log's clear button text in pick call mode. -->
   <!-- String used to display calls from unknown numbers in the call log -->
   <!-- String used to display calls from private numbers in the call log -->

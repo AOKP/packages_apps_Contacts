@@ -32,6 +32,7 @@
   <!-- Activity title when the user is selecting a contact for a direct dial shortcut. -->
   <!-- Activity title when the user is selecting a contact for a direct message shortcut. -->
   <!-- Activity title when the user is inserting into an existing contact, or creating a new one.  [CHAR LIMIT=128] -->
+  <string name="contactInsertOrEditActivityTitle">Amestar al contautu</string>
   <!-- Activity title when the user is selecting a contact.  [CHAR LIMIT=128] -->
   <!-- Entry that prompts user to select a newly created contact.  [CHAR LIMIT=30] -->
   <!-- Title for the activity that shows only starred contacts -->
@@ -91,6 +92,7 @@
   <!-- Positive button text from confirmation dialog. Shown after user selects to link contacts. [CHAR LIMIT=40]  -->
   <!-- Confirmation dialog. Shown after user selects to delete one writable contact [CHAR LIMIT=NONE]  -->
   <!-- Confirmation dialog. Shown after user selects to delete multimple writable contacts. [CHAR LIMIT=NONE]  -->
+  <string name="batch_delete_confirmation">¿Desaniciar contautos esbillaos?</string>
   <!-- Confirmation dialog. Shown after user selects to delete readonly contacts. [CHAR LIMIT=NONE] -->
   <!-- Confirmation dialog. Shown after user selects to delete contacts from multiple accounts. [CHAR LIMIT=NONE]  -->
   <!-- Warning dialog contents after users selects to delete a contact with multiple Writable sources. -->
@@ -313,6 +315,7 @@
   <!-- Prefix for messages that you sent [CHAR LIMIT=40] -->
   <!-- When a user tries to create an IM Hangouts field, an alert dialog pops up displaying this message. We don't want users entering email addresses of phone numbers into the IM field. [CHAR LIMIT=200] -->
   <!-- Button to expand the compact contact editor to show all available input fields. [CHAR LIMIT=60] -->
+  <string name="compact_editor_more_fields">Más campos</string>
   <!-- Content description for the compact contact editor photo overlay which, when clicked, shows a dialog with the options for changing the contact photo. [CHAR LIMIT=30] -->
   <!-- Toast message displayed when the editor fails to load for a contacts. [CHAR LIMIT=NONE] -->
   <!-- Label for the account selector to indicate which account a contact will be saved to. [CHAR LIMIT=30] -->
@@ -322,6 +325,7 @@
   <!-- Quick contact display name with phonetic name -->
   <!-- Button used in quick contact suggestion card to link selected contacts. [CHAR LIMIT=30]-->
   <!-- Button used in quick contact suggestion card to collapse suggestion card. [CHAR LIMIT=30]-->
+  <string name="quickcontact_suggestion_cancel_button">ENCABOXAR</string>
   <!-- Suggestion card title in quick contact UI [CHAR LIMIT=100] -->
   <!-- Suggestions number in quick contact suggestion card [CHAR LIMIT=60] -->
   <!-- Account type number for suggestions in quick contact suggestion card [CHAR LIMIT=30]-->

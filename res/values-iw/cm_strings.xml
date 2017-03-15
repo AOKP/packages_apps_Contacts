@@ -60,9 +60,9 @@
   <!-- MultiPickActivity -->
   <string name="multi_pick_recent_title">לאחרונה</string>
   <string name="multi_pick_contacts_title">אנשי קשר</string>
-  <string name="multi_pick_group_title">קבוצות</string>
+  <string name="multi_pick_group_title">קבוצה</string>
   <string name="contacts_selected">%d נבחרו</string>
-  <string name="summary_count_numbers">%s מספרי טלפון</string>
+  <string name="summary_count_numbers">%s מספרים</string>
   <string name="contact_info_text_as_name">שם:</string>
   <string name="contact_info_text_as_phone">טל\':</string>
   <string name="contact_info_text_as_email">דוא\"ל:</string>
