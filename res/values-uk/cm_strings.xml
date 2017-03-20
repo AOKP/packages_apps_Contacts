@@ -18,10 +18,10 @@
   <string name="contactDeletedToast">Контакт видалено.</string>
   <string name="menu_moveGroupMembers">Перемістити контакти групи</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
-  <string name="contactSavedToSimCardError">Не вдалося зберегти вибрані контакти на SIM-картці</string>
+  <string name="contactSavedToSimCardError">Не вдалося зберегти вибрані контакти на SIM-карті</string>
   <string name="number_anr_too_long">Номер задовгий</string>
   <string name="email_address_too_long">Адреса електронної пошти задовга</string>
-  <string name="sim_card_full">SIM-картка заповнена</string>
+  <string name="sim_card_full">SIM-карта заповнена</string>
   <string name="tag_too_long">Задовге ім\'я контакту</string>
   <string name="invalid_phone_number">Неприпустимий номер телефону</string>
   <string name="invalid_number_type">Неприпустимий тип номера</string>
@@ -90,7 +90,7 @@
   <string name="give_up_merging">Зупинити об\'єднання контактів?</string>
   <string name="give_up">Зупинити об\'єднання</string>
   <string name="merge_complete">Об\'єднання завершено.</string>
-  <string name="sim_email_full">Пам\'ять електронної пошти SIM карти заповнена.</string>
-  <string name="sim_anr_full">Пам\'ять номерів SIM карти заповнена.</string>
+  <string name="sim_email_full">Пам\'ять електронної пошти SIM-карти заповнена.</string>
+  <string name="sim_anr_full">Пам\'ять номерів SIM-карти заповнена.</string>
   <string name="merge_fail">Об\'єднання не вдалося.</string>
 </resources>

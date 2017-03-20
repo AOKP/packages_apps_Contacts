@@ -15,6 +15,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
+  <string name="contactDeletedToast">Kontak is verwyder.</string>
   <string name="menu_moveGroupMembers">Skuif groep lede</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
   <string name="contactSavedToSimCardError">Kon nie die geselekteerde kontakte na die SIM-kaart stoor</string>
@@ -32,16 +33,22 @@
   <string name="message_move_members">Besig met skyf van lede\u2026</string>
   <string name="message_can_not_move_members">Kan nie lede skyf nie</string>
   <!-- Gray hint displayed in the search field in Contacts when empty -->
+  <string name="search_bar_hint">Soek kontakte</string>
   <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
   <string name="deleteConfirmation_title">Verwyder kontak?</string>
   <string name="import_sim_contacts_title">Voer SIM kontakte in</string>
   <string name="import_sim_contacts_message">Besig om SIM kontakte in te voer\u2026</string>
+  <string name="ContactMultiImportConfirmation">Die geselekteerde kontakte sal ingevoer word.</string>
   <string name="import_finish">Invoering klaar</string>
+  <string name="import_stop">Invoer is gekanselleer</string>
   <string name="too_many_contacts_add_to_group">Nie mees as <xliff:g id="count">%d</xliff:g> kontakte kan gedeel word nie</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="ContactMultiDeleteConfirmation">Die gekose kontakte sal uitgevee word.</string>
   <string name="delete_contacts_title">Verwyder kontak</string>
   <string name="delete_contacts_message">Verwydering van kontakte\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
+  <string name="menu_refresh">Verfris</string>
+  <string name="video_call">Video-oproep</string>
   <string name="menu_copyTo">Kopieer na<xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">USIM kontak het nie \'n beskikbare epos veld nie, kon nie epos kopieer nie.</string>
   <string name="voicemail">Stempos</string>
@@ -51,12 +58,39 @@
   <string name="delete_call_alert">Verwyder gekose oproep lys?</string>
   <string name="title_del_call">Verwyder</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_recent_title">ONLANGSE</string>
+  <string name="multi_pick_contacts_title">KONTAKTE</string>
+  <string name="multi_pick_group_title">GROEP</string>
+  <string name="contacts_selected">%d gekies</string>
+  <string name="summary_count_numbers">%s nommers</string>
+  <string name="contact_info_text_as_name">Naam:</string>
+  <string name="contact_info_text_as_phone">Tel:</string>
+  <string name="contact_info_text_as_email">Epos:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Soek</string>
   <!-- The call-log's clear button text in pick call mode. -->
+  <string name="clear_call_log_button_text">MAAK SKOON</string>
   <!-- String used to display calls from unknown numbers in the call log -->
+  <string name="unknown">Onbekend</string>
   <!-- String used to display calls from private numbers in the call log -->
+  <string name="private_num">Privaat nommer</string>
   <!-- String used to display calls from pay phone in the call log -->
+  <string name="payphone">Betaalfoon</string>
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
+  <string name="too_many_contacts_to_merge_message">Nie meer as <xliff:g id="count">%d</xliff:g> kontakte kan saamgevoeg word nie</string>
+  <string name="replace_number_title_1">Vervang die vorige nommer</string>
+  <string name="replace_number_title_2">Vervang die vorige nommer?</string>
+  <string name="replace_button">VERVANG</string>
   <!-- merge contacts -->
+  <string name="merge_contacts">Voeg kontakte saam</string>
+  <string name="merging_contacts">Saamvoeging van kontakte\u2026</string>
+  <string name="searching_duplicated_contacts">Soek tans vir gedupliseerde kontakte\u2026</string>
+  <string name="no_duplicated_contacts">Geen gedupliseerde kontakte</string>
+  <string name="give_up_merging">Stop saamevoeging van kontakte?</string>
+  <string name="give_up">Stop saamvoeging</string>
+  <string name="merge_complete">Saamvoeging voltooi.</string>
+  <string name="sim_email_full">SIM-kaart e-pos berging is vol.</string>
+  <string name="sim_anr_full">SIM-kaart nommer berging is vol.</string>
+  <string name="merge_fail">Saamvoeging het misluk.</string>
 </resources>

@@ -83,6 +83,7 @@
   <!-- Toast shown after two contacts have been linked by a user action. [CHAR LIMIT=NONE] -->
   <!-- Toast shown after contacts that the user has selected are deleted by a user action. [CHAR LIMIT=30] -->
   <!-- Menu item that opens the Options activity for a given contact [CHAR LIMIT=15] -->
+  <string name="menu_set_ring_tone">Afitar timbre</string>
   <!-- Menu item that opens the Options activity for a given contact [CHAR LIMIT=30] -->
   <!-- Warning dialog contents after users select to delete a ReadOnly contact. [CHAR LIMIT=NONE] -->
   <!-- Positive button text of the warning dialog contents after users select to delete a ReadOnly contact. [CHAR LIMIT=30]-->
@@ -211,7 +212,9 @@
   <!-- The description of the directory where the contact was found [CHAR LIMIT=100]-->
   <!-- Contact list filter indicating that the list shows groups chosen by the user [CHAR LIMIT=64] -->
   <!-- Title of the settings activity [CHAR LIMIT=64] -->
+  <string name="activity_title_settings">Axustes</string>
   <!-- Menu item for the settings activity [CHAR LIMIT=64] -->
+  <string name="menu_settings" msgid="377929915873428211">Axustes</string>
   <!-- Menu item for invoking contextual Help & Feedback [CHAR LIMIT=64] -->
   <!-- The preference section title for contact display options [CHAR LIMIT=128] -->
   <!-- Text used to show a organization that has both a company and title. This is used in the Detail-View
@@ -300,6 +303,7 @@
   <!-- Header for the Event entry [CHAR LIMIT=40] -->
   <!-- Header for the Relation entry [CHAR LIMIT=40] -->
   <!-- Content description for the account field header image. Example accounts listed in this field: Google, Hotmail and Exchange. [CHAR LIMIT=NONE] -->
+  <string name="header_account_entry">Cuenta</string>
   <!-- Content description for the name fields header entry [CHAR LIMIT=NONE] -->
   <!-- Content description for the email fields header entry [CHAR LIMIT=NONE] -->
   <!-- Content description for the phone fields header entry [CHAR LIMIT=NONE] -->
@@ -335,6 +339,7 @@
   <!-- Help message showing in suggestion card in Quick contact. [CHAR LIMIT=NONE]-->
   <!-- Linked contacts title showing in contact editor UI. [CHAR LIMIT=30]-->
   <!-- Title of profile photos that are from your various accounts -->
+  <string name="from_your_accounts">De les tos cuentes</string>
   <!-- Button used in photo picker to open camera [CHAR LIMIT=30]-->
   <!-- Button used in photo picker to open photo/gallery [CHAR LIMIT=20]-->
   <!-- Title of photo picker [CHAR LIMIT=30]-->

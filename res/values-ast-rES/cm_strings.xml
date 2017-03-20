@@ -15,20 +15,46 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
+  <string name="menu_moveGroupMembers">Mover miembros del grupu</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
   <string name="contactSavedToSimCardError">Nun pudieron guardase na tarxeta SIM los contautos esbillaos</string>
   <string name="number_anr_too_long">El númberu ye perllargu</string>
+  <string name="email_address_too_long">La direición de corréu ye perllarga</string>
   <string name="sim_card_full">La tarxeta SIM ta enllena</string>
+  <string name="tag_too_long">El nome del contautu ye perllargu</string>
+  <string name="invalid_phone_number">El númberu telefónicu nun ye válidu</string>
+  <string name="invalid_number_type">Triba non válida de númberu</string>
+  <string name="no_phone_number_or_email">Inxerta\'l númberu telefónicu o direición de corréu, por favor.</string>
+  <string name="importConfirmation_title">Importar contautu?</string>
   <!-- The title of "groups" tab. [CHAR LIMIT=14] -->
+  <string name="contacts_groups_label">Grupos</string>
+  <string name="title_move_members">Mover miembros</string>
+  <string name="message_move_members">Moviendo miembros\u2026</string>
+  <string name="message_can_not_move_members">Nun puen movese a los miembros</string>
   <!-- Gray hint displayed in the search field in Contacts when empty -->
   <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
+  <string name="deleteConfirmation_title">Desaniciar contautu?</string>
+  <string name="import_sim_contacts_title">Importar contautos de SIM</string>
+  <string name="import_sim_contacts_message">Importando contautos de SIM\u2026</string>
   <string name="ContactMultiImportConfirmation">Importaránse los contautos esbillaos.</string>
+  <string name="import_finish">Finó la importación</string>
   <string name="import_stop">Encaboxóse la importación</string>
+  <string name="too_many_contacts_add_to_group">Nun puen amestase más de <xliff:g id="count">%d</xliff:g> contautos</string>
   <!-- Multi Delete Contacts related strings -->
   <string name="ContactMultiDeleteConfirmation">Desaniciaránse los contautos esbillaos.</string>
+  <string name="delete_contacts_title">Desaniciar contautos</string>
+  <string name="delete_contacts_message">Desaniciando contautos\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_refresh">Refrescar</string>
   <string name="video_call">Videollamada</string>
+  <string name="menu_copyTo">Copiar a <xliff:g id="destination">%s</xliff:g></string>
+  <string name="no_empty_email_in_usim">El contautu USIM nun tien un campu de corréu disponible. Nun puen copiase los mensaxes.</string>
+  <string name="voicemail">Buzón de voz</string>
+  <string name="select_call_title">Esbillar rexistros de llamaes</string>
+  <string name="delete_call_title">Desaniciar rexistros de llamaes</string>
+  <string name="delete_call_message">Desaniciando rexistros de llamaes\u2026</string>
+  <string name="delete_call_alert">¿Desaniciar rexistros esbillaos de llamaes?</string>
+  <string name="title_del_call">Desaniciar</string>
   <!-- MultiPickActivity -->
   <string name="multi_pick_contacts_title">CONTAUTOS</string>
   <string name="summary_count_numbers">%s númberos</string>
