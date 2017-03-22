@@ -17,18 +17,25 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Application name used in Settings/Apps. Default label for activities
          that don't specify a label. -->
+  <string name="applicationLabel">Contautos</string>
   <!-- Title for the activity that launches Contacts.  This is the name
          used in the Launcher icon. -->
+  <string name="launcherActivityLabel">Contautos</string>
   <!-- Title for Quick Contact activity. -->
   <!-- Title for Edit Contact activity. -->
   <!-- Directory partition name -->
+  <string name="contactsList">Contautos</string>
   <!-- Name of activity that allows users to create shortcuts on the home screen to a contact.
          This shows up in a list of things like bookmark, folder, music playlist, etc -->
+  <string name="shortcutContact">Contautu</string>
   <!-- Name of activity that allows users to create shortcuts on the home screen to dial a contact.
          This shows up in a list of things like bookmark, folder, music playlist, etc -->
+  <string name="shortcutDialContact">Marcación direuta</string>
   <!-- Name of activity that allows users to create shortcuts on the home screen to message (SMS) a contact.
          This shows up in a list of things like bookmark, folder, music playlist, etc -->
+  <string name="shortcutMessageContact">Mensaxe direutu</string>
   <!-- Activity title when the user is selecting a contact for a shortcut. -->
+  <string name="shortcutActivityTitle">Escoyer un atayu pal contautu</string>
   <!-- Activity title when the user is selecting a contact for a direct dial shortcut. -->
   <!-- Activity title when the user is selecting a contact for a direct message shortcut. -->
   <!-- Activity title when the user is inserting into an existing contact, or creating a new one.  [CHAR LIMIT=128] -->
@@ -64,7 +71,9 @@
   <!-- Menu item used to send an SMS or MMS message to a specific phone number or a contacts default phone number -->
   <!-- Menu item that splits an item from the contact detail into a separate aggregate -->
   <!-- Menu item that edits the currently selected group [CHAR LIMIT=30] -->
+  <string name="menu_editGroup">Editar</string>
   <!-- Menu item that deletes the currently selected group [CHAR LIMIT=30] -->
+  <string name="menu_deleteGroup">Desaniciar</string>
   <!-- Menu item (in the action bar) that creates a new contact [CHAR LIMIT=30] -->
   <!-- Menu item (in the action bar) that creates a new group [CHAR LIMIT=30] -->
   <!-- Confirmation dialog for unlinking contacts into multiple instances [CHAR LIMIT=NONE] -->
