@@ -84,6 +84,7 @@
   <!-- Positive button text from the confirmation dialog for joining contacts when there are unsaved changes. [CHAR LIMIT = 60] -->
   <!-- Menu item that links an aggregate with another aggregate -->
   <!-- Menu item (in the action bar) to indicate that changes should be saved [CHAR LIMIT=20] -->
+  <string name="menu_save">Guardar</string>
   <!-- Heading of the Link Contact screen -->
   <!-- Info blurb on the Link Contact screen [CHAR LIMIT=NONE]-->
   <!-- An item in the Join Contact activity that opens up the full contact A-Z list -->
