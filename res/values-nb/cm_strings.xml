@@ -61,7 +61,7 @@
   <string name="multi_pick_recent_title">SISTE</string>
   <string name="multi_pick_contacts_title">KONTAKTER</string>
   <string name="multi_pick_group_title">GRUPPE</string>
-  <string name="contacts_selected">%d valgte</string>
+  <string name="contacts_selected">%d valgt</string>
   <string name="summary_count_numbers">%s nummer</string>
   <string name="contact_info_text_as_name">Navn:</string>
   <string name="contact_info_text_as_phone">Tlf:</string>

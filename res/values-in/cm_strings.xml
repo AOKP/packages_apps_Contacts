@@ -83,6 +83,10 @@
   <string name="replace_number_title_2">Ganti nomor sebelumnya?</string>
   <!-- merge contacts -->
   <string name="merging_contacts">Menggabungkan kontak\u2026</string>
+  <string name="searching_duplicated_contacts">Mencari duplikat kontak\u2026</string>
+  <string name="give_up_merging">Berhenti menggabungkan kontak?</string>
+  <string name="merge_complete">Penggabungan selesai.</string>
   <string name="sim_email_full">Penyimpanan email kartu SIM penuh.</string>
   <string name="sim_anr_full">Penyimpanan nomor kartu SIM penuh.</string>
+  <string name="merge_fail">Penggabungan gagal.</string>
 </resources>

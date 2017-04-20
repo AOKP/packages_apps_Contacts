@@ -46,6 +46,7 @@
   <!-- Title for the activity that shows only frequently contacted contacts -->
   <!-- Title for the activity that shows a mix of starred contacts and frequently contacted
          contacts. -->
+  <string name="strequentList">Favoritos</string>
   <!-- The title bar when viewing the contact details activity -->
   <!-- The description presented to the user in the Intent choose when there are multiple activities that allow
          editing a contact. This string represents the built in way to edit the contact. -->
@@ -56,6 +57,7 @@
   <!-- The description presented to the user in the Intent choose when there are multiple activities that allow
          creating a new group. This string represents the built in way to create the group. [CHAR LIMIT=NONE] -->
   <!-- The tab label for the contact detail activity that displays information about the contact [CHAR LIMIT=15] -->
+  <string name="contactDetailAbout">Tocante a</string>
   <!-- The tab label for the contact detail activity that displays information about the contact [CHAR LIMIT=15] -->
   <!-- Hint text in the search box when the user hits the Search key while in the contacts app -->
   <!-- Menu item used to view the details for a specific contact -->
@@ -150,6 +152,7 @@
   <!-- Displayed at the top of the contacts showing the total number of contacts found when typing search query -->
   <!-- The title of "all contacts" tab. [CHAR LIMIT=14] -->
   <!-- The title of "favorites" tab. [CHAR LIMIT=14] -->
+  <string name="favorites_tab_label">Favoritos</string>
   <!-- Action string for calling back a number in the call log -->
   <!-- Action string for calling a number in the call log again -->
   <!-- Action string for returning a missed call in the call log -->
@@ -189,6 +192,7 @@
   <!-- String describing which account a contact came from when editing it -->
   <!-- Text used to explain that a contact cannot be edited from the People application since the data is read only [CHAR LIMIT=40] -->
   <!-- Text used to explain that a group cannot be edited since the data is read only [CHAR LIMIT=40] -->
+  <string name="group_read_only">Nun pue editase nesti preséu.</string>
   <!-- An option in the 'Contact photo' dialog, if there is no photo yet [CHAR LIMIT=50] -->
   <!-- An option in the 'Contact photo' dialog, if there is already a photo [CHAR LIMIT=50] -->
   <!-- An option in the 'Contact photo' dialog, if there is no photo yet [CHAR LIMIT=50] -->
@@ -259,6 +263,7 @@
   <!-- Positive button text for the cancel editing confirmation dialog.
       Pushing this button indicates that the user wishes to discard the changes they have already
       made and close the editor. [CHAR LIMIT=20] -->
+  <string name="cancel_confirmation_dialog_cancel_editing_button">Escartar</string>
   <!-- Negative button text for the cancel editing confirmation dialog.
       Pushing this button indicates that the user wishes to continue editing
       and return to the editor [CHAR LIMIT=30] -->
@@ -293,6 +298,7 @@
   <!-- Button Label to see all on an ExpandingEntryCardView [CHAR LIMIT=40] -->
   <!-- Title of recent card. [CHAR LIMIT=60] -->
   <!-- Title of recent card. [CHAR LIMIT=40] -->
+  <string name="about_card_title">Tocante a</string>
   <!-- Title of sms action entry. [CHAR LIMIT=60] -->
   <!-- Toast that appears when you are copying a directory contact into your personal contacts -->
   <!-- Timestamp string for interactions from yesterday. [CHAR LIMIT=40] -->
@@ -345,6 +351,7 @@
   <!-- Account type number for suggestions in quick contact suggestion card [CHAR LIMIT=30]-->
   <!-- Account type with number in quick contact suggestion card [CHAR LIMIT=30]-->
   <!-- "This contact" title showing in suggestion card in Quick contact. [CHAR LIMIT=30]-->
+  <string name="suggestion_card_this_contact_title">Esti contautu</string>
   <!-- "Duplicates" title showing in suggestion card in Quick contact. [CHAR LIMIT=30]-->
   <!-- Help message showing in suggestion card in Quick contact. [CHAR LIMIT=NONE]-->
   <!-- Linked contacts title showing in contact editor UI. [CHAR LIMIT=30]-->
@@ -366,4 +373,5 @@
   <!-- Content description of photo in photo picker indicating a photo from unknown account is selected. -->
   <!-- Text shown in the contacts app while the background process updates contacts after a locale change [CHAR LIMIT=150]-->
   <!-- The menu item to open blocked numbers activity [CHAR LIMIT=60]-->
+  <string name="menu_blocked_numbers">Númberos bloquiaos</string>
 </resources>

@@ -15,19 +15,82 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
+  <string name="contactDeletedToast">Kontakti u fshi.</string>
+  <string name="menu_moveGroupMembers">Zhvendos pjesëtarët e grupit</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
+  <string name="contactSavedToSimCardError">Kontaktet e zgjedhur nuk mund të ruheshin në kartën SIM</string>
+  <string name="number_anr_too_long">Numri është shumë i gjatë</string>
+  <string name="email_address_too_long">Adresa e email-it është shumë e gjatë</string>
+  <string name="sim_card_full">Karta SIM është plot</string>
+  <string name="tag_too_long">Emri i kontaktit është shumë i gjatë</string>
+  <string name="invalid_phone_number">Numri i telefonit nuk është i saktë</string>
+  <string name="invalid_number_type">Lloji i numrit nuk është i saktë</string>
+  <string name="no_phone_number_or_email">Vendosni numrin e telefonit ose adresën e email-it.</string>
+  <string name="importConfirmation_title">Dëshiron të importosh kontaktin?</string>
   <!-- The title of "groups" tab. [CHAR LIMIT=14] -->
+  <string name="contacts_groups_label">Grupet</string>
+  <string name="title_move_members">Zhvendos pjesëtarët</string>
+  <string name="message_move_members">Duke zhvendosur pjesëtarët\u2026</string>
+  <string name="message_can_not_move_members">Pjesëtarët nuk mund të zhvendosen</string>
   <!-- Gray hint displayed in the search field in Contacts when empty -->
+  <string name="search_bar_hint">Kërko kontaktet</string>
   <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
+  <string name="deleteConfirmation_title">Dëshiron ta fshish kontaktin?</string>
+  <string name="import_sim_contacts_title">Importo kontaktet e kartës SIM</string>
+  <string name="import_sim_contacts_message">Duke importuar kontaktet e kartës SIM\u2026</string>
+  <string name="ContactMultiImportConfirmation">Kontaktet e zgjedhura do të importohen.</string>
+  <string name="import_finish">Importimi mbaroi</string>
+  <string name="import_stop">Importimi u anullua</string>
+  <string name="too_many_contacts_add_to_group">Nuk mund të shtohen më shumë se <xliff:g id="count">%d</xliff:g> kontakte</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="ContactMultiDeleteConfirmation">Kontaktet e zgjedhura do të fshihen.</string>
+  <string name="delete_contacts_title">Fshi kontaktet</string>
+  <string name="delete_contacts_message">Duke fshirë kontaktet\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
+  <string name="menu_refresh">Rifresko</string>
+  <string name="video_call">Thirrje me video</string>
+  <string name="menu_copyTo">Kopjo në <xliff:g id="destination">%s</xliff:g></string>
+  <string name="no_empty_email_in_usim">Kontakti USIM nuk ka një fushë email-i të disponueshme. Kopjimi i mesazheve nuk mund të kryhet.</string>
+  <string name="voicemail">Posta zanore</string>
+  <string name="select_call_title">Zgjidh listat e thirrjeve</string>
+  <string name="delete_call_title">Fshi listat e thirrjeve</string>
+  <string name="delete_call_message">Duke fshirë listat e thirrjeve\u2026</string>
+  <string name="delete_call_alert">Do që të fshish listën e zgjedhur të thirrjeve?</string>
+  <string name="title_del_call">Fshi</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_recent_title">TË FUNDIT</string>
+  <string name="multi_pick_contacts_title">KONTAKTET</string>
+  <string name="multi_pick_group_title">GRUP</string>
+  <string name="contacts_selected">%d të zgjedhur</string>
+  <string name="summary_count_numbers">%s numra</string>
+  <string name="contact_info_text_as_name">Emri:</string>
+  <string name="contact_info_text_as_phone">Tel:</string>
+  <string name="contact_info_text_as_email">E-mail:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Kërko</string>
   <!-- The call-log's clear button text in pick call mode. -->
+  <string name="clear_call_log_button_text">FSHIJE</string>
   <!-- String used to display calls from unknown numbers in the call log -->
+  <string name="unknown">I panjohur</string>
   <!-- String used to display calls from private numbers in the call log -->
+  <string name="private_num">Numër privat</string>
   <!-- String used to display calls from pay phone in the call log -->
+  <string name="payphone">Kabinë telefonike</string>
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
+  <string name="too_many_contacts_to_merge_message">Nuk mund të bashkohen më shumë se <xliff:g id="count">%d</xliff:g> kontakte</string>
+  <string name="replace_number_title_1">Zëvendëso numrin e shkuar</string>
+  <string name="replace_number_title_2">Do që të zëvendësosh numrin e shkuar?</string>
+  <string name="replace_button">ZËVENDËSO</string>
   <!-- merge contacts -->
+  <string name="merge_contacts">Bashko kontaktet</string>
+  <string name="merging_contacts">Duke bashkuar kontaktet\u2026</string>
+  <string name="searching_duplicated_contacts">Duke kërkuar për kontakte të dyfishta\u2026</string>
+  <string name="no_duplicated_contacts">Nuk ka kontakte të dyfishta</string>
+  <string name="give_up_merging">Dëshiron të ndalosh bashkimin e kontakteve?</string>
+  <string name="give_up">Ndalo bashkimin</string>
+  <string name="merge_complete">Bashkimi u krye.</string>
+  <string name="sim_email_full">Hapësira për emailet në kartën SIM është plot.</string>
+  <string name="sim_anr_full">Hapësira për numrat në kartën SIM është plot.</string>
+  <string name="merge_fail">Bashkimi dështoi.</string>
 </resources>

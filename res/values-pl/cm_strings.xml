@@ -39,6 +39,7 @@
   <string name="import_finish">Importowanie zakończone</string>
   <string name="too_many_contacts_add_to_group">Nie więcej niż <xliff:g id="count"> %d </xliff:g> kontaktów może być dodanych</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="ContactMultiDeleteConfirmation">Wybrane kontakty zostaną usunięte.</string>
   <string name="delete_contacts_title">Usuń kontakty</string>
   <string name="delete_contacts_message">Usuwanie kontaktów\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
