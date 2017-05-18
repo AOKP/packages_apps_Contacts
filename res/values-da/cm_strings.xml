@@ -15,6 +15,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
+  <string name="contactDeletedToast">Kontakt slettet.</string>
   <string name="menu_moveGroupMembers">Flyt gruppemedlemmer</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
   <string name="contactSavedToSimCardError">Kunne ikke gemme de markerede kontakter på SIM-kortet</string>
@@ -32,16 +33,22 @@
   <string name="message_move_members">Flytter medlemmer\u2026</string>
   <string name="message_can_not_move_members">Kan ikke flytte medlemmer</string>
   <!-- Gray hint displayed in the search field in Contacts when empty -->
+  <string name="search_bar_hint">Søg i kontakter</string>
   <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
   <string name="deleteConfirmation_title">Slet kontakt?</string>
   <string name="import_sim_contacts_title">Importér SIM-kontakter</string>
   <string name="import_sim_contacts_message">Importerer SIM-kontakter\u2026</string>
+  <string name="ContactMultiImportConfirmation">De valgte kontakter vil blive importeret.</string>
   <string name="import_finish">Import afsluttet</string>
+  <string name="import_stop">Import blev annulleret</string>
   <string name="too_many_contacts_add_to_group">Ikke flere end <xliff:g id="count">%d</xliff:g> kontakter kan tilføjes</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="ContactMultiDeleteConfirmation">De valgte kontakter slettes.</string>
   <string name="delete_contacts_title">Slet kontaktpersoner</string>
   <string name="delete_contacts_message">Sletter kontaktpersoner\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
+  <string name="menu_refresh">Opdatér</string>
+  <string name="video_call">Videoopkald</string>
   <string name="menu_copyTo">Kopier til <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">USIM-kontakt har ikke et tilgængeligt E-mail-felt. Kan ikke kopiere beskeder.</string>
   <string name="voicemail">Telefonsvarer</string>
@@ -51,12 +58,39 @@
   <string name="delete_call_alert">Slet valgte opkaldslog?</string>
   <string name="title_del_call">Slet</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_recent_title">SENESTE</string>
+  <string name="multi_pick_contacts_title">KONTAKTER</string>
+  <string name="multi_pick_group_title">GRUPPE</string>
+  <string name="contacts_selected">%d valgt</string>
+  <string name="summary_count_numbers">%s numre</string>
+  <string name="contact_info_text_as_name">Navn:</string>
+  <string name="contact_info_text_as_phone">Tlf.:</string>
+  <string name="contact_info_text_as_email">E-mail:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Søg</string>
   <!-- The call-log's clear button text in pick call mode. -->
+  <string name="clear_call_log_button_text">RYD</string>
   <!-- String used to display calls from unknown numbers in the call log -->
+  <string name="unknown">Ukendt</string>
   <!-- String used to display calls from private numbers in the call log -->
+  <string name="private_num">Privat nummer</string>
   <!-- String used to display calls from pay phone in the call log -->
+  <string name="payphone">Mønttelefon</string>
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
+  <string name="too_many_contacts_to_merge_message">Ikke flere end <xliff:g id="count">%d</xliff:g> kontakter kan sammenlægges</string>
+  <string name="replace_number_title_1">Erstat det tidligere nummer</string>
+  <string name="replace_number_title_2">Erstat det tidligere nummer?</string>
+  <string name="replace_button">ERSTAT</string>
   <!-- merge contacts -->
+  <string name="merge_contacts">Flet kontakter</string>
+  <string name="merging_contacts">Fletter kontakter\u2026</string>
+  <string name="searching_duplicated_contacts">Søger efter dublerede kontakter\u2026</string>
+  <string name="no_duplicated_contacts">Ingen dublerede kontakter</string>
+  <string name="give_up_merging">Stop fletning af kontakter?</string>
+  <string name="give_up">Stop Flet</string>
+  <string name="merge_complete">Flet fuldført.</string>
+  <string name="sim_email_full">SIM-kortets e-mail-lagerplads er fyldt.</string>
+  <string name="sim_anr_full">SIM-kortets nummer-lagerplads er fyldt.</string>
+  <string name="merge_fail">Flet mislykkedes.</string>
 </resources>

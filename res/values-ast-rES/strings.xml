@@ -84,6 +84,7 @@
   <!-- Positive button text from the confirmation dialog for unlinking contacts with pending changes [CHAR LIMIT = 60] -->
   <!-- Confirmation dialog message for joining contacts when there are unsaved changes. [CHAR LIMIT=NONE] -->
   <!-- Positive button text from the confirmation dialog for joining contacts when there are unsaved changes. [CHAR LIMIT = 60] -->
+  <string name="joinConfirmation_positive_button">Guardar y enllazar</string>
   <!-- Menu item that links an aggregate with another aggregate -->
   <!-- Menu item (in the action bar) to indicate that changes should be saved [CHAR LIMIT=20] -->
   <string name="menu_save">Guardar</string>

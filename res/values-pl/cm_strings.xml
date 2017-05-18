@@ -32,10 +32,12 @@
   <string name="message_move_members">Przenoszenie członków\u2026</string>
   <string name="message_can_not_move_members">Nie można przenieść członków</string>
   <!-- Gray hint displayed in the search field in Contacts when empty -->
+  <string name="search_bar_hint">Wyszukaj kontakty</string>
   <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
   <string name="deleteConfirmation_title">Usunąć kontakt?</string>
   <string name="import_sim_contacts_title">Importuj kontakty z karty SIM</string>
   <string name="import_sim_contacts_message">Importowanie kontaktów z karty SIM\u2026</string>
+  <string name="ContactMultiImportConfirmation">Wybrane kontakty zostaną zaimportowane.</string>
   <string name="import_finish">Importowanie zakończone</string>
   <string name="too_many_contacts_add_to_group">Nie więcej niż <xliff:g id="count"> %d </xliff:g> kontaktów może być dodanych</string>
   <!-- Multi Delete Contacts related strings -->
@@ -43,6 +45,8 @@
   <string name="delete_contacts_title">Usuń kontakty</string>
   <string name="delete_contacts_message">Usuwanie kontaktów\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
+  <string name="menu_refresh">Odśwież</string>
+  <string name="video_call">Połączenie wideo</string>
   <string name="menu_copyTo">Skopiuj do <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">Kontakt USIM nie ma pola e-mail, nie można skopiować wiadomości.</string>
   <string name="voicemail">Poczta głosowa</string>
@@ -52,12 +56,22 @@
   <string name="delete_call_alert">Usunąć zaznaczone dzienniki rozmów?</string>
   <string name="title_del_call">Usuń</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_contacts_title">KONTAKTY</string>
+  <string name="multi_pick_group_title">GRUPA</string>
+  <string name="contact_info_text_as_name">Nazwa:</string>
+  <string name="contact_info_text_as_phone">Tel:</string>
+  <string name="contact_info_text_as_email">E-mail:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Szukaj</string>
   <!-- The call-log's clear button text in pick call mode. -->
+  <string name="clear_call_log_button_text">WYCZYŚĆ</string>
   <!-- String used to display calls from unknown numbers in the call log -->
+  <string name="unknown">Nieznane</string>
   <!-- String used to display calls from private numbers in the call log -->
+  <string name="private_num">Numer prywatny</string>
   <!-- String used to display calls from pay phone in the call log -->
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
+  <string name="replace_button">ZAMIEŃ</string>
   <!-- merge contacts -->
 </resources>

@@ -47,7 +47,7 @@
   <string name="delete_contacts_title">연락처 삭제</string>
   <string name="delete_contacts_message">연락처 삭제하는 중\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
-  <string name="menu_refresh">새로 고침</string>
+  <string name="menu_refresh">새로고침</string>
   <string name="video_call">영상 통화</string>
   <string name="menu_copyTo"><xliff:g id="destination">%s</xliff:g>(으)로 복사</string>
   <string name="no_empty_email_in_usim">USIM 연락처가 비어있는 이메일 입력란을 찾지 못하여 메시지를 복사할 수 없습니다.</string>
