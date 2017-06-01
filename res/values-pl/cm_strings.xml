@@ -72,6 +72,10 @@
   <!-- String used to display calls from pay phone in the call log -->
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
+  <string name="too_many_contacts_to_merge_message">Nie można scalić więcej niż <xliff:g id="count">%d </xliff:g> kontaktów</string>
   <string name="replace_button">ZAMIEŃ</string>
   <!-- merge contacts -->
+  <string name="merge_complete">Zakończono scalanie.</string>
+  <string name="sim_email_full">Zapełniona pamięć email na karcie SIM.</string>
+  <string name="sim_anr_full">Pamięć numerów na karcie SIM jest pełna.</string>
 </resources>
