@@ -15,66 +15,82 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
-  <string name="contactDeletedToast">Контакт избрисан.</string>
+  <string name="contactDeletedToast">Контакт је избрисан.</string>
   <string name="menu_moveGroupMembers">Премести чланове групе</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
-  <string name="contactSavedToSimCardError">Не може да се сачува изабрани контакт на SIM картици</string>
-  <string name="number_anr_too_long">Број је предуг</string>
-  <string name="email_address_too_long">Адреса Е-поште је предуга</string>
-  <string name="sim_card_full">SIM картица је пуна</string>
-  <string name="tag_too_long">Име контакта је предуго</string>
-  <string name="invalid_phone_number">Телефонски број је неважећи</string>
-  <string name="invalid_number_type">Тип броја је неважећи</string>
-  <string name="no_phone_number_or_email">Унеси број телефона или адресу е-поште.</string>
-  <string name="importConfirmation_title">Увези контакт?</string>
+  <string name="contactSavedToSimCardError">Не могу да сачувам изабране контакте на SIM картицу.</string>
+  <string name="number_anr_too_long">Број је предуг.</string>
+  <string name="email_address_too_long">Имејл-адреса је предуга.</string>
+  <string name="sim_card_full">SIM картица је пуна.</string>
+  <string name="tag_too_long">Име контакта је предуго.</string>
+  <string name="invalid_phone_number">Телефонски број је неисправан.</string>
+  <string name="invalid_number_type">Тип броја је неисправан.</string>
+  <string name="no_phone_number_or_email">Унесите број телефона или имејл-адресу.</string>
+  <string name="importConfirmation_title">Увести контакт?</string>
   <!-- The title of "groups" tab. [CHAR LIMIT=14] -->
   <string name="contacts_groups_label">Групе</string>
   <string name="title_move_members">Премести чланове</string>
-  <string name="message_move_members">Премештање чланова\u2026</string>
-  <string name="message_can_not_move_members">Не могу преместити чланове</string>
+  <string name="message_move_members">Премештам чланове\u2026</string>
+  <string name="message_can_not_move_members">Не могу да преместим чланове.</string>
   <!-- Gray hint displayed in the search field in Contacts when empty -->
-  <string name="search_bar_hint">Претражи контакте</string>
+  <string name="search_bar_hint">Претрага контаката</string>
   <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
-  <string name="deleteConfirmation_title">Избриши контакт?</string>
-  <string name="import_sim_contacts_title">Увези SIM контакте</string>
-  <string name="import_sim_contacts_message">Увоз SIM контаката\u2026</string>
-  <string name="ContactMultiImportConfirmation">Изабрани контакти ће бити увежени.</string>
-  <string name="import_finish">Увоз завршен</string>
-  <string name="too_many_contacts_add_to_group">Не више од <xliff:g id="count">%d</xliff:g> контаката може бити додато</string>
+  <string name="deleteConfirmation_title">Избрисати контакт?</string>
+  <string name="import_sim_contacts_title">Увези контакте са SIM картице</string>
+  <string name="import_sim_contacts_message">Увозим контакте са SIM картице\u2026</string>
+  <string name="ContactMultiImportConfirmation">Изабрани контакти ће бити увезени.</string>
+  <string name="import_finish">Увоз је завршен.</string>
+  <string name="import_stop">Увоз је отказан.</string>
+  <string name="too_many_contacts_add_to_group">Није могуће додати више од <xliff:g id="count">%d</xliff:g> контаката.</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="ContactMultiDeleteConfirmation">Изабрани контакти ће бити избрисани.</string>
   <string name="delete_contacts_title">Избриши контакте</string>
-  <string name="delete_contacts_message">Брисање контаката\u2026</string>
+  <string name="delete_contacts_message">Бришем контакте\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
-  <string name="menu_copyTo">Копирај на <xliff:g id="destination">%s</xliff:g></string>
-  <string name="no_empty_email_in_usim">USIM контакт нема доступно поље е-поште, не могу копирати поруке.</string>
+  <string name="menu_refresh">Освежи</string>
+  <string name="video_call">Видео-позив</string>
+  <string name="menu_copyTo">Копирај у <xliff:g id="destination">%s</xliff:g></string>
+  <string name="no_empty_email_in_usim">Контакт са USIM картице нема имејл-адресу. Не могу да копирам поруке.</string>
   <string name="voicemail">Говорна пошта</string>
   <string name="select_call_title">Изабери евиденцију позива</string>
-  <string name="delete_call_title">Избриши евиденције позива</string>
-  <string name="delete_call_message">Брисање евиденција позива\u2026</string>
-  <string name="delete_call_alert">Избриши изабране евиденције позива?</string>
+  <string name="delete_call_title">Избриши евиденцију позива</string>
+  <string name="delete_call_message">Бришем евиденцију позива\u2026</string>
+  <string name="delete_call_alert">Избрисати изабрану евиденцију позива?</string>
   <string name="title_del_call">Избриши</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_recent_title">НЕДАВНИ</string>
+  <string name="multi_pick_contacts_title">КОНТАКТИ</string>
+  <string name="multi_pick_group_title">ГРУПА</string>
+  <string name="contacts_selected">Изабрано: %d</string>
+  <string name="summary_count_numbers">Бројева: %s</string>
+  <string name="contact_info_text_as_name">Име:</string>
+  <string name="contact_info_text_as_phone">Телефон:</string>
+  <string name="contact_info_text_as_email">Имејл:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Претрага</string>
   <!-- The call-log's clear button text in pick call mode. -->
+  <string name="clear_call_log_button_text">ОЧИСТИ</string>
   <!-- String used to display calls from unknown numbers in the call log -->
+  <string name="unknown">Непознато</string>
   <!-- String used to display calls from private numbers in the call log -->
+  <string name="private_num">Приватни број</string>
   <!-- String used to display calls from pay phone in the call log -->
   <string name="payphone">Телефонска говорница</string>
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
-  <string name="too_many_contacts_to_merge_message">Не више од <xliff:g id="count">%d</xliff:g> контаката може бити спојено</string>
+  <string name="too_many_contacts_to_merge_message">Није могуће објединити више од <xliff:g id="count">%d</xliff:g> контаката.</string>
   <string name="replace_number_title_1">Замени претходни број</string>
   <string name="replace_number_title_2">Заменити претходни број?</string>
   <string name="replace_button">ЗАМЕНИ</string>
   <!-- merge contacts -->
-  <string name="merge_contacts">Споји контакте</string>
-  <string name="merging_contacts">Спајање контаката\u2026</string>
-  <string name="searching_duplicated_contacts">Претрага за дупликатима контаката\u2026</string>
-  <string name="no_duplicated_contacts">Нема дуплираних контаката</string>
-  <string name="give_up_merging">Заустави спајање контаката?</string>
-  <string name="give_up">Заустави спајање</string>
-  <string name="merge_complete">Спајање комплетирано.</string>
-  <string name="sim_email_full">Складиште SIM карице за е-пошту је пуно.</string>
-  <string name="sim_anr_full">Складиште SIM карице за бројеве је пуно.</string>
-  <string name="merge_fail">Неуспело спајање.</string>
+  <string name="merge_contacts">Обједини контакте</string>
+  <string name="merging_contacts">Обједињујем контакте\u2026</string>
+  <string name="searching_duplicated_contacts">Тражим дуплиране контакте\u2026</string>
+  <string name="no_duplicated_contacts">Нема дуплираних контаката.</string>
+  <string name="give_up_merging">Зауставити обједињавање контаката?</string>
+  <string name="give_up">Заустави обједињавање</string>
+  <string name="merge_complete">Обједињавање је завршено.</string>
+  <string name="sim_email_full">Меморијски простор за имејл на SIM картици је пун.</string>
+  <string name="sim_anr_full">Меморијски простор за бројеве на SIM картици је пун.</string>
+  <string name="merge_fail">Грешка при обједињавању.</string>
 </resources>

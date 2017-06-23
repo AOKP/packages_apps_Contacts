@@ -15,7 +15,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
-  <string name="contactDeletedToast">איש הקשר נמחק.</string>
+  <string name="contactDeletedToast">איש קשר נמחק.</string>
   <string name="menu_moveGroupMembers">העבר חברי קבוצה</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
   <string name="contactSavedToSimCardError">לא ניתן היה לשמור את אנשי הקשר לכרטיס ה-SIM</string>
@@ -48,7 +48,7 @@
   <string name="delete_contacts_message">מוחק אנשי קשר\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
   <string name="menu_refresh">רענון</string>
-  <string name="video_call">חיוג וידאו</string>
+  <string name="video_call">שיחות וידאו</string>
   <string name="menu_copyTo">העתק אל <xliff:g id="destination"> %s </xliff:g></string>
   <string name="no_empty_email_in_usim">לאיש הקשר בכרטיס USIM אין שדה דוא\"ל זמין. לא ניתן להעתיק את ההודעה.</string>
   <string name="voicemail">תא קולי</string>
