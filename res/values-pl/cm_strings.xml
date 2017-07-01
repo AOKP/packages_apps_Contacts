@@ -15,6 +15,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
+  <string name="contactDeletedToast">Usunięto kontakt.</string>
   <string name="menu_moveGroupMembers">Przenieś członków grupy</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
   <string name="contactSavedToSimCardError">Nie można zapisać wybranych kontaktów na karcie SIM</string>
@@ -39,6 +40,7 @@
   <string name="import_sim_contacts_message">Importowanie kontaktów z karty SIM\u2026</string>
   <string name="ContactMultiImportConfirmation">Wybrane kontakty zostaną zaimportowane.</string>
   <string name="import_finish">Importowanie zakończone</string>
+  <string name="import_stop">Anulowano importowanie</string>
   <string name="too_many_contacts_add_to_group">Nie więcej niż <xliff:g id="count"> %d </xliff:g> kontaktów może być dodanych</string>
   <!-- Multi Delete Contacts related strings -->
   <string name="ContactMultiDeleteConfirmation">Wybrane kontakty zostaną usunięte.</string>
@@ -56,8 +58,11 @@
   <string name="delete_call_alert">Usunąć zaznaczone dzienniki rozmów?</string>
   <string name="title_del_call">Usuń</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_recent_title">OSTATNIE</string>
   <string name="multi_pick_contacts_title">KONTAKTY</string>
   <string name="multi_pick_group_title">GRUPA</string>
+  <string name="contacts_selected">%d wybranych</string>
+  <string name="summary_count_numbers">%s numerów</string>
   <string name="contact_info_text_as_name">Nazwa:</string>
   <string name="contact_info_text_as_phone">Tel:</string>
   <string name="contact_info_text_as_email">E-mail:</string>
@@ -70,12 +75,22 @@
   <!-- String used to display calls from private numbers in the call log -->
   <string name="private_num">Numer prywatny</string>
   <!-- String used to display calls from pay phone in the call log -->
+  <string name="payphone">Automat telefoniczny</string>
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
   <string name="too_many_contacts_to_merge_message">Nie można scalić więcej niż <xliff:g id="count">%d </xliff:g> kontaktów</string>
+  <string name="replace_number_title_1">Zastąp poprzedni numer</string>
+  <string name="replace_number_title_2">Zastąpić poprzedni numer?</string>
   <string name="replace_button">ZAMIEŃ</string>
   <!-- merge contacts -->
+  <string name="merge_contacts">Scalanie kontaktów</string>
+  <string name="merging_contacts">Scalanie kontaktów\u2026</string>
+  <string name="searching_duplicated_contacts">Wyszukiwanie zduplikowanych kontaktów\u2026</string>
+  <string name="no_duplicated_contacts">Brak zduplikowanych kontaktów</string>
+  <string name="give_up_merging">Zatrzymać scalanie kontaktów?</string>
+  <string name="give_up">Zatrzymanie scalania</string>
   <string name="merge_complete">Zakończono scalanie.</string>
   <string name="sim_email_full">Zapełniona pamięć email na karcie SIM.</string>
   <string name="sim_anr_full">Pamięć numerów na karcie SIM jest pełna.</string>
+  <string name="merge_fail">Scalanie nie powiodło się.</string>
 </resources>

@@ -21,7 +21,7 @@
   <string name="contactSavedToSimCardError">No se pudieron guardar los contactos seleccionados en la tarjeta SIM</string>
   <string name="number_anr_too_long">El número es demasiado largo</string>
   <string name="email_address_too_long">La dirección de correo electrónico es demasiado larga</string>
-  <string name="sim_card_full">La tarjeta SIM está llena</string>
+  <string name="sim_card_full">Tarjeta SIM llena</string>
   <string name="tag_too_long">El nombre del contacto es demasiado largo</string>
   <string name="invalid_phone_number">El número de teléfono no es válido</string>
   <string name="invalid_number_type">El tipo de número es inválido</string>
