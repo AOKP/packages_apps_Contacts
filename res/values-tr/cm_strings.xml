@@ -85,8 +85,8 @@
   <!-- merge contacts -->
   <string name="merge_contacts">Kişileri birleştir</string>
   <string name="merging_contacts">Kişiler birleştiriliyor\u2026</string>
-  <string name="searching_duplicated_contacts">Yinelenen kişiler aranıyor\u2026</string>
-  <string name="no_duplicated_contacts">Yinelenen kişi yok</string>
+  <string name="searching_duplicated_contacts">Tekrarlanan kişiler aranıyor\u2026</string>
+  <string name="no_duplicated_contacts">Tekrarlanan kişi yok</string>
   <string name="give_up_merging">Kişileri birleştirmeyi durdur?</string>
   <string name="give_up">Birleştirmeyi durdur</string>
   <string name="merge_complete">Birleştirme tamamlandı.</string>
