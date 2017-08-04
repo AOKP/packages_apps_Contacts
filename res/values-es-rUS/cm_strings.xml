@@ -23,7 +23,7 @@
   <string name="email_address_too_long">La dirección de correo electrónico es demasiado larga</string>
   <string name="sim_card_full">Tarjeta SIM llena</string>
   <string name="tag_too_long">El nombre del contacto es demasiado largo</string>
-  <string name="invalid_phone_number">El número de teléfono no es válido</string>
+  <string name="invalid_phone_number">El número de teléfono es inválido</string>
   <string name="invalid_number_type">El tipo de número es inválido</string>
   <string name="no_phone_number_or_email">Ingresa un número de teléfono o dirección de correo electrónico.</string>
   <string name="importConfirmation_title">¿Importar contacto?</string>
