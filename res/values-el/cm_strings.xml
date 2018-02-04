@@ -15,6 +15,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
+  <string name="contactDeletedToast">Η επαφή διαγράφηκε.</string>
   <string name="menu_moveGroupMembers">Μετακίνηση μελών ομάδας</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
   <string name="contactSavedToSimCardError">Δεν ήταν δυνατή η αποθήκευση των επιλεγμένων επαφών στην κάρτα SIM</string>
@@ -37,12 +38,17 @@
   <string name="deleteConfirmation_title">Διαγραφή επαφής;</string>
   <string name="import_sim_contacts_title">Εισαγωγή επαφών SIM</string>
   <string name="import_sim_contacts_message">Εισαγωγή επαφών SIM\u2026</string>
+  <string name="ContactMultiImportConfirmation">Οι επιλεγμένες επαφές θα εισαχθούν.</string>
   <string name="import_finish">Η εισαγωγή ολοκληρώθηκε</string>
+  <string name="import_stop">Η εισαγωγή ακυρώθηκε</string>
   <string name="too_many_contacts_add_to_group">Δεν είναι δυνατή η προσθήκη περισσότερων από <xliff:g id="count">%d</xliff:g> επαφών</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="ContactMultiDeleteConfirmation">Οι επιλεγμένες επαφές θα διαγραφούν.</string>
   <string name="delete_contacts_title">Διαγραφή επαφών</string>
   <string name="delete_contacts_message">Διαγραφή επαφών\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
+  <string name="menu_refresh">Ανανέωση</string>
+  <string name="video_call">Βιντεοκλήση</string>
   <string name="menu_copyTo">Αντιγραφή σε <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">Η επαφή USIM δεν έχει κανένα διαθέσιμο πεδίο ηλεκτρονικού ταχυδρομείου, δεν είναι δυνατή η αντιγραφή των μηνυμάτων.</string>
   <string name="voicemail">Μήνυμα τηλεφωνητή</string>
@@ -52,12 +58,39 @@
   <string name="delete_call_alert">Διαγραφή των επιλεγμένων αρχείων κλήσεων;</string>
   <string name="title_del_call">Διαγραφή</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_recent_title">ΠΡΟΣΦΑΤΕΣ</string>
+  <string name="multi_pick_contacts_title">ΕΠΑΦΕΣ</string>
+  <string name="multi_pick_group_title">ΟΜΑΔΑ</string>
+  <string name="contacts_selected">%d επιλέχθηκαν</string>
+  <string name="summary_count_numbers">%s αριθμοί</string>
+  <string name="contact_info_text_as_name">Όνομα:</string>
+  <string name="contact_info_text_as_phone">Τηλ:</string>
+  <string name="contact_info_text_as_email">Ηλεκτρονικό ταχυδρομείο:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Αναζήτηση</string>
   <!-- The call-log's clear button text in pick call mode. -->
+  <string name="clear_call_log_button_text">ΕΚΚΑΘΑΡΙΣΗ</string>
   <!-- String used to display calls from unknown numbers in the call log -->
+  <string name="unknown">Άγνωστος</string>
   <!-- String used to display calls from private numbers in the call log -->
+  <string name="private_num">Απόρρητος αριθμός</string>
   <!-- String used to display calls from pay phone in the call log -->
+  <string name="payphone">Καρτοτηλέφωνο</string>
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
+  <string name="too_many_contacts_to_merge_message">Δεν είναι δυνατή η συγχώνευση περισσότερων από <xliff:g id="count">%d</xliff:g> επαφών</string>
+  <string name="replace_number_title_1">Αντικατάσταση του προηγούμενου αριθμού</string>
+  <string name="replace_number_title_2">Αντικατάσταση του προηγούμενου αριθμού;</string>
+  <string name="replace_button">ΑΝΤΙΚΑΤΑΣΤΑΣΗ</string>
   <!-- merge contacts -->
+  <string name="merge_contacts">Συγχώνευση επαφών</string>
+  <string name="merging_contacts">Συγχώνευση επαφών\u2026</string>
+  <string name="searching_duplicated_contacts">Αναζήτηση για διπλότυπες επαφές\u2026</string>
+  <string name="no_duplicated_contacts">Δεν υπάρχουν διπλότυπες επαφές</string>
+  <string name="give_up_merging">Να διακοπεί η συγχώνευση επαφών;</string>
+  <string name="give_up">Διακοπή συγχώνευσης</string>
+  <string name="merge_complete">Η συγχώνευση ολοκληρώθηκε.</string>
+  <string name="sim_email_full">Ο χώρος αποθήκευσης email στην κάρτα SIM είναι πλήρης.</string>
+  <string name="sim_anr_full">Ο χώρος αποθήκευσης αριθμών στην κάρτα SIM είναι πλήρης.</string>
+  <string name="merge_fail">Η συγχώνευση απέτυχε.</string>
 </resources>

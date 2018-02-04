@@ -22,7 +22,6 @@
   <!-- Multi Delete Contacts related strings -->
   <!-- Menu item used to refresh a specific contact -->
   <!-- MultiPickActivity -->
-  <string name="summary_count_numbers">%s rhif</string>
   <!-- The hint text in search-view.-->
   <!-- The call-log's clear button text in pick call mode. -->
   <!-- String used to display calls from unknown numbers in the call log -->
