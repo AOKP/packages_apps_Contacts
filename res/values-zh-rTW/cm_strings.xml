@@ -18,7 +18,7 @@
   <string name="contactDeletedToast">聯絡人已刪除。</string>
   <string name="menu_moveGroupMembers">移動群組成員</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
-  <string name="contactSavedToSimCardError">不能將已選取的聯絡人儲存至 SIM 卡</string>
+  <string name="contactSavedToSimCardError">不能將已選擇的聯絡人儲存至 SIM 卡</string>
   <string name="number_anr_too_long">號碼過長</string>
   <string name="email_address_too_long">電子郵件地址過長</string>
   <string name="sim_card_full">SIM 卡已滿</string>
@@ -38,12 +38,12 @@
   <string name="deleteConfirmation_title">刪除聯絡人？</string>
   <string name="import_sim_contacts_title">匯入 SIM 卡中的聯絡人</string>
   <string name="import_sim_contacts_message">正在匯入 SIM 卡中的聯絡人\u2026</string>
-  <string name="ContactMultiImportConfirmation">將匯入已選取的聯絡人。</string>
+  <string name="ContactMultiImportConfirmation">將匯入已選擇的聯絡人。</string>
   <string name="import_finish">匯入完成</string>
   <string name="import_stop">匯入已取消</string>
   <string name="too_many_contacts_add_to_group">不可以新增超過 <xliff:g id="count">%d</xliff:g> 個聯絡人</string>
   <!-- Multi Delete Contacts related strings -->
-  <string name="ContactMultiDeleteConfirmation">已選取的聯絡人將被刪除。</string>
+  <string name="ContactMultiDeleteConfirmation">已選擇的聯絡人將被刪除。</string>
   <string name="delete_contacts_title">刪除聯絡人</string>
   <string name="delete_contacts_message">正在刪除聯絡人\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
@@ -55,13 +55,13 @@
   <string name="select_call_title">選取通話紀錄</string>
   <string name="delete_call_title">刪除通話紀錄</string>
   <string name="delete_call_message">正在刪除電話紀錄\u2026</string>
-  <string name="delete_call_alert">刪除已選取的通話紀錄？</string>
+  <string name="delete_call_alert">刪除已選擇的通話紀錄？</string>
   <string name="title_del_call">刪除</string>
   <!-- MultiPickActivity -->
   <string name="multi_pick_recent_title">最近</string>
   <string name="multi_pick_contacts_title">聯絡人</string>
   <string name="multi_pick_group_title">群組</string>
-  <string name="contacts_selected">已選取 %d 個</string>
+  <string name="contacts_selected">已選擇 %d 個</string>
   <string name="summary_count_numbers">%s 組號碼</string>
   <string name="contact_info_text_as_name">姓名：</string>
   <string name="contact_info_text_as_phone">電話：</string>
