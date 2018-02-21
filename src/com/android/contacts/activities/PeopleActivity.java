@@ -1358,9 +1358,14 @@ public class PeopleActivity extends ContactsActivity implements
             helpMenu.setVisible(HelpUtils.isHelpAndFeedbackAvailable());
         }
         final boolean showMiscOptions = !isSearchOrSelectionMode;
-        final boolean showBlockedNumbers = PhoneCapabilityTester.isPhone(this)
+        boolean showBlockedNumbers = false;
+        try {
+            showBlockedNumbers = PhoneCapabilityTester.isPhone(this)
                 && ContactsUtils.FLAG_N_FEATURE
                 && BlockedNumberContract.canCurrentUserBlockNumbers(this);
+        } catch (IllegalArgumentException e) {
+            Log.d(TAG, "Could not get content resolver", e);
+        }
         makeMenuItemVisible(menu, R.id.menu_search, showMiscOptions);
         makeMenuItemVisible(menu, R.id.menu_import_export, showMiscOptions);
         makeMenuItemVisible(menu, R.id.menu_accounts, showMiscOptions);
