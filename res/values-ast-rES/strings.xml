@@ -17,22 +17,26 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Application name used in Settings/Apps. Default label for activities
          that don't specify a label. -->
+  <string name="applicationLabel">Contautos</string>
   <!-- Title for the activity that launches Contacts.  This is the name
          used in the Launcher icon. -->
+  <string name="launcherActivityLabel">Contautos</string>
   <!-- Title for Quick Contact activity. -->
   <string name="quickContactActivityLabel">Ver contautu</string>
   <!-- Title for Edit Contact activity. -->
   <string name="editContactActivityLabel">Editar contautu</string>
   <!-- Directory partition name -->
+  <string name="contactsList">Contautos</string>
   <!-- Name of activity that allows users to create shortcuts on the home screen to a contact.
          This shows up in a list of things like bookmark, folder, music playlist, etc -->
+  <string name="shortcutContact">Contautu</string>
   <!-- Name of activity that allows users to create shortcuts on the home screen to dial a contact.
          This shows up in a list of things like bookmark, folder, music playlist, etc -->
   <string name="shortcutDialContact">Marcación direuta</string>
   <!-- Name of activity that allows users to create shortcuts on the home screen to message (SMS) a contact.
          This shows up in a list of things like bookmark, folder, music playlist, etc -->
+  <string name="shortcutMessageContact">Mensaxe direutu</string>
   <!-- Activity title when the user is selecting a contact for a shortcut. -->
-  <string name="shortcutActivityTitle">Escoyer un atayu pal contautu</string>
   <!-- Activity title when the user is selecting a contact for a direct dial shortcut. -->
   <!-- Activity title when the user is selecting a contact for a direct message shortcut. -->
   <!-- Activity title when the user is inserting into an existing contact, or creating a new one.  [CHAR LIMIT=128] -->
@@ -57,19 +61,27 @@
   <!-- The tab label for the contact detail activity that displays information about the contact [CHAR LIMIT=15] -->
   <!-- Hint text in the search box when the user hits the Search key while in the contacts app -->
   <!-- Menu item used to view the details for a specific contact -->
+  <string name="menu_viewContact">Ver contautu</string>
   <!-- Menu item used to add a star to a contact, which makes that contact show up at the top of favorites -->
+  <string name="menu_addStar">Amestar a Favoritos</string>
   <!-- Menu item used to remove a star from a contact, making the contact no longer show up at the top of favorites -->
+  <string name="menu_removeStar">Desaniciar de Favoritos</string>
   <!-- Description of what happens when you click on the unstar MenuItem. [CHAR LIMIT=NONE] -->
   <!-- Description of what happens when you click on the star MenuItem. [CHAR LIMIT=NONE] -->
   <!-- Menu item used to edit a specific contact -->
+  <string name="menu_editContact">Editar</string>
   <!-- Menu item used to delete a specific contact -->
+  <string name="menu_deleteContact">Desaniciar</string>
   <!-- Menu item used to change the photo for a specific contact [CHAR LIMIT=30]-->
+  <string name="menu_change_photo">Camudar semeya</string>
   <!-- Menu item used to create a contact shortcut when viewing contact details. [CHAR LIMIT=30] -->
   <!-- Menu item used to call a specific contact when viewing the details of that contact. -->
   <!-- Menu item used to send an SMS or MMS message to a specific phone number or a contacts default phone number -->
   <!-- Menu item that splits an item from the contact detail into a separate aggregate -->
   <!-- Menu item that edits the currently selected group [CHAR LIMIT=30] -->
+  <string name="menu_editGroup">Editar</string>
   <!-- Menu item that deletes the currently selected group [CHAR LIMIT=30] -->
+  <string name="menu_deleteGroup">Desaniciar</string>
   <!-- Menu item (in the action bar) that creates a new contact [CHAR LIMIT=30] -->
   <!-- Menu item (in the action bar) that creates a new group [CHAR LIMIT=30] -->
   <!-- Confirmation dialog for unlinking contacts into multiple instances [CHAR LIMIT=NONE] -->
@@ -86,6 +98,7 @@
   <!-- An item in the Join Contact activity that opens up the full contact A-Z list -->
   <!-- List separator for the Join Contact list: Suggestions -->
   <!-- List separator for the Join Contact list: A-Z -->
+  <string name="separatorJoinAggregateAll">Tolos contautos</string>
   <!-- Toast shown after two contacts have been linked by a user action. [CHAR LIMIT=NONE] -->
   <!-- Toast shown after contacts that the user has selected are deleted by a user action. [CHAR LIMIT=30] -->
   <!-- Menu item that opens the Options activity for a given contact [CHAR LIMIT=15] -->
@@ -110,6 +123,7 @@
   <!-- Confirmation dialog contents after users selects to delete a Writable contact. -->
   <string name="deleteConfirmation">¿Desaniciar esti contautu?</string>
   <!-- Positive button text of confirmation dialog contents after users selects to delete a Writable contact. [CHAR LIMIT=30] -->
+  <string name="deleteConfirmation_positive_button">Desaniciar</string>
   <!-- Menu item to indicate you want to stop editing a contact and NOT save the changes you've made [CHAR LIMIT=30] -->
   <!-- Message displayed in a toast when you try to view the details of a contact that
          for some reason doesn't exist anymore. [CHAR LIMIT=NONE]-->
@@ -171,25 +185,35 @@
   <!-- The string used to describe Contacts as a searchable item within system search settings. -->
   <!-- Shown as a toast when the user taps on a QuickContact icon, and no application
          was found that could perform the selected action. [CHAR LIMIT=NONE] -->
+  <string name="quickcontact_missing_app">Nun s\'alcontraron aplicaciones pa remanar esta aición.</string>
   <!-- Content description for the transparent views around the visible section of QuickContacts.
          Clicking this view causes Quick Contacts to close. [CHAR LIMIT=NONE] -->
+  <string name="quickcontact_transparent_view_description">Primi pa volver a la pantalla anterior</string>
   <!-- When a contact has no data, we prompt the user to add a phone number for the contact. [CHAR LIMIT=40] -->
   <!-- When a contact has no data, we prompt the user to add an email for the contact. [CHAR LIMIT=40] -->
   <!-- Shown as a toast when the user attempts an action (add contact, edit
          contact, etc) and no application was found that could perform that
          action. [CHAR LIMIT=NONE] -->
   <!-- The menu item to share the currently viewed contact [CHAR LIMIT=30] -->
+  <string name="menu_share">Compartir</string>
   <!-- The menu item to add the the currently viewed contact to your contacts [CHAR LIMIT=30] -->
+  <string name="menu_add_contact">Amestar a contautos</string>
   <!-- Dialog title when picking the application to share a contact with. -->
+  <string name="share_via">Compartir contautu per</string>
   <!-- Title for the disambiguation dialog that requests the user choose an account for the new group to be created under [CHAR LIMIT=NONE] -->
+  <string name="dialog_new_group_account">Crear grupu so la cuenta</string>
   <!-- Generic action string for starting an audio chat. Used by AccessibilityService to announce the purpose of the view. [CHAR LIMIT=NONE] -->
   <string name="audio_chat">Charra de voz</string>
   <!-- Generic action string for starting a video chat. Used by AccessibilityService to announce the purpose of the view. [CHAR LIMIT=NONE] -->
   <string name="video_chat">Charra de videu</string>
   <!-- Title for the list of all contact details that come from third-party sources (including a corporate directory) [CHAR LIMIT=20] -->
+  <string name="connections">Conexones</string>
   <!-- Label of the button to open the "add connection" popup where the user can invite a contact to other social networks or services [CHAR LIMIT=32] -->
+  <string name="add_connection_button">Amestar conexón</string>
   <!-- Section title for the page containing the contact's social updates on the contact card (this abbreviated version of "Recent updates" is used when "updates" is already shown as the title of the page) [CHAR LIMIT=20]-->
+  <string name="recent" msgid="2062236709538790412">Recién</string>
   <!-- Section title for the page containing the contact's social updates on the contact card [CHAR LIMIT=20]-->
+  <string name="recent_updates" msgid="2018245636796411442">Anovamientos recientes</string>
   <!-- String describing which account type a contact came from when editing it -->
   <!-- String describing that a contact came from the google account type when editing it.  -->
   <!-- String describing which account a contact came from when editing it -->
@@ -230,7 +254,9 @@
   <!-- The description of the directory where the contact was found [CHAR LIMIT=100]-->
   <!-- Contact list filter indicating that the list shows groups chosen by the user [CHAR LIMIT=64] -->
   <!-- Title of the settings activity [CHAR LIMIT=64] -->
+  <string name="activity_title_settings">Axustes</string>
   <!-- Menu item for the settings activity [CHAR LIMIT=64] -->
+  <string name="menu_settings" msgid="377929915873428211">Axustes</string>
   <!-- Menu item for invoking contextual Help & Feedback [CHAR LIMIT=64] -->
   <!-- The preference section title for contact display options [CHAR LIMIT=128] -->
   <!-- Text used to show a organization that has both a company and title. This is used in the Detail-View
@@ -247,6 +273,7 @@
   <string name="date_year_toggle">Incluyir añu</string>
   <!-- Label for the widget that shows picture and social status of a contact [CHAR LIMIT=20] -->
   <!-- Message of widget while it is loading data [CHAR LIMIT=20] -->
+  <string name="social_widget_loading">Cargando\u2026</string>
   <!-- Button shown on the main contacts screen when there are no contacts on the device.
     Creates a new contact. [CHAR LIMIT=128] -->
   <!-- Button shown on the main contacts screen when there are no contacts on the device.

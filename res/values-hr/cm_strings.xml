@@ -15,6 +15,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
+  <string name="contactDeletedToast">Kontakt izbrisan.</string>
   <string name="menu_moveGroupMembers">Premjesti članove grupa</string>
   <!-- Toast displayed when saving a contact to sim card failed -->
   <string name="contactSavedToSimCardError">Nije moguće spremiti odabrane kontakte na SIM karticu</string>
@@ -32,16 +33,22 @@
   <string name="message_move_members">Premještam članove\u2026</string>
   <string name="message_can_not_move_members">Ne mogu premjestiti članove</string>
   <!-- Gray hint displayed in the search field in Contacts when empty -->
+  <string name="search_bar_hint">Pretraži kontakte</string>
   <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
   <string name="deleteConfirmation_title">Izbriši kontakt?</string>
   <string name="import_sim_contacts_title">Uvezi SIM kontakte</string>
   <string name="import_sim_contacts_message">Uvozim SIM kontakte\u2026</string>
+  <string name="ContactMultiImportConfirmation">Odabrani kontakti biti će uvezeni.</string>
   <string name="import_finish">Uvoz je dovršen</string>
+  <string name="import_stop">Uvoz je otkazan</string>
   <string name="too_many_contacts_add_to_group">Nije moguće dodati više od <xliff:g id="count">%d</xliff:g> kontakata</string>
   <!-- Multi Delete Contacts related strings -->
+  <string name="ContactMultiDeleteConfirmation">Odabrani kontakti biti će obrisani.</string>
   <string name="delete_contacts_title">Izbriši kontakte</string>
   <string name="delete_contacts_message">Brišem kontakte\u2026</string>
   <!-- Menu item used to refresh a specific contact -->
+  <string name="menu_refresh">Osvježi</string>
+  <string name="video_call">Video poziv</string>
   <string name="menu_copyTo">Kopiraj u <xliff:g id="destination">%s</xliff:g></string>
   <string name="no_empty_email_in_usim">USIM kontakt nema dostupno e-mail polje, kopiranje poruka nije moguće.</string>
   <string name="voicemail">Glasovna pošta</string>
@@ -51,12 +58,39 @@
   <string name="delete_call_alert">Želite li izbrisati odabrane zapise poziva?</string>
   <string name="title_del_call">Obriši</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_recent_title">NEDAVNO</string>
+  <string name="multi_pick_contacts_title">KONTAKTI</string>
+  <string name="multi_pick_group_title">GRUPA</string>
+  <string name="contacts_selected">Odabrano %d</string>
+  <string name="summary_count_numbers">Brojeva %s</string>
+  <string name="contact_info_text_as_name">Ime:</string>
+  <string name="contact_info_text_as_phone">Tel:</string>
+  <string name="contact_info_text_as_email">E-pošta:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Pretraži</string>
   <!-- The call-log's clear button text in pick call mode. -->
+  <string name="clear_call_log_button_text">IZBRIŠI</string>
   <!-- String used to display calls from unknown numbers in the call log -->
+  <string name="unknown">Nepoznato</string>
   <!-- String used to display calls from private numbers in the call log -->
+  <string name="private_num">Privatni broj</string>
   <!-- String used to display calls from pay phone in the call log -->
+  <string name="payphone">Javna tel. govornica</string>
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
+  <string name="too_many_contacts_to_merge_message">Nije moguće spojiti više od <xliff:g id="count">%d</xliff:g> kontakata</string>
+  <string name="replace_number_title_1">Zamijeni prethodni broj</string>
+  <string name="replace_number_title_2">Zamijeniti prethodni broj?</string>
+  <string name="replace_button">ZAMIJENI</string>
   <!-- merge contacts -->
+  <string name="merge_contacts">Spoji kontakte</string>
+  <string name="merging_contacts">Spajanje kontakata\u2026</string>
+  <string name="searching_duplicated_contacts">Traženje dupliciranih kontakata\u2026</string>
+  <string name="no_duplicated_contacts">Nema dupliciranih kontakata</string>
+  <string name="give_up_merging">Zaustaviti spajanje kontakata?</string>
+  <string name="give_up">Zaustavi spajanje</string>
+  <string name="merge_complete">Spajanje dovršeno.</string>
+  <string name="sim_email_full">Pohrana e-pošte SIM kartice je puna.</string>
+  <string name="sim_anr_full">Pohrana brojeva SIM kartice je puna.</string>
+  <string name="merge_fail">Spajanje nije uspjelo.</string>
 </resources>

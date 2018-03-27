@@ -81,4 +81,7 @@
   <string name="replace_button">ERSÄTT</string>
   <!-- merge contacts -->
   <string name="merge_contacts">Sammanfoga kontakter</string>
+  <string name="merging_contacts">Sammanfogar kontakter\u2026</string>
+  <string name="no_duplicated_contacts">Inga dubblerade kontakter</string>
+  <string name="merge_fail">Sammanfogningen misslyckades.</string>
 </resources>

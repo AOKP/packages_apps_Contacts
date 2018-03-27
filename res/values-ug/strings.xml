@@ -195,21 +195,12 @@
   <!-- Toast displayed when saving a group failed [CHAR LIMIT=NONE] -->
   <string name="groupSavedErrorToast">گۇرۇپپا ئۆزگىرىشلىرىنى ساقلىيالمايدۇ.</string>
   <!-- Displayed at the top of the contacts showing the total number of contacts visible when "Only contacts with phones" is selected -->
-  <plurals name="listTotalPhoneContacts">
-    <item quantity="other">1 ئالاقەداشنىڭ تېلېفون نومۇرى بار</item>
-  </plurals>
   <!-- Displayed at the top of the contacts showing the zero as total number of contacts visible when "Only contacts with phones" is selected [CHAR LIMIT=64]-->
   <string name="listTotalPhoneContactsZero">ئالاقەداشنىڭ تېلېفون نومۇرى يوق</string>
   <!-- Displayed at the top of the contacts showing the total number of contacts found when "Only contacts with phones" not selected [CHAR LIMIT=30] -->
-  <plurals name="listFoundAllContacts">
-    <item quantity="other">1 نى تاپتى</item>
-  </plurals>
   <!-- Displayed at the top of the contacts showing the zero total number of contacts found when "Only contacts with phones" not selected. [CHAR LIMIT=30] -->
   <string name="listFoundAllContactsZero">ئالاقەداش يوق</string>
   <!-- Displayed at the top of the contacts showing the total number of contacts found when typing search query -->
-  <plurals name="searchFoundContacts">
-    <item quantity="other">1 نى تاپتى</item>
-  </plurals>
   <!-- The title of "all contacts" tab. [CHAR LIMIT=14] -->
   <!-- The title of "favorites" tab. [CHAR LIMIT=14] -->
   <!-- Action string for calling back a number in the call log -->
@@ -363,19 +354,10 @@
   <!-- An item in the popup list of groups that triggers creation of a contact group [CHAR LIMIT=128] -->
   <string name="create_group_item_label">يېڭى گۇرۇپپا قۇر</string>
   <!-- Shows how many groups are from the specified account [CHAR LIMIT=15] -->
-  <plurals name="num_groups_in_account">
-    <item quantity="other">1 گۇرۇپپا</item>
-  </plurals>
   <!-- Confirmation message of the dialog that allows deletion of a contact group  [CHAR LIMIT=256] -->
   <string name="delete_group_dialog_message"><xliff:g id="GROUP_LABEL">%1$s</xliff:g> گۇرۇپپىنى ئۆچۈرەمسىز؟ (ئالاقەداشنىڭ ئۆزىنى ئۆچۈرەلمەيدۇ.)</string>
   <!-- Subtitle of the group detail page that describes how many people are in the current group [CHAR LIMIT=30] -->
-  <plurals name="num_contacts_in_group">
-    <item quantity="other"><xliff:g id="ACCOUNT_TYPE">%2$s</xliff:g> دىكى <xliff:g id="COUNT_0">%1$d</xliff:g> كىشى</item>
-  </plurals>
   <!-- Subtitle of a group (in the group list) that describes how many people are in the current group [CHAR LIMIT=30] -->
-  <plurals name="group_list_num_contacts_in_group">
-    <item quantity="other"><xliff:g id="COUNT">%1$d</xliff:g> كىشى</item>
-  </plurals>
   <!-- Toast displayed when the user creates a new contact and attempts to link it
       with another before entering any data  [CHAR LIMIT=256] -->
   <!-- Option displayed in context menu to copy long pressed item to clipboard [CHAR LIMIT=64] -->
