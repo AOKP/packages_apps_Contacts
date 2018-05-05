@@ -17,15 +17,25 @@
   <!-- Toast displayed when a contact is deleted [CHAR LIMIT=NONE] -->
   <!-- Toast displayed when saving a contact to sim card failed -->
   <!-- The title of "groups" tab. [CHAR LIMIT=14] -->
+  <string name="contacts_groups_label">Grupos</string>
   <!-- Gray hint displayed in the search field in Contacts when empty -->
   <!-- Confirmation dialog title after users selects to delete a contact. [CHAR LIMIT=25]-->
   <!-- Multi Delete Contacts related strings -->
   <!-- Menu item used to refresh a specific contact -->
+  <string name="title_del_call">Iscantzella</string>
   <!-- MultiPickActivity -->
+  <string name="multi_pick_recent_title">REGHENTE</string>
+  <string name="multi_pick_contacts_title">CUNTATOS</string>
+  <string name="multi_pick_group_title">GRUPU</string>
+  <string name="summary_count_numbers">%s nùmeros</string>
+  <string name="contact_info_text_as_name">Nùmene:</string>
   <!-- The hint text in search-view.-->
+  <string name="search_menu_search">Chirca</string>
   <!-- The call-log's clear button text in pick call mode. -->
   <!-- String used to display calls from unknown numbers in the call log -->
+  <string name="unknown">Disconnotu</string>
   <!-- String used to display calls from private numbers in the call log -->
+  <string name="private_num">Nùmeru privadu</string>
   <!-- String used to display calls from pay phone in the call log -->
   <!-- Call-log count in one call-log group. Call location and call date. -->
   <!--Toast msg when user select too many contacts to merge-->
